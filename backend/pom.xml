@@ -7,7 +7,7 @@
     <version>2.7.7</version>
   </parent>
   <groupId>com.backend</groupId>
-  <artifactId>ejemplo</artifactId>
+  <artifactId>2023-BFS-1-G1</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>Project backend</name>
   <description>This project contains a pre-generated skeleton, useful for creating project from scratch. It contains an embedded HSQLDB database.</description>

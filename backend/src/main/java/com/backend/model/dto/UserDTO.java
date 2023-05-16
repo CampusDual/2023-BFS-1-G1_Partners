@@ -1,41 +1,15 @@
-package com.backend.model;
+package com.backend.model.dto;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "users")
-public class User {
+public class UserDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column
     private String rol;
-
-    @Column
     private String username;
-
-    @Column
     private String fullname;
-
-    @Column
     private String email;
-
-    @Column
     private String password;
 
-    public User() {
-    }
-
-    public User(Integer id, String rol, String username, String fullname, String email, String password) {
-        this.id = id;
-        this.rol = rol;
-        this.username = username;
-        this.fullname = fullname;
-        this.email = email;
-        this.password = password;
-    }
 
     public Integer getId() {
         return id;
@@ -83,17 +57,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", rol='" + rol + '\'' +
-                ", username='" + username + '\'' +
-                ", fullname='" + fullname + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }

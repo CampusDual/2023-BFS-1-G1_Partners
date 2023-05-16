@@ -16,8 +16,8 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private static final String USER_QUERY= "SELECT LOGIN, PASSWORD, TRUE AS ENABLED FROM USERS WHERE LOGIN = ?";
-    private static final String USER_ROLE_QUERY = "SELECT U.LOGIN, R.ROLE_NAME FROM USER_ROLES UR INNER JOIN USERS U ON U.ID = UR.USER_ID INNER JOIN ROLES R ON R.ID = UR.ROLE_ID WHERE LOGIN = ?";
+    private static final String USER_QUERY= "SELECT USERNAME, PASSWORD, TRUE AS ENABLED FROM USERS WHERE USERNAME = ?";
+    private static final String USER_ROLE_QUERY = "SELECT U.USERNAME, R.ROLE_NAME FROM USER_ROLES UR INNER JOIN USERS U ON U.ID = UR.USER_ID INNER JOIN ROLES R ON R.ID = UR.ROLE_ID WHERE USERNAME = ?";
 
     @Autowired
     DataSource dataSource;
