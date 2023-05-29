@@ -70,25 +70,9 @@
     
     
     <java.version>11</java.version>
-                    
+
     
-    
-    
-    <hsqldatabase.path>src/main/db</hsqldatabase.path>
-                    
-    
-    
-    
-    <database.url>jdbc:hsqldb:hsql://localhost:9013/templateDB</database.url>
-                    
-    
-    
-    
-    <hsqldb.version>2.3.4</hsqldb.version>
-                    
-    
-    
-    
+
     <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
                   
   
@@ -228,27 +212,12 @@
                               
       
       
-      
+
+
       <dependency>
-                                        
-        
-        
-        
-        <groupId>org.hsqldb</groupId>
-                                        
-        
-        
-        
-        <artifactId>hsqldb</artifactId>
-                                        
-        
-        
-        
-        <version>${hsqldb.version}</version>
-                                      
-      
-      
-      
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.6.0</version>
       </dependency>
                             
     
