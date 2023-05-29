@@ -214,3 +214,7 @@ nbdist/
 src/main/resources/db/templateDB.lck
 src/main/resources/db/templateDB.properties
 *.iml
+
+#HSQLDB
+templateDB.lck
+templateDB.properties
