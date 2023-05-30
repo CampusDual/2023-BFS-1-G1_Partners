@@ -28,7 +28,7 @@ export const customProviders: any = [
   providers: [
     { provide: APP_CONFIG, useValue: CONFIG },
     ONTIMIZE_PROVIDERS,
-    ...customProviders
+    customProviders
   ],
 })
 export class AppModule { }
