@@ -56,6 +56,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
+
+
+
   login() {
     const userName = this.loginForm.value.username;
     const password = this.loginForm.value.password;
@@ -68,6 +72,9 @@ export class LoginComponent implements OnInit {
         }, this.handleError);
     }
   }
+
+
+
 
   handleError(error) {
     switch (error.status) {
