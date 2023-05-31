@@ -1,7 +1,7 @@
 import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, LocalStorageService, NavigationService } from 'ontimize-web-ngx';
+import { AuthService, LocalStorageService, NavigationService, OntimizeService } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
   userCtrl: FormControl = new FormControl('', Validators.required);
   pwdCtrl: FormControl = new FormControl('', Validators.required);
   sessionExpired = false;
-
+  protected userRoleService: OntimizeService;
   router: Router;
+  localStorage: any;
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
     public injector: Injector
   ) {
     this.router = router;
-
+    this.userRoleService = this.injector.get(OntimizeService);
     const qParamObs: Observable<any> = this.actRoute.queryParams;
     qParamObs.subscribe(params => {
       if (params) {
@@ -45,17 +46,22 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): any {
     this.navigation.setVisible(false);
-
+    this.configureUserRoleService();
     this.loginForm.addControl('username', this.userCtrl);
     this.loginForm.addControl('password', this.pwdCtrl);
 
     if (this.authService.isLoggedIn()) {
+      console.log("Tengo en sesion el rol: " + this.localStorage.getItem("ID_ROLENAME"));
       this.router.navigate(['../'], { relativeTo: this.actRoute });
     } else {
       this.authService.clearSessionData();
     }
   }
 
+  protected configureUserRoleService(){
+    const conf = this.userRoleService.getDefaultServiceConfiguration('userrole');
+    this.userRoleService.configureService(conf);
+  }
 
 
 
@@ -68,6 +74,19 @@ export class LoginComponent implements OnInit {
       this.authService.login(userName, password)
         .subscribe(() => {
           self.sessionExpired = false;
+          const filter = {
+            'USER_': userName
+          };
+          this.userRoleService.query(filter,['ID_ROLENAME'], 'userrole').subscribe(
+            res=>{
+              if(res.data && res.data.length){
+                localStorage.setItem('ID_ROLNAME', res.data[0].ID_ROLENAME);
+                console.log("Obtuvimos el rol: " + res.data[0].ID_ROLENAME)
+              }
+            },
+            err=>console.log(err)
+          );
+          console.log("mi rol es " + localStorage.getItem('ID_ROLNAME'));
           self.router.navigate(['../'], { relativeTo: this.actRoute });
         }, this.handleError);
     }
