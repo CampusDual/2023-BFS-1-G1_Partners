@@ -51,8 +51,12 @@ export class LoginComponent implements OnInit {
     this.loginForm.addControl('password', this.pwdCtrl);
 
     if (this.authService.isLoggedIn()) {
-      // console.log("Tengo en sesion el rol: " + this.localStorage.getItem("ROLE_ID"));
-      this.router.navigate(['../'], { relativeTo: this.actRoute });
+      let role_id = this.localStorage.getItem("ROLE_ID");
+      if(role_id == 0){
+        this.router.navigate(['../'], { relativeTo: this.actRoute });
+      }else{
+        this.router.navigate(['/main/home-partner']);
+      }
     } else {
       this.authService.clearSessionData();
     }
@@ -87,7 +91,7 @@ export class LoginComponent implements OnInit {
                 if(rol == 0){
                   self.router.navigate(['../'], { relativeTo: this.actRoute });
                 }else{
-                  self.router.navigate(['../home-partner'], { relativeTo: this.actRoute });
+                  self.router.navigate(['/main/home-partner']);
                 }
 
               }else{

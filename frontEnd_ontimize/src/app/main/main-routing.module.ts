@@ -13,7 +13,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
       {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-      {path: 'home-partner', loadChildren: () => import('./home-partner/home-partner-routing.module').then(m => m.HomePartnerRoutingModule) }
+      {path: 'home-partner', loadChildren: () => import('./home-partner/home-partner.module').then(m => m.HomePartnerModule) }
 
 
 
