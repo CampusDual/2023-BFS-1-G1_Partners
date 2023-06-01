@@ -27,21 +27,21 @@ public class UserRoleService implements IUserRoleService {
 	private DefaultOntimizeDaoHelper daoHelper;
 	@Override
 	public EntityResult userroleQuery(Map<?, ?> keyMap, List<?> attrList) {
-		return null;
+		return this.daoHelper.query(userRoleDao, keyMap, attrList);
 	}
 
 	@Override
 	public EntityResult userroleInsert(Map<?, ?> attrMap) {
-		return null;
+		return this.daoHelper.insert(userRoleDao, attrMap);
 	}
 
 	@Override
 	public EntityResult userroleUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
-		return null;
+		return this.daoHelper.update(userRoleDao, attrMap, keyMap);
 	}
 
 	@Override
 	public EntityResult userroleDelete(Map<?, ?> keyMap) {
-		return null;
+		return this.daoHelper.delete(this.userRoleDao, keyMap);
 	}
 }
