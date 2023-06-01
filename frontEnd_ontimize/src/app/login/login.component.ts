@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.addControl('password', this.pwdCtrl);
 
     if (this.authService.isLoggedIn()) {
-      console.log("Tengo en sesion el rol: " + this.localStorage.getItem("ID_ROLENAME"));
+      // console.log("Tengo en sesion el rol: " + this.localStorage.getItem("ROLE_ID"));
       this.router.navigate(['../'], { relativeTo: this.actRoute });
     } else {
       this.authService.clearSessionData();
@@ -77,17 +77,27 @@ export class LoginComponent implements OnInit {
           const filter = {
             'USER_': userName
           };
-          this.userRoleService.query(filter,['ID_ROLENAME'], 'userrole').subscribe(
+          this.userRoleService.query(filter,['ROLE_ID'], 'userrole').subscribe(
             res=>{
+
               if(res.data && res.data.length){
-                localStorage.setItem('ID_ROLNAME', res.data[0].ID_ROLENAME);
-                console.log("Obtuvimos el rol: " + res.data[0].ID_ROLENAME)
+                let rol = res.data[0].ROLE_ID;
+                localStorage.setItem('ROLE_ID', rol);    
+
+                if(rol == 0){
+                  self.router.navigate(['../'], { relativeTo: this.actRoute });
+                }else{
+                  self.router.navigate(['../home-partner'], { relativeTo: this.actRoute });
+                }
+
+              }else{
+                self.router.navigate(['../'], { relativeTo: this.actRoute });
+
               }
             },
             err=>console.log(err)
           );
-          console.log("mi rol es " + localStorage.getItem('ID_ROLNAME'));
-          self.router.navigate(['../'], { relativeTo: this.actRoute });
+         
         }, this.handleError);
     }
   }

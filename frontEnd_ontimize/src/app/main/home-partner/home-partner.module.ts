@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 
 import { SharedModule } from '../../shared/shared.module';
-import { HomeRoutingModule } from './home-partner-routing.module';
-import { HomeComponent } from './home-partner.component';
+import { HomePartnerRoutingModule } from './home-partner-routing.module';
+import { HomePartnerComponent } from './home-partner.component';
+
 
 @NgModule({
   imports: [
     SharedModule,
     OntimizeWebModule,
-    HomeRoutingModule
+    HomePartnerRoutingModule
   ],
   declarations: [
-    HomeComponent
+    HomePartnerComponent
   ]
 })
-export class HomeModule { }
+export class HomePartnerModule { }
