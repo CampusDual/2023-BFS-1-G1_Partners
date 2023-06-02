@@ -10,15 +10,29 @@
 
 
 
-<!-- 
 
-<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
+
+<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="id;name">
   <div fxFill>
-    <o-table fxFlex attr="tableProducts" service="products" entity="products" keys="products" 
-      columns="user_;password;name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin"
+    <o-table fxFlex attr="tableProducts" service="products" entity="products" keys="id" 
+      columns="id;name"
       visible-columns="name"
       query-rows="20">
     </o-table>
   </div>
 </o-form-layout-manager>
- -->
+
+
+
+
+
+<!-- <o-form-layout-manager title="{{'USUARIOS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
+  <div fxFill>
+    <o-table fxFlex attr="tableUsers" service="users" entity="user" keys="user_" 
+      columns="user_;password;name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin"
+      visible-columns="name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin"
+      query-rows="20">
+    </o-table>
+  </div>
+</o-form-layout-manager> -->
+

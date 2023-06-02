@@ -5,5 +5,8 @@ export const SERVICE_CONFIG: Object = {
   'userrole': {
     'path': '/userrole'
   },
+  'permissions': {
+    'path': '/permissions/permission'
+  },
 
 };
