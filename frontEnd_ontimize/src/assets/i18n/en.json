@@ -21,8 +21,8 @@
   "FOOTER_RIGHTS": "All rights reserved",
   "CUSTOMERS": "Customers",
   "ID": "Id",
-  "NAME": "Name",
-  "SURNAME": "Surname",
+  "name": "Name",
+  "surname": "Surname",
   "STARTDATE": "Start date",
   "PHOTO": "Photo",
   "CUSTOMER_PERSONAL_INFORMATION": "Personal Information",
@@ -37,12 +37,15 @@
   "ROL":"Rol",
   "USER_": "User",
   "FULLNAME":"Fullname",
-  "NIF": "Id Number",
-  "USERBLOCKED":"User Blocked",
-  "LASTPASSWORDUPDATE": "Last password update",
-  "FIRSTLOGIN": "First login",
-  "EMAIL": "Email"
-
+  "nif": "Id Number",
+  "userblocked":"User Blocked",
+  "lastpasswordupdate": "Last password update",
+  "firstlogin": "First login",
+  "email": "Email",
+  "PARTNERS": "Partners",
+  "PRODUCTOS": "Products"
+  
 
 
 }
+
