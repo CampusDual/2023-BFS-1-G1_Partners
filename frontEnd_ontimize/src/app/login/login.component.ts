@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.addControl('password', this.pwdCtrl);
 
     if (this.authService.isLoggedIn()) {
-      let role_id = this.localStorage.getItem("ID_ROLENAME");
+      let role_id = this.localStorage.getItem("id_rolename");
       if(role_id == 0){
         this.router.navigate(['../'], { relativeTo: this.actRoute });
       }else{
@@ -79,16 +79,16 @@ export class LoginComponent implements OnInit {
         .subscribe(() => {
           self.sessionExpired = false;
           const filter = {
-            'USER_': userName
+            'user_': userName
           };
-          this.userRoleService.query(filter,['ID_ROLENAME'], 'userrole').subscribe(
+          this.userRoleService.query(filter,['id_rolename'], 'userrole').subscribe(
             res=>{
 
               if(res.data && res.data.length){
-                let rol = res.data[0].ID_ROLENAME;
-                localStorage.setItem('ID_ROLENAME', rol);    
+                let rol = res.data[0].id_rolename;
+                localStorage.setItem('id_rolename', rol);    
 
-                if(rol == 0){
+                if(rol == 1){
                   self.router.navigate(['../'], { relativeTo: this.actRoute });
                 }else{
                   self.router.navigate(['/main/home-partner']);

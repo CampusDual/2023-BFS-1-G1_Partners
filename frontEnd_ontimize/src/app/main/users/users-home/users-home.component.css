@@ -1,0 +1,6 @@
+.o-table th::after {
+    content: "";
+    text-transform: uppercase;
+    display: block;
+  }
+  

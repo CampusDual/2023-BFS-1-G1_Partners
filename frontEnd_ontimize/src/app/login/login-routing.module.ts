@@ -10,3 +10,4 @@ const routes: Routes = [{ path: '', component: LoginComponent }];
   exports: [RouterModule]
 })
 export class LoginRoutingModule { }
+

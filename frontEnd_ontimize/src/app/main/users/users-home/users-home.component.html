@@ -6,18 +6,25 @@
 
 
 
-   <o-form-layout-manager title="{{'USUARIOS' | oTranslate }}" separator=" " mode="tab" label-columns="NAME;SURNAME">
-    <div fxFill>
-      
-     <o-table fxFlex attr="usersTable" service="users" entity="user" keys="ID" 
-
-     columns="ID;NAME;SURNAME;EMAIL;ROL;USER_;PASSWORD;NIF;USERBLOCKED;LASTPASSWORDUPDATE;FIRSTLOGIN"
-       visible-columns="ID;ROL;NAME;SURNAME;USER_;EMAIL;PASSWORD;NIF;USERBLOCKED;LASTPASSWORDUPDATE;FIRSTLOGIN" query-rows="20">
+<o-form-layout-manager title="{{'USUARIOS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
+  <div fxFill>
+    <o-table fxFlex attr="tableUsers" service="users" entity="user" keys="user_" 
+      columns="user_;password;name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin"
+      visible-columns="name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin" query-rows="20">
 
 
-     </o-table>
-    </div>
-   </o-form-layout-manager>
+      <o-table-column key="name" title="{{'NOMBRE' | oTranslate }}"></o-table-column>
+      <!-- <o-table-column key="surname" title="{{'APELLIDO' | oTranslate }}"></o-table-column>
+      <o-table-column key="email" title="{{'EMAIL' | oTranslate }}"></o-table-column>
+      <o-table-column key="nif" title="{{'NIF' | oTranslate }}"></o-table-column>
+      <o-table-column key="userblocked" title="{{'BLOQUEADO' | oTranslate }}"></o-table-column>
+      <o-table-column key="lastpasswordupdate" title="{{'ÚLTIMA ACTUALIZACIÓN DE CONTRASEÑA' | oTranslate }}"></o-table-column>
+      <o-table-column key="firstlogin" title="{{'PRIMER INICIO DE SESIÓN' | oTranslate }}"></o-table-column> -->
+
+
+    </o-table>
+  </div>
+</o-form-layout-manager>
 
 
 

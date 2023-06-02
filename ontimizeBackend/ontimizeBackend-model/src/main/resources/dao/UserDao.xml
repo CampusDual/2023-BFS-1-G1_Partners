@@ -3,59 +3,56 @@
     xmlns="http://www.ontimize.com/schema/jdbc"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-    catalog="" schema="${mainschema}" table="TUSER"
+    catalog="" schema="${mainschema}" table="tuser"
     datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
-        <Column>ID</Column>
+        <Column>user_</Column>
     </DeleteKeys>
     <UpdateKeys>
-        <Column>ID</Column>
+        <Column>user_</Column>
     </UpdateKeys>
     <Queries>
         <Query id="default">
             <ValidColumns>
-                <Column>ID</Column>
-                <Column>ROL</Column>
-                <Column>USER_</Column>
-                <Column>PASSWORD</Column>
-                <Column>NAME</Column>
-                <Column>SURNAME</Column>
-                <Column>EMAIL</Column>
-                <Column>NIF</Column>
-                <Column>USERBLOCKED</Column>
-                <Column>LASTPASSWORDUPDATE</Column>
-                <Column>FIRSTLOGIN</Column>
+                <Column>user_</Column>
+                <Column>password</Column>
+                <Column>name</Column>
+                <Column>surname</Column>
+                <Column>email</Column>
+                <Column>nif</Column>
+                <Column>userblocked</Column>
+                <Column>lastpasswordupdate</Column>
+                <Column>firstlogin</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
                     SELECT
                         #COLUMNS#
                     FROM
-                        ${mainschema}.TUSER
+                        ${mainschema}.tuser
                     #WHERE#
                 ]]>
             </Sentence>
         </Query>    
         <Query id="login">
             <ValidColumns>
-                <Column>ID</Column>
-                <Column>ROL</Column>
-                <Column>USER_</Column>
-                <Column>PASSWORD</Column>
-                <Column>NAME</Column>
-                <Column>SURNAME</Column>
-                <Column>EMAIL</Column>
-                <Column>NIF</Column>
-                <Column>USERBLOCKED</Column>
-                <Column>LASTPASSWORDUPDATE</Column>
-                <Column>FIRSTLOGIN</Column>
+
+                <Column>user_</Column>
+                <Column>password</Column>
+                <Column>name</Column>
+                <Column>surname</Column>
+                <Column>email</Column>
+                <Column>nif</Column>
+                <Column>userblocked</Column>
+                <Column>lastpasswordupdate</Column>
+                <Column>firstlogin</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
                     SELECT 
                         #COLUMNS#
                     FROM                        
-                        ${mainschema}.TUSER
+                        ${mainschema}.tuser
                     #WHERE#
                 ]]>
             </Sentence>
