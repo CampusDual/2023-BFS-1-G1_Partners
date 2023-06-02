@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.addControl('password', this.pwdCtrl);
 
     if (this.authService.isLoggedIn()) {
-      let role_id = this.localStorage.getItem("ROLE_ID");
+      let role_id = this.localStorage.getItem("ID_ROLENAME");
       if(role_id == 0){
         this.router.navigate(['../'], { relativeTo: this.actRoute });
       }else{
@@ -81,12 +81,12 @@ export class LoginComponent implements OnInit {
           const filter = {
             'USER_': userName
           };
-          this.userRoleService.query(filter,['ROLE_ID'], 'userrole').subscribe(
+          this.userRoleService.query(filter,['ID_ROLENAME'], 'userrole').subscribe(
             res=>{
 
               if(res.data && res.data.length){
-                let rol = res.data[0].ROLE_ID;
-                localStorage.setItem('ROLE_ID', rol);    
+                let rol = res.data[0].ID_ROLENAME;
+                localStorage.setItem('ID_ROLENAME', rol);    
 
                 if(rol == 0){
                   self.router.navigate(['../'], { relativeTo: this.actRoute });
