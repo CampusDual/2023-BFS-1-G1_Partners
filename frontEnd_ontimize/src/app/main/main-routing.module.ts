@@ -10,7 +10,9 @@ export const routes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuardService],
     canActivateChild:[PermissionsGuardService],
+    
     children: [
+
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),data:{oPermission:{permissionId: 'home'}} },
       {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
