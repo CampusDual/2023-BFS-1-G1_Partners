@@ -9,7 +9,7 @@ import java.util.Map;
 
 public interface IUserProductService {
 
-    public EntityResult userProductQuery(Map<?, ?> keyMap, List<?> attrList);
+    public EntityResult userProductQuery(Map<Object, String> keyMap, List<?> attrList);
     public EntityResult userProductInsert(Map<?, ?> attrMap);
     public EntityResult userProductUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
     public EntityResult userProductDelete(Map<?, ?> keyMap);

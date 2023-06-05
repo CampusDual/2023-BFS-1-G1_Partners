@@ -12,10 +12,10 @@
 
 
 
-<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="id;name">
+<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
   <div fxFill>
-    <o-table fxFlex attr="tableProducts" service="products" entity="products" keys="id" 
-      columns="id;name"
+    <o-table fxFlex attr="tableProducts" service="userProduct" entity="userProduct" keys="product_id;user_id" 
+      columns="name"
       visible-columns="name"
       query-rows="20">
     </o-table>

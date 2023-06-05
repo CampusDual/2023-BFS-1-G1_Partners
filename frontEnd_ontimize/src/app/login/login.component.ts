@@ -78,30 +78,32 @@ export class LoginComponent implements OnInit {
       this.authService.login(userName, password)
         .subscribe(() => {
           self.sessionExpired = false;
-          const filter = {
-            'user_': userName
-          };
-          this.userRoleService.query(filter,['id_rolename'], 'userrole').subscribe(
-            res=>{
+        //   const filter = {
+        //     'user_': userName
+        //   };
+        //   this.userRoleService.query(filter,['id_rolename'], 'userrole').subscribe(
+        //     res=>{
 
-              if(res.data && res.data.length){
-                let rol = res.data[0].id_rolename;
-                localStorage.setItem('id_rolename', rol);    
+        //       if(res.data && res.data.length){
+        //         let rol = res.data[0].id_rolename;
+        //         localStorage.setItem('id_rolename', rol);    
 
-                if(rol == 1){
-                  self.router.navigate(['../'], { relativeTo: this.actRoute });
-                }else{
-                  self.router.navigate(['/main/home-partner']);
-                }
+        //         if(rol == 1){
+        //           self.router.navigate(['../'], { relativeTo: this.actRoute });
+        //         }else{
+        //           self.router.navigate(['/main/home-partner']);
+        //         }
 
-              }else{
-                self.router.navigate(['../'], { relativeTo: this.actRoute });
+        //       }else{
+        //         self.router.navigate(['../'], { relativeTo: this.actRoute });
 
-              }
-            },
-            err=>console.log(err)
-          );
-         
+        //       }
+        //     },
+        //     err=>console.log(err)
+        //   );
+
+          self.router.navigate(['../'], { relativeTo: this.actRoute });
+
         }, this.handleError);
     }
   }

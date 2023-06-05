@@ -13,6 +13,8 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,10 +29,28 @@ public class UserProductService implements IUserProductService {
     private UserProductDao userProductDao;
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
-    @Override
-    public EntityResult userProductQuery(Map<?, ?> keyMap, List<?> attrList) {
-        return this.daoHelper.query(userProductDao, keyMap, attrList);
+
+
+    private String getUser(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
     }
+
+
+    @Override
+    public EntityResult userProductQuery(Map<Object, String> keyMap, List<?> attrList) {
+
+        keyMap.put("user_id",getUser());
+         EntityResult result =  this.daoHelper.query(userProductDao, keyMap, attrList);
+
+         return result;
+    }
+
+
+
+
+
+
 
     @Override
     public EntityResult userProductInsert(Map<?, ?> attrMap) {
