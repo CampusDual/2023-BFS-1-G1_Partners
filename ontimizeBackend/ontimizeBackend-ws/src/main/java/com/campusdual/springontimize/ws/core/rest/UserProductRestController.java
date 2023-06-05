@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/userrole")
+@RequestMapping("/userProduct")
 public class UserProductRestController extends ORestController<IUserProductService> {
 
     @Autowired
