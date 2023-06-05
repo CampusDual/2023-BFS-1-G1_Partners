@@ -20,7 +20,7 @@ public class ProductService implements IProductService {
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
     @Override
-    public EntityResult productQuery(Map<?, ?> keyMap, List<?> attrList) {
+    public EntityResult productsQuery(Map<?, ?> keyMap, List<?> attrList) {
         return daoHelper.query(productDao,keyMap,attrList);
     }
 

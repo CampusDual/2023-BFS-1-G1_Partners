@@ -5,6 +5,12 @@ export const SERVICE_CONFIG: Object = {
   'userrole': {
     'path': '/userrole'
   },
+  'products': {
+    'path': '/products'
+  },
+  'userProduct': {
+    'path': '/userProduct'
+  },
   'permissions': {
     'path': '/permissions/permission'
   },
