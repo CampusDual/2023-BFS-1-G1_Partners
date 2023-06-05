@@ -31,10 +31,10 @@ passwordValidator(control: AbstractControl): ValidationErrors | null {
 
   public rolesArray = [{
     name: 'Admin',
-    id:'admin'
+    id:'1'
   }, {
     name: 'Partner',
-    id:'partner'
+    id:'2'
   }];
 
 

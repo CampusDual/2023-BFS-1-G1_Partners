@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.campusdual.springontimize.model.core.dao.UserRoleDao;
 import com.ontimize.jee.common.security.PermissionsProviderSecured;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -27,6 +28,9 @@ public class UserService implements IUserService {
 	private UserDao userDao;
 
 	@Autowired
+	private UserRoleDao userRoleDao;
+
+	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
 
 	public void loginQuery(Map<?, ?> key, List<?> attr) {
@@ -39,7 +43,19 @@ public class UserService implements IUserService {
 	}
 
 	public EntityResult userInsert(Map<?, ?> attrMap) {
-		return this.daoHelper.insert(userDao, attrMap);
+
+		EntityResult insertUserResult = this.daoHelper.insert(userDao, attrMap);
+
+		if(!insertUserResult.isWrong()){
+			Map<String, Object> attrToInsert = new HashMap<>();
+			attrToInsert.put(UserRoleDao.id_rolename,attrMap.get("rol"));
+			attrToInsert.put(UserRoleDao.user_,attrMap.get("user_"));
+
+		    return this.daoHelper.insert(userRoleDao,attrToInsert);
+
+		}else{
+			return insertUserResult;
+		}
 	}
 
 	public EntityResult userUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
