@@ -44,7 +44,14 @@
   "email": "Correo",
   "PARTNERS": "Partners",
   "PRODUCTS": "Productos",
+<<<<<<< HEAD
   "user_":"Usuario"
+=======
+  "user_":"Usuario",
+  "Bienvenido Partner": "Bienvenido Partner",
+  "Escoja un rol" : "Escoja un rol",
+  "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo" : "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo"
+>>>>>>> 139cbfdc39570945120dac934bfdb5df6e47d974
 
 
 
