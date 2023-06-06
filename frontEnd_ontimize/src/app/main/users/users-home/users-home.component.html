@@ -10,7 +10,7 @@
   <div fxFill>
     <o-table fxFlex attr="tableUsers" service="users" entity="user" keys="user_" 
       columns="user_;password;name;surname;email;nif;userblocked;lastpasswordupdate"
-      visible-columns="name;surname;email;nif;userblocked;lastpasswordupdate"
+      visible-columns="user_;name;surname;email;nif;;lastpasswordupdate;userblocked"
       query-rows="20">
       <o-table-column attr="lastpasswordupdate" title="lastpasswordupdate" type="date" format="LL"></o-table-column>
     </o-table>
