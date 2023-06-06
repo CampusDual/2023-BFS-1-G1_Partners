@@ -15,15 +15,17 @@ export class UsersNewComponent implements OnInit {
   constructor() {
     this.validatorsArray.push(this.passwordValidator);
   }
-
-passwordValidator(control: AbstractControl): ValidationErrors | null {
-  const passwordPattern = /^(?=.*[0-9])(?=.*[a-zA-Z]{6})(?=.*[!?@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$/;
-  const valid = passwordPattern.test(control.value);
-
-  return valid ? null : { passwordRequirements: true };
-}
-
-
+  passwordValidator(control: AbstractControl) {
+    const password = control.get('password').value;
+    const passwordConfirm = control.get('password-confirm').value;
+    if (!/(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W).{6,}/.test(password)) {
+      return { passwordRequirements: true };
+    }
+    if (password !== passwordConfirm) {
+      return { passwordMatch: true };
+    }
+    return null;
+  }
 
   ngOnInit(): void {
     throw new Error('Method not implemented.');
