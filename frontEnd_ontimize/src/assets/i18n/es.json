@@ -45,7 +45,9 @@
   "PARTNERS": "Partners",
   "PRODUCTS": "Productos",
   "user_":"Usuario",
-  "Bienvenido Partner": "Bienvenido Partner"
+  "Bienvenido Partner": "Bienvenido Partner",
+  "Escoja un rol" : "Escoja un rol",
+  "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo" : "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo"
 
 
 
