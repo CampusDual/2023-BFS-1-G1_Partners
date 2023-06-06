@@ -6,12 +6,13 @@
 
 
 
-<o-form-layout-manager title="{{'USUARIOS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
+<o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
   <div fxFill>
     <o-table fxFlex attr="tableUsers" service="users" entity="user" keys="user_" 
-      columns="user_;password;name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin"
-      visible-columns="name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin"
+      columns="user_;password;name;surname;email;nif;userblocked;lastpasswordupdate"
+      visible-columns="name;surname;email;nif;userblocked;lastpasswordupdate"
       query-rows="20">
+      <o-table-column attr="lastpasswordupdate" title="lastpasswordupdate" type="date" format="LL"></o-table-column>
     </o-table>
   </div>
 </o-form-layout-manager>
