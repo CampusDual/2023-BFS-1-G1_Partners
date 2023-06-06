@@ -5,34 +5,20 @@
 </div>
 
 
-
-
-
-
-
-
-
 <o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
   <div fxFill>
-    <o-table fxFlex attr="tableProducts" service="userProduct" entity="userProduct" keys="product_id;user_id" 
+    <o-table delete-button = "no" insert-button="no" fxFlex attr="tableProducts" service="userProduct" entity="userProduct" keys="product_id;user_id" 
       columns="name"
-      visible-columns="name"
+      visible-columns="name" 
       query-rows="20">
+
+
+      <o-table-context-menu [context-menu]="myContextMenu" delete="no" insert="no" edit="no" view-details="no"></o-table-context-menu>
+
     </o-table>
   </div>
 </o-form-layout-manager>
 
 
 
-
-
-<!-- <o-form-layout-manager title="{{'USUARIOS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
-  <div fxFill>
-    <o-table fxFlex attr="tableUsers" service="users" entity="user" keys="user_" 
-      columns="user_;password;name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin"
-      visible-columns="name;surname;email;nif;userblocked;lastpasswordupdate;firstlogin"
-      query-rows="20">
-    </o-table>
-  </div>
-</o-form-layout-manager> -->
 

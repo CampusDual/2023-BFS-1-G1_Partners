@@ -14,9 +14,9 @@ export const routes: Routes = [
     children: [
 
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),data:{oPermission:{permissionId: 'home'}} },
+      { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),data:{oPermission:{permissionId: 'home',restrictedPermissionsRedirect:'/main/home-partner'}}},
       {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-      {path: 'home-partner', loadChildren: () => import('./home-partner/home-partner.module').then(m => m.HomePartnerModule),data:{oPermission:{permissionId: 'home-partner'}} }
+      {path: 'home-partner', loadChildren: () => import('./home-partner/home-partner.module').then(m => m.HomePartnerModule),data:{oPermission:{permissionId: 'home-partner',restrictedPermissionsRedirect:'/main/home'}}}
 
 
 
@@ -30,3 +30,6 @@ export const routes: Routes = [
   exports: [RouterModule]
 })
 export class MainRoutingModule { }
+
+
+
