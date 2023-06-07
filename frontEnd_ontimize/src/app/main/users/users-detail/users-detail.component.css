@@ -1,0 +1,21 @@
+div {
+    width: 400px;
+  }
+
+o-row{
+    border-bottom: 0;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+  
+  
