@@ -22,10 +22,31 @@
         <o-email-input attr="email" fxFlex="100" required="yes" label="Email"></o-email-input>
       </o-row>
 
+
+
+
+
       <o-row class="form-row">
+
         <o-text-input attr="password" type="password" fxFlex="50" required="yes" label="Contraseña"></o-text-input>
-        <o-text-input attr="password-confirm" type="password" fxFlex="50" required="yes" label="Confirmar contraseña"></o-text-input>
+        <o-text-input attr="passwordConfirm" type="passwordConfirm" fxFlex="50" required="yes" label="Confirmar contraseña" [validators]="validatorsArray">
+          <o-validator error-name = "passwordNotMatched" error-text = "Las contraseñas no coinciden"></o-validator>
+          <o-validator error-name = "passwordNotSize" error-text = "La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo"></o-validator>
+
+        </o-text-input>
+
+
+        <!-- <o-password-input attr="password" type="password" fxFlex="50" required="yes" label="Contraseña"></o-password-input>
+        <o-password-input attr="passwordConfirm" type="passwordConfirm" fxFlex="50" required="yes" label="Confirmar contraseña" [validators]="validatorsArray">
+          <o-validator error-name = "passwordNotMatched" error-text = "Las contraseñas no coinciden"></o-validator>
+        </o-password-input>
+          -->
       </o-row>
+
+
+
+
+
 
       <o-row class="form-row">
         <o-combo attr="rol" label="Rol" [static-data]="rolesArray"

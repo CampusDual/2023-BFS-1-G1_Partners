@@ -17,14 +17,24 @@
       <o-row>
         <o-nif-input attr="nif" class="input-padding" fxFlex="40" required="yes"></o-nif-input>
       </o-row>
+
+
       <o-row>
-        <o-text-input attr="password" type="password"  enabled="yes"></o-text-input>
-        <o-text-input attr="password-confirm" type="password" placeholder="Confirmar contraseña"  enabled="yes"></o-text-input>
-        <o-validator [validator-function]="passwordValidator">
-          <o-error name="passwordRequirements" text="La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo"></o-error>
-          <o-error name="passwordMatch" text="Las contraseñas no coinciden"></o-error>
-        </o-validator>
+        <o-text-input attr="password" type="password"  enabled="yes" label="Contraseña"></o-text-input>
+        <o-text-input attr="passwordConfirm" type="passwordConfirm" placeholder="Confirmar contraseña" enabled="yes" [validators]="validatorsArray">
+
+          <o-validator error-name = "passwordNotMatched" error-text = "Las contraseñas no coinciden"></o-validator>
+
+
+        </o-text-input>
+        
       </o-row>
+
+
+
+
+
+
     </o-column>
   </o-row>
 </div>

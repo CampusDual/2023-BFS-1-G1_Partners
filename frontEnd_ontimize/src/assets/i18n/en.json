@@ -21,8 +21,9 @@
   "FOOTER_RIGHTS": "All rights reserved",
   "CUSTOMERS": "Customers",
   "ID": "Id",
-  "name": "Name",
-  "surname": "Surname",
+  "Nombre": "Name",
+  "Apellido": "Surname",
+  "Nombre de usuario": "Username",
   "STARTDATE": "Start date",
   "PHOTO": "Photo",
   "CUSTOMER_PERSONAL_INFORMATION": "Personal Information",
@@ -44,12 +45,12 @@
   "email": "Email",
   "PARTNERS": "Partners",
   "PRODUCTS": "Products",
-  "user_":"User",
   "Escoja un rol" : "Select a rol",
   "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo" : "Password must have at least 1 number, 6 letters and 1 symbol",
-  "password": "Password",
   "Contraseña": "Password",
-  "Confirmar contraseña" : "Confirm password"
+  "Confirmar contraseña" : "Confirm password",
+  "NEW":"New"
+
 
 }
 

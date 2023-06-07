@@ -21,8 +21,8 @@
   "FOOTER_RIGHTS": "Todos los derechos reservados",
   "CUSTOMERS": "Clientes",
   "ID": "Id",
-  "name": "Nombre",
-  "surname": "Apellido",
+  "NAME": "Nombre",
+  "SURNAME": "Apellido",
   "STARTDATE": "Fecha inicio",
   "PHOTO": "Fotografía",
   "CUSTOMER_PERSONAL_INFORMATION": "Información personal",
@@ -37,18 +37,19 @@
   "ROL":"Rol",
   "USER_": "Usuario",
   "FULLNAME":"Nombre completo",
-  "nif": "NIF",
+  "Nif": "NIF",
   "userblocked":"Usuario bloqueado",
   "lastpasswordupdate": "Última actualización de contraseña",
   "firstlogin": "Primer inicio sesión",
-  "email": "Correo",
+  "Email": "Correo",
   "PARTNERS": "Partners",
   "PRODUCTS": "Productos",
   "user_":"Usuario",
   "Bienvenido Partner": "Bienvenido Partner",
   "Escoja un rol" : "Escoja un rol",
   "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo" : "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo",
-  "password": "Contraseña"
+  "Password": "Contraseña",
+  "NEW": "Nuevo"
 
 
 
