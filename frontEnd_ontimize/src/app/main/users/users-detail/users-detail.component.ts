@@ -18,7 +18,6 @@ export class UsersDetailComponent implements OnInit {
 
   buildForm() {
     this.userForm = this.formBuilder.group({
-      // Define tus campos y validadores aquí
       user_: ['', Validators.required],
       name: ['', Validators.required],
       surname: ['', Validators.required],
@@ -42,6 +41,8 @@ export class UsersDetailComponent implements OnInit {
     });
   }
 
+
+
   passwordValidator(control: AbstractControl) {
     const password = control.get('password').value;
     const passwordConfirm = control.get('password-confirm').value;
@@ -57,9 +58,11 @@ export class UsersDetailComponent implements OnInit {
     return null;
   }
 
+
+
+
   onSave() {
     if (this.userForm.valid) {
-      // Realiza la operación de guardado en la base de datos
       console.log('Datos válidos, guardando en la base de datos...');
     } else {
       console.log('Datos inválidos, no se puede guardar en la base de datos.');
