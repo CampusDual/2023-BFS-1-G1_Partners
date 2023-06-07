@@ -1,6 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-users-new',
@@ -12,24 +13,47 @@ export class UsersNewComponent implements OnInit {
   validatorsArray: ValidatorFn[] = [];
 
   
+
+  @ViewChild('form', { static: false }) form: OFormComponent;
+
+  
   constructor() {
     this.validatorsArray.push(this.passwordValidator);
   }
-  passwordValidator(control: AbstractControl) {
-    const password = control.get('password').value;
-    const passwordConfirm = control.get('password-confirm').value;
-    if (!/(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W).{6,}/.test(password)) {
-      return { passwordRequirements: true };
-    }
-    if (password !== passwordConfirm) {
-      return { passwordMatch: true };
-    }
-    return null;
-  }
+
+
+
 
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
+
+  
+  public async passwordValidator(){
+
+    const password = this.form.formGroup.get('password').value;
+    const passwordConfirm = this.form.formGroup.get('password-confirm').value;
+
+
+    if (!/(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W).{6,}/.test(password)) {
+
+        return { passwordRequirements: true };
+
+    }if (password !== passwordConfirm) {
+      // No es igual
+      console.log('pass no igual');
+      // this.error = false;
+      alert("Las contraseñas no coinciden");
+     
+      
+    }else{
+      this.form.insert();
+   
+    }
+    }
+
+
+  
 
   public rolesArray = [{
     name: 'Admin',
@@ -38,6 +62,27 @@ export class UsersNewComponent implements OnInit {
     name: 'Partner',
     id:'2'
   }];
+
+
+
+
+
+
+
+
+
+
+  // passwordValidator(control: AbstractControl) {
+  //   const password = control.get('password').value;
+  //   const passwordConfirm = control.get('password-confirm').value;
+  //   if (!/(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W).{6,}/.test(password)) {
+  //     return { passwordRequirements: true };
+  //   }
+  //   if (password !== passwordConfirm) {
+  //     return { passwordMatch: true };
+  //   }
+  //   return null;
+  // }
 
 
 }
