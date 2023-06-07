@@ -1,24 +1,17 @@
+
+
 <div fxLayout="row" layout-padding fxLayoutAlign="center center">
-
-  <img src="assets/images/partner.png">
-
+  <img src="assets/images/partner.png" style="max-height: 100px; margin-bottom: 10px;">
 </div>
 
-
-<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
+<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name" style="height: 300px;">
   <div fxFill>
-    <o-table delete-button = "no" insert-button="no" fxFlex attr="tableProducts" service="userProduct" entity="userProduct" keys="product_id;user_id" 
+    <o-table delete-button="no" insert-button="no" fxFlex attr="tableProducts" service="userProduct" entity="userProduct" keys="product_id;user_id" 
       columns="name"
       visible-columns="name" 
-      query-rows="20">
-
-
+      height="100px"
+      query-rows="5">
       <o-table-context-menu [context-menu]="myContextMenu" delete="no" insert="no" edit="no" view-details="no"></o-table-context-menu>
-
     </o-table>
   </div>
 </o-form-layout-manager>
-
-
-
-

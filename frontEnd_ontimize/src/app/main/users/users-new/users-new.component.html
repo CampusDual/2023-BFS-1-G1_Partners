@@ -1,88 +1,39 @@
 
 
+   <o-form service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-navigation="no" class="form-container">
+      <h1>Alta usuario</h1>
+      <div>
 
+   <o-row>
 
+     <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
 
-
-<o-form service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-navigation="no">
-  <o-row>
-
-    <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
-
-      <o-row>
-        <o-text-input class="input-padding" attr="name" fxFlex="40" required="yes"></o-text-input>
-        <o-text-input class="input-padding" attr="surname" fxFlex="40" required="yes"></o-text-input>
+      <o-row class="form-row">
+        <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes" label="Nombre"></o-text-input>
+        <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes" label="Apellido"></o-text-input>
       </o-row>
 
-      <o-row>
-        <o-text-input attr="user_" fxFlex="40" required="yes"></o-text-input>
-        <o-email-input attr="email" fxFlex="60" required="yes"></o-email-input>
+
+      <o-row class="form-row">
+        <o-text-input attr="user_" fxFlex="100" required="yes" label="Nombre de usuario"></o-text-input>
       </o-row>
 
-      <o-row>
-        <o-combo attr="rol" label="Escoja un rol" [static-data]="rolesArray"
+      <o-row class="form-row">
+        <o-email-input attr="email" fxFlex="100" required="yes" label="Email"></o-email-input>
+      </o-row>
+
+      <o-row class="form-row">
+        <o-text-input attr="password" type="password" fxFlex="50" required="yes" label="Contraseña"></o-text-input>
+        <o-text-input attr="password-confirm" type="password" fxFlex="50" required="yes" label="Confirmar contraseña"></o-text-input>
+      </o-row>
+
+      <o-row class="form-row">
+        <o-combo attr="rol" label="Rol" [static-data]="rolesArray"
         value-column="id" columns="id;name"
-        visible-columns="name" required="yes" fxFlex>
-        </o-combo>  
+        visible-columns="name" required="yes" fxFlex></o-combo>  
       </o-row>
-
-     <o-row>
-      <o-text-input class="input-padding" attr="password" [validators]="validatorsArray" fxFlex="40" required="yes"></o-text-input>
-      <o-text-input attr="password-confirm" type="password" placeholder="Confirmar contraseña"  enabled="yes"></o-text-input>
-
-
-        <o-validator [validator-function]="passwordValidator">
-          <o-error name="passwordRequirements" text="La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo"></o-error>
-          <o-error name="passwordMatch" text="Las contraseñas no coinciden"></o-error>
-        </o-validator>
-        
-    </o-row>
-
     </o-column>
   </o-row>
+</div>
+
 </o-form>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <o-form service="users" entity="user" keys="ID" header-actions="R;I;U;D" show-header-navigation="no">
-  <o-row>
-
-    <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
-
-      <o-row>
-        <o-text-input class="input-padding" attr="NAME" fxFlex="40" required="yes"></o-text-input>
-        <o-text-input class="input-padding" attr="SURNAME" fxFlex="40" required="yes"></o-text-input>
-      </o-row>
-
-      <o-row>
-        <o-text-input attr="USER_" fxFlex="40" required="yes"></o-text-input>
-        <o-email-input attr="EMAIL" fxFlex="60" required="yes"></o-email-input>
-      </o-row>
-
-      <o-row>
-        <o-combo attr="ROL" label="Escoja un rol" [static-data]="rolesArray"
-        value-column="id" columns="id;name"
-        visible-columns="name" required="yes" fxFlex>
-        </o-combo>  
-     </o-row>
-
-     <o-row>
-      <o-text-input class="input-padding" attr="PASSWORD" [validators]="validatorsArray" fxFlex="40" required="yes">
-        <o-validator [validator-function]="passwordValidator">
-          <o-error name="passwordRequirements" text="La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo"></o-error>
-        </o-validator>
-      </o-text-input>
-    </o-row>
-
-    </o-column>
-  </o-row>
-</o-form>
- -->
