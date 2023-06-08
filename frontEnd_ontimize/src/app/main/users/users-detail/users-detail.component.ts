@@ -10,19 +10,14 @@ import { OFormComponent } from 'ontimize-web-ngx';
 export class UsersDetailComponent implements OnInit {
 
   userForm: FormGroup;
-
-
-
+  
   validatorsArray: ValidatorFn[] = [];
 
   @ViewChild('form', { static: false }) form: OFormComponent;
 
-
-
-
   constructor(private formBuilder: FormBuilder) {
 
-    this.validatorsArray.push(this.passwordMatchValidator);
+    this.validatorsArray.push(this.passwordValidator);
 
    }
 
@@ -58,49 +53,22 @@ export class UsersDetailComponent implements OnInit {
     });
   }
 
-
-
-  public async passwordValidator(){
-
-    const password = this.form.formGroup.get('password').value;
-    const passwordConfirm = this.form.formGroup.get('passwordConfirm').value;
-
-
-    
-    
-    if (password !== passwordConfirm && password ===!/(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W).{6,}/) {
-      
-      alert("Las contraseñas no coinciden");
-     
-      
-    }else{
-      this.form.insert();
-   
-    }
-    }
-
-
-
-
-  passwordMatchValidator(control: any): any {
-  
+  passwordValidator(control: any): any {
     try {
+      const password = control.parent ? control.parent.controls['password'].value : null;
+      const passwordConfirm = control.value;
   
-      const password = control.parent ? control.parent.controls['password'].value : null
-      const passwordConfirm = control.value
-  
-      return password === passwordConfirm? null : { passwordNotMatched: true };
-  
-    }catch(e){
-  
+      if (password !== passwordConfirm) {
+        return { passwordNotMatched: true };
+      } else if (!/^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d]).{6,}$/.test(password)) {
+        return { passwordNotSize: true };
+      } else {
+        return null;
+      }
+    } catch (e) {
+      return null;
     }
-
   }
-
-
-
-
-
 
   onSave() {
     if (this.userForm.valid) {
