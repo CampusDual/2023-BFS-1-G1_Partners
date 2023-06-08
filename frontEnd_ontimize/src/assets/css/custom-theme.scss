@@ -4,12 +4,12 @@
 
 /* Color definitions */
 $mat-custom-primary: (
-  50: #ffeff0,
-  100: #ffccd0,
+  50: white,
+  100: white, //fondo del link active
   200: #ff9fa4,
   300: #ff7278,
   400: #ff4e56,
-  500: #ff2a34,
+  500: #211915, //fondo del menú
   600: #ff222c,
   700: #ff1a24,
   800: #ff121c,
@@ -41,11 +41,11 @@ $mat-custom-accent: (
   200: #ffffff,
   300: #ffffff,
   400: #ffffff,
-  500: #ffffff,
+  500: red, //color letras botones
   600: #ffffff,
   700: #000000,
   800: #000000,
-  900: #000000,
+  900: #211915, //color links menú
   A100: #ffffff,
   A200: #ffffff,
   A400: #000000,
@@ -56,7 +56,7 @@ $mat-custom-accent: (
     200: #000000,
     300: #000000,
     400: #000000,
-    500: #000000,
+    500: whitesmoke, //flecha del botón
     600: #000000,
     700: #ffffff,
     800: #ffffff,
@@ -72,15 +72,16 @@ $mat-custom-accent: (
 // Define a theme.
 $primary: mat-palette($mat-custom-primary);
 $accent: mat-palette($mat-custom-accent);
-$background-color: #cac5c567;
+$background-color: whitesmoke;
 
 /* Light theme */
-// $theme: mat-light-theme($primary, $accent);
+$theme: mat-light-theme($primary, $accent);
 
 /* Dark theme */
-$primary-dark: mat-palette($mat-custom-primary);
-$accent-dark: mat-palette($mat-custom-accent);
-$theme: mat-dark-theme($primary-dark, $accent-dark);
+
+//$primary-dark: mat-palette($mat-custom-primary);
+//$accent-dark: mat-palette($mat-custom-accent);
+//$theme: mat-dark-theme($primary-dark, $accent-dark);
 
 // Insert custom background color
 $background: map-get($theme, background);

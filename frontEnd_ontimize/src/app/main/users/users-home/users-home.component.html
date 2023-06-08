@@ -1,31 +1,34 @@
-
-
-
-
-
-
-
-
 <o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
+  <!--
   <div fxFill>
     <o-table fxFlex attr="tableUsers" service="users" entity="user" keys="user_" 
       columns="user_;password;name;surname;email;nif;lastpasswordupdate"
-      visible-columns="user_;name;surname;email;nif;;lastpasswordupdate"
+      visible-columns="user_;name;surname;email;nif;lastpasswordupdate"
       query-rows="20">
       <o-table-column attr="lastpasswordupdate" title="lastpasswordupdate" type="date" format="LL"></o-table-column>
     </o-table>
   </div>
+  -->
+  <div fxFill class="list-container">
+<o-list #list keys="id" columns="user_;password;name;surname;email;nif;lastpasswordupdate" attr="tableUsers" service="users" entity="user" keys="user_" 
+  title="{{'USERS' | oTranslate }}" quick-filter="true" quick-filter-columns="name;username;email"
+  refresh-button="true" insert-button="true" delete-button="true"
+  selectable="true" dense="false" detail-button-in-row="true"
+  detail-button-in-row-icon="chevron_right" edit-button-in-row="false"
+  edit-button-in-row-icon="edit" detail-mode="none" pagination-controls="true"
+  page-size-options="5;10" insert-button-position="top" show-buttons-text="false">
+
+  <o-list-item *ngFor="let row of list.dataArray">
+    <o-list-item-text #item  title="{{ row.username }}"
+      primary-text="{{ row.name }}" secondary-text="{{ row.email }}" (icon-action)="addToFavorites(row, item)">
+    </o-list-item-text>
+  </o-list-item>
+
+</o-list>
+</div>
 </o-form-layout-manager>
 
-
-
 <!-- -->
-
-
-
-
-
-
 <!-- 
    <o-form-layout-manager title="{{'CUSTOMERS' | oTranslate }}" separator=" " mode="tab" label-columns="NAME;SURNAME">
     <div fxFill>

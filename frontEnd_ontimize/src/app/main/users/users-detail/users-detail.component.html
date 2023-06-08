@@ -1,41 +1,28 @@
 <o-form service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-navigation="no" class="form-container">
   <h1>Editar</h1>
-  <div>
-
-  <o-row>
-    <o-column>
-      <o-row>
-        <o-text-input attr="user_" enabled="yes"></o-text-input>
+  <div class="center">
+      <o-row class="form-row">
+        <o-text-input class="input-padding" attr="user_" fxFlex="100" enabled="yes"></o-text-input>
       </o-row>
-      <o-row>
-        <o-text-input class="input-padding" attr="name" fxFlex="40" required="yes"></o-text-input>
-        <o-text-input class="input-padding" attr="surname" fxFlex="40" required="yes"></o-text-input>
+      <o-row class="form-row">
+        <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes"></o-text-input>
       </o-row>
-      <o-row>
-        <o-email-input attr="email" fxFlex></o-email-input>
+      <o-row class="form-row">
+        <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes"></o-text-input>
       </o-row>
-      <o-row>
-        <o-nif-input attr="nif" class="input-padding" fxFlex="40" required="yes"></o-nif-input>
+      <o-row class="form-row">
+        <o-email-input attr="email" fxFlex="100"></o-email-input>
       </o-row>
-
-
-      <o-row>
-        <o-text-input attr="password" type="password"  enabled="yes" label="Contraseña"></o-text-input>
-        <o-text-input attr="passwordConfirm" type="passwordConfirm" placeholder="Confirmar contraseña" enabled="yes" [validators]="validatorsArray">
-
+      <o-row class="form-row">
+        <o-nif-input attr="nif" class="input-padding" fxFlex="100" required="yes"></o-nif-input>
+      </o-row>
+      <o-row class="form-row">
+        <o-text-input attr="password" type="password" fxFlex="50" enabled="yes" label="Contraseña"></o-text-input>
+        <div class="field-separator"></div>
+        <o-text-input attr="passwordConfirm" type="passwordConfirm" fxFlex="50" placeholder="Confirmar contraseña" enabled="yes" [validators]="validatorsArray">
           <o-validator error-name = "passwordNotMatched" error-text = "Las contraseñas no coinciden"></o-validator>
-
-
         </o-text-input>
         
       </o-row>
-
-
-
-
-
-
-    </o-column>
-  </o-row>
 </div>
 </o-form>

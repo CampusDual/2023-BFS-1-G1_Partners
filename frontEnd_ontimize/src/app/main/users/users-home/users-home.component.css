@@ -1,11 +1,3 @@
-.o-table th::after {
-    content: "";
-    text-transform: uppercase;
-    display: block;
-    }
-
-    
-.o-table{
-  text-align: center;
+.list-container {
+  overflow-y: hidden;
 }
-  

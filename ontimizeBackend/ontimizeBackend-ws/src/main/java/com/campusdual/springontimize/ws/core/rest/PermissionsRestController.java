@@ -1,6 +1,5 @@
 package com.campusdual.springontimize.ws.core.rest;
 
-
 import com.campusdual.springontimize.api.core.service.IPermissionsService;
 import com.campusdual.springontimize.api.core.service.IUserService;
 import com.ontimize.jee.common.dto.EntityResult;
@@ -12,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 @RequestMapping("/permissions")

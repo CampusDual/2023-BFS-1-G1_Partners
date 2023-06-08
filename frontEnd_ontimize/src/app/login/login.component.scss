@@ -40,7 +40,6 @@
       height: 100%;
       top: 0;
       left: 0;
-      background: rgba(0, 0, 0, .1);
       opacity: .8;
     }
 
@@ -50,6 +49,8 @@
 
       .login-inner-container {
         width: 100%;
+       border-left: 1px solid red;
+
 
         form {
           padding: 16px;
@@ -80,6 +81,11 @@
           margin: 32px 0 0;
           height: 42px;
           font-size: 16px;
+          color: white;
+        }
+
+        button:hover {
+          background: red;
         }
 
         .dark_text {
@@ -151,5 +157,9 @@
         place-content: center !important;
       }
     }
+  }
+
+  img#logoImg{
+    width: 50%;
   }
 }
