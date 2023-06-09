@@ -32,15 +32,17 @@
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
             <mat-checkbox class="text">{{ 'REMEMBER_ME' | oTranslate }}</mat-checkbox>
           </div>
+   
+
 
           <button mat-raised-button color="primary" type="submit" class="m-top-24">{{ 'LOGIN' | oTranslate }}</button>
           <div layout-padding></div>
           <div layout-padding></div>
-          <div fxLayout="column" fxLayoutAlign="center center" layout-padding>
+          <!-- <div fxLayout="column" fxLayoutAlign="center center" layout-padding>
             <span class="login_info">{{ 'EXAMPLE_LOGIN_INFO' | oTranslate }}:</span>
             <span class="dark_text">{{ 'USERNAME' | oTranslate }} : demo</span>
             <span class="dark_text">{{ 'PASSWORD' | oTranslate }} : demouser</span>
-          </div>
+          </div> -->
         </form>
       </div>
 
@@ -50,7 +52,8 @@
   <div id="footer" class="footer-container">
     <div fxLayout="row" fxLayoutAlign="center center">
       <span>{{ 'FOOTER_CREATED_BY' | oTranslate }}</span>
-      <span> &copy; 2023 </span>
+      <span style="margin-right: 5px;"> &copy; 2023  </span>
+      
       <span>{{ 'FOOTER_RIGHTS' | oTranslate }}</span>
     </div>
   </div>

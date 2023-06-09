@@ -18,7 +18,7 @@
   "REMEMBER_ME": "Recuérdame",
   "FORGOT_PWD": "¿Has olvidado tu contraseña?",
   "FOOTER_CREATED_BY": "Creado por Imatia Innovation",
-  "FOOTER_RIGHTS": "Todos los derechos reservados",
+  "FOOTER_RIGHTS": " Todos los derechos reservados",
   "CUSTOMERS": "Clientes",
   "ID": "Id",
   "NAME": "Nombre",
@@ -49,7 +49,8 @@
   "Escoja un rol" : "Escoja un rol",
   "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo" : "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo",
   "Password": "Contraseña",
-  "NEW": "Nuevo"
+  "NEW": "Nuevo",
+  "PRODUCTOS":"PRODUCTOS"
 
 
 
