@@ -49,15 +49,15 @@ public class PermissionsService implements IPermissionsService {
     private void addRoutesForRole(HashMap<String, Object> result) {
         List<HashMap<String,Object>> routeItems = new ArrayList<>();
         routeItems.add(generateRouteItem("home",isAdmin()));
-        routeItems.add(generateRouteItem("home-partner",!isAdmin()));
+        routeItems.add(generateRouteItem("home-partner",true));
         result.put("routes",routeItems);
     }
 
     private void addMenuForRole(HashMap<String, Object> result) {
         List<HashMap<String,Object>> menuItems = new ArrayList<>();
-        menuItems.add(generateMenuItem("users",true,isAdmin()));
+        menuItems.add(generateMenuItem("users",isAdmin(),isAdmin()));
         menuItems.add(generateMenuItem("home",isAdmin(),isAdmin()));
-        menuItems.add(generateMenuItem("home-partner",!isAdmin(),!isAdmin()));
+        menuItems.add(generateMenuItem("home-partner",true,true));
         result.put("menu",menuItems);
     }
 
