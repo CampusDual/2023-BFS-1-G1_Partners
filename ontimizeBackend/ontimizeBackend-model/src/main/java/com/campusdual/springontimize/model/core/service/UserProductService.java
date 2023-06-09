@@ -47,7 +47,13 @@ public class UserProductService implements IUserProductService {
     }
 
 
+    @Override
+    public EntityResult userAllProductsQuery(Map<Object, String> keyMap, List<?> attrList) {
 
+        EntityResult result =  this.daoHelper.query(userProductDao, keyMap, attrList);
+
+        return result;
+    }
 
 
 

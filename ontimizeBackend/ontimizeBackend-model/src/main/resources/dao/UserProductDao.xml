@@ -32,5 +32,27 @@
                       ]]>
             </Sentence>
         </Query>
+
+        <Query id="allProducts">
+            <ValidColumns>
+                <Column>product_id</Column>
+                <Column>name</Column>
+                <Column>id</Column>
+                <Column>user_ids</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                          SELECT
+                             pu.product_id, p.name, STRING_AGG(user_id::text, ', ') AS user_ids
+                          FROM
+                              ${mainschema}.product_user pu
+                              JOIN  ${mainschema}.products p ON pu.product_id = p.id
+                          #WHERE#
+                          GROUP BY pu.product_id, p.name
+                      ]]>
+            </Sentence>
+        </Query>
+
+
     </Queries>
 </JdbcEntitySetup>
