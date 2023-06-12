@@ -1,6 +1,7 @@
 {
   "ADDRESS": "Address",
   "APP_TITLE": "Quickstart",
+  "ALL PRODUCTS":"ALL PRODUCTS",
   "Apellido": "Surname",
   "COMMENTS": "Comments",
   "Confirmar contraseña": "Confirm password",
@@ -49,5 +50,7 @@
   "USERNAME": "Username",
   "USERBLOCKED": "User Blocked",
   "VERSION": "Version",
-  "VIEW": "Views"
+  "VIEW": "Views",
+  "name":"Name of products",
+  "user_ids":"Partners with access"
 }
