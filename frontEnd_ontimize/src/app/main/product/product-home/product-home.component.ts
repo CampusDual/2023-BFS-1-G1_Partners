@@ -3,11 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
-  selector: 'home-partner',
-  templateUrl: './home-partner.component.html',
-  styleUrls: ['./home-partner.component.scss']
+  selector: 'product-home',
+  templateUrl: './product-home.component.html',
+  styleUrls: ['./product-home.component.css']
 })
-export class HomePartnerComponent implements OnInit {
+export class ProductHomeComponent implements OnInit {
 
   public isAdmin: boolean;
   private myRoleService: OntimizeService;

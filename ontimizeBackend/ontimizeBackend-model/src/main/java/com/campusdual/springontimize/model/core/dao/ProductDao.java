@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 )
 
 public class ProductDao extends OntimizeJdbcDaoSupport {
-    public static final String ATTR_ID ="ID";
-    public static final String ATTR_NAME ="NAME";
+    public static final String ATTR_ID ="id";
+    public static final String ATTR_NAME ="name";
 }

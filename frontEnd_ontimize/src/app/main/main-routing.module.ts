@@ -14,11 +14,11 @@ export const routes: Routes = [
     children: [
 
       {path: '', redirectTo: 'home', pathMatch: 'full' },
-      {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),data:{oPermission:{permissionId: 'home',restrictedPermissionsRedirect:'/main/home-partner'}}},
+      {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),data:{oPermission:{permissionId: 'home',restrictedPermissionsRedirect:'/main/home-product'}}},
       {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-      {path: 'home-partner', loadChildren: () => import('./home-partner/home-partner.module').then(m => m.HomePartnerModule)}
+      {path: 'product-home', loadChildren: () => import('./product/product.module').then(m => m.ProductModule)}
       
-      //,data:{oPermission:{permissionId: 'home-partner',restrictedPermissionsRedirect:'/main/home'}}}
+      //,data:{oPermission:{permissionId: 'product-home',restrictedPermissionsRedirect:'/main/home'}}}
     ]
   }
 ];

@@ -6,10 +6,31 @@
         catalog="" schema="${mainschema}" table="products"
         datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
-        <Column>ID</Column>
+        <Column>id</Column>
     </DeleteKeys>
     <UpdateKeys>
-        <Column>ID</Column>
+        <Column>id</Column>
     </UpdateKeys>
-    <GeneratedKey>ID</GeneratedKey>
+    <GeneratedKey>id</GeneratedKey>
+
+
+
+    <Queries>
+        <Query id="default">
+            <ValidColumns>
+                <Column>id</Column>
+                <Column>name</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.products
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+
+    </Queries>
 </JdbcEntitySetup>
