@@ -6,14 +6,15 @@
 <div class= "o-form">
 <o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
   <div fxFill>
-    <o-table delete-button = "no" insert-button="no" fxFlex attr="tableProducts" service="userProduct" entity="userProduct" keys="product_id;user_id" 
+    <o-table *ngIf="!isAdmin" delete-button = "no" insert-button="no" fxFlex attr="tableProducts" service="userProduct" entity="userProduct" keys="product_id;user_id" 
       columns="name"
       visible-columns="name" 
       query-rows="20">
-
-
       <o-table-context-menu [context-menu]="myContextMenu" delete="no" insert="no" edit="no" view-details="no"></o-table-context-menu>
+    </o-table>
 
+    <o-table *ngIf="isAdmin" delete-button="no" insert-button="no" fxFlex attr="tableAllProducts" service="userProduct" entity="userAllProducts" keys="product_id;user_ids" columns="name;user_ids" visible-columns="name;user_ids" query-rows="20">
+      <o-table-context-menu [context-menu]="myContextMenu" delete="no" insert="no" edit="no" view-details="no"></o-table-context-menu>
     </o-table>
   </div>
 </o-form-layout-manager>

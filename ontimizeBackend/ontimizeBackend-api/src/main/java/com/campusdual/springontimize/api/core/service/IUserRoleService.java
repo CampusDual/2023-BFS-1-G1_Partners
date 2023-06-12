@@ -10,6 +10,7 @@ import java.util.Map;
 public interface IUserRoleService {
 
 	public EntityResult userroleQuery(Map<?, ?> keyMap, List<?> attrList);
+	public EntityResult myRoleQuery(Map<String, Object> keyMap, List<String> attrList);
 	public EntityResult userroleInsert(Map<?, ?> attrMap);
 	public EntityResult userroleUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
 	public EntityResult userroleDelete(Map<?, ?> keyMap);

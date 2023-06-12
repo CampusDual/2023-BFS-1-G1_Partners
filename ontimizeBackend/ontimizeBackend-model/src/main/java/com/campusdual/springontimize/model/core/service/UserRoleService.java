@@ -11,6 +11,8 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,6 +30,13 @@ public class UserRoleService implements IUserRoleService {
 	@Override
 	public EntityResult userroleQuery(Map<?, ?> keyMap, List<?> attrList) {
 		return this.daoHelper.query(userRoleDao, keyMap, attrList);
+	}
+	@Override
+	public EntityResult myRoleQuery(Map<String , Object> keyMap, List<String> attrList) {
+		attrList.add(userRoleDao.ROLENAME);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		keyMap.put(UserRoleDao.user_,auth.getName());
+		return this.daoHelper.query(userRoleDao, keyMap, attrList, "userRole");
 	}
 
 	@Override
