@@ -10,14 +10,34 @@ import { OFormComponent } from 'ontimize-web-ngx';
 export class ProductDetailComponent implements OnInit {
 
 
+   productForm: FormGroup;
+   @ViewChild('form', { static: false }) form: OFormComponent;
 
-
-  constructor() {
+   constructor(private formBuilder: FormBuilder) {
 
    }
-  ngOnInit(): void {
+  ngOnInit() {
+
+    this.buildForm();
+
+  }
+  buildForm() {
+  
+    this.productForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      user_ids: ['', Validators.required],
+
+    });
   }
 
-
  
+
+
+  onSave() {
+    if (this.productForm.valid) {
+      console.log('Datos válidos, guardando en la base de datos...');
+    } else {
+      console.log('Datos inválidos, no se puede guardar en la base de datos.');
+    }
+  }
 }

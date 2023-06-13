@@ -57,7 +57,7 @@ public class PermissionsService implements IPermissionsService {
         List<HashMap<String,Object>> menuItems = new ArrayList<>();
         menuItems.add(generateMenuItem("users",isAdmin(),isAdmin()));
         menuItems.add(generateMenuItem("home",isAdmin(),isAdmin()));
-        menuItems.add(generateMenuItem("home-partner",true,true));
+        menuItems.add(generateMenuItem("product-home",true,true));
         result.put("menu",menuItems);
     }
 
