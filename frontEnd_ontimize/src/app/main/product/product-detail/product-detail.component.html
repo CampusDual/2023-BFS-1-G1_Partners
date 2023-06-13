@@ -1,16 +1,21 @@
-<o-form service="products" entity="products" keys="id" header-actions="R;I;U;D" show-header-navigation="no" class="form-container">
+<o-form #form service="userProduct" entity="userAllProducts" keys="product_id;user_ids" header-actions="R;I;U;D" show-header-navigation="no" class="form-container">
   <h1>Editar</h1>
   <div class="center">
 
-      <o-row class="form-row">
-        <o-text-input class="input-padding" attr="id" fxFlex="100" enabled="yes"></o-text-input>
-      </o-row>
+     
 
       <o-row class="form-row">
         <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes"></o-text-input>
       </o-row>
 
-    
+      <o-row class="form-row">
+        <o-text-input class="input-padding" attr="user_ids" fxFlex="100" required="yes"></o-text-input>
+      </o-row>
       
 </div>
 </o-form>
+
+
+
+
+

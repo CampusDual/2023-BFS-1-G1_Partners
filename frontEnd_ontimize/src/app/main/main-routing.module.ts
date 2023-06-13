@@ -14,7 +14,7 @@ export const routes: Routes = [
     children: [
 
       {path: '', redirectTo: 'home', pathMatch: 'full' },
-      {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),data:{oPermission:{permissionId: 'home',restrictedPermissionsRedirect:'/main/home-product'}}},
+      {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),data:{oPermission:{permissionId: 'home',restrictedPermissionsRedirect:'/main/product-home'}}},
       {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
       {path: 'product-home', loadChildren: () => import('./product/product.module').then(m => m.ProductModule)}
       

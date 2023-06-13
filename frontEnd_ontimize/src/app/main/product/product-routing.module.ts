@@ -14,7 +14,7 @@ const routes: Routes = [{
   component: ProductNewComponent
 },
 {
-  path: ":id",
+  path: ':product_id/:user_id',
   component: ProductDetailComponent
 }];
 
@@ -23,3 +23,4 @@ const routes: Routes = [{
   exports: [RouterModule]
 })
 export class ProductRoutingModule { }
+
