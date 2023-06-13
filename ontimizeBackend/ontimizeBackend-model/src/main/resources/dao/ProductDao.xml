@@ -13,24 +13,4 @@
     </UpdateKeys>
     <GeneratedKey>id</GeneratedKey>
 
-
-
-    <Queries>
-        <Query id="default">
-            <ValidColumns>
-                <Column>id</Column>
-                <Column>name</Column>
-            </ValidColumns>
-            <Sentence>
-                <![CDATA[
-                    SELECT
-                        #COLUMNS#
-                    FROM
-                        ${mainschema}.products
-                    #WHERE#
-                ]]>
-            </Sentence>
-        </Query>
-
-    </Queries>
 </JdbcEntitySetup>
