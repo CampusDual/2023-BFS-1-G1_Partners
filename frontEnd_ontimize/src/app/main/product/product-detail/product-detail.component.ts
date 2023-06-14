@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { OFormComponent } from 'ontimize-web-ngx';
+import { DialogService, OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,13 +12,15 @@ export class ProductDetailComponent implements OnInit {
 
    productForm: FormGroup;
    @ViewChild('form', { static: false }) form: OFormComponent;
+  tableData: any[];
 
-   constructor(private formBuilder: FormBuilder) {
-
+   constructor(private formBuilder: FormBuilder, protected dialogService: DialogService) {
+    
    }
   ngOnInit() {
 
     this.buildForm();
+    
 
   }
   buildForm() {
@@ -30,7 +32,11 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
- 
+    showAlert(evt: any) {
+      if (this.dialogService) {
+        this.dialogService.alert('Añadir Partners', 'This is an amazing "Alert" dialog');
+      }
+    }
 
 
   onSave() {

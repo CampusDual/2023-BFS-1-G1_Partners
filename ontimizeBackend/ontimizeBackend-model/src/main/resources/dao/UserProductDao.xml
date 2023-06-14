@@ -28,6 +28,7 @@
                           FROM
                               ${mainschema}.product_user pu
                               JOIN  ${mainschema}.products p ON pu.product_id = p.id
+                              JOIN ${mainschema}.tuser u ON u.user_=pu.user_id
                           #WHERE#
                       ]]>
             </Sentence>
