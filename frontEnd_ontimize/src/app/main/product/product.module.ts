@@ -5,6 +5,7 @@ import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductHomeComponent } from './product-home/product-home.component';
+import { AddPartnerRelationComponent } from './product-detail/add-partner-relation/add-partner-relation.component';
 
 
 
@@ -13,13 +14,17 @@ import { ProductHomeComponent } from './product-home/product-home.component';
   declarations: [
     ProductHomeComponent, 
     ProductNewComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AddPartnerRelationComponent
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
     OntimizeWebModule,
     
+  ],
+  entryComponents:[
+    AddPartnerRelationComponent
   ]
 })
 export class ProductModule { }

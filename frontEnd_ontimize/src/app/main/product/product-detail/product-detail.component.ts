@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
 import { DialogService, OFormComponent } from 'ontimize-web-ngx';
+import { AddPartnerRelationComponent } from './add-partner-relation/add-partner-relation.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,12 +11,14 @@ import { DialogService, OFormComponent } from 'ontimize-web-ngx';
 })
 export class ProductDetailComponent implements OnInit {
 
+  comboVisible = false;
+
 
    productForm: FormGroup;
    @ViewChild('form', { static: false }) form: OFormComponent;
   tableData: any[];
 
-   constructor(private formBuilder: FormBuilder, protected dialogService: DialogService) {
+   constructor(private formBuilder: FormBuilder, protected dialog: MatDialog) {
     
    }
   ngOnInit() {
@@ -32,11 +36,21 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-    showAlert(evt: any) {
-      if (this.dialogService) {
-        this.dialogService.alert('Añadir Partners', 'This is an amazing "Alert" dialog');
-      }
+    // showAlert(evt: any) {
+    //   if (this.dialogService) {
+    //     this.dialogService.alert('Añadir Partners', 'This is an amazing "Alert" dialog');
+    //   }
+    // }
+
+
+
+
+    addPartner(){
+
+      let product_id = this.form.getFieldValue("id");
+      this.dialog.open(AddPartnerRelationComponent,{data:{product_id:product_id},disableClose:false});
     }
+
 
 
   onSave() {
