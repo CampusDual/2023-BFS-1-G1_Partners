@@ -40,7 +40,7 @@ export class ProductDetailComponent implements OnInit {
     //   if (this.dialogService) {
     //     this.dialogService.alert('Añadir Partners', 'This is an amazing "Alert" dialog');
     //   }
-    // }
+    //  }
 
 
 
