@@ -29,7 +29,7 @@
 
 
     <o-list *ngIf="!isAdmin"  #listPartner columns="name" attr="tableProducts" service="userProduct"
-      entity="userProduct" keys="product_id"  title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false" detail-mode="none" delete-button="no" refresh-button="no">
+      entity="productsByUser" keys="product_id"  title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false" detail-mode="none" delete-button="no" refresh-button="no">
       
       <o-list-item *ngFor="let row of listPartner.dataArray">
         <o-list-item-text #item title="{{ row.name }}" (icon-action)="addToFavorites(row, item)"></o-list-item-text>
