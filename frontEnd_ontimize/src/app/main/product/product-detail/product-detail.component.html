@@ -10,24 +10,7 @@
 
   <o-integer-input oHidden attr="id" width="160px" class="form-field"></o-integer-input>
 
-
-
-  <!-- <div class="center">
-    <o-row class="form-row">
-      <o-combo attr="users" label="Escoge partners" service="users" entity="user" keys="user_" value-column="user_"
-        columns="user_" visible-columns="user_" required="yes" multiple="yes" fxFlex >
-      </o-combo> 
-    </o-row>
-  </div> -->
-
-  <!-- <o-button attr="alert" type="RAISED" label="+ Añadir Partners" layout-padding (click)="showAlert()" ></o-button> -->
-
-
-
-
-  <o-button attr="alert" type="RAISED" label="+ Añadir Partners" layout-padding (click)="addPartner()" ></o-button>
-
-
+  <button class="newParter" attr="alert"  label="+ Añadir Partners" (click)="addPartner()">+ Añadir Partners</button>
   
   <o-table #partnersTable parent-keys="id" service="userProduct" entity="userAllProducts" keys="product_id;user_id"
         header-actions="R;I;U;D" show-header-navigation="no" class="form-container" keys-sql-types="INTEGER;VARCHAR"
