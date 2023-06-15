@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material';
-import { OFormComponent } from 'ontimize-web-ngx';
+import { OFormComponent, OTableComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-add-partner-relation',
@@ -29,10 +29,13 @@ export class AddPartnerRelationComponent implements OnInit {
     }
   }
 
-   public closeDialog() {
-     this.dialogRef.close();
-   }
+  public closeDialog() {
+    let tablaPartners: OTableComponent = this.data.partnersTable;
+    tablaPartners.refresh();
+    this.dialogRef.close();
+  }
 
 
-  
+
+
 }

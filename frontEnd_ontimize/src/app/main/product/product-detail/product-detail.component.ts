@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { DialogService, OFormComponent } from 'ontimize-web-ngx';
+import { DialogService, OFormComponent, OTableComponent } from 'ontimize-web-ngx';
 import { AddPartnerRelationComponent } from './add-partner-relation/add-partner-relation.component';
 
 @Component({
@@ -16,7 +16,7 @@ export class ProductDetailComponent implements OnInit {
 
    productForm: FormGroup;
    @ViewChild('form', { static: false }) form: OFormComponent;
-  tableData: any[];
+   @ViewChild('partnersTable', {static: false }) public partnersTable: OTableComponent;
 
    constructor(private formBuilder: FormBuilder, protected dialog: MatDialog) {
     
@@ -46,9 +46,8 @@ export class ProductDetailComponent implements OnInit {
 
 
     addPartner(){
-
       let product_id = this.form.getFieldValue("id");
-      this.dialog.open(AddPartnerRelationComponent,{data:{product_id:product_id},disableClose:false});
+      this.dialog.open(AddPartnerRelationComponent,{data:{product_id:product_id, partnersTable:this.partnersTable},disableClose:false});
     }
 
 
