@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material';
 import { OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
@@ -29,9 +29,9 @@ export class AddPartnerRelationComponent implements OnInit {
     }
   }
 
-  // public closeDialog(event: any) {
-  //   this.dialogRef.close();
-  // }
+   public closeDialog() {
+     this.dialogRef.close();
+   }
 
 
   

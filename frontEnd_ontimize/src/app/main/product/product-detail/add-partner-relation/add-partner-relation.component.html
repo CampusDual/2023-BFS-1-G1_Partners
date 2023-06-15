@@ -1,7 +1,7 @@
 
 
 <o-form #form service="userProduct" entity="userProduct" keys="user_id;product_id" header-actions="" show-header-navigation="no"
-  class="form-container" keys-sql-types="VARCHAR;INTEGER" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)">
+  class="form-container" keys-sql-types="VARCHAR;INTEGER" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" (onCancel)="closeDialog($event)">
 
   <o-integer-input oHidden attr="product_id" width="160px" class="form-field"></o-integer-input>
 
