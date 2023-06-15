@@ -15,12 +15,19 @@
     </UpdateKeys>
     <Queries>
         <Query id="default">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="name" prefix="u" />
+            </AmbiguousColumns>
+
             <ValidColumns>
                 <Column>user_id</Column>
                 <Column>product_id</Column>
                 <Column>name</Column>
                 <Column>id</Column>
             </ValidColumns>
+
+
+
             <Sentence>
                 <![CDATA[
                           SELECT

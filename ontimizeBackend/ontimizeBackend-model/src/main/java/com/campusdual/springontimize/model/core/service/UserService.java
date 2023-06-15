@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.campusdual.springontimize.model.core.dao.UserRoleDao;
 import com.ontimize.jee.common.security.PermissionsProviderSecured;
@@ -41,6 +42,19 @@ public class UserService implements IUserService {
 	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) {
 		return this.daoHelper.query(userDao, keyMap, attrList);
 	}
+
+
+
+	public EntityResult partnerQuery(Map<?, ?> keyMap, List<?> attrList) {
+
+		EntityResult partnerResult = this.daoHelper.query(userDao, keyMap, attrList, "partners");
+
+		return partnerResult;
+	}
+
+
+
+
 
 	public EntityResult userInsert(Map<?, ?> attrMap) {
 

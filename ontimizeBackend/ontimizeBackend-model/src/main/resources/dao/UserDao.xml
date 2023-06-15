@@ -57,5 +57,37 @@
                 ]]>
             </Sentence>
         </Query>
+
+        <Query id="partners">
+
+            <AmbiguousColumns>
+                <AmbiguousColumn name="user_" prefix="u" />
+            </AmbiguousColumns>
+            <ValidColumns>
+
+                <Column>user_</Column>
+                <Column>password</Column>
+                <Column>name</Column>
+                <Column>surname</Column>
+                <Column>email</Column>
+                <Column>nif</Column>
+                <Column>userblocked</Column>
+                <Column>lastpasswordupdate</Column>
+                <Column>firstlogin</Column>
+
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.tuser u
+                        JOIN ${mainschema}.tuser_role ur ON u.user_ = ur.user_
+                        JOIN ${mainschema}.trole r ON ur.id_rolename = r.id_rolename AND r.rolename = 'partner'
+
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
     </Queries>
 </JdbcEntitySetup>
