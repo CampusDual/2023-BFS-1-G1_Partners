@@ -40,6 +40,15 @@ public class UserProductService implements IUserProductService {
          return result;
     }
 
+    @Override
+    public EntityResult productsByUserQuery(Map<Object, String> keyMap, List<?> attrList) {
+
+        keyMap.put("user_id",getUser());
+        EntityResult result =  this.daoHelper.query(userProductDao, keyMap, attrList,"productsByUser");
+
+        return result;
+    }
+
 
     @Override
     public EntityResult userAllProductsQuery(Map<Object, String> keyMap, List<?> attrList) {
