@@ -15,6 +15,7 @@ public interface IUserProductService {
     public EntityResult userProductUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
     EntityResult userAllProductsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
 
+    public EntityResult userAllProductsDelete(Map<?, ?> keyMap);
     public EntityResult userProductDelete(Map<?, ?> keyMap);
 
 }

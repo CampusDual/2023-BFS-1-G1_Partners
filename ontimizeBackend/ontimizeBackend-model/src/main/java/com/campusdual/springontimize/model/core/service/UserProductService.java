@@ -71,4 +71,9 @@ public class UserProductService implements IUserProductService {
     public EntityResult userProductDelete(Map<?, ?> keyMap) {
         return this.daoHelper.delete(this.userProductDao, keyMap);
     }
+
+    @Override
+    public EntityResult userAllProductsDelete(Map<?, ?> keyMap) {
+        return this.daoHelper.delete(this.userProductDao, keyMap);
+    }
 }
