@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="products"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+    <DeleteKeys>
+        <Column>id</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>id</Column>
+    </UpdateKeys>
+    <GeneratedKey>id</GeneratedKey>
+
+
+    <Queries>
+        <Query id="default">
+            <ValidColumns>
+                <Column>user_ids</Column>
+                <Column>name</Column>
+                <Column>id</Column>
+            </ValidColumns>
+
+            <Sentence>
+                <![CDATA[
+                             SELECT
+                              p.id,p.name, STRING_AGG(user_id::text, ', ') AS user_ids
+                          FROM
+                              ${mainschema}.products p
+                              LEFT JOIN  ${mainschema}.product_user pu ON pu.product_id = p.id
+                          #WHERE#
+                          GROUP BY p.id, p.name
+                      ]]>
+            </Sentence>
+        </Query>
+
+
+    </Queries>
+
+</JdbcEntitySetup>

@@ -1,0 +1,58 @@
+<!-- <div fxLayout="row" layout-padding fxLayoutAlign="center center">
+</div>
+
+<div class= "o-form">
+<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
+  <div fxFill>
+
+    <o-table *ngIf="!isAdmin" delete-button = "no" insert-button="no" fxFlex attr="tableProducts" service="userProduct" entity="userProduct" keys="product_id;user_id" 
+      columns="name"
+      visible-columns="name" 
+      query-rows="20">
+      <o-table-context-menu [context-menu]="myContextMenu" delete="no" insert="no" edit="no" view-details="no"></o-table-context-menu>
+    </o-table>
+
+    <o-table *ngIf="isAdmin" delete-button="yes" insert-button="yes" fxFlex attr="tableAllProducts" service="userProduct" entity="userAllProducts" keys="product_id;user_ids" columns="name;user_ids" visible-columns="name;user_ids" query-rows="20">
+      <o-table-context-menu [context-menu]="myContextMenu" delete="yes" insert="yes" edit="yes" view-details="yes"></o-table-context-menu>
+    </o-table>
+
+  </div>
+</o-form-layout-manager>
+</div> -->
+
+
+
+
+
+<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
+  <div fxFill class="list-container">
+
+
+    <o-list *ngIf="!isAdmin"  #listPartner columns="name" attr="tableProducts" service="userProduct"
+      entity="userProduct" keys="product_id"  title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false" detail-mode="none" delete-button="no" refresh-button="no">
+      
+      <o-list-item *ngFor="let row of listPartner.dataArray">
+        <o-list-item-text #item title="{{ row.name }}" (icon-action)="addToFavorites(row, item)"></o-list-item-text>
+      </o-list-item>
+    </o-list>
+
+
+
+    <o-list *ngIf="isAdmin" #listAdmin columns="name;user_ids" attr="tableProducts" service="products"
+      entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}"  quick-filter="true"
+      quick-filter-columns="name" refresh-button="true" insert-button="true" delete-button="true" selectable="true"
+      dense="false" detail-button-in-row="true" detail-button-in-row-icon="chevron_right" edit-button-in-row="false"
+      edit-button-in-row-icon="edit" detail-mode="none" pagination-controls="true" page-size-options="5;10"
+      insert-button-position="top" show-buttons-text="false">
+
+
+
+
+      <o-list-item *ngFor="let row of listAdmin.dataArray">
+        <o-list-item-text #item title="{{ row.name }}" primary-text="{{ row.user_ids }}"(icon-action)="addToFavorites(row, item)"></o-list-item-text>
+      </o-list-item>
+    </o-list>
+
+  </div>
+</o-form-layout-manager>
+

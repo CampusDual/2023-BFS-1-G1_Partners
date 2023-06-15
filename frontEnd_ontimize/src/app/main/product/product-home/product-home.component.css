@@ -1,0 +1,15 @@
+.bg {
+  background-color: darkred;
+}
+
+
+.o-table{
+  text-align: left;
+}
+
+.o-form{
+  width: 100%;
+  height: 75%; /* Ajusta la altura según tus necesidades */
+}
+
+

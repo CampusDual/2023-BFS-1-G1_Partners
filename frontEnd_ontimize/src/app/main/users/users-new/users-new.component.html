@@ -1,0 +1,37 @@
+<o-form #form service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-navigation="no" class="form-container">
+  <h1>Alta usuario</h1>
+  <div class="center">
+  <o-row class="form-row">
+    <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes" label="Nombre"></o-text-input>
+  </o-row>
+
+  <o-row class="form-row">
+    <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes" label="Apellido"></o-text-input>
+  </o-row>
+
+  <o-row class="form-row">
+    <o-text-input class="input-padding" attr="user_" fxFlex="100" required="yes" label="Nombre de usuario"></o-text-input>
+  </o-row>
+
+  <o-row class="form-row">
+    <o-email-input class="input-padding" attr="email" fxFlex="100" required="yes" label="Email"></o-email-input>
+  </o-row>
+
+  <o-row class="form-row">
+    <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña" show-password-button="yes" [validators]="validatorsArray"></o-password-input>
+  </o-row>
+  
+  <o-row class="form-row">
+    <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" label="Confirmar contraseña" show-password-button="yes">
+      <o-validator [error-name]="'passwordNotMatched'" [error-text]="'Las contraseñas no coinciden'"></o-validator>
+      <o-validator [error-name]="'passwordNotSize'" [error-text]="'La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo'"></o-validator>
+    </o-password-input>
+  </o-row>
+  
+  <o-row class="form-row">
+    <o-combo attr="rol" label="Rol" [static-data]="rolesArray"
+      value-column="id" columns="id;name"
+      visible-columns="name" required="yes" fxFlex></o-combo>
+  </o-row>
+</div>
+</o-form>

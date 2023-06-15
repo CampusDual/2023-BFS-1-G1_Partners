@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,maven,eclipse,intellij+all,netbeans
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,eclipse,intellij+all,netbeans
+# Created by https://www.toptal.com/developers/gitignore/api/java,maven,eclipse,intellij+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,eclipse,intellij+all
 
 ### Eclipse ###
 .metadata
@@ -200,20 +200,7 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-### NetBeans ###
-**/nbproject/private/
-**/nbproject/Makefile-*.mk
-**/nbproject/Package-*.bash
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-
-# End of https://www.toptal.com/developers/gitignore/api/java,maven,eclipse,intellij+all,netbeans
-src/main/resources/db/templateDB.lck
-src/main/resources/db/templateDB.properties
-*.iml
+# End of https://www.toptal.com/developers/gitignore/api/java,maven,eclipse,intellij+all
 
 #HSQLDB
 templateDB.lck

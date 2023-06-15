@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="product_user"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+    <DeleteKeys>
+        <Column>user_id</Column>
+        <Column>product_id</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>user_id</Column>
+        <Column>product_id</Column>
+    </UpdateKeys>
+    <Queries>
+        <Query id="default">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="name" prefix="u" />
+            </AmbiguousColumns>
+
+            <ValidColumns>
+                <Column>user_id</Column>
+                <Column>product_id</Column>
+                <Column>name</Column>
+                <Column>id</Column>
+            </ValidColumns>
+
+
+
+            <Sentence>
+                <![CDATA[
+                          SELECT
+                              #COLUMNS#
+                          FROM
+                              ${mainschema}.product_user pu
+                              JOIN  ${mainschema}.products p ON pu.product_id = p.id
+                              JOIN ${mainschema}.tuser u ON u.user_=pu.user_id
+                          #WHERE#
+                      ]]>
+            </Sentence>
+        </Query>
+
+        <Query id="allProducts">
+            <ValidColumns>
+                <Column>product_id</Column>
+                <Column>name</Column>
+                <Column>id</Column>
+                <Column>user_ids</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                          SELECT
+                             pu.product_id, p.name, STRING_AGG(user_id::text, ', ') AS user_ids
+                          FROM
+                              ${mainschema}.product_user pu
+                              JOIN  ${mainschema}.products p ON pu.product_id = p.id
+                          #WHERE#
+                          GROUP BY pu.product_id, p.name
+                      ]]>
+            </Sentence>
+        </Query>
+
+
+    </Queries>
+</JdbcEntitySetup>
