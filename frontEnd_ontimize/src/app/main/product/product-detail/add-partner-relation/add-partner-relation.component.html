@@ -1,12 +1,10 @@
-
-
 <o-form #form service="userProduct" entity="userProduct" keys="user_id;product_id" header-actions="" show-header-navigation="no"
   class="form-container" keys-sql-types="VARCHAR;INTEGER" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" (onCancel)="closeDialog($event)">
-
+ 
   <o-integer-input oHidden attr="product_id" width="160px" class="form-field"></o-integer-input>
-
-  <o-combo attr="user_id" label="Escoge partners" service="users" entity="partner" keys="user_" value-column="user_"
-    columns="user_;name;surname" visible-columns="name;surname" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
+ 
+  <o-combo attr="user_id" label="Escoge partners" service="users" entity="partnerAvailable" keys="user_" parent-keys="product_id" query-on-init="no" value-column="user_"
+    columns="user_;name;surname;product_id" visible-columns="name;surname" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
   </o-combo> 
-
+ 
 </o-form>
