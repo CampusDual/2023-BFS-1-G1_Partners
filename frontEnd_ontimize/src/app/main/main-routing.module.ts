@@ -16,7 +16,9 @@ export const routes: Routes = [
       {path: '', redirectTo: 'home', pathMatch: 'full' },
       {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),data:{oPermission:{permissionId: 'home',restrictedPermissionsRedirect:'/main/product-home'}}},
       {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-      {path: 'product-home', loadChildren: () => import('./product/product.module').then(m => m.ProductModule)}
+      {path: 'product-home', loadChildren: () => import('./product/product.module').then(m => m.ProductModule)},
+      // {path: 'form-product-detail',loadChildren:() => import('./product/product.module').then(m=>m.ProductModule) },
+
       
       //,data:{oPermission:{permissionId: 'product-home',restrictedPermissionsRedirect:'/main/home'}}}
     ]

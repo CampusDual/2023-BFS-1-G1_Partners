@@ -1,6 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OntimizeService } from 'ontimize-web-ngx';
+import { OFileManagerModule } from 'ontimize-web-ngx-filemanager';
 
 @Component({
   selector: 'product-home',
@@ -11,6 +12,8 @@ export class ProductHomeComponent implements OnInit {
 
   public isAdmin: boolean;
   private myRoleService: OntimizeService;
+  public selectedProduct: any;
+
 
 
   constructor(
@@ -48,5 +51,14 @@ export class ProductHomeComponent implements OnInit {
     const conf = this.myRoleService.getDefaultServiceConfiguration("userrole");
     this.myRoleService.configureService(conf);
   }
+
+
+  
+    
+    
+  onAction1(id: number) {
+    this.router.navigate(['/main/product-home/form-product-detail/'+id]);
+  }
+  
 
 }
