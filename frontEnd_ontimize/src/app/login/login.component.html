@@ -1,17 +1,12 @@
 <div class="full-page">
   <div class="full">
-    <div fxLayoutAlign="center center" class="imgLogin">
-      <img src="assets/images/logo_login.png">
-    </div>
+    
     <div class="wrapp-login">
-      
+      <div fxLayoutAlign="center center">
+        <img src="assets/images/logo_login.png" class="imgLogin">
+      </div>
       <div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
-
-          <div class="login-title-container" fxLayout="column">
-            <p class="session-expired text" *ngIf="sessionExpired">{{ 'ERROR_SESSION_EXPIRED' | oTranslate }}</p>
-            <span class="title_text">{{ 'LOGIN_TITLE' | oTranslate }}:</span>
-          </div>
 
           <div fxLayout="column" fxLayoutGap="10px">
             <mat-form-field fxFill class="m-top-24">
@@ -33,19 +28,9 @@
             <mat-checkbox class="text">{{ 'REMEMBER_ME' | oTranslate }}</mat-checkbox>
           </div>
    
-
-
           <button mat-raised-button color="primary" type="submit" class="m-top-24">{{ 'LOGIN' | oTranslate }}</button>
-          <div layout-padding></div>
-          <div layout-padding></div>
-          <!-- <div fxLayout="column" fxLayoutAlign="center center" layout-padding>
-            <span class="login_info">{{ 'EXAMPLE_LOGIN_INFO' | oTranslate }}:</span>
-            <span class="dark_text">{{ 'USERNAME' | oTranslate }} : demo</span>
-            <span class="dark_text">{{ 'PASSWORD' | oTranslate }} : demouser</span>
-          </div> -->
         </form>
       </div>
-
     </div>
   </div>
 
