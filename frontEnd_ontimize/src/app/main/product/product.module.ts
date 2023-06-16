@@ -6,6 +6,7 @@ import { ProductRoutingModule } from './product-routing.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductHomeComponent } from './product-home/product-home.component';
 import { AddPartnerRelationComponent } from './product-detail/add-partner-relation/add-partner-relation.component';
+import { FormProductDetailComponent } from './product-home/form-product-detail/form-product-detail.component';
 
 
 
@@ -15,7 +16,10 @@ import { AddPartnerRelationComponent } from './product-detail/add-partner-relati
     ProductHomeComponent, 
     ProductNewComponent,
     ProductDetailComponent,
-    AddPartnerRelationComponent
+    AddPartnerRelationComponent,
+    FormProductDetailComponent,
+    FormProductDetailComponent
+    
   ],
   imports: [
     CommonModule,
