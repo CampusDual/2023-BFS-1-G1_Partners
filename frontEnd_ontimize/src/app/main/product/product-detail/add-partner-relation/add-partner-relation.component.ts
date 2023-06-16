@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material';
-import { OFormComponent, OTableComponent } from 'ontimize-web-ngx';
+import { Component, EventEmitter, Inject, OnInit, Output, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material';
+import { OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-add-partner-relation',
@@ -10,6 +10,7 @@ import { OFormComponent, OTableComponent } from 'ontimize-web-ngx';
 export class AddPartnerRelationComponent implements OnInit {
 
   @ViewChild('form', { static: false }) form: OFormComponent;
+  @Output() dialogClosed: EventEmitter<void> = new EventEmitter<void>();
 
   public dialog: MatDialogModule;
 
@@ -21,21 +22,15 @@ export class AddPartnerRelationComponent implements OnInit {
   ngOnInit() {
   }
 
-
   public forceInsertMode(event: any) {
     if (event != OFormComponent.Mode().INSERT) {
       this.form.setInsertMode();
-      this.form.setFieldValues(this.data)
+      this.form.setFieldValues(this.data);
     }
   }
 
-  public closeDialog() {
-    let tablaPartners: OTableComponent = this.data.partnersTable;
-    tablaPartners.refresh();
+  public closeDialog(event: any) {
     this.dialogRef.close();
+    this.dialogClosed.emit(); // Emit an event when the dialog is closed
   }
-
-
-
-
 }
