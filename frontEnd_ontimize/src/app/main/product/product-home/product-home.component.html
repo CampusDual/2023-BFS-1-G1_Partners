@@ -4,33 +4,40 @@
 
 
 <o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
-  <div fxFill class="list-container">
 
-    <o-list *ngIf="!isAdmin"  #listPartner columns="name" attr="tableProducts" service="userProduct"
-      entity="productsByUser" keys="product_id"  title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false" detail-mode="none" delete-button="no" refresh-button="no">
-      
-      <o-list-item *ngFor="let row of listPartner.dataArray">
+  <o-list *ngIf="!isAdmin" #listPartner columns="name" attr="tableProducts" service="userProduct"
+  entity="productsByUser" keys="product_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
+  detail-mode="none" delete-button="no" refresh-button="no">
 
-        <o-list-item-card #item title="{{ row.name }}" show-image="true" image="assets/images/carpeta.png"
-        action-1-text="Ver documentos"(action-1)="onAction1(row.product_id)" >
-      </o-list-item-card>
+  <mat-card *ngFor="let row of listPartner.dataArray" [o-list-item]="row" class="custom-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img src="assets/images/archive.png" fxFill />
+      </div>
+      <mat-card-title>{{ row.name }}</mat-card-title>
+        <div class="showMore-container">
+          <button (click)="onAction1(row.product_id)" class="showMore">Ver documentos</button>
+        </div>
+    </mat-card-header>
 
-        <o-list-item-text #item title="{{ row.name }}" (icon-action)="addToFavorites(row, item)"></o-list-item-text>
+  </mat-card>
 
-
-      </o-list-item>
-      
-    </o-list>
-
-
-
-
+</o-list>
 
 
+<!--
+<div class="cards-container">
+  <o-list-item *ngFor="let row of listPartner.dataArray" class="card-item">
 
+    <o-list-item-card #item title="{{ row.name }}" show-image="true" image="assets/images/archive.png"
+      action-1-text="Ver documentos" (action-1)="onAction1(row.product_id)" class="cards">
+    </o-list-item-card>
 
+    <o-list-item-text #item title="{{ row.name }}" (icon-action)="addToFavorites(row, item)"></o-list-item-text>
 
-
+  </o-list-item>
+</div>
+-->
     <o-list *ngIf="isAdmin" #listAdmin columns="name;user_ids" attr="tableProducts" service="products"
       entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}"  quick-filter="true"
       quick-filter-columns="name" refresh-button="true" insert-button="true" delete-button="true" selectable="true"
@@ -43,6 +50,5 @@
       </o-list-item>
     </o-list>
 
-  </div>
 </o-form-layout-manager>
 

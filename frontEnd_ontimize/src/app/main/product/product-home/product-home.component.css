@@ -1,15 +1,30 @@
-.bg {
-  background-color: darkred;
+.showMore{
+  color: #211915;
+  border: 1px solid #211915;
+  background: white;
+  padding: 10px;
+  float: right;
 }
 
-
-.o-table{
-  text-align: left;
+.showMore:hover{
+  color: whitesmoke;
+  background-color: #211915;
+  border: 1px solid #211915;
+  transition: 0.5s;
 }
 
-.o-form{
-  width: 100%;
-  height: 75%; /* Ajusta la altura según tus necesidades */
+.custom-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.showMore-container {
+  margin-left: auto;
+  margin-top: auto;
+}
+
+mat-card{
+  border: 1px solid #211915;
 }
 
 
