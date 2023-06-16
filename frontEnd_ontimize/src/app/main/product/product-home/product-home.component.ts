@@ -14,8 +14,6 @@ export class ProductHomeComponent implements OnInit {
   private myRoleService: OntimizeService;
   public selectedProduct: any;
 
-
-
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
@@ -50,11 +48,7 @@ export class ProductHomeComponent implements OnInit {
   configureUserRoleService() {
     const conf = this.myRoleService.getDefaultServiceConfiguration("userrole");
     this.myRoleService.configureService(conf);
-  }
-
-
-  
-    
+  } 
     
   onAction1(id: number) {
     this.router.navigate(['/main/product-home/form-product-detail/'+id]);

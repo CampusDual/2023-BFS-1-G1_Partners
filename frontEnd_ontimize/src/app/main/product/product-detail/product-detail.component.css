@@ -28,7 +28,7 @@ button{
 
 button:hover{
   color: whitesmoke;
-    background-color: #211915;
-    border: 1px solid #211915;
-    transition: 0.5s;
+  background-color: #211915;
+  border: 1px solid #211915;
+  transition: 0.5s;
 }
