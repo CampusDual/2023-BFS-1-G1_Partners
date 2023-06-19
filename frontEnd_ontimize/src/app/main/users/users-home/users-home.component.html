@@ -1,7 +1,7 @@
 <o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="formulario">
   <div fxFill class="list-container">
 
-  <o-table #table fxFlex attr="tableUsers" entity="user" service="users" title="{{'USERS' | oTranslate }}" keys="user_" columns="user_;password;name;surname;email;nif;lastpasswordupdate"
+  <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="user" service="users" title="{{'USERS' | oTranslate }}" keys="user_" columns="user_;password;name;surname;email;nif;lastpasswordupdate"
   visible-columns="user_;name;surname;email;nif" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
   filter-case-sensitive="false" insert-button="true" export-button="true"
   columns-visibility-button="true" delete-button="true" refresh-button="true"
@@ -14,9 +14,6 @@
   <o-table-column attr="nif"></o-table-column>
   <o-table-column attr="email"></o-table-column>
 
-  <o-table-column attr="action" width="64px">
-    <o-table-cell-renderer-action (onClick)="actionClick()" icon="storage"></o-table-cell-renderer-action>
-  </o-table-column>
 </o-table>
 
 </div>
