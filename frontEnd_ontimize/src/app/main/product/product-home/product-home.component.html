@@ -1,9 +1,9 @@
 <o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
-
+ 
   <o-list *ngIf="!isAdmin" #listPartner columns="name" attr="tableProducts" service="userProduct"
   entity="productsByUser" keys="product_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
   detail-mode="none" delete-button="no" refresh-button="no">
-
+ 
   <mat-card *ngFor="let row of listPartner.dataArray" [o-list-item]="row" class="custom-card">
     <mat-card-header>
       <div mat-card-avatar>
@@ -11,12 +11,12 @@
       </div>
       <mat-card-title>{{ row.name }}</mat-card-title>
         <div class="showMore-container">
-          <button (click)="onAction1(row.product_id)" class="showMore">Ver documentos</button>
+          <button (click)="onAction1(row.product_id)" class="showMore">{{'Ver_documentos' | oTranslate }}</button>
         </div>
     </mat-card-header>
-
+ 
   </mat-card>
-
+ 
 </o-list>
 
   <div fxFill class="list-container">
@@ -35,4 +35,3 @@
     </o-list>
   </div>
 </o-form-layout-manager>
-
