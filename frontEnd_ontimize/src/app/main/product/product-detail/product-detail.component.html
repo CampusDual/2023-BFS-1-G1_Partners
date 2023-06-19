@@ -14,14 +14,14 @@
   
   <o-table #partnersTable parent-keys="id" service="userProduct" entity="userAllProducts" keys="product_id;user_id"
         class="form-container" keys-sql-types="INTEGER;VARCHAR"
-        columns="product_id;user_id;name" visible-columns="name;surname"  quick-filter="false"
+        columns="product_id;user_id;complete_name" visible-columns="complete_name" quick-filter="false"
         refresh-button="false" insert-button="false" delete-button="true" selectable="false"
         dense="false" detail-button-in-row="false" detail-button-in-row-icon="none" edit-button-in-row="false"
         detail-mode="none" pagination-controls="false" 
         show-buttons-text="false">
     
     <o-table-column attr="product_id" title="ID" width="100px"></o-table-column>
-    <o-table-column attr="name" title="PARTNERS ACTUALES" width="100px">
+    <o-table-column attr="complete_name" title="PARTNERS ACTUALES" width="100px">
 
   </o-table-column>
 

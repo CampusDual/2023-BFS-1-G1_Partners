@@ -1,18 +1,23 @@
-<o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
+<o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="formulario">
   <div fxFill class="list-container">
-    <o-list #list keys="id" columns="user_;password;name;surname;email;nif;lastpasswordupdate" attr="tableUsers"
-      service="users" entity="user" keys="user_" title="{{'USERS' | oTranslate }}" quick-filter="true"
-      quick-filter-columns="name;username;email" refresh-button="true" insert-button="true" delete-button="true"
-      selectable="true" dense="false" detail-button-in-row="true" detail-button-in-row-icon="chevron_right"
-      edit-button-in-row="false" edit-button-in-row-icon="edit" detail-mode="none" pagination-controls="true"
-      page-size-options="5;10" insert-button-position="bottom" show-buttons-text="false">
 
-      <o-list-item *ngFor="let row of list.dataArray">
-        <o-list-item-text #item title="{{ row.username }}" primary-text="{{ row.name }}"
-          secondary-text="{{ row.email }}">
-        </o-list-item-text>
-      </o-list-item>
+  <o-table #table fxFlex attr="tableUsers" entity="user" service="users" title="{{'USERS' | oTranslate }}" keys="user_" columns="user_;password;name;surname;email;nif;lastpasswordupdate"
+  visible-columns="user_;name;surname;email;nif" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
+  filter-case-sensitive="false" insert-button="true" export-button="true"
+  columns-visibility-button="true" delete-button="true" refresh-button="true"
+  select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
+  pagination-controls="no" edition-mode="none" detail-mode="none" horizontal-scroll="false" auto-adjust="true" virtual-scroll="no">
 
-    </o-list>
-  </div>
+  <o-table-column attr="user_"></o-table-column>
+  <o-table-column attr="name"></o-table-column>
+  <o-table-column attr="surname"></o-table-column>
+  <o-table-column attr="nif"></o-table-column>
+  <o-table-column attr="email"></o-table-column>
+
+  <o-table-column attr="action" width="64px">
+    <o-table-cell-renderer-action (onClick)="actionClick()" icon="storage"></o-table-cell-renderer-action>
+  </o-table-column>
+</o-table>
+
+</div>
 </o-form-layout-manager>
