@@ -2,6 +2,7 @@
 
     "ADDRESS": "Dirección",
     "ALTA PRODUCTO": "Alta producto",
+    "ALTA_USUARIO":"Alta usuario",
     "Añadir_Partners": "Añadir partners",
     "APP_TITLE": "JEE seed",
 
@@ -78,6 +79,8 @@
     "PARTNERS": "Partners",
     "PARTNERS ACTUALES": "PARTNERS ACTUALES",
     "PASSWORD": "Contraseña",
+    "Password": "Contraseña",
+
     "password": "Contraseña",
     "PHOTO": "Fotografía",
     "photo": "Fotografía",
@@ -100,6 +103,8 @@
     "surname": "Apellido",
     "STARTDATE": "Fecha inicio",
     "startdate": "Fecha inicio",
+
+    "Tipo":"Tipo",
 
 
     "USERNAME": "Usuario",

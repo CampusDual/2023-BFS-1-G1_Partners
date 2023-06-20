@@ -2,6 +2,7 @@
   "ADDRESS": "Address",
   "ALL PRODUCTS":"ALL PRODUCTS",
   "ALTA PRODUCTO":"Register product",
+  "ALTA_USUARIO":"Register user",
   "Añadir_Partners":"Add partners",
   "Apellido": "Surname",
   "APP_TITLE": "Quickstart",
@@ -20,6 +21,7 @@
 
 
   "EDITAR":"Edit",
+  "Editar":"Edit",
   "EMAIL": "Email",
   "email":"Email",
   "ERROR_MIN_LENGTH_REQUIRED": "The value length entered must be at least 8 characters.",
@@ -58,6 +60,7 @@
   "name":"Name",
   "name_Products":"Name of products",
   "nif": "Id Number",
+  "Nif": "Id Number",
   "NEW": "New",
   "Nombre": "Name",
   "Nombre de usuario": "Username",
@@ -65,11 +68,14 @@
 
   "PARTNERS ACTUALES":"CURRENT PARTNERS",
   "PARTNERS": "Partners",
+  "Partners": "Partners",
   "PASSWORD": "Password",
   "password":"Password",
   "PHOTO": "Photo",
   "PHONE": "Phone",
+  "Productos":"Products",
   "PRODUCTOS":"Products",
+
   "PRODUCTS":"Products",
   "PRODUCT_DETAIL":"PRODUCT_DETAIL",
 
@@ -81,6 +87,8 @@
   "STARTDATE": "Start date",
   "surname":"Surname",
 
+
+  "Tipo":"Type",
 
 
   "USER_": "User",
