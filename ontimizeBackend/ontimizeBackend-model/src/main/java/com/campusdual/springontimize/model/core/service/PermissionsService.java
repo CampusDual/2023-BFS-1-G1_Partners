@@ -49,7 +49,6 @@ public class PermissionsService implements IPermissionsService {
     private void addRoutesForRole(HashMap<String, Object> result) {
         List<HashMap<String,Object>> routeItems = new ArrayList<>();
         routeItems.add(generateRouteItem("home",isAdmin()));
-        routeItems.add(generateRouteItem("home-partner",true));
         result.put("routes",routeItems);
     }
 
@@ -79,7 +78,6 @@ public class PermissionsService implements IPermissionsService {
     private boolean isAdmin(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String role = auth.getAuthorities().toArray()[0].toString();
-        String user = auth.getName();
         return "admin".equalsIgnoreCase(role);
     }
 
