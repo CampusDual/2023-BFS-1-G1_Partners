@@ -1,16 +1,14 @@
-<div class="formProduct">
+<!-- <nav class="breadcrumbs"><h5 class="breadcrumb"><a href="/product-home">Documentos</a></h5></nav> -->
 
-<o-form fxLayout="colum" #form service="products" entity="product" keys="id" header-actions="" show-header="no"
-  class="form-container" keys-sql-types="INTEGER" header-mode="none">
-  <h1>{{'DOCUMENTS' | oTranslate }}</h1>
+<o-form #form service="products" entity="product" keys="id" header-actions="" show-header="no"
+  class="form-container" keys-sql-types="INTEGER" header-mode="none" editable-detail="no">
+  <div class="titleDiv"><h1 class="titleText">{{'DOCUMENTS' | oTranslate }}</h1></div>
 
   <div class="center">
-    <o-row attr="container" title="Nombre" layout-align="center center" elevation="1" appearance="outline">
       <o-text-input class="input-padding" attr="name" fxFlex="100"></o-text-input>
-    </o-row>
   </div>
 
-  <o-integer-input oHidden attr="id" width="160px" class="form-field"></o-integer-input>
+  <o-integer-input oHidden attr="id" class="form-field"></o-integer-input>
 
   <o-table #table parent-keys="product_id:id" service="resources" entity="resource" keys="id"
   header-actions="R;I;U;D" show-buttons-text="false" show-header-navigation="no" keys-sql-types="INTEGER"

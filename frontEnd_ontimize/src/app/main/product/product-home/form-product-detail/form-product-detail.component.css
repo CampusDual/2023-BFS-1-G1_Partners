@@ -1,13 +1,4 @@
-/* .form-container{
-    border: 1px solid #211915;
-    border-radius: 10px;
-    background: white;
-    padding: 10px;
-    box-shadow: 5px 10px 8px #cccccc;
-    text-align: center;
-} */
-
-.formProduct{
+.form-container{
     border: 1px solid #211915;
     border-radius: 10px;
     background: white;
@@ -16,6 +7,13 @@
     text-align: center;
 }
 
-.formProduct form{
+.breadcrumbs{
     width: 100%;
+    text-align: left;
+    color: whitesmoke;
+    background: #211915;
+}
+
+.breadcrumb{
+    padding: 5px;
 }
