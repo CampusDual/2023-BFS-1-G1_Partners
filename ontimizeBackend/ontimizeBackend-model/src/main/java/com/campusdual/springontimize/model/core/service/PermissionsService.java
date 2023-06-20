@@ -49,7 +49,6 @@ public class PermissionsService implements IPermissionsService {
     private void addRoutesForRole(HashMap<String, Object> result) {
         List<HashMap<String,Object>> routeItems = new ArrayList<>();
         routeItems.add(generateRouteItem("home",isAdmin()));
-        routeItems.add(generateRouteItem("home-partner",true));
         result.put("routes",routeItems);
     }
 
