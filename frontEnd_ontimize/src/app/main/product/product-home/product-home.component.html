@@ -1,4 +1,4 @@
-<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name">
+<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name" class="form-container">
  
   <o-list *ngIf="!isAdmin" #listPartner columns="name" attr="tableProducts" service="userProduct"
   entity="productsByUser" keys="product_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
@@ -19,19 +19,18 @@
  
 </o-list>
 
-  <div fxFill class="list-container">
+  <div class="center" *ngIf="isAdmin">
 
-    <o-list *ngIf="isAdmin" #listAdmin columns="name;user_ids" attr="tableProducts" service="products"
-      entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}"  quick-filter="true"
-      quick-filter-columns="name" refresh-button="true" insert-button="true" delete-button="true" selectable="true"
-      dense="false" detail-button-in-row="true" detail-button-in-row-icon="chevron_right" edit-button-in-row="false"
-      edit-button-in-row-icon="edit" detail-mode="none" pagination-controls="true" page-size-options="5;10"
-      insert-button-position="bottom" show-buttons-text="false">
+    <o-table *ngIf="isAdmin" #table fxFlex resizable="yes" columns="name;user_ids" attr="tableProducts" service="products"
+      entity="product" keys="id" query-on-init="true" quick-filter="true"
+      filter-case-sensitive="false" insert-button="true" export-button="true"
+      columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
+      select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
+      pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
 
-      <o-list-item *ngFor="let row of listAdmin.dataArray">
-        <o-list-item-text #item title="{{ row.name }}" primary-text="{{ row.user_ids }}"></o-list-item-text>
-      </o-list-item>
+      <o-table-column attr="name" tittle="productos"></o-table-column>
+      <o-table-column attr="user_ids" title="partners"></o-table-column>
    
-    </o-list>
+    </o-table>
   </div>
 </o-form-layout-manager>
