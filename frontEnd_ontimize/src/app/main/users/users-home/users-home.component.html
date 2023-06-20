@@ -1,20 +1,21 @@
-<o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="formulario">
-  <div fxFill class="list-container">
+<o-form-layout-manager class="form-us"   title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="formulario">
+  <div fxFill class="list-container-user">
 
-  <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="user" service="users" title="{{'USERS' | oTranslate }}" keys="user_" columns="user_;password;name;surname;email;nif;lastpasswordupdate"
+
+  <o-table class="table-user" #table fxFlex resizable="yes" attr="tableUsers" entity="user" service="users" keys="user_" columns="user_;password;name;surname;email;nif;lastpasswordupdate"
   visible-columns="user_;name;surname;email;nif" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
   filter-case-sensitive="false" insert-button="true" export-button="true"
   columns-visibility-button="true" delete-button="true" refresh-button="true"
   select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
   pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" auto-adjust="true" virtual-scroll="no" editable-detail="true">
 
-  <o-table-column attr="user_"></o-table-column>
-  <o-table-column attr="name"></o-table-column>
-  <o-table-column attr="surname"></o-table-column>
-  <o-table-column attr="nif"></o-table-column>
-  <o-table-column attr="email"></o-table-column>
-
-</o-table>
+      <o-table-column class="table-column-user" attr="user_" ></o-table-column>
+      <o-table-column class="table-column-user" attr="name" ></o-table-column>
+      <o-table-column class="table-column-user" attr="surname"></o-table-column>
+      <o-table-column class="table-column-user" attr="nif"></o-table-column>
+      <o-table-column class="table-column-user" attr="email" ></o-table-column>
+  
+ </o-table>
 
 </div>
 </o-form-layout-manager>

@@ -1,0 +1,27 @@
+  
+
+
+
+ 
+
+  ::ng-deep .list-container-user o-table.table-user .o-table-container {
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden; /* Asegura que el contenido no desborde el contenedor */
+    height: min-content;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.2); /* Agrega sombra al borde */
+    width: 60%; /* Ajusta el ancho de la tabla */
+
+  }
+  
+
+   
+
+  ::ng-deep .list-container-user .table-column-user {
+    text-align: left;
+  }
+  
+  .column-header {
+    text-align: left;
+  }
+  
