@@ -79,7 +79,6 @@ public class PermissionsService implements IPermissionsService {
     private boolean isAdmin(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String role = auth.getAuthorities().toArray()[0].toString();
-        String user = auth.getName();
         return "admin".equalsIgnoreCase(role);
     }
 

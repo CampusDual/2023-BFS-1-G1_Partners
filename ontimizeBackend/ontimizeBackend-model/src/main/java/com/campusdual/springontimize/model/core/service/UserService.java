@@ -1,17 +1,13 @@
 package com.campusdual.springontimize.model.core.service;
 
 
-import java.sql.Timestamp;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import com.campusdual.springontimize.model.core.dao.UserProductDao;
 import com.campusdual.springontimize.model.core.dao.UserRoleDao;
 import com.ontimize.jee.common.gui.SearchValue;
-import com.ontimize.jee.common.security.PermissionsProviderSecured;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import com.campusdual.springontimize.api.core.service.IUserService;
@@ -37,6 +33,7 @@ public class UserService implements IUserService {
 	private DefaultOntimizeDaoHelper daoHelper;
 
 	public void loginQuery(Map<?, ?> key, List<?> attr) {
+		// TODO document why this method is empty
 	}
 
 	//Sample to permission
@@ -49,9 +46,7 @@ public class UserService implements IUserService {
 
 	public EntityResult partnerQuery(Map<?, ?> keyMap, List<?> attrList) {
 
-		EntityResult partnerResult = this.daoHelper.query(userDao, keyMap, attrList, "partners");
-
-		return partnerResult;
+		return this.daoHelper.query(userDao, keyMap, attrList, "partners");
 	}
 
 	@Override
@@ -76,8 +71,7 @@ public class UserService implements IUserService {
 		if(users!=null){
 			keyMap.put(UserDao.id,new SearchValue(SearchValue.NOT_IN,users));
 		}
-		EntityResult partnerAvailableResult = this.daoHelper.query(userDao, keyMap, attrList, "partners");
-		return partnerAvailableResult;
+		return this.daoHelper.query(userDao, keyMap, attrList, "partners");
 	}
 
 
