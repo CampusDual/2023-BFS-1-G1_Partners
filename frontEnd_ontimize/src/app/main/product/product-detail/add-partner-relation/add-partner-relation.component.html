@@ -1,11 +1,8 @@
-
-
 <o-form #form service="userProduct" entity="userProduct" keys="user_id;product_id" header-actions="" show-header-navigation="no"
 class="form-container" keys-sql-types="VARCHAR;INTEGER" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" (onCancel)="closeDialog($event)"
-ignore-default-navigation="true">
+ignore-default-navigation="true" undo-button="false">
 
 <o-integer-input #product_id_field oHidden attr="product_id" width="160px" class="form-field"></o-integer-input>
-
     <o-combo attr="user_id" label="Escoge partners" [query-on-event]="product_id_field.onValueChange" service="users"
             entity="partnerAvailable" keys="user_" value-column="user_" columns="user_;name;surname" parent-keys="product_id"
             visible-columns="name;surname" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">

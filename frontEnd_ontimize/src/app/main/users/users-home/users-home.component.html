@@ -1,48 +1,20 @@
-<!--
-  <div fxFill>
-    <o-table fxFlex attr="tableUsers" service="users" entity="user" keys="user_" 
-      columns="user_;password;name;surname;email;nif;lastpasswordupdate"
-      visible-columns="user_;name;surname;email;nif;lastpasswordupdate"
-      query-rows="20">
-      <o-table-column attr="lastpasswordupdate" title="lastpasswordupdate" type="date" format="LL"></o-table-column>
-    </o-table>
-  </div>
-  -->
+<o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="formulario" class="form-container">
+  <div class="center">
 
+  <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="user" service="users" keys="user_" columns="user_;password;name;surname;email;nif;lastpasswordupdate"
+  visible-columns="user_;name;surname;email;nif" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
+  filter-case-sensitive="false" insert-button="true" export-button="true"
+  columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
+  select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
+  pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
 
-<o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname">
-  <div fxFill class="list-container">
-    <o-list #list keys="id" columns="user_;password;name;surname;email;nif;lastpasswordupdate" attr="tableUsers"
-      service="users" entity="user" keys="user_" title="{{'USERS' | oTranslate }}" quick-filter="true"
-      quick-filter-columns="name;username;email" refresh-button="true" insert-button="true" delete-button="true"
-      selectable="true" dense="false" detail-button-in-row="true" detail-button-in-row-icon="chevron_right"
-      edit-button-in-row="false" edit-button-in-row-icon="edit" detail-mode="none" pagination-controls="true"
-      page-size-options="5;10" insert-button-position="top" show-buttons-text="false">
+  <o-table-column attr="user_" ></o-table-column>
+  <o-table-column attr="name"></o-table-column>
+  <o-table-column attr="surname"></o-table-column>
+  <o-table-column attr="nif"></o-table-column>
+  <o-table-column attr="email"></o-table-column>
 
-      <o-list-item *ngFor="let row of list.dataArray">
-        <o-list-item-text #item title="{{ row.username }}" primary-text="{{ row.name }}"
-          secondary-text="{{ row.email }}" (icon-action)="addToFavorites(row, item)">
-        </o-list-item-text>
-      </o-list-item>
+</o-table>
 
-    </o-list>
-  </div>
+</div>
 </o-form-layout-manager>
-
-<!-- -->
-<!-- 
-   <o-form-layout-manager title="{{'CUSTOMERS' | oTranslate }}" separator=" " mode="tab" label-columns="NAME;SURNAME">
-    <div fxFill>
-     <o-table fxFlex attr="customersTable" service="customers" entity="customer" keys="CUSTOMERID" 
-       columns="CUSTOMERID;ID;PHOTO;NAME;SURNAME;STARTDATE;EMAIL"
-       visible-columns="ID;PHOTO;NAME;SURNAME;STARTDATE;EMAIL" query-rows="20">
-       <o-table-column attr="PHOTO" title="PHOTO" orderable="no" searchable="no" type="image" avatar="no" 
-         empty-image="assets/images/no-image.png" image-type="base64"></o-table-column>
-       <o-table-column attr="STARTDATE" title="STARTDATE" type="date" format="LL"></o-table-column>
-       <o-table-column attr="ID" title="ID" width="100px"></o-table-column>
-     </o-table>
-    </div>
-   </o-form-layout-manager>
-
-
-   -->

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { OFormComponent } from 'ontimize-web-ngx';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-users-detail',
@@ -13,9 +15,9 @@ export class UsersDetailComponent implements OnInit {
   
   validatorsArray: ValidatorFn[] = [];
 
-  @ViewChild('form', { static: false }) form: OFormComponent;
+  @ViewChild('userForm', { static: false }) form: OFormComponent;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
 
     this.validatorsArray.push(this.passwordValidator);
 
@@ -72,7 +74,8 @@ export class UsersDetailComponent implements OnInit {
 
   onSave() {
     if (this.userForm.valid) {
-      console.log('Datos válidos, guardando en la base de datos...');
+     
+      this.router.navigate(['/users-home']);
     } else {
       console.log('Datos inválidos, no se puede guardar en la base de datos.');
     }

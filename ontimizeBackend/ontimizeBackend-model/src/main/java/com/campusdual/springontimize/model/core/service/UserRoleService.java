@@ -2,15 +2,12 @@ package com.campusdual.springontimize.model.core.service;
 
 
 import com.campusdual.springontimize.api.core.service.IUserRoleService;
-import com.campusdual.springontimize.api.core.service.IUserService;
-import com.campusdual.springontimize.model.core.dao.UserDao;
+
 import com.campusdual.springontimize.model.core.dao.UserRoleDao;
 import com.ontimize.jee.common.dto.EntityResult;
-import com.ontimize.jee.common.security.PermissionsProviderSecured;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -33,7 +30,7 @@ public class UserRoleService implements IUserRoleService {
 	}
 	@Override
 	public EntityResult myRoleQuery(Map<String , Object> keyMap, List<String> attrList) {
-		attrList.add(userRoleDao.ROLENAME);
+		attrList.add(UserRoleDao.ROLENAME);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		keyMap.put(UserRoleDao.user_,auth.getName());
 		return this.daoHelper.query(userRoleDao, keyMap, attrList, "userRole");

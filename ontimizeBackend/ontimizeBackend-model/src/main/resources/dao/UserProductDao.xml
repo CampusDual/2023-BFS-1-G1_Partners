@@ -23,13 +23,14 @@
                 <Column>user_id</Column>
                 <Column>product_id</Column>
                 <Column>name</Column>
+                <Column>surname</Column>
                 <Column>id</Column>
             </ValidColumns>
 
             <Sentence>
                 <![CDATA[
                           SELECT
-                              #COLUMNS#
+                              #COLUMNS#, concat(u.name, concat(' ', surname)) as complete_name
                           FROM
                               ${mainschema}.product_user pu
                               JOIN  ${mainschema}.products p ON pu.product_id = p.id

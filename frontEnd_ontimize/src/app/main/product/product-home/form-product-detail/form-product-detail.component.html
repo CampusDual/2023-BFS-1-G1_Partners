@@ -1,15 +1,25 @@
-<o-form #form service="products" entity="product" keys="id" header-actions="" show-header-navigation="no"
-  class="form-container" keys-sql-types="INTEGER">
-  <h1>{{'DOCUMENTS' | oTranslate }}</h1>
+<!-- <nav class="breadcrumbs"><h5 class="breadcrumb"><a href="/product-home">Documentos</a></h5></nav> -->
+
+<o-form #form service="products" entity="product" keys="id" header-actions="" show-header="no"
+  class="form-container" keys-sql-types="INTEGER" header-mode="none" editable-detail="no">
+  <div class="titleDiv"><h1 class="titleText">{{'DOCUMENTS' | oTranslate }}</h1></div>
 
   <div class="center">
-    <o-row class="form-row" >
-      <o-text-input class="input-padding" attr="name" fxFlex="100" ></o-text-input>
-    </o-row>
+      <o-text-input class="input-padding" attr="name" fxFlex="100"></o-text-input>
   </div>
 
-  <o-integer-input oHidden attr="id" width="160px" class="form-field"></o-integer-input>
+  <o-integer-input oHidden attr="id" class="form-field"></o-integer-input>
 
+  <o-table #table parent-keys="product_id:id" service="resources" entity="resource" keys="id"
+  header-actions="R;I;U;D" show-buttons-text="false" show-header-navigation="no" keys-sql-types="INTEGER"
+  columns="product_id;id;resource_name;resource_type" visible-columns="resource_name;resource_type" query-on-init="true" quick-filter="true"
+  filter-case-sensitive="false" insert-button="true" export-button="true"
+  columns-visibility-button="true" delete-button="true" refresh-button="true"
+  select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
+  pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" auto-adjust="true" virtual-scroll="no" editable-detail="true">
   
-  
+  <o-table-column attr="resource_name" title="{{'Nombre' | oTranslate }}" width="100px"></o-table-column>
+  <o-table-column attr="resource_type" title="{{'Tipo' | oTranslate }}" width="100px"></o-table-column>
+
+  </o-table>
 </o-form>

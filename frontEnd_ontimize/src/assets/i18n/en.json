@@ -1,10 +1,13 @@
 {
   "ADDRESS": "Address",
-  "APP_TITLE": "Quickstart",
   "ALL PRODUCTS":"ALL PRODUCTS",
   "ALTA PRODUCTO":"Register product",
+  "ALTA_USUARIO":"Register user",
   "Añadir_Partners":"Add partners",
   "Apellido": "Surname",
+  "APP_TITLE": "Quickstart",
+
+
   "COMMENTS": "Comments",
   "Confirmar contraseña": "Confirm password",
   "Contraseña": "Password",
@@ -12,9 +15,15 @@
   "CUSTOMER_PERSONAL_INFORMATION": "Personal Information",
   "CUSTOMERS": "Customers",
   "CUSTOMERTYPEID": "Customer type",
+
+
   "DOCUMENTS":"Documents",
+
+
   "EDITAR":"Edit",
+  "Editar":"Edit",
   "EMAIL": "Email",
+  "email":"Email",
   "ERROR_MIN_LENGTH_REQUIRED": "The value length entered must be at least 8 characters.",
   "ERROR_PASS_REQUIRED": "Incorrect password",
   "ERROR_REQUIRED_FIELD": "Field is required",
@@ -24,13 +33,21 @@
   "Escoja un rol": "Select a rol",
   "Escoge partners":"Choose partners",
   "EXAMPLE_LOGIN_INFO": "Use this user and password for login",
+
+
   "FIRSTLOGIN": "First login",
   "FOOTER_CREATED_BY": "Created by Imatia Innovation",
   "FOOTER_RIGHTS": " All rights reserved",
   "FORGOT_PWD": "Forgot your password?",
   "FULLNAME": "Fullname",
+
+
   "HOME": "Home",
+
+
   "ID": "Id",
+
+
   "La contraseña debe tener al menos 1 número, 6 letras y 1 símbolo" : "Password must have at least 1 number, 6 letters and 1 symbol",
   "LASTPASSWORDUPDATE": "Last password update",
   "LATITUDE": "Latitude",
@@ -38,27 +55,59 @@
   "LOGIN_TITLE": "Log in to your account",
   "LOGOUT": "Logout",
   "LONGITUDE": "Longitude",
+
+
+  "name":"Name",
+  "name_Products":"Name of products",
   "nif": "Id Number",
+  "Nif": "Id Number",
   "NEW": "New",
   "Nombre": "Name",
   "Nombre de usuario": "Username",
+
+
   "PARTNERS ACTUALES":"CURRENT PARTNERS",
   "PARTNERS": "Partners",
+  "Partners": "Partners",
   "PASSWORD": "Password",
+  "password":"Password",
   "PHOTO": "Photo",
   "PHONE": "Phone",
+  "Productos":"Products",
   "PRODUCTOS":"Products",
+
   "PRODUCTS":"Products",
   "PRODUCT_DETAIL":"PRODUCT_DETAIL",
+
+
   "REMEMBER_ME": "Remember me",
   "ROL": "Rol",
+
+
   "STARTDATE": "Start date",
+  "surname":"Surname",
+
+
+  "Tipo":"Type",
+
+
   "USER_": "User",
   "USERS": "Users",
   "USERNAME": "Username",
   "USERBLOCKED": "User Blocked",
+
+
+  "user_ids":"Partners with access",
+  "user_":"User Name",
+
+
   "VERSION": "Version",
-  "VIEW": "Views",
-  "name_Products":"Name of products",
-  "user_ids":"Partners with access"
+  "Ver_documentos": "View documents",
+  "VIEW": "Views"
+
+
+ 
+
+
+
 }
