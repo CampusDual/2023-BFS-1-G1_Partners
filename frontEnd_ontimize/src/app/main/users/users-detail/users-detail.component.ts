@@ -81,14 +81,11 @@ export class UsersDetailComponent implements OnInit {
     }
   }
 
-  public rolesArray = [
-    {
-      id: '1',
-      name: 'Admin'
-    },
-    {
-      id: '2',
-      name: 'Partner'
-    }
-  ];
+  public rolesArray = [{
+    name: 'Admin',
+    id:'1'
+  }, {
+    name: 'Partner',
+    id:'2'
+  }];
 }
