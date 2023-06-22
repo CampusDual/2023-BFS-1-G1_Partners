@@ -19,13 +19,14 @@
   </o-row>
 
   <o-row class="form-row">
-    <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña" show-password-button="yes" [validators]="validatorsArray"></o-password-input>
+    <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña" show-password-button="yes" [validators]="validatorsArray">
+    <o-validator [error-name]="'passwordNotSize'" [error-text]="'La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo'"></o-validator>
+  </o-password-input>
   </o-row>
   
   <o-row class="form-row">
-    <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" label="Confirmar contraseña" show-password-button="yes">
+    <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" label="Confirmar contraseña" show-password-button="yes" [validators]="validatorsArray">
       <o-validator [error-name]="'passwordNotMatched'" [error-text]="'Las contraseñas no coinciden'"></o-validator>
-      <o-validator [error-name]="'passwordNotSize'" [error-text]="'La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo'"></o-validator>
     </o-password-input>
   </o-row>
   
