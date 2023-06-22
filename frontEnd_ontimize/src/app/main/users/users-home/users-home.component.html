@@ -12,8 +12,22 @@
   <o-table-column attr="name"></o-table-column>
   <o-table-column attr="surname"></o-table-column>
   <o-table-column attr="email"></o-table-column>
+  <o-table-column attr="tableProducts" label="Product Name"></o-table-column>
+
 
 </o-table>
 
 </div>
 </o-form-layout-manager>
+
+
+<!-- <o-list #listProducts columns="name" attr="tableProducts" service="products"
+entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
+detail-mode="none" delete-button="no" refresh-button="no">
+
+  <mat-card *ngFor="let row of listProducts.dataArray" [o-list-item]="row" class="custom-card">
+    <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
+  </mat-card>
+
+</o-list> -->
+
