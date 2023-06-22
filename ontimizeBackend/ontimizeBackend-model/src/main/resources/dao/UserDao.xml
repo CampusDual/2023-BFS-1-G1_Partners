@@ -19,7 +19,6 @@
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
-                <Column>nif</Column>
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
@@ -42,7 +41,6 @@
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
-                <Column>nif</Column>
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
@@ -70,7 +68,6 @@
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
-                <Column>nif</Column>
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>

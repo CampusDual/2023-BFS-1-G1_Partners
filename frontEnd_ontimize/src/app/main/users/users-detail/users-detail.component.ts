@@ -80,4 +80,15 @@ export class UsersDetailComponent implements OnInit {
       console.log('Datos inválidos, no se puede guardar en la base de datos.');
     }
   }
+
+  public rolesArray = [
+    {
+      id: '1',
+      name: 'Admin'
+    },
+    {
+      id: '2',
+      name: 'Partner'
+    }
+  ];
 }
