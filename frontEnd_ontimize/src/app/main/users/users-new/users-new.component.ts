@@ -1,7 +1,7 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { OFormComponent } from 'ontimize-web-ngx';
+import { OFormComponent, OListComponent, OTextInputComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-users-new',
@@ -13,6 +13,11 @@ export class UsersNewComponent implements OnInit {
   validatorsArray: ValidatorFn[] = [];
 
   @ViewChild('form', { static: false }) form: OFormComponent;
+  @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
+  @ViewChild('productList', { static: false }) productList: OTextInputComponent;
+  private productSended: string[] = [];
+
+
 
   
   constructor() {
@@ -53,6 +58,39 @@ export class UsersNewComponent implements OnInit {
     }
 
   }
+
+  loadProducts(event){
+
+
+      if (event.oldValue === false ){
+
+         let id = event.target.oattr.toString();
+         this.productSended.push(id);
+         this.productList.setValue(this.productSended.toString());
+
+      }
+      if (event.oldValue === true){
+
+        let id = event.target.oattr.toString();
+        let index = this.productSended.indexOf(id);
+
+          if(index > -1){
+            this.productSended.splice(index,1);
+            this.productList.setValue(this.productSended.toString());
+
+          }
+  }
+      
+    
+
+  }
+
+
+
+
+
+
+
 
   public rolesArray = [{
     name: 'Admin',

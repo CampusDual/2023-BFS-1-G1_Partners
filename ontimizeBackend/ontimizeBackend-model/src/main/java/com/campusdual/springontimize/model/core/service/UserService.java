@@ -3,6 +3,7 @@ package com.campusdual.springontimize.model.core.service;
 
 import java.util.*;
 
+import com.campusdual.springontimize.model.core.dao.ProductDao;
 import com.campusdual.springontimize.model.core.dao.UserProductDao;
 import com.campusdual.springontimize.model.core.dao.UserRoleDao;
 import com.ontimize.jee.common.gui.SearchValue;
@@ -85,7 +86,31 @@ public class UserService implements IUserService {
 			attrToInsert.put(UserRoleDao.id_rolename,attrMap.get("rol"));
 			attrToInsert.put(UserRoleDao.user_,attrMap.get("user_"));
 
-		    return this.daoHelper.insert(userRoleDao,attrToInsert);
+
+		   EntityResult insertRol  = this.daoHelper.insert(userRoleDao,attrToInsert);
+
+			if(!insertRol.isWrong()){
+
+				String products = (String) attrMap.get("productList");
+
+				if (products!=null && !products.trim().isEmpty()){
+
+					String [] productList = products.split(",");
+
+					for (String idProduct: productList){
+
+						Map <String, Object> keys = new HashMap<>();
+						keys.put("product_id",idProduct);
+						keys.put("user_id",attrMap.get("user_"));
+						this.daoHelper.insert(userProductDao,keys);
+
+					}
+				}
+				return insertUserResult;
+
+		   }else{
+			   return insertRol;
+		   }
 
 		}else{
 			return insertUserResult;
