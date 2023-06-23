@@ -31,9 +31,7 @@
       visible-columns="name" required="yes" fxFlex></o-combo>
   </o-row>
 
-</div>
-
-<o-text-input attr="productList" oHidden #productList></o-text-input>
+  <o-text-input attr="productList" oHidden #productList></o-text-input>
 
 <o-list #listProducts columns="name" attr="tableProducts" service="products"
   entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
@@ -44,5 +42,7 @@
     </mat-card>
   
   </o-list>
+
+</div>
 </div>
 </o-form>
