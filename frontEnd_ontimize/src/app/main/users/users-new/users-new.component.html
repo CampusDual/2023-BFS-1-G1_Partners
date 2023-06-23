@@ -26,9 +26,9 @@
   </o-row>
   
   <o-row class="form-row">
-    <o-combo attr="rol" label="Rol" [static-data]="rolesArray"
-      value-column="id" columns="id;name"
-      visible-columns="name" required="yes" fxFlex></o-combo>
+    <o-combo label="Rol" entity="role" service="role"
+      value-column="id_rolename" columns="id_rolename;rolename"
+      visible-columns="rolename" required="yes" fxFlex></o-combo>
   </o-row>
 
   <o-text-input attr="productList" oHidden #productList></o-text-input>

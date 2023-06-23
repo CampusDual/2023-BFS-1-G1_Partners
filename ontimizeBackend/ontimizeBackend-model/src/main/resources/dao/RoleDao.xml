@@ -11,4 +11,19 @@
     <UpdateKeys>
         <Column>id_rolename</Column>
     </UpdateKeys>
+
+    <Queries>
+        <Query id="default">
+            <Sentence>
+                <![CDATA[
+					select
+						#COLUMNS# r.rolename
+					from
+						${mainschema}.trole r
+					#WHERE#
+					#ORDER#
+					]]>
+            </Sentence>
+        </Query>
+    </Queries>
 </JdbcEntitySetup>

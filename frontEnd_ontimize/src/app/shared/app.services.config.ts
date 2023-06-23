@@ -17,5 +17,9 @@ export const SERVICE_CONFIG: Object = {
   'resources': {
     'path': '/resources'
   },
+  'role': {
+    'path': '/role'
+  },
+
 
 };

@@ -92,13 +92,7 @@ export class UsersNewComponent implements OnInit {
 
 
 
-  public rolesArray = [{
-    name: 'Admin',
-    id:'1'
-  }, {
-    name: 'Partner',
-    id:'2'
-  }];
+
 
 
 }
