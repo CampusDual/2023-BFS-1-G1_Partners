@@ -1,8 +1,8 @@
 <o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="formulario" class="form-container">
   <div class="center">
 
-  <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="user" service="users" keys="user_" columns="user_;password;name;surname;email;lastpasswordupdate"
-  visible-columns="user_;name;surname;email" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
+  <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="partner" service="users" keys="user_" columns="user_;name;surname;email;productName"
+  visible-columns="user_;name;surname;email;productName" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
   filter-case-sensitive="false" insert-button="true" export-button="true"
   columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
   select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
@@ -12,7 +12,9 @@
   <o-table-column attr="name"></o-table-column>
   <o-table-column attr="surname"></o-table-column>
   <o-table-column attr="email"></o-table-column>
-  <o-table-column attr="tableProducts" label="Product Name"></o-table-column>
+
+  <o-table-column attr="productName"></o-table-column>
+
 
 
 </o-table>
@@ -21,13 +23,4 @@
 </o-form-layout-manager>
 
 
-<!-- <o-list #listProducts columns="name" attr="tableProducts" service="products"
-entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
-detail-mode="none" delete-button="no" refresh-button="no">
-
-  <mat-card *ngFor="let row of listProducts.dataArray" [o-list-item]="row" class="custom-card">
-    <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
-  </mat-card>
-
-</o-list> -->
 
