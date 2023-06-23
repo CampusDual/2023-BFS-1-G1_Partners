@@ -25,23 +25,23 @@ public class ProductService implements IProductService {
 
 
     @Override
-    public EntityResult productQuery(Map<?, ?> keyMap, List<?> attrList) {
+    public EntityResult productQuery(Map<String, Object> keyMap, List<String> attrList) {
         return daoHelper.query(productDao,keyMap,attrList);
     }
 
 
     @Override
-    public EntityResult productInsert(Map<?, ?> attrMap) {
+    public EntityResult productInsert(Map<String, Object> attrMap) {
         return daoHelper.insert(productDao,attrMap);
     }
 
     @Override
-    public EntityResult productUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+    public EntityResult productUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
         return daoHelper.update(productDao,attrMap,keyMap);
     }
 
     @Override
-    public EntityResult productDelete(Map<?, ?> keyMap) {
+    public EntityResult productDelete(Map<String, Object> keyMap) {
         return daoHelper.delete(productDao,keyMap);
     }
 }

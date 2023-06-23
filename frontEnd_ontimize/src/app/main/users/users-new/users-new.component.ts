@@ -19,12 +19,13 @@ export class UsersNewComponent implements OnInit {
 
 
 
+
+
   
   constructor() {
     this.validatorsArray.push(this.passwordValidator);
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   passwordValidator(control: any): any {
@@ -84,13 +85,6 @@ export class UsersNewComponent implements OnInit {
     
 
   }
-
-
-
-
-
-
-
 
 
 

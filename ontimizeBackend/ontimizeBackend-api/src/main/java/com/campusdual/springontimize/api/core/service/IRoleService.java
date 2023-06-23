@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface IRoleService {
-    public EntityResult roleQuery(Map<?, ?> keyMap, List<?> attrList);
+    public EntityResult roleQuery(Map<String, Object> keyMap, List<String> attrList);
 }

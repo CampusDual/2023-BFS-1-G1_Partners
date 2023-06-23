@@ -13,13 +13,15 @@
         <o-email-input attr="email" fxFlex="100"></o-email-input>
       </o-row>
 
-      <o-row class="form-row">
-        <o-combo attr="rol" label="Rol" [static-data]="rolesArray"
-          value-column="id;" columns="id;name"
-          visible-columns="name" required="yes" fxFlex></o-combo>
-      </o-row>
+      <!-- <o-row class="form-row">
+        <o-combo attr="rol" label="Rol" entity="role" service="role"
+          value-column="id_rolename" columns="id_rolename;rolename"
+          visible-columns="rolename" required="yes" fxFlex>
+        </o-combo>
+      </o-row> -->
+      
 
-      <o-list #listProducts columns="name" attr="tableProducts" service="products"
+      <!-- <o-list #listProducts columns="name" attr="tableProducts" service="products"
       entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
       detail-mode="none" delete-button="no" refresh-button="no">
       
@@ -27,7 +29,7 @@
         <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
       </mat-card>
       
-    </o-list>
+    </o-list> -->
     
     </div>
   </div>

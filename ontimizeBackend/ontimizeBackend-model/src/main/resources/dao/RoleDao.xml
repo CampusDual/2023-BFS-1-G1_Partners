@@ -17,7 +17,7 @@
             <Sentence>
                 <![CDATA[
 					select
-						#COLUMNS# r.rolename
+						#COLUMNS#
 					from
 						${mainschema}.trole r
 					#WHERE#

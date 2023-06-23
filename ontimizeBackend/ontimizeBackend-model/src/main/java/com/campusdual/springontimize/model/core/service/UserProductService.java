@@ -32,14 +32,14 @@ public class UserProductService implements IUserProductService {
 
 
     @Override
-    public EntityResult userProductQuery(Map<Object, String> keyMap, List<?> attrList) {
+    public EntityResult userProductQuery(Map<Object, String> keyMap, List<String> attrList) {
 
         keyMap.put("user_id",getUser());
         return this.daoHelper.query(userProductDao, keyMap, attrList);
     }
 
     @Override
-    public EntityResult productsByUserQuery(Map<Object, String> keyMap, List<?> attrList) {
+    public EntityResult productsByUserQuery(Map<Object, String> keyMap, List<String> attrList) {
 
         keyMap.put("user_id",getUser());
         return this.daoHelper.query(userProductDao, keyMap, attrList,"productsByUser");
@@ -47,7 +47,7 @@ public class UserProductService implements IUserProductService {
 
 
     @Override
-    public EntityResult userAllProductsQuery(Map<Object, String> keyMap, List<?> attrList) {
+    public EntityResult userAllProductsQuery(Map<Object, String> keyMap, List<String> attrList) {
 
         return this.daoHelper.query(userProductDao, keyMap, attrList);
     }
@@ -56,27 +56,27 @@ public class UserProductService implements IUserProductService {
 
 
     @Override
-    public EntityResult userProductInsert(Map<?, ?> attrMap) {
+    public EntityResult userProductInsert(Map<String, Object> attrMap) {
         return this.daoHelper.insert(userProductDao, attrMap);
     }
 
     @Override
-    public EntityResult userProductUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+    public EntityResult userProductUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
         return this.daoHelper.update(userProductDao, attrMap, keyMap);
     }
 
     @Override
-    public EntityResult userAllProductsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+    public EntityResult userAllProductsUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
         return this.daoHelper.update(userProductDao, attrMap, keyMap);
     }
 
     @Override
-    public EntityResult userProductDelete(Map<?, ?> keyMap) {
+    public EntityResult userProductDelete(Map<String, Object> keyMap) {
         return this.daoHelper.delete(this.userProductDao, keyMap);
     }
 
     @Override
-    public EntityResult userAllProductsDelete(Map<?, ?> keyMap) {
+    public EntityResult userAllProductsDelete(Map<String, Object> keyMap) {
         return this.daoHelper.delete(this.userProductDao, keyMap);
     }
 }

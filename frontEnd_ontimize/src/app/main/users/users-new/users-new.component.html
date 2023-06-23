@@ -26,9 +26,10 @@
   </o-row>
   
   <o-row class="form-row">
-    <o-combo label="Rol" entity="role" service="role"
+    <o-combo attr="rol" label="Rol" entity="role" service="role"
       value-column="id_rolename" columns="id_rolename;rolename"
-      visible-columns="rolename" required="yes" fxFlex></o-combo>
+      visible-columns="rolename" required="yes" fxFlex>
+    </o-combo>
   </o-row>
 
   <o-text-input attr="productList" oHidden #productList></o-text-input>
@@ -41,7 +42,7 @@
       <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
     </mat-card>
   
-  </o-list>
+</o-list>
 
 </div>
 </div>
