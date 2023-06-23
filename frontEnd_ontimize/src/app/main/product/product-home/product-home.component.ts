@@ -53,6 +53,5 @@ export class ProductHomeComponent implements OnInit {
   onAction1(id: number) {
     this.router.navigate(['/main/product-home/form-product-detail/'+id]);
   }
-  
 
 }

@@ -31,12 +31,11 @@
       visible-columns="name" required="yes" fxFlex></o-combo>
   </o-row>
 
+</div>
 
+<o-text-input attr="productList" oHidden #productList></o-text-input>
 
-  <o-text-input attr="productList" oHidden #productList></o-text-input>
-
-
-  <o-list #listProducts columns="name" attr="tableProducts" service="products"
+<o-list #listProducts columns="name" attr="tableProducts" service="products"
   entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
   detail-mode="none" delete-button="no" refresh-button="no">
   
@@ -44,9 +43,6 @@
       <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
     </mat-card>
   
-</o-list>
-
-  
-</div>
+  </o-list>
 </div>
 </o-form>
