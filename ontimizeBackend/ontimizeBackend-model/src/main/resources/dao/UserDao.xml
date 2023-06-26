@@ -93,8 +93,8 @@
                         ${mainschema}.tuser u
                         JOIN ${mainschema}.tuser_role ur ON u.user_ = ur.user_
                         JOIN ${mainschema}.trole r ON ur.id_rolename = r.id_rolename AND r.rolename = 'partner'
-                         JOIN product_user pu ON pu.user_id = u.user_
-                         JOIN products p ON pu.product_id = p.id
+                        LEFT JOIN product_user pu ON pu.user_id = u.user_
+                        LEFT JOIN products p ON pu.product_id = p.id
                     #WHERE#
                     GROUP BY u.user_,u.name,u.surname,u.email
 
