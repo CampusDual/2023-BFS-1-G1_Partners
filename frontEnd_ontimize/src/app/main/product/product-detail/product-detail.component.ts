@@ -17,7 +17,6 @@ export class ProductDetailComponent implements OnInit {
    productForm: FormGroup;
    @ViewChild('form', { static: false }) form: OFormComponent;
    @ViewChild('partnersTable', {static: false }) public partnersTable: OTableComponent;
-
    constructor(private formBuilder: FormBuilder, protected dialog: MatDialog) {
     
    }
@@ -27,6 +26,7 @@ export class ProductDetailComponent implements OnInit {
     
 
   }
+
   buildForm() {
   
     this.productForm = this.formBuilder.group({
