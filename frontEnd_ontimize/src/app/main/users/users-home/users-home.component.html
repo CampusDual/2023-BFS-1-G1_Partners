@@ -18,6 +18,18 @@
 </o-table>
 
 </div>
+<o-table #table fxFlex resizable="yes" attr="tableAdmin" entity="admin" service="users" keys="user_" columns="user_;name;surname;email"
+visible-columns="user_;name;surname;email" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
+filter-case-sensitive="false" insert-button="true" export-button="true"
+columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
+select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
+pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
+
+<o-table-column attr="user_" ></o-table-column>
+<o-table-column attr="name"></o-table-column>
+<o-table-column attr="surname"></o-table-column>
+<o-table-column attr="email"></o-table-column>
+</o-table>
 </o-form-layout-manager>
 
 
