@@ -1,28 +1,26 @@
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { OFormComponent, OListComponent, OTextInputComponent } from 'ontimize-web-ngx';
 
 @Component({
-  selector: 'app-users-new',
-  templateUrl: './users-new.component.html',
-  styleUrls: ['./users-new.component.css']
+  selector: 'app-partner-new',
+  templateUrl: './partner-new.component.html',
+  styleUrls: ['./partner-new.component.css']
 })
-export class UsersNewComponent implements OnInit {
-
+export class PartnerNewComponent implements OnInit {
   validatorsArray: ValidatorFn[] = [];
 
   @ViewChild('form', { static: false }) form: OFormComponent;
   @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
   @ViewChild('productList', { static: false }) productList: OTextInputComponent;
   private productSended: string[] = [];
-  
+
   constructor() {
     this.validatorsArray.push(this.passwordValidator);
-  }
+   }
+
   ngOnInit(): void {
   }
-
   passwordValidator(control: any): any {
     try {
       const password = control.parent ? control.parent.controls['password'].value : null;

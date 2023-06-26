@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormProductDetailComponent } from './main/product/product-home/form-product-detail/form-product-detail.component';
 
-
 export const routes: Routes = [
   { path: 'main', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
