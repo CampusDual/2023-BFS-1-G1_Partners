@@ -51,6 +51,13 @@ public class UserService implements IUserService {
 		return this.daoHelper.query(userDao, keyMap, attrList, "partners");
 	}
 
+
+	public EntityResult adminQuery(Map<String, Object> keyMap, List<String> attrList) {
+
+		return this.daoHelper.query(userDao, keyMap, attrList, "admins");
+	}
+
+
 	@Override
 	public EntityResult partnerAvailableQuery(Map<String, Object> keyMap, List<String> attrList) {
 		List<String> users = null;
