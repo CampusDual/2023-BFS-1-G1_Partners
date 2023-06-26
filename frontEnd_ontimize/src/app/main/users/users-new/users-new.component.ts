@@ -16,11 +16,6 @@ export class UsersNewComponent implements OnInit {
   @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
   @ViewChild('productList', { static: false }) productList: OTextInputComponent;
   private productSended: string[] = [];
-
-
-
-
-
   
   constructor() {
     this.validatorsArray.push(this.passwordValidator);
@@ -62,7 +57,6 @@ export class UsersNewComponent implements OnInit {
 
   loadProducts(event){
 
-
       if (event.oldValue === false ){
 
          let id = event.target.oattr.toString();
@@ -80,19 +74,12 @@ export class UsersNewComponent implements OnInit {
             this.productList.setValue(this.productSended.toString());
 
           }
-  }
-      
-    
-
+      }
   }
 
-
-
+  selectedRol: string;
+  onRolChange(selectedValue: any) {
+    this.selectedRol = selectedValue.newValue;
+  }
 
 }
-
-
-
-
-
-

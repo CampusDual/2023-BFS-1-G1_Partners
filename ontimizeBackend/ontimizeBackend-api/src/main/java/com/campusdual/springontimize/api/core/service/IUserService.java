@@ -17,6 +17,9 @@ public interface IUserService {
 
 	public EntityResult userDelete(Map<String,Object> keyMap);
 
+	public EntityResult partnerDelete(Map<String,Object> keyMap);
+
+
 	public EntityResult partnerQuery(Map<String, Object> keyMap, List<String> attrList);
 
 	public EntityResult adminQuery(Map<String, Object> keyMap, List<String> attrList);

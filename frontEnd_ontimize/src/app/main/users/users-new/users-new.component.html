@@ -28,16 +28,18 @@
   <o-row class="form-row">
     <o-combo attr="rol" label="Rol" entity="role" service="role"
       value-column="id_rolename" columns="id_rolename;rolename"
-      visible-columns="rolename" required="yes" fxFlex>
+      visible-columns="rolename" required="yes" fxFlex
+      (onValueChange)="onRolChange($event)">
     </o-combo>
+
   </o-row>
 
   <o-text-input attr="productList" oHidden #productList></o-text-input>
 
-<o-list #listProducts columns="name" attr="tableProducts" service="products"
+  <o-list *ngIf="selectedRol === 2" #listProducts columns="name" attr="tableProducts" service="products"
   entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
   detail-mode="none" delete-button="no" refresh-button="no">
-  
+
     <mat-card *ngFor="let row of listProducts.dataArray" [o-list-item]="row" class="custom-card">
       <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
     </mat-card>
