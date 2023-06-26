@@ -1,6 +1,6 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OntimizeService } from 'ontimize-web-ngx';
+import { OTableComponent, OntimizeService } from 'ontimize-web-ngx';
 import { OFileManagerModule } from 'ontimize-web-ngx-filemanager';
 
 @Component({
@@ -13,6 +13,9 @@ export class ProductHomeComponent implements OnInit {
   public isAdmin: boolean;
   private myRoleService: OntimizeService;
   public selectedProduct: any;
+
+  @ViewChild('table', {static: false }) public tableProducts: OTableComponent;
+
 
   constructor(
     private router: Router,
@@ -39,6 +42,11 @@ export class ProductHomeComponent implements OnInit {
       },
       error => console.error(error)
     );
+  }
+
+
+  refreshTable(event){
+    this.tableProducts.refresh();
   }
 
   navigate() {
