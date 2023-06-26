@@ -168,6 +168,10 @@ public class UserService implements IUserService {
 		return this.daoHelper.delete(this.userDao, keyMap);
 	}
 
+	public EntityResult adminDelete(Map<String, Object> keyMap) {
+		return this.daoHelper.delete(this.userDao, keyMap);
+	}
+
 
 	public EntityResult partnerDelete(Map<String, Object> keyMap) {
 		return this.daoHelper.delete(this.userDao, keyMap);
