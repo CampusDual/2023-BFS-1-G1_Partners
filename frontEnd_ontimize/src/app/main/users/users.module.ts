@@ -6,13 +6,17 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersHomeComponent } from './users-home/users-home.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { UsersNewComponent } from './users-new/users-new.component';
+import { PartnersComponent } from './partners/partners.component';
+import { AdminsComponent } from './admins/admins.component';
 
 
 @NgModule({
   declarations: [
     UsersHomeComponent, 
     UsersDetailComponent,
-    UsersNewComponent
+    UsersNewComponent,
+    PartnersComponent,
+    AdminsComponent
   ],
   imports: [
     CommonModule,
