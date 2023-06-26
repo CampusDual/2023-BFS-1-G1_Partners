@@ -1,7 +1,7 @@
 <o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="formulario" class="form-container">
   <div class="center">
 
-  <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="partner" service="users" keys="user_" columns="user_;name;surname;email;productName"
+  <o-table #table title="{{'Partners'}}" fxFlex resizable="yes" attr="tableUsers" entity="partner" service="users" keys="user_" columns="user_;name;surname;email;productName"
   visible-columns="user_;name;surname;email;productName" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
   filter-case-sensitive="false" insert-button="true" export-button="true"
   columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
@@ -14,22 +14,25 @@
   <o-table-column attr="email"></o-table-column>
 
   <o-table-column attr="productName"></o-table-column>
-
-</o-table>
+  <o-table-paginator page-size-options="10;15"></o-table-paginator>
+  </o-table>
 
 </div>
-<o-table #table fxFlex resizable="yes" attr="tableAdmin" entity="admin" service="users" keys="user_" columns="user_;name;surname;email"
-visible-columns="user_;name;surname;email" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
-filter-case-sensitive="false" insert-button="true" export-button="true"
-columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
-select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
-pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
 
-<o-table-column attr="user_" ></o-table-column>
-<o-table-column attr="name"></o-table-column>
-<o-table-column attr="surname"></o-table-column>
-<o-table-column attr="email"></o-table-column>
-</o-table>
+  <o-table #table title="{{'Administradores'}}" fxFlex resizable="yes" attr="tableAdmin" entity="admin" service="users" keys="user_" columns="user_;name;surname;email"
+  visible-columns="user_;name;surname;email" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
+  filter-case-sensitive="false" insert-button="true" export-button="true"
+  columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
+  select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
+  pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
+
+  <o-table-column attr="user_" ></o-table-column>
+  <o-table-column attr="name"></o-table-column>
+  <o-table-column attr="surname"></o-table-column>
+  <o-table-column attr="email"></o-table-column>
+  <o-table-paginator page-size-options="10;15"></o-table-paginator>
+  </o-table>
+
 </o-form-layout-manager>
 
 
