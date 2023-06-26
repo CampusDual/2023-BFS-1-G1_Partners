@@ -16,3 +16,4 @@ import { OFileManagerModule } from 'ontimize-web-ngx-filemanager';
   ]
 })
 export class SharedModule { }
+
