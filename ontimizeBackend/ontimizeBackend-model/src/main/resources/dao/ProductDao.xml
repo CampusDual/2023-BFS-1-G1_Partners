@@ -35,6 +35,18 @@
             </Sentence>
         </Query>
 
+        <Query id="productList">
+            <ValidColumns>
+                <Column>name</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT name
+                    FROM ${mainschema}.products
+                ]]>
+            </Sentence>
+        </Query>
+
 
     </Queries>
 

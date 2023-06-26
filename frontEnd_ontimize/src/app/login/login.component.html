@@ -1,9 +1,9 @@
 <div class="full-page">
   <div class="full">
-    
     <div class="wrapp-login">
-      <div fxLayoutAlign="center center">
+      <div>
         <img src="assets/images/logo_login.png" class="imgLogin">
+        <h2 class="titleLogin">Portal de <span class="highlight">Partners</span></h2>
       </div>
       <div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container">
         <form class="login" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -25,10 +25,9 @@
           </div>
 
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-            <mat-checkbox class="text">{{ 'REMEMBER_ME' | oTranslate }}</mat-checkbox>
+            <mat-checkbox class="text">{{ 'REMEMBER_ME' | oTranslate }}</mat-checkbox>  <button mat-raised-button color="primary" type="submit" class="m-top-24">{{ 'LOGIN' | oTranslate }}</button>
           </div>
-   
-          <button mat-raised-button color="primary" type="submit" class="m-top-24">{{ 'LOGIN' | oTranslate }}</button>
+
         </form>
       </div>
     </div>

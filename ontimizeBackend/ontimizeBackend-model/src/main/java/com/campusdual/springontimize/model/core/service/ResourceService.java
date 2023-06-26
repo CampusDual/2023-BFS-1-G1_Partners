@@ -30,12 +30,12 @@ public class ResourceService implements IResourceService {
 	private DefaultOntimizeDaoHelper daoHelper;
 
 	@Override
-	public EntityResult resourceQuery(Map<?, ?> keyMap, List<?> attrList) {
+	public EntityResult resourceQuery(Map<String, Object> keyMap, List<String> attrList) {
 		return this.daoHelper.query(resourceDao, keyMap, attrList);
 	}
 
 	@Override
-	public EntityResult resourceInsert(Map<?, ?> attrMap) {
+	public EntityResult resourceInsert(Map<String, Object> attrMap) {
 
 		EntityResult insertResourceResult = this.daoHelper.insert(resourceDao, attrMap);
 
@@ -54,11 +54,11 @@ public class ResourceService implements IResourceService {
 
 
 	@Override
-	public EntityResult resourceUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+	public EntityResult resourceUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
 		return this.daoHelper.update(resourceDao, attrMap, keyMap);	}
 
 	@Override
-	public EntityResult resourceDelete(Map<?, ?> keyMap) {
+	public EntityResult resourceDelete(Map<String, Object> keyMap) {
 		return this.daoHelper.delete(this.resourceDao, keyMap);
 	}
 }

@@ -9,14 +9,14 @@ import java.util.Map;
 
 public interface IUserProductService {
 
-    public EntityResult userProductQuery(Map<Object, String> keyMap, List<?> attrList);
-    public EntityResult productsByUserQuery(Map<Object, String> keyMap, List<?> attrList);
-    public EntityResult userAllProductsQuery(Map<Object, String> keyMap, List<?> attrList);
-    public EntityResult userProductInsert(Map<?, ?> attrMap);
-    public EntityResult userProductUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
-    EntityResult userAllProductsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
+    public EntityResult userProductQuery(Map<Object, String> keyMap, List<String> attrList);
+    public EntityResult productsByUserQuery(Map<Object, String> keyMap, List<String> attrList);
+    public EntityResult userAllProductsQuery(Map<Object, String> keyMap, List<String> attrList);
+    public EntityResult userProductInsert(Map<String, Object>attrMap);
+    public EntityResult userProductUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
+    EntityResult userAllProductsUpdate(Map<String, Object>attrMap, Map<String, Object>keyMap);
 
-    public EntityResult userAllProductsDelete(Map<?, ?> keyMap);
-    public EntityResult userProductDelete(Map<?, ?> keyMap);
+    public EntityResult userAllProductsDelete(Map<String, Object> keyMap);
+    public EntityResult userProductDelete(Map<String, Object> keyMap);
 
 }

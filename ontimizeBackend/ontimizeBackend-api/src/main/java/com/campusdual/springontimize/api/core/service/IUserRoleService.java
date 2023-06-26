@@ -9,10 +9,10 @@ import java.util.Map;
 
 public interface IUserRoleService {
 
-	public EntityResult userroleQuery(Map<?, ?> keyMap, List<?> attrList);
+	public EntityResult userroleQuery(Map<String, Object> keyMap, List<String> attrList);
 	public EntityResult myRoleQuery(Map<String, Object> keyMap, List<String> attrList);
-	public EntityResult userroleInsert(Map<?, ?> attrMap);
-	public EntityResult userroleUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
-	public EntityResult userroleDelete(Map<?, ?> keyMap);
+	public EntityResult userroleInsert(Map<String, Object> attrMap);
+	public EntityResult userroleUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
+	public EntityResult userroleDelete(Map<String, Object> keyMap);
 
 }

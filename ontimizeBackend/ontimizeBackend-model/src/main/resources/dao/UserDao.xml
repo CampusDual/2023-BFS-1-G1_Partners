@@ -13,13 +13,17 @@
     </UpdateKeys>
     <Queries>
         <Query id="default">
+
+            <AmbiguousColumns>
+                <AmbiguousColumn name="user_" prefix="u" />
+            </AmbiguousColumns>
+
             <ValidColumns>
                 <Column>user_</Column>
                 <Column>password</Column>
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
-                <Column>nif</Column>
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
@@ -27,9 +31,10 @@
             <Sentence>
                 <![CDATA[
                     SELECT
-                        #COLUMNS#
+                        #COLUMNS#, ur.id_rolename rol
                     FROM
-                        ${mainschema}.tuser
+                        ${mainschema}.tuser u
+                        JOIN ${mainschema}.tuser_role ur ON u.user_ = ur.user_
                     #WHERE#
                 ]]>
             </Sentence>
@@ -42,7 +47,6 @@
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
-                <Column>nif</Column>
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
@@ -58,10 +62,15 @@
             </Sentence>
         </Query>
 
+
+
+
         <Query id="partners">
 
             <AmbiguousColumns>
                 <AmbiguousColumn name="user_" prefix="u" />
+                <AmbiguousColumn name="name" prefix="u" />
+
             </AmbiguousColumns>
             <ValidColumns>
 
@@ -70,24 +79,63 @@
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
-                <Column>nif</Column>
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
+
 
             </ValidColumns>
             <Sentence>
                 <![CDATA[
                     SELECT
-                        #COLUMNS#
+                        u.user_,u.name,u.surname,u.email, STRING_AGG(p.name::text, ', ') AS productName
                     FROM
                         ${mainschema}.tuser u
                         JOIN ${mainschema}.tuser_role ur ON u.user_ = ur.user_
                         JOIN ${mainschema}.trole r ON ur.id_rolename = r.id_rolename AND r.rolename = 'partner'
-
+                        LEFT JOIN product_user pu ON pu.user_id = u.user_
+                        LEFT JOIN products p ON pu.product_id = p.id
                     #WHERE#
+                    GROUP BY u.user_,u.name,u.surname,u.email
+
                 ]]>
             </Sentence>
         </Query>
+
+
+        <Query id="admins">
+
+            <AmbiguousColumns>
+                <AmbiguousColumn name="user_" prefix="u" />
+                <AmbiguousColumn name="name" prefix="u" />
+
+            </AmbiguousColumns>
+            <ValidColumns>
+
+                <Column>user_</Column>
+                <Column>password</Column>
+                <Column>name</Column>
+                <Column>surname</Column>
+                <Column>email</Column>
+                <Column>userblocked</Column>
+                <Column>lastpasswordupdate</Column>
+                <Column>firstlogin</Column>
+
+
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        u.user_,u.name,u.surname,u.email
+                    FROM
+                        ${mainschema}.tuser u
+                        JOIN ${mainschema}.tuser_role ur ON u.user_ = ur.user_
+                        JOIN ${mainschema}.trole r ON ur.id_rolename = r.id_rolename AND r.rolename = 'admin'
+                ]]>
+            </Sentence>
+        </Query>
+
+
+
     </Queries>
 </JdbcEntitySetup>

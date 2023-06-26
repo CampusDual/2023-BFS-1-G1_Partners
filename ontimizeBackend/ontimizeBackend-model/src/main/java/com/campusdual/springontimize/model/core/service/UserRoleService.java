@@ -25,7 +25,7 @@ public class UserRoleService implements IUserRoleService {
 	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
 	@Override
-	public EntityResult userroleQuery(Map<?, ?> keyMap, List<?> attrList) {
+	public EntityResult userroleQuery(Map<String, Object> keyMap, List<String> attrList) {
 		return this.daoHelper.query(userRoleDao, keyMap, attrList);
 	}
 	@Override
@@ -37,17 +37,17 @@ public class UserRoleService implements IUserRoleService {
 	}
 
 	@Override
-	public EntityResult userroleInsert(Map<?, ?> attrMap) {
+	public EntityResult userroleInsert(Map<String, Object> attrMap) {
 		return this.daoHelper.insert(userRoleDao, attrMap);
 	}
 
 	@Override
-	public EntityResult userroleUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+	public EntityResult userroleUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
 		return this.daoHelper.update(userRoleDao, attrMap, keyMap);
 	}
 
 	@Override
-	public EntityResult userroleDelete(Map<?, ?> keyMap) {
+	public EntityResult userroleDelete(Map<String, Object>keyMap) {
 		return this.daoHelper.delete(this.userRoleDao, keyMap);
 	}
 }

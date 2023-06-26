@@ -4,15 +4,12 @@
   entity="productsByUser" keys="product_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
   detail-mode="none" delete-button="no" refresh-button="no">
  
-  <mat-card *ngFor="let row of listPartner.dataArray" [o-list-item]="row" class="custom-card">
+  <mat-card *ngFor="let row of listPartner.dataArray" [o-list-item]="row" class="custom-card" (click)="onAction1(row.product_id)" class="showMore">
     <mat-card-header>
       <div mat-card-avatar>
         <img src="assets/images/archive.png" fxFill />
       </div>
       <mat-card-title>{{ row.name }}</mat-card-title>
-        <div class="showMore-container">
-          <button (click)="onAction1(row.product_id)" class="showMore">{{'Ver_documentos' | oTranslate }}</button>
-        </div>
     </mat-card-header>
  
   </mat-card>
@@ -32,5 +29,6 @@
       <o-table-column attr="user_ids" title="Partners"></o-table-column>
    
     </o-table>
+    
   </div>
 </o-form-layout-manager>

@@ -22,7 +22,7 @@ public class PermissionsService implements IPermissionsService {
 
 
     @Override
-    public EntityResult permissionQuery(Map<?, ?> keyMap, List<?> attrList)
+    public EntityResult permissionQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         ObjectMapper mapper = new ObjectMapper();
         String permissionJson = null;

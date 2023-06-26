@@ -3,8 +3,10 @@ package com.campusdual.springontimize.model.core.service;
 
 import java.util.*;
 
+import com.campusdual.springontimize.model.core.dao.ProductDao;
 import com.campusdual.springontimize.model.core.dao.UserProductDao;
 import com.campusdual.springontimize.model.core.dao.UserRoleDao;
+import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.common.gui.SearchValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -38,16 +40,23 @@ public class UserService implements IUserService {
 
 	//Sample to permission
 	//@Secured({ PermissionsProviderSecured.SECURED })
-	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) {
+	public EntityResult userQuery(Map<String, Object> keyMap, List<String> attrList) {
 		return this.daoHelper.query(userDao, keyMap, attrList);
 	}
 
 
 
-	public EntityResult partnerQuery(Map<?, ?> keyMap, List<?> attrList) {
+	public EntityResult partnerQuery(Map<String, Object> keyMap, List<String> attrList) {
 
 		return this.daoHelper.query(userDao, keyMap, attrList, "partners");
 	}
+
+
+	public EntityResult adminQuery(Map<String, Object> keyMap, List<String> attrList) {
+
+		return this.daoHelper.query(userDao, keyMap, attrList, "admins");
+	}
+
 
 	@Override
 	public EntityResult partnerAvailableQuery(Map<String, Object> keyMap, List<String> attrList) {
@@ -76,7 +85,7 @@ public class UserService implements IUserService {
 
 
 
-	public EntityResult userInsert(Map<?, ?> attrMap) {
+	public EntityResult userInsert(Map<String, Object> attrMap) {
 
 		EntityResult insertUserResult = this.daoHelper.insert(userDao, attrMap);
 
@@ -85,18 +94,86 @@ public class UserService implements IUserService {
 			attrToInsert.put(UserRoleDao.id_rolename,attrMap.get("rol"));
 			attrToInsert.put(UserRoleDao.user_,attrMap.get("user_"));
 
-		    return this.daoHelper.insert(userRoleDao,attrToInsert);
+
+		   EntityResult insertRol  = this.daoHelper.insert(userRoleDao,attrToInsert);
+
+			if(!insertRol.isWrong()){
+
+				String products = (String) attrMap.get("productList");
+
+				if (products!=null && !products.trim().isEmpty()){
+
+					String [] productList = products.split(",");
+
+					for (String idProduct: productList){
+
+						Map <String, Object> keys = new HashMap<>();
+						keys.put("product_id",idProduct);
+						keys.put("user_id",attrMap.get("user_"));
+						this.daoHelper.insert(userProductDao,keys);
+
+					}
+				}
+				return insertUserResult;
+
+		   }else{
+			   return insertRol;
+		   }
 
 		}else{
 			return insertUserResult;
 		}
 	}
 
-	public EntityResult userUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
-		return this.daoHelper.update(userDao, attrMap, keyMap);
+	public EntityResult userUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+
+		boolean haveRol = attrMap.get("rol") != null;
+
+		EntityResult updateRol= new EntityResultMapImpl();
+
+		if(haveRol && attrMap.size() > 1){
+			 updateRol= this.daoHelper.update(userDao, attrMap, keyMap);
+		}
+
+
+		if(!updateRol.isWrong() && attrMap.get("rol") != null) {
+
+			List<String> attrRol = Arrays.asList("id_user_role");
+			Map<String ,Object> keyRol = new HashMap<>();
+			keyRol.put("user_",keyMap.get("user_"));
+			EntityResult rolQuery = this.daoHelper.query(userRoleDao,keyRol,attrRol);
+
+
+			if(rolQuery.isWrong()){
+
+				return rolQuery;
+			}
+			Integer id_user_role =(Integer) rolQuery.getRecordValues(0).get("id_user_role") ;
+
+			Map<String,Object> updateAttrMap = new HashMap<>();
+			updateAttrMap.put("id_rolename",attrMap.get("rol"));
+			Map<String,Object> updateKeyMap = new HashMap<>();
+			updateKeyMap.put("id_user_role",id_user_role);
+
+			return this.daoHelper.update(userRoleDao,updateAttrMap,updateKeyMap);
+		}
+
+		return updateRol;
 	}
 
-	public EntityResult userDelete(Map<?, ?> keyMap) {
+
+
+
+	public EntityResult userDelete(Map<String, Object> keyMap) {
+		return this.daoHelper.delete(this.userDao, keyMap);
+	}
+
+	public EntityResult adminDelete(Map<String, Object> keyMap) {
+		return this.daoHelper.delete(this.userDao, keyMap);
+	}
+
+
+	public EntityResult partnerDelete(Map<String, Object> keyMap) {
 		return this.daoHelper.delete(this.userDao, keyMap);
 	}
 

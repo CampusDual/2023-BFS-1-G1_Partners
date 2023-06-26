@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { OFormComponent } from 'ontimize-web-ngx';
+import { OFormComponent, OListComponent, OTextInputComponent } from 'ontimize-web-ngx';
 import { Router } from '@angular/router';
 
 
@@ -16,6 +16,9 @@ export class UsersDetailComponent implements OnInit {
   validatorsArray: ValidatorFn[] = [];
 
   @ViewChild('userForm', { static: false }) form: OFormComponent;
+  @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
+  @ViewChild('productList', { static: false }) productList: OTextInputComponent;
+  private productSended: string[] = [];
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
 
@@ -72,6 +75,37 @@ export class UsersDetailComponent implements OnInit {
     }
   }
 
+
+  loadProducts(event){
+
+
+    if (event.oldValue === false ){
+
+       let id = event.target.oattr.toString();
+       this.productSended.push(id);
+       this.productList.setValue(this.productSended.toString());
+
+    }
+    if (event.oldValue === true){
+
+      let id = event.target.oattr.toString();
+      let index = this.productSended.indexOf(id);
+
+        if(index > -1){
+          this.productSended.splice(index,1);
+          this.productList.setValue(this.productSended.toString());
+
+        }
+}
+    
+  
+
+}
+
+
+
+
+
   onSave() {
     if (this.userForm.valid) {
      
@@ -80,4 +114,14 @@ export class UsersDetailComponent implements OnInit {
       console.log('Datos inválidos, no se puede guardar en la base de datos.');
     }
   }
+
+
+
+
+
+
+
+
+
+
 }
