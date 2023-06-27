@@ -5,20 +5,18 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-users-detail',
-  templateUrl: './users-detail.component.html',
-  styleUrls: ['./users-detail.component.css']
+  selector: 'app-admin-detail',
+  templateUrl: './admin-detail.component.html',
+  styleUrls: ['./admin-detail.component.css']
 })
-export class UsersDetailComponent implements OnInit {
+export class AdminDetailComponent implements OnInit {
 
-  userForm: FormGroup;
+  adminForm: FormGroup;
   
   validatorsArray: ValidatorFn[] = [];
 
-  @ViewChild('userForm', { static: false }) form: OFormComponent;
-  @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
-  @ViewChild('productList', { static: false }) productList: OTextInputComponent;
-  private productSended: string[] = [];
+  @ViewChild('adminForm', { static: false }) form: OFormComponent;
+
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
 
@@ -34,7 +32,7 @@ export class UsersDetailComponent implements OnInit {
   buildForm() {
     const passwordValidatorFn = Validators.pattern(/^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d]).{6,}$/);
   
-    this.userForm = this.formBuilder.group({
+    this.adminForm = this.formBuilder.group({
       user_: ['', Validators.required],
       name: ['', Validators.required],
       surname: ['', Validators.required],
@@ -46,15 +44,15 @@ export class UsersDetailComponent implements OnInit {
   }
 
   watchPasswordChanges() {
-    const passwordControl = this.userForm.get('password');
-    const confirmPasswordControl = this.userForm.get('password-confirm');
+    const passwordControl = this.adminForm.get('password');
+    const confirmPasswordControl = this.adminForm.get('password-confirm');
 
     passwordControl.valueChanges.subscribe(() => {
-      this.userForm.get('password-confirm').updateValueAndValidity();
+      this.adminForm.get('password-confirm').updateValueAndValidity();
     });
 
     confirmPasswordControl.valueChanges.subscribe(() => {
-      this.userForm.get('password').updateValueAndValidity();
+      this.adminForm.get('password').updateValueAndValidity();
     });
   }
 
@@ -76,52 +74,15 @@ export class UsersDetailComponent implements OnInit {
   }
 
 
-  loadProducts(event){
-
-
-    if (event.oldValue === false ){
-
-       let id = event.target.oattr.toString();
-       this.productSended.push(id);
-       this.productList.setValue(this.productSended.toString());
-
-    }
-    if (event.oldValue === true){
-
-      let id = event.target.oattr.toString();
-      let index = this.productSended.indexOf(id);
-
-        if(index > -1){
-          this.productSended.splice(index,1);
-          this.productList.setValue(this.productSended.toString());
-
-        }
-}
-    
-  
-
-}
-
-
-
-
 
   onSave() {
-    if (this.userForm.valid) {
+    if (this.adminForm.valid) {
      
-      this.router.navigate(['/users-home']);
+      this.router.navigate(['/admins']);
     } else {
       console.log('Datos inválidos, no se puede guardar en la base de datos.');
     }
   }
-
-
-
-
-
-
-
-
 
 
 }

@@ -1,25 +1,26 @@
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { OFormComponent, OListComponent, OTextInputComponent } from 'ontimize-web-ngx';
 
 @Component({
-  selector: 'app-users-new',
-  templateUrl: './users-new.component.html',
-  styleUrls: ['./users-new.component.css']
+  selector: 'app-admin-new',
+  templateUrl: './admin-new.component.html',
+  styleUrls: ['./admin-new.component.css']
 })
-export class UsersNewComponent implements OnInit {
+export class AdminNewComponent implements OnInit {
 
   validatorsArray: ValidatorFn[] = [];
 
   @ViewChild('form', { static: false }) form: OFormComponent;
   @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
   @ViewChild('productList', { static: false }) productList: OTextInputComponent;
+  @ViewChild('rolAdmin', { static: false }) rolAdmin: OTextInputComponent;
   private productSended: string[] = [];
   
-  constructor() {
+  constructor() { 
     this.validatorsArray.push(this.passwordValidator);
   }
+
   ngOnInit(): void {
   }
 
@@ -76,10 +77,9 @@ export class UsersNewComponent implements OnInit {
           }
       }
   }
-
-  selectedRol: string;
-  onRolChange(selectedValue: any) {
-    this.selectedRol = selectedValue.newValue;
+  
+  loadRol(event){
+    this.rolAdmin.setValue(1);
   }
 
 }
