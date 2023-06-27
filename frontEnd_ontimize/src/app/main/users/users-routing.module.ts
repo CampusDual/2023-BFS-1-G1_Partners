@@ -17,7 +17,7 @@ const routes: Routes = [{
   component: PartnerNewComponent
 },
 {
-  path: "partners/id",
+  path: "partners/:id",
   component: PartnerDetailComponent
 },
 {
@@ -29,7 +29,7 @@ const routes: Routes = [{
   component: AdminNewComponent
 },
 {
-  path: "admins/detail",
+  path: "admins/:id",
   component: AdminDetailComponent
 },
 
