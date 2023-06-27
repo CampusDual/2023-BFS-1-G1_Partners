@@ -29,6 +29,17 @@ export class PartnerDetailComponent implements OnInit {
   ngOnInit() {
     this.buildForm();
     this.watchPasswordChanges();
+    this.loadPartnerData(); 
+  }
+
+  loadPartnerData() {
+   
+    const partnerData = {
+      name: 'Nombre del socio actual',
+      surname: 'Apellido del socio actual'
+    };
+
+    this.userForm.patchValue(partnerData);
   }
 
   buildForm() {

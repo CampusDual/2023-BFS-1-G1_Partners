@@ -3,7 +3,6 @@ package com.campusdual.springontimize.model.core.service;
 
 import java.util.*;
 
-import com.campusdual.springontimize.model.core.dao.ProductDao;
 import com.campusdual.springontimize.model.core.dao.UserProductDao;
 import com.campusdual.springontimize.model.core.dao.UserRoleDao;
 import com.ontimize.jee.common.dto.EntityResultMapImpl;
@@ -124,6 +123,19 @@ public class UserService implements IUserService {
 			return insertUserResult;
 		}
 	}
+
+	@Override
+	public EntityResult newPartnerInsert(Map<String, Object> attrMap) {
+		 attrMap.put("rol",2);
+		 return this.userInsert(attrMap);
+	}
+
+	@Override
+	public EntityResult newAdminInsert(Map<String, Object> attrMap) {
+		attrMap.put("rol",1);
+		return this.userInsert(attrMap);
+	}
+
 
 	public EntityResult userUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
 

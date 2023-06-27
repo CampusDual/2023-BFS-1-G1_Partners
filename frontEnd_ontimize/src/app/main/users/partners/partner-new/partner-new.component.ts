@@ -8,19 +8,21 @@ import { OFormComponent, OListComponent, OTextInputComponent } from 'ontimize-we
   styleUrls: ['./partner-new.component.css']
 })
 export class PartnerNewComponent implements OnInit {
+
+  
+
   validatorsArray: ValidatorFn[] = [];
 
-  @ViewChild('form', { static: false }) form: OFormComponent;
-  @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
   @ViewChild('productList', { static: false }) productList: OTextInputComponent;
-  @ViewChild('rol', { static: false }) rol: OTextInputComponent;
-  private productSended: string[] = [];
+
+  private productSended: string [] = [];
 
   constructor() {
     this.validatorsArray.push(this.passwordValidator);
    }
 
   ngOnInit(): void {
+
 
   }
   passwordValidator(control: any): any {
@@ -57,28 +59,32 @@ export class PartnerNewComponent implements OnInit {
 
   loadProducts(event){
 
+    if(event.type === 0){
+
+
       if (event.oldValue === false ){
 
-         let id = event.target.oattr.toString();
-         this.productSended.push(id);
-         this.productList.setValue(this.productSended.toString());
-
-      }
-      if (event.oldValue === true){
-
         let id = event.target.oattr.toString();
-        let index = this.productSended.indexOf(id);
+        this.productSended.push(id);
+        this.productList.setValue(this.productSended.toString());
 
-          if(index > -1){
-            this.productSended.splice(index,1);
-            this.productList.setValue(this.productSended.toString());
+     }
+     if (event.oldValue === true){
 
-          }
-      }
+       let id = event.target.oattr.toString();
+       let index = this.productSended.indexOf(id);
+
+         if(index > -1){
+           this.productSended.splice(index,1);
+           this.productList.setValue(this.productSended.toString());
+
+         }
+     }
+
+
+    }
+
   }
 
-  loadRol(event){
-    this.rol.setValue(2);
-  }
 
 }

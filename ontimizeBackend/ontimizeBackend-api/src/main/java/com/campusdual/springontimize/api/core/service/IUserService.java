@@ -13,6 +13,10 @@ public interface IUserService {
 
 	public EntityResult userInsert(Map<String, Object> attrMap);
 
+	public EntityResult newPartnerInsert(Map<String, Object> attrMap);
+
+	public EntityResult newAdminInsert(Map<String, Object> attrMap);
+
 	public EntityResult userUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
 
 	public EntityResult userDelete(Map<String,Object> keyMap);

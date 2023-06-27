@@ -1,5 +1,9 @@
 
+<<<<<<< Updated upstream
 <o-form #form service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-actions-text="no" show-header-navigation="no" (onDataLoaded)="loadRol($event)" class="form-container">
+=======
+<o-form #form service="users" entity="newPartner" keys="user_" header-actions="I" show-header-actions-text="no" show-header-navigation="no" >
+>>>>>>> Stashed changes
     <div class="titleDiv"><h1 class="titleText">{{'Alta Partner' | oTranslate }}</h1></div>
     <div>
     <div class="center">
@@ -11,7 +15,6 @@
   
     <o-row class="form-row">
       <o-text-input class="input-padding" attr="user_" fxFlex="100" required="yes" label="Email" class="space"></o-text-input>
-      <!-- <o-email-input class="input-padding" attr="email" fxFlex="100" required="yes" label="Email"></o-email-input> -->
     </o-row>
   
     <o-row class="form-row">
@@ -26,20 +29,23 @@
       </o-password-input>
     </o-row>
 
-    <o-text-input attr="rol" entity="role" service="role" columns="id_rolename;rolename" value-column="id_rolename" data="2" oHidden #rol></o-text-input>
 
-    <o-text-input attr="productList" oHidden #productList></o-text-input>
+
+
+    <o-text-input attr="productList" oHidden #productList ></o-text-input> 
+
+     <o-list #listProducts columns="name" attr="tableProducts" service="products"
+      entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
+      detail-mode="none" delete-button="no" refresh-button="no">
+        <mat-card *ngFor="let row of listProducts.dataArray" [o-list-item]="row" class="custom-card">
+          <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
+        </mat-card>    
+      </o-list>
   
-    <o-list #listProducts columns="name" attr="tableProducts" service="products"
-    entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
-    detail-mode="none" delete-button="no" refresh-button="no">
-  
-      <mat-card *ngFor="let row of listProducts.dataArray" [o-list-item]="row" class="custom-card">
-        <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
-      </mat-card>
-    
-  </o-list>
-  
+     
+
+
+      
   </div>
   </div>
   </o-form>
