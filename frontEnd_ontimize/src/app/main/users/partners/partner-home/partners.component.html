@@ -1,4 +1,4 @@
-<o-form-layout-manager title="{{'PARTNERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="tabla_partners" class="form-container">
+<o-form label-header="{{'PARTNERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="tabla_partners" class="form-container">
     <div class="center">
   
     <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="partner" service="users" keys="user_" columns="user_;name;surname;email;productName"
@@ -18,4 +18,4 @@
     </o-table>
   
     </div>
-</o-form-layout-manager>
+</o-form>

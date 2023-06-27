@@ -1,4 +1,4 @@
-<o-form-layout-manager title="{{'Administradores' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="tabla_admins" class="form-container">
+<o-form label-header="{{'Administradores' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="tabla_admins" class="form-container">
 <div class="center">
   
 <o-table #table fxFlex resizable="yes" attr="tableAdmin" entity="admin" service="users" keys="user_" columns="user_;name;surname;email"
@@ -16,4 +16,4 @@ pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scro
 </o-table>
 
 </div>
-</o-form-layout-manager>
+</o-form>
