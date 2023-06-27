@@ -11,5 +11,10 @@ public interface IProductService {
     public EntityResult productInsert(Map<String, Object> attrMap);
     public EntityResult productUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
     public EntityResult productDelete(Map<String, Object> keyMap);
+    public EntityResult fileQuery(Map<String, Object> keyMap, List<String> attrList);
+
+    public EntityResult fileInsert(Map<String, Object> attrMap);
+
+    public EntityResult fileContentQuery(Map<String, Object> keyMap, List<String> attrList);
 
 }
