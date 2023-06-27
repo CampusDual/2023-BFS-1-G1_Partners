@@ -7,6 +7,16 @@
     <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes" label="Nombre"></o-text-input>
   </o-row>
 
+  <o-file-input #fileinput attr="FILE" label="UPLOAD_FILE" service="products" entity="upload" max-file-size="100000"
+    multiple="yes" max-num-files="5" split-upload="false"
+    [additional-data]="getFileData()" (onUpload)="onUploadFiles($event)" (onError)="onError($event)" ></o-file-input>
+  <o-table #filetable attr="productsFilesTable" service="products" entity="file" keys="ID" parent-keys="PRODUCT_ID:ID"
+    columns="ID;NAME" visible-columns="NAME;action" controls="no">
+    <o-table-column attr="action" width="64px">
+      <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
+    </o-table-column>
+  </o-table>
+  
   </div>
   </div>
 </o-form>
