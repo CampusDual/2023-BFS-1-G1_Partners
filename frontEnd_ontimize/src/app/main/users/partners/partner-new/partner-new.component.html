@@ -1,4 +1,5 @@
-<o-form #form service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-actions-text="no" show-header-navigation="no">
+
+<o-form #form service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-actions-text="no" show-header-navigation="no" (onDataLoaded)="loadRol($event)">
     <div class="titleDiv"><h1 class="titleText">{{'Alta Partner' | oTranslate }}</h1></div>
     <div class="form-container">
     <div class="center">
@@ -24,8 +25,8 @@
         <o-validator [error-name]="'passwordNotMatched'" [error-text]="'Las contraseñas no coinciden'"></o-validator>
       </o-password-input>
     </o-row>
-    
-    <o-text-input attr="rol" value="2" oHidden #rol></o-text-input>
+
+    <o-text-input attr="rol" entity="role" service="role" columns="id_rolename;rolename" value-column="id_rolename" data="2" oHidden #rol></o-text-input>
 
     <o-text-input attr="productList" oHidden #productList></o-text-input>
   
@@ -43,3 +44,5 @@
   </div>
   </o-form>
   
+
+

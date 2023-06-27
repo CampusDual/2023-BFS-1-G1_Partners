@@ -14,6 +14,7 @@ export class AdminNewComponent implements OnInit {
   @ViewChild('form', { static: false }) form: OFormComponent;
   @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
   @ViewChild('productList', { static: false }) productList: OTextInputComponent;
+  @ViewChild('rolAdmin', { static: false }) rolAdmin: OTextInputComponent;
   private productSended: string[] = [];
   
   constructor() { 
@@ -75,6 +76,10 @@ export class AdminNewComponent implements OnInit {
 
           }
       }
+  }
+  
+  loadRol(event){
+    this.rolAdmin.setValue(1);
   }
 
 }

@@ -13,6 +13,7 @@ export class PartnerNewComponent implements OnInit {
   @ViewChild('form', { static: false }) form: OFormComponent;
   @ViewChild('listProducts', { static: false }) listProducts: OListComponent;
   @ViewChild('productList', { static: false }) productList: OTextInputComponent;
+  @ViewChild('rol', { static: false }) rol: OTextInputComponent;
   private productSended: string[] = [];
 
   constructor() {
@@ -20,6 +21,7 @@ export class PartnerNewComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
   passwordValidator(control: any): any {
     try {
@@ -73,6 +75,10 @@ export class PartnerNewComponent implements OnInit {
 
           }
       }
+  }
+
+  loadRol(event){
+    this.rol.setValue(2);
   }
 
 }
