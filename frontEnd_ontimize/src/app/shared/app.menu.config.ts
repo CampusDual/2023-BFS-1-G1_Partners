@@ -7,14 +7,14 @@ export const MENU_CONFIG: MenuRootItem[] = [
     {
       id: 'partners',
       name: 'Partners',
-      route: '/main/users/partners',
+      route: '/main/users-partner/partners',
       icon: 'people',
       image: 'assets/images/ic_clientes.png'
     },
     {
       id: 'admins',
       name: 'Administradores',
-      route: '/main/users/admins',
+      route: '/main/users-admin/admins',
       icon: 'people',
       image: 'assets/images/ic_clientes.png'
     },]

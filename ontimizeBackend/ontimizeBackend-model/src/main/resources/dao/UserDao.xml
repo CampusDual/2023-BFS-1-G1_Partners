@@ -107,20 +107,14 @@
 
             <AmbiguousColumns>
                 <AmbiguousColumn name="user_" prefix="u" />
-                <AmbiguousColumn name="name" prefix="u" />
 
             </AmbiguousColumns>
             <ValidColumns>
 
                 <Column>user_</Column>
-                <Column>password</Column>
                 <Column>name</Column>
                 <Column>surname</Column>
                 <Column>email</Column>
-                <Column>userblocked</Column>
-                <Column>lastpasswordupdate</Column>
-                <Column>firstlogin</Column>
-
 
             </ValidColumns>
             <Sentence>
