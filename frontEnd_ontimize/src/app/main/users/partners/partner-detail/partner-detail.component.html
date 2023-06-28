@@ -1,28 +1,20 @@
-<o-form #userForm service="users" entity="user" keys="user_" header-actions="U;D" show-header-actions-text="no" show-header-navigation="no" class="form-container">
+<o-form #formAdmin entity="user" service="users" keys="user_" header-actions="U" show-header-navigation="no" keys-sql-types="STRING" class="form-container">
   <div class="titleDiv"><h1 class="titleText">{{'EDITAR' | oTranslate }}</h1></div>
   <div>
   <div class="center">
+  
+    <o-row class="form-row" >
+      <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes"></o-text-input>
+    </o-row>
 
-      <o-row class="form-row">
-        <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes"></o-text-input>
-      </o-row>
+    <o-row class="form-row" >
+      <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes"></o-text-input>
+    </o-row>
 
-      <o-row class="form-row">
-        <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes" class="space"></o-text-input>
-      </o-row>
-      
-    </div>
-  </div>
+
+
+   
+</div>
+</div>
 </o-form>
-
-      <!-- <o-list #listProducts columns="name" attr="tableProducts" service="products"
-      entity="product" keys="id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
-      detail-mode="none" delete-button="no" refresh-button="no">
-      
-      <mat-card *ngFor="let row of listProducts.dataArray" [o-list-item]="row" class="custom-card">
-        <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
-      </mat-card>
-      
-    </o-list> -->
-    
 

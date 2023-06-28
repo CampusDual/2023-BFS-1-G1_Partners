@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminsComponent } from './admin-home/admins.component';
 import { AdminNewComponent } from './admin-new/admin-new.component';
+import { AdminDetailComponent } from './admin-detail/admin-detail.component';
 
-import { AdmindComponent } from './admind/admind.component';
 
 const routes: Routes = [{
 
@@ -17,7 +17,7 @@ const routes: Routes = [{
 },
 {
   path: "admins/:user_",
-  component: AdmindComponent
+  component: AdminDetailComponent
 },
 
 

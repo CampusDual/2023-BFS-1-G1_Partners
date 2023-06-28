@@ -1,29 +1,30 @@
 .center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #211915;
-  border-radius: 10px;
-  background: white;
-  padding: 20px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.form-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #211915;
+    border-radius: 10px;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .form-row {
+      width: 90%;
+  }
+  
+  .titleDiv{
+    text-align: center;
+  }
+  
+  o-list{
     width: 90%;
-}
-
-.titleDiv{
-  text-align: center;
-}
-
-o-list{
-  width: 90%;
-}
-
-.space{
-  margin-right: 20px;
-}
-
+  }
+  
+  .space{
+    margin-right: 20px;
+  }
+  
+  

@@ -14,7 +14,7 @@ const routes: Routes = [{
   component: PartnerNewComponent
 },
 {
-  path: "partners/:id",
+  path: "partners/:user_",
   component: PartnerDetailComponent
 }
 
@@ -25,3 +25,8 @@ const routes: Routes = [{
   exports: [RouterModule]
 })
 export class PartnerRoutingModule { }
+
+
+
+
+
