@@ -25,7 +25,7 @@ export class ProductNewComponent implements OnInit {
   }
 
   getFileData(){
-    return {PRODUCT_ID:this.form.getDataValue('id')}
+    return {id:this.form.getDataValue('id')}
   }
 
   onUploadFiles(event){
@@ -58,10 +58,10 @@ export class ProductNewComponent implements OnInit {
   }
 
   actionClick(event){
-    this.productService.query({id:event.ID}, ['NAME','BASE64'], 'fileContent').subscribe(res => {
+    this.productService.query({id:event.id}, ['name','base64'], 'fileContent').subscribe(res => {
       if (res.data && res.data.length) {
-        let filename = res.data[0].NAME;
-        let base64 = res.data[0].BASE64;
+        let filename = res.data[0].name;
+        let base64 = res.data[0].base64;
         const src = `data:text/csv;base64,${base64}`;
         const link = document.createElement("a");
         link.href = src;
