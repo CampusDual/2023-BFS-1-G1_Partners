@@ -25,7 +25,7 @@ export class ProductNewComponent implements OnInit {
   }
 
   getFileData(){
-    return {PRODUCT_ID:this.form.getDataValue('ID')}
+    return {PRODUCT_ID:this.form.getDataValue('id')}
   }
 
   onUploadFiles(event){
