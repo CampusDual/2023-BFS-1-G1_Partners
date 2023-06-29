@@ -56,11 +56,8 @@ public class UserProductService implements IUserProductService {
 
     @Override
     public EntityResult userAllProductsQuery(Map<Object, String> keyMap, List<String> attrList) {
-
         return this.daoHelper.query(userProductDao, keyMap, attrList);
     }
-
-
 
 
     @Override
@@ -86,5 +83,15 @@ public class UserProductService implements IUserProductService {
     @Override
     public EntityResult userAllProductsDelete(Map<String, Object> keyMap) {
         return this.daoHelper.delete(this.userProductDao, keyMap);
+    }
+
+    @Override
+    public EntityResult productsUserDelete(Map<String, Object> keyMap) {
+        return this.daoHelper.delete(this.userProductDao, keyMap);
+    }
+
+    @Override
+    public EntityResult productsUserInsert(Map<String, Object> attrMap) {
+        return this.daoHelper.insert(userProductDao, attrMap);
     }
 }

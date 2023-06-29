@@ -20,9 +20,9 @@
   </div>
 
 
-  <o-table #listProducts parent-keys="user_id:user_" columns="product_id;name" attr="tableProducts" service="userProduct"
-entity="productsUser" keys="product_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
-detail-mode="none" delete-button="no" refresh-button="no" insert-button="false" visible-columns="product_id;name">
+  <o-table #tableProducts parent-keys="user_id:user_" columns="product_id;user_id;name" attr="tableProducts" service="userProduct"
+entity="productsUser" keys="product_id;user_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
+detail-mode="none" delete-button="yes" refresh-button="no" insert-button="yes" visible-columns="product_id;name">
 
 </o-table>
 

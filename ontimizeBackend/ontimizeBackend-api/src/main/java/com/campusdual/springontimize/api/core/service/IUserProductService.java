@@ -19,5 +19,8 @@ public interface IUserProductService {
 
     public EntityResult userAllProductsDelete(Map<String, Object> keyMap);
     public EntityResult userProductDelete(Map<String, Object> keyMap);
+    public EntityResult productsUserDelete(Map<String, Object> keyMap);
+
+    public EntityResult productsUserInsert(Map<String, Object>attrMap);
 
 }
