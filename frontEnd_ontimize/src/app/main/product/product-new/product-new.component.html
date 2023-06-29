@@ -1,4 +1,5 @@
-<o-form #form service="products" entity="product" keys="id" show-header-actions-text="no" header-actions="R;I;U;D" show-header-navigation="no" keys-sql-types="INTEGER"  class="form-container">
+<o-form #form service="products" entity="product" keys="id" show-header-actions-text="no" header-actions="R;I;U;D"
+ show-header-navigation="no" keys-sql-types="INTEGER"  class="form-container" after-insert-mode="detail" >
   <div class="titleDiv"> <h1 class="titleText">{{'ALTA PRODUCTO' | oTranslate }}</h1> </div>
   <div>
   <div class="center">
@@ -6,7 +7,14 @@
   <o-row class="form-row">
     <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes" label="Nombre"></o-text-input>
   </o-row>
+
+
   
   </div>
   </div>
 </o-form>
+
+
+
+
+

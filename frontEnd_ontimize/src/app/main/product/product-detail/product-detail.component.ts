@@ -19,9 +19,11 @@ export class ProductDetailComponent implements OnInit {
    @ViewChild('partnersTable', {static: false }) public partnersTable: OTableComponent;
    @ViewChild('fileinput',{static:true}) fileInput:OFileInputComponent;
    @ViewChild('filetable',{static:true}) fileTable:OTableComponent;
+
    constructor(private formBuilder: FormBuilder, protected dialog: MatDialog,protected dialogService: DialogService,public injector: Injector) {
     this.productService = this.injector.get(OntimizeService);
    }
+   
   ngOnInit() {
     const conf = this.productService.getDefaultServiceConfiguration('products');
     this.productService.configureService(conf);

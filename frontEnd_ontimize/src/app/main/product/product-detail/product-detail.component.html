@@ -31,11 +31,11 @@
 
 
 
-  <o-file-input #fileinput attr="file" label="UPLOAD_FILE" service="products" entity="upload" max-file-size="100000"
+  <o-file-input #fileinput attr="file" label="{{'SUBIR_DOCUMENTOS' | oTranslate }}" service="products" entity="upload" max-file-size="100000"
   multiple="yes" max-num-files="5" split-upload="false"
   [additional-data]="getFileData()" (onUpload)="onUploadFiles($event)" (onError)="onError($event)" ></o-file-input>
    <o-table #filetable attr="productsFilesTable" service="products" entity="file" keys="id" parent-keys="product_id:id"
-  columns="id;name" visible-columns="name;action" controls="no">
+  columns="id;name" visible-columns="name;action" controls="true" delete-button="true">
   <o-table-column attr="action" width="64px">
     <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
   </o-table-column>
