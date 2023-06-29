@@ -13,7 +13,7 @@
       </o-row>
       <o-table #tableProducts class="userTable" parent-keys="user_id:user_" columns="product_id;user_id;name" attr="tableProducts" service="userProduct"
       entity="productsUser" keys="product_id;user_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
-      detail-mode="none" delete-button="yes" refresh-button="no" insert-button="yes" visible-columns="product_id;name" show-buttons-text="false" select-all-checkbox="true">
+      detail-mode="none" delete-button="yes" refresh-button="no" insert-button="no" visible-columns="name" show-buttons-text="false" select-all-checkbox="true">
       <o-table-column attr="product_id" width="100px" title="ID"></o-table-column>
       </o-table>
 
