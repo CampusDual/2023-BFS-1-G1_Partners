@@ -5,28 +5,19 @@
   </div>
   <div>
     <div class="center">
-
       <o-row class="form-row">
         <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes"></o-text-input>
       </o-row>
-
       <o-row class="form-row">
         <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes"></o-text-input>
       </o-row>
-
-      
-      
     </div>
   </div>
-
 
   <o-table #tableProducts parent-keys="user_id:user_" columns="product_id;user_id;name" attr="tableProducts" service="userProduct"
 entity="productsUser" keys="product_id;user_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
 detail-mode="none" delete-button="yes" refresh-button="no" insert-button="yes" visible-columns="product_id;name">
-
 </o-table>
-
-  
 </o-form>
 
 

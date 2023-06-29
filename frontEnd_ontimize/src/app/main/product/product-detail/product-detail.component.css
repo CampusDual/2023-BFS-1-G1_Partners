@@ -5,13 +5,7 @@ button{
   padding: 10px;
   float: left;
 }
-.tabla-container{
-  width: 50%;
-  padding: 10px;
-}
-.tablas{
-  width: 91.3%;
-}
+
 button:hover{
   color: whitesmoke;
   background-color: #211915;
@@ -38,4 +32,12 @@ button:hover{
 
 .titleDiv{
   text-align: center;
+}
+
+.space{
+  margin-right: 10px;
+}
+
+.fileTable{
+  width: 91.3%;
 }
