@@ -3,9 +3,15 @@ button{
   border: 1px solid #211915;
   background: white;
   padding: 10px;
-  width: 100%;
+  float: left;
 }
-
+.tabla-container{
+  width: 50%;
+  padding: 10px;
+}
+.tablas{
+  width: 91.3%;
+}
 button:hover{
   color: whitesmoke;
   background-color: #211915;
