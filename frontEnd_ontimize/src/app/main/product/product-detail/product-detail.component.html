@@ -1,19 +1,25 @@
-
-
 <o-form #formproducts service="products" entity="product" keys="id" header-actions="" show-header-navigation="no" keys-sql-types="INTEGER" class="form-container">
   <div class="titleDiv"><h1 class="titleText">{{'EDITAR' | oTranslate }}</h1></div>
   <div>
   <div class="center">
 
-
     <o-row class="form-row" >
-      <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes"></o-text-input>
+      <o-text-input class="input-padding space" attr="name" fxFlex="50" required="yes"></o-text-input>
+      <o-file-input #fileinput attr="file" fxFlex="50" label="{{'SUBIR_DOCUMENTOS' | oTranslate }}" service="products" entity="upload" max-file-size="100000"
+      multiple="yes" max-num-files="5" split-upload="false"
+      [additional-data]="getFileData()" (onUpload)="onUploadFiles($event)" (onError)="onError($event)" ></o-file-input>
     </o-row>
 
-  <o-integer-input oHidden attr="id" class="form-field"></o-integer-input>
+     <o-table #filetable attr="productsFilesTable" class="fileTable" service="products" entity="file" keys="id" parent-keys="product_id:id"
+    columns="id;name" visible-columns="name;action" controls="true" delete-button="true" insert-button="false" refresh-button="false" show-buttons-text="false" select-all-checkbox="true">
+    <o-table-column attr="action" width="64px">
+      <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
+    </o-table-column>
+    </o-table>
 
-  <button class="newParter" attr="alert"  label="Añadir Partners" (click)="addPartner()">{{'Añadir_Partners' | oTranslate }}</button>
-  
+  <!-- <o-integer-input oHidden attr="id" class="form-field"></o-integer-input>
+  <div class="tabla-container">
+    <button class="newParter" attr="alert"  label="Añadir Partners" (click)="addPartner()">{{'Añadir_Partners' | oTranslate }}</button>
   <o-table #partnersTable parent-keys="id" service="userProduct" entity="userAllProducts" keys="product_id;user_id"
         class="form-container" keys-sql-types="INTEGER;VARCHAR"
         columns="product_id;user_id;complete_name" visible-columns="complete_name" refresh-button="false" insert-button="false" delete-button="true" query-on-init="true" quick-filter="true"
@@ -21,26 +27,10 @@
         columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
         select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
         pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
-
     <o-table-column attr="complete_name" title="PARTNERS ACTUALES" width="100px">
-
-  </o-table-column>
-
-  </o-table>
-
-
-
-
-  <o-file-input #fileinput attr="file" label="{{'SUBIR_DOCUMENTOS' | oTranslate }}" service="products" entity="upload" max-file-size="100000"
-  multiple="yes" max-num-files="5" split-upload="false"
-  [additional-data]="getFileData()" (onUpload)="onUploadFiles($event)" (onError)="onError($event)" ></o-file-input>
-   <o-table #filetable attr="productsFilesTable" service="products" entity="file" keys="id" parent-keys="product_id:id"
-  columns="id;name" visible-columns="name;action" controls="true" delete-button="true">
-  <o-table-column attr="action" width="64px">
-    <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
   </o-table-column>
   </o-table>
-
+</div> -->
 
 </div>
 </div>
