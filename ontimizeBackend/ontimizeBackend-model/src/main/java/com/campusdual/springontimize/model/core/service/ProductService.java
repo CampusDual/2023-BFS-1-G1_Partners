@@ -83,4 +83,9 @@ public class ProductService implements IProductService {
     public EntityResult fileInsert(Map<String, Object> attrMap) {
         return daoHelper.insert(productFileDao,attrMap);
     }
+
+    @Override
+    public EntityResult fileDelete(Map<String, Object> keyMap) {
+        return daoHelper.delete(productFileDao,keyMap);
+    }
 }
