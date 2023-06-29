@@ -3,10 +3,10 @@ export const SERVICE_CONFIG: Object = {
     'path': '/users'
   },
   'partners': {
-    'path': '/users/partners'
+    'path': '/users'
   },
   'admins': {
-    'path': '/users/admins'
+    'path': '/users'
   },
   'userrole': {
     'path': '/userrole'
@@ -25,6 +25,9 @@ export const SERVICE_CONFIG: Object = {
   },
   'role': {
     'path': '/role'
+  },
+  'personalDocuments': {
+    'path': '/personal_documents'
   },
 
 };

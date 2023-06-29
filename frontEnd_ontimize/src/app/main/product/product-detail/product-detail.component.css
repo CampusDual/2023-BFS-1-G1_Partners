@@ -3,7 +3,7 @@ button{
   border: 1px solid #211915;
   background: white;
   padding: 10px;
-  width: 100%;
+  float: left;
 }
 
 button:hover{
@@ -22,7 +22,6 @@ button:hover{
   border-radius: 10px;
   background: white;
   padding: 20px;
-  box-shadow: 5px 10px 8px #cccccc;
   text-align: center;
   margin-top: 10px;
 }
@@ -33,4 +32,12 @@ button:hover{
 
 .titleDiv{
   text-align: center;
+}
+
+.space{
+  margin-right: 10px;
+}
+
+.fileTable{
+  width: 91.3%;
 }

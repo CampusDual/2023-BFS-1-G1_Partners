@@ -1,4 +1,4 @@
-<o-form-layout-manager title="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name" class="form-container" (onMainTabSelected)="refreshTable($event)">
+<o-form label-header="{{'PRODUCTOS' | oTranslate }}" separator=" " mode="tab" label-columns="name" class="form-container" (onMainTabSelected)="refreshTable($event)" editable-detail="no" class="form-container">
  
   <o-list *ngIf="!isAdmin" #listPartner columns="name" attr="tableProducts" service="userProduct"
   entity="productsByUser" keys="product_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
@@ -31,4 +31,4 @@
     </o-table>
     
   </div>
-</o-form-layout-manager>
+</o-form>

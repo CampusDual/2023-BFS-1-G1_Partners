@@ -9,8 +9,6 @@ import { AddPartnerRelationComponent } from './product-detail/add-partner-relati
 import { FormProductDetailComponent } from './product-home/form-product-detail/form-product-detail.component';
 
 
-
-
 @NgModule({
   declarations: [
     ProductHomeComponent, 

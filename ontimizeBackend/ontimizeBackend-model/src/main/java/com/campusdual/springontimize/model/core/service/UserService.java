@@ -3,7 +3,6 @@ package com.campusdual.springontimize.model.core.service;
 
 import java.util.*;
 
-import com.campusdual.springontimize.model.core.dao.ProductDao;
 import com.campusdual.springontimize.model.core.dao.UserProductDao;
 import com.campusdual.springontimize.model.core.dao.UserRoleDao;
 import com.ontimize.jee.common.dto.EntityResultMapImpl;
@@ -49,6 +48,11 @@ public class UserService implements IUserService {
 	public EntityResult partnerQuery(Map<String, Object> keyMap, List<String> attrList) {
 
 		return this.daoHelper.query(userDao, keyMap, attrList, "partners");
+	}
+
+	public EntityResult partnerProductQuery(Map<String, Object> keyMap, List<String> attrList) {
+
+		return this.daoHelper.query(userDao, keyMap, attrList, "partnerProduct");
 	}
 
 
@@ -125,40 +129,21 @@ public class UserService implements IUserService {
 		}
 	}
 
+	@Override
+	public EntityResult newPartnerInsert(Map<String, Object> attrMap) {
+		 attrMap.put("rol",2);
+		 return this.userInsert(attrMap);
+	}
+
+	@Override
+	public EntityResult newAdminInsert(Map<String, Object> attrMap) {
+		attrMap.put("rol",1);
+		return this.userInsert(attrMap);
+	}
+
+
 	public EntityResult userUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
-
-		boolean haveRol = attrMap.get("rol") != null;
-
-		EntityResult updateRol= new EntityResultMapImpl();
-
-		if(haveRol && attrMap.size() > 1){
-			 updateRol= this.daoHelper.update(userDao, attrMap, keyMap);
-		}
-
-
-		if(!updateRol.isWrong() && attrMap.get("rol") != null) {
-
-			List<String> attrRol = Arrays.asList("id_user_role");
-			Map<String ,Object> keyRol = new HashMap<>();
-			keyRol.put("user_",keyMap.get("user_"));
-			EntityResult rolQuery = this.daoHelper.query(userRoleDao,keyRol,attrRol);
-
-
-			if(rolQuery.isWrong()){
-
-				return rolQuery;
-			}
-			Integer id_user_role =(Integer) rolQuery.getRecordValues(0).get("id_user_role") ;
-
-			Map<String,Object> updateAttrMap = new HashMap<>();
-			updateAttrMap.put("id_rolename",attrMap.get("rol"));
-			Map<String,Object> updateKeyMap = new HashMap<>();
-			updateKeyMap.put("id_user_role",id_user_role);
-
-			return this.daoHelper.update(userRoleDao,updateAttrMap,updateKeyMap);
-		}
-
-		return updateRol;
+		return this.daoHelper.update(userDao, attrMap, keyMap);
 	}
 
 
