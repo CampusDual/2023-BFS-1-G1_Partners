@@ -3,7 +3,10 @@ package com.campusdual.springontimize.model.core.service;
 import com.campusdual.springontimize.api.core.service.IProductService;
 import com.campusdual.springontimize.model.core.dao.ProductDao;
 import com.campusdual.springontimize.model.core.dao.ProductFileDao;
+import com.campusdual.springontimize.model.core.dao.UserDao;
+import com.campusdual.springontimize.model.core.dao.UserProductDao;
 import com.ontimize.jee.common.dto.EntityResult;
+import com.ontimize.jee.common.gui.SearchValue;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +30,8 @@ public class ProductService implements IProductService {
 
     @Autowired
     private ProductFileDao productFileDao;
+    @Autowired
+    private UserProductDao userProductDao;
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
 
@@ -88,4 +94,31 @@ public class ProductService implements IProductService {
     public EntityResult fileDelete(Map<String, Object> keyMap) {
         return daoHelper.delete(productFileDao,keyMap);
     }
+
+
+    @Override
+    public EntityResult productsAvailableQuery(Map<String, Object> keyMap, List<String> attrList) {
+        List<Integer> products = null;
+        if(keyMap.get(UserProductDao.ATTR_USER_ID)!=null){
+            Map <String, Object> keys = new HashMap<>();
+            List<String> attr = new ArrayList<>();
+            attr.add(UserProductDao.ATTR_PRODUCT_ID);
+            keys.put(UserProductDao.ATTR_USER_ID,keyMap.get(UserProductDao.ATTR_USER_ID));
+            EntityResult productsRelations = this.daoHelper.query(userProductDao,keys,attr);
+            if(productsRelations.isWrong()){
+                return productsRelations;
+            }
+            if(!productsRelations.isEmpty()){
+                products = new ArrayList<>();
+                for(int i =0; i<productsRelations.calculateRecordNumber();i++){
+                    products.add((Integer) productsRelations.getRecordValues(i).get(UserProductDao.ATTR_PRODUCT_ID));
+                }
+            }
+        }
+        if(products!=null){
+            keyMap.put(ProductDao.ATTR_ID,new SearchValue(SearchValue.NOT_IN,products));
+        }
+        return this.daoHelper.query(productDao, keyMap, attrList);
+    }
 }
+

@@ -18,4 +18,6 @@ public interface IProductService {
     public EntityResult fileContentQuery(Map<String, Object> keyMap, List<String> attrList);
 
     EntityResult fileDelete(Map<String, Object> keyMap);
+
+    EntityResult productsAvailableQuery(Map<String, Object> keyMap, List<String> attrList);
 }

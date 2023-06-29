@@ -1,4 +1,4 @@
-<o-form #formAdmin entity="user" service="users" keys="user_" header-actions="U" show-header-navigation="no"
+<o-form #formUser entity="user" service="users" keys="user_" header-actions="U" show-header-navigation="no"
   keys-sql-types="STRING" class="form-container">
   <div class="titleDiv">
     <h1 class="titleText">{{'EDITAR' | oTranslate }}</h1>
@@ -16,10 +16,15 @@
       detail-mode="none" delete-button="yes" refresh-button="no" insert-button="yes" visible-columns="product_id;name" show-buttons-text="false" select-all-checkbox="true">
       <o-table-column attr="product_id" width="100px" title="ID"></o-table-column>
       </o-table>
+
+      
+      <button class="newProduct" attr="alert"  label="Añadir Productos" (click)="addProducts()">{{'Añadir Productos' | oTranslate }}</button>
+
     </div>
   </div>
 
 
+  
 </o-form>
 
 
