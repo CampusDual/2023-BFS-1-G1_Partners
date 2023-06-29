@@ -38,10 +38,18 @@ public class UserProductService implements IUserProductService {
         return this.daoHelper.query(userProductDao, keyMap, attrList);
     }
 
+
+
     @Override
-    public EntityResult productsByUserQuery(Map<Object, String> keyMap, List<String> attrList) {
+    public EntityResult productsByUserQuery(Map<Object, String> keyMap, List<String> attrList) { //CAMBIAR NOMBRE A MY PRODUCTS
 
         keyMap.put("user_id",getUser());
+        return this.daoHelper.query(userProductDao, keyMap, attrList,"productsByUser");
+    }
+
+
+    @Override
+    public EntityResult productsUserQuery(Map<Object, String> keyMap, List<String> attrList) {
         return this.daoHelper.query(userProductDao, keyMap, attrList,"productsByUser");
     }
 

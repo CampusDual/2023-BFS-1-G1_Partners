@@ -130,6 +130,43 @@
         </Query>
 
 
+        <Query id="partners">
+
+            <AmbiguousColumns>
+                <AmbiguousColumn name="user_" prefix="u" />
+                <AmbiguousColumn name="name" prefix="u" />
+
+            </AmbiguousColumns>
+            <ValidColumns>
+
+                <Column>user_</Column>
+                <Column>password</Column>
+                <Column>name</Column>
+                <Column>surname</Column>
+                <Column>email</Column>
+                <Column>userblocked</Column>
+                <Column>lastpasswordupdate</Column>
+                <Column>firstlogin</Column>
+
+
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        u.user_,u.name,u.surname,u.email, STRING_AGG(p.name::text, ', ') AS productName
+                    FROM
+                        ${mainschema}.tuser u
+                        JOIN ${mainschema}.tuser_role ur ON u.user_ = ur.user_
+                        JOIN ${mainschema}.trole r ON ur.id_rolename = r.id_rolename AND r.rolename = 'partner'
+                        LEFT JOIN product_user pu ON pu.user_id = u.user_
+                        LEFT JOIN products p ON pu.product_id = p.id
+                    #WHERE#
+                    GROUP BY u.user_,u.name,u.surname,u.email
+
+                ]]>
+            </Sentence>
+        </Query>
+
 
     </Queries>
 </JdbcEntitySetup>

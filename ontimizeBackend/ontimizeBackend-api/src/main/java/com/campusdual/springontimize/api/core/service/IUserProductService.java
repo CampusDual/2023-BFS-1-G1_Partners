@@ -11,6 +11,7 @@ public interface IUserProductService {
 
     public EntityResult userProductQuery(Map<Object, String> keyMap, List<String> attrList);
     public EntityResult productsByUserQuery(Map<Object, String> keyMap, List<String> attrList);
+    public EntityResult productsUserQuery(Map<Object, String> keyMap, List<String> attrList);
     public EntityResult userAllProductsQuery(Map<Object, String> keyMap, List<String> attrList);
     public EntityResult userProductInsert(Map<String, Object>attrMap);
     public EntityResult userProductUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);

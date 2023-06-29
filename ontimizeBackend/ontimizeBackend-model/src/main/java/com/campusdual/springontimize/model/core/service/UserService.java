@@ -50,6 +50,11 @@ public class UserService implements IUserService {
 		return this.daoHelper.query(userDao, keyMap, attrList, "partners");
 	}
 
+	public EntityResult partnerProductQuery(Map<String, Object> keyMap, List<String> attrList) {
+
+		return this.daoHelper.query(userDao, keyMap, attrList, "partnerProduct");
+	}
+
 
 	public EntityResult adminQuery(Map<String, Object> keyMap, List<String> attrList) {
 
