@@ -19,6 +19,8 @@ export const routes: Routes = [
       // {path: 'form-product-detail',loadChildren:() => import('./product/product.module').then(m=>m.ProductModule) },
       {path: 'users-admin', loadChildren: () => import('./users/admins/admin.module').then(m => m.AdminModule) },
       {path: 'users-partner', loadChildren: () => import('./users/partners/partner.module').then(m => m.PartnerModule) },
+      {path: 'personal-area', loadChildren: () => import('./personal-area/personal-area.module').then(m => m.PersonalAreaModule) },
+
       
       //,data:{oPermission:{permissionId: 'product-home',restrictedPermissionsRedirect:'/main/home'}}}
     ]
