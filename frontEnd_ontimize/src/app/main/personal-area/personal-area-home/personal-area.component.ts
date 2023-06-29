@@ -58,7 +58,8 @@ export class PersonalAreaComponent implements OnInit {
   } 
     
   onAction1(id: number) {
-    this.router.navigate(['/main/personal-area/personal-area-detail/'+id]);
+    this.router.navigate(['/main/personal-area-detail/'+id]);
+
   }
 
 }
