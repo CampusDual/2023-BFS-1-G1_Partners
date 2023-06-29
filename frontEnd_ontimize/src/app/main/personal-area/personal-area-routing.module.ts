@@ -12,7 +12,7 @@ const routes: Routes = [{
 path: 'personal-area-detail/:id',
   component: PersonalAreaDetailComponent
 }
-
+ 
 ];
 
 @NgModule({
