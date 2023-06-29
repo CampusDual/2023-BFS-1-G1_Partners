@@ -19,6 +19,8 @@
 
 
   "DOCUMENTS":"Documents",
+  "DOCUMENTACION": "Documentation",
+
 
 
   "EDITAR":"Edit",
@@ -72,6 +74,7 @@
   "Partners": "Partners",
   "PASSWORD": "Password",
   "password":"Password",
+  "PERSONAL AREA":"Personal area",
   "PHOTO": "Photo",
   "PHONE": "Phone",
   "Productos":"Products",

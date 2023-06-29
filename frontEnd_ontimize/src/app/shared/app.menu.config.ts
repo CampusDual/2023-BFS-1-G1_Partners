@@ -20,5 +20,6 @@ export const MENU_CONFIG: MenuRootItem[] = [
     },]
   },
   { id: 'product-home', name: 'PRODUCTS', icon: 'inventory_2', route: '/main/product-home' },
+  { id: 'personal-area', name: 'PERSONAL AREA', icon: 'person', route: '/main/personal-area' },
   { id: 'logout', name: 'LOGOUT', route: '/login', icon: 'power_settings_new', confirm: 'yes' },
 ];

@@ -16,6 +16,8 @@
 
 
     "DOCUMENTS": "Documentos",
+    "DOCUMENTACION": "Documentacion",
+
 
 
     "EDITAR": "Editar",
@@ -83,6 +85,7 @@
     "Password": "Contraseña",
 
     "password": "Contraseña",
+    "PERSONAL AREA":"Area personal",
     "PHOTO": "Fotografía",
     "photo": "Fotografía",
     "productName":"Lista de productos",
