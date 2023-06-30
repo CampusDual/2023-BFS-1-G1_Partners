@@ -42,3 +42,16 @@ o-list{
   width: 91.3%;
 }
 
+.newProduct{
+  background: white;
+  border: 1px solid #211915;
+  padding: 10px;
+  color: #211915;
+}
+
+.newProduct:hover{
+  background: #211915;
+  color: whitesmoke;
+  transition: 0.5s;
+}
+

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-personal-area-detail',
@@ -11,5 +11,6 @@ export class PersonalAreaDetailComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }

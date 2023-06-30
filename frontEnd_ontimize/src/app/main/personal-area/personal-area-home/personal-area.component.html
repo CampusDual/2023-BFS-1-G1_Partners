@@ -2,12 +2,12 @@
  
     <o-list *ngIf="!isAdmin" #listDocuments columns="name"  service="personalDocuments"
     entity="personalDocument" keys="id" title="{{'DOCUMENTS' | oTranslate }}" detail-button-in-row="false"
-    detail-mode="none" delete-button="no" refresh-button="no">
+    detail-mode="none" delete-button="no" refresh-button="no" class="background">
    
     <mat-card *ngFor="let row of listDocuments.dataArray" [o-list-item]="row" class="custom-card" (click)="onAction1(row.id)" class="showMore">
       <mat-card-header>
         <div mat-card-avatar>
-          <img src="assets/images/documento.jpg" fxFill />
+          <img src="assets/images/documento.png" fxFill class="icon"/>
         </div>
         <mat-card-title>{{ row.name }}</mat-card-title>
       </mat-card-header>
