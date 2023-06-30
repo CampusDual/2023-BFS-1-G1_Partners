@@ -11,7 +11,7 @@
 
 
      <o-table #filetable attr="productsFilesTable" class="fileTable" service="products" entity="file" keys="id" parent-keys="product_id:id"
-    columns="id;name" visible-columns="name;action" controls="true" delete-button="true" insert-button="false" refresh-button="false" show-buttons-text="false" select-all-checkbox="true">
+    columns="id;name" visible-columns="name;action" controls="true" delete-button="false" insert-button="false" refresh-button="false" show-buttons-text="false" select-all-checkbox="true">
     <o-table-column attr="action" width="64px">
       <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
     </o-table-column>
