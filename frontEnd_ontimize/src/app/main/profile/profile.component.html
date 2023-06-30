@@ -1,0 +1,24 @@
+
+  <o-form #formUser entity="user" service="users" keys="user_" header-actions="U" show-header-navigation="no"
+  keys-sql-types="STRING" class="form-container">
+  <div class="titleDiv">
+    <h1 class="titleText">{{'EDITAR_PERFIL' | oTranslate }}</h1>
+  </div>
+
+  <div>
+    <div class="center">
+
+        <o-image src="./assets/images/user_profile.png"></o-image>
+
+        <o-row class="form-row">
+          <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes"></o-text-input>
+        </o-row>
+
+        <o-row class="form-row">
+          <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes"></o-text-input>
+        </o-row>
+    </div>
+  </div>
+</o-form>
+
+
