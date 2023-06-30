@@ -17,22 +17,20 @@ import java.util.Map;
 @Service("PersonalDocument")
 public class PersonalDocumentService implements IPersonalDocumentService {
 
-
-
-
     @Autowired
     private PersonalDocumentDao personalDocumentDao;
-
 
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
 
-
-
+    @Override
+    public EntityResult personalDocumentsQuery(Map<String, Object> keyMap, List<String> attrList) {
+        return daoHelper.query(personalDocumentDao,keyMap,attrList);
+    }
 
     @Override
-    public EntityResult personalDocumentQuery(Map<String, Object> keyMap, List<String> attrList) {
-        return daoHelper.query(personalDocumentDao,keyMap,attrList);
+    public EntityResult personalFilesQuery(Map<String, Object> keyMap, List<String> attrList) {
+        return daoHelper.query(personalDocumentDao,keyMap,attrList,"documentfiles");
     }
 
     @Override
