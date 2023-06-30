@@ -1,10 +1,12 @@
 {
   "ADDRESS": "Address",
+  "Administradores":"Administrators",
   "ALL PRODUCTS":"ALL PRODUCTS",
   "ALTA PRODUCTO":"Register product",
   "ALTA_USUARIO":"Register user",
   "Añadir_Partners":"Add partners",
   "Añadir_Documentos": "Add documents",
+  "Añadir Productos": "Add products",
   "Apellido": "Surname",
   "APP_TITLE": "Quickstart",
 
@@ -77,10 +79,12 @@
   "PERSONAL AREA":"Personal area",
   "PHOTO": "Photo",
   "PHONE": "Phone",
+  "Products": "Products",
+  "products": "Products",
+  "PRODUCTS": "Products",
+  "PRODUCTOS": "Products",
+  "productos": "Products",
   "Productos":"Products",
-  "PRODUCTOS":"Products",
-
-  "PRODUCTS":"Products",
   "PRODUCT_DETAIL":"PRODUCT_DETAIL",
   "productName":"Product list",
 

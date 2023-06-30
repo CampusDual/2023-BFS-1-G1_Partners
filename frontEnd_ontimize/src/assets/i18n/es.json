@@ -1,10 +1,12 @@
 {
 
     "ADDRESS": "Dirección",
+    "Administradores":"Administradores",
     "ALTA PRODUCTO": "Alta producto",
     "ALTA_USUARIO":"Alta usuario",
     "Añadir_Partners": "Añadir partners",
     "Añadir_Documentos": "Añadir documentos",
+    "Añadir Productos": "Añadir productos",
     "APP_TITLE": "JEE seed",
 
 
