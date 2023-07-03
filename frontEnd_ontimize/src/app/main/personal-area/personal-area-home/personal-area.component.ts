@@ -9,9 +9,6 @@ import { OntimizeService, OTableComponent } from 'ontimize-web-ngx';
 })
 export class PersonalAreaComponent implements OnInit {
 
-  protected productService: OntimizeService;
-
-
   public isAdmin: boolean;
   private myRoleService: OntimizeService;
   public selectedDocument: any;
@@ -20,19 +17,14 @@ export class PersonalAreaComponent implements OnInit {
 
 
   constructor(
-
     private router: Router,
     private actRoute: ActivatedRoute,
     public injector: Injector
   ) {
     this.myRoleService = this.injector.get(OntimizeService);
-    this.productService = this.injector.get(OntimizeService);
-
   }
 
   ngOnInit() {
-    const conf = this.productService.getDefaultServiceConfiguration('products');
-    this.productService.configureService(conf);
     this.configureUserRoleService();
     this.myRoleService.query({}, ["rolename"], "myRole").subscribe(
       response => {
@@ -69,23 +61,6 @@ export class PersonalAreaComponent implements OnInit {
     this.router.navigate(['/main/personal-area/personal-area-detail/'+id]);
 
 
-  }
-
-
-  actionClick(event){
-    this.productService.query({id:event.id}, ['name','base64'], 'fileContent').subscribe(res => {
-      if (res.data && res.data.length) {
-        let filename = res.data[0].name;
-        let base64 = res.data[0].base64;
-        const src = `data:text/csv;base64,${base64}`;
-        const link = document.createElement("a");
-        link.href = src;
-        link.download = filename;
-        link.click();
-        link.remove();
-      }
-    });
-    
   }
 
 }
