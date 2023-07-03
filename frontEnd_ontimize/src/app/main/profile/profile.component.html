@@ -1,6 +1,6 @@
 
-  <o-form #formUser entity="user" service="users" keys="user_" header-actions="U" show-header-navigation="no"
-  keys-sql-types="STRING" class="form-container">
+  <o-form #formUser entity="myUser" service="users" keys="user_" header-actions="U" show-header-navigation="no"
+  keys-sql-types="STRING" class="form-container" (onUpdate)="onSave($event)">
   <div class="titleDiv">
     <h1 class="titleText">{{'EDITAR_PERFIL' | oTranslate }}</h1>
   </div>

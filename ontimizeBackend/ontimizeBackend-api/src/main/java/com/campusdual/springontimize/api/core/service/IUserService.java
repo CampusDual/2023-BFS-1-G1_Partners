@@ -17,7 +17,9 @@ public interface IUserService {
 
 	public EntityResult newAdminInsert(Map<String, Object> attrMap);
 
-	public EntityResult userUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
+    EntityResult myUserUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
+
+    public EntityResult userUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
 
 	public EntityResult userDelete(Map<String,Object> keyMap);
 
@@ -25,7 +27,9 @@ public interface IUserService {
 
 	public EntityResult adminDelete(Map<String, Object> keyMap);
 
-	public EntityResult partnerQuery(Map<String, Object> keyMap, List<String> attrList);
+    EntityResult myUserQuery(Map<Object, String> keyMap, List<String> attrList);
+
+    public EntityResult partnerQuery(Map<String, Object> keyMap, List<String> attrList);
 
 	public EntityResult partnerProductQuery(Map<String, Object> keyMap, List<String> attrList);
 

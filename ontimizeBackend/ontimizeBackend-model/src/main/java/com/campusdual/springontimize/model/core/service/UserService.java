@@ -5,10 +5,11 @@ import java.util.*;
 
 import com.campusdual.springontimize.model.core.dao.UserProductDao;
 import com.campusdual.springontimize.model.core.dao.UserRoleDao;
-import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.common.gui.SearchValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.campusdual.springontimize.api.core.service.IUserService;
@@ -33,6 +34,11 @@ public class UserService implements IUserService {
 	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
 
+	private String getUser(){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth.getName();
+	}
+
 	public void loginQuery(Map<?, ?> key, List<?> attr) {
 		// TODO document why this method is empty
 	}
@@ -40,6 +46,13 @@ public class UserService implements IUserService {
 	//Sample to permission
 	//@Secured({ PermissionsProviderSecured.SECURED })
 	public EntityResult userQuery(Map<String, Object> keyMap, List<String> attrList) {
+		return this.daoHelper.query(userDao, keyMap, attrList);
+	}
+
+	@Override
+	public EntityResult myUserQuery(Map<Object, String> keyMap, List<String> attrList) {
+
+		keyMap.put("user_",getUser());
 		return this.daoHelper.query(userDao, keyMap, attrList);
 	}
 
@@ -141,12 +154,15 @@ public class UserService implements IUserService {
 		return this.userInsert(attrMap);
 	}
 
+	@Override
+	public EntityResult myUserUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+		keyMap.put("user_",getUser());
+		return this.daoHelper.update(userDao, attrMap, keyMap);
+	}
 
 	public EntityResult userUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
 		return this.daoHelper.update(userDao, attrMap, keyMap);
 	}
-
-
 
 
 	public EntityResult userDelete(Map<String, Object> keyMap) {
