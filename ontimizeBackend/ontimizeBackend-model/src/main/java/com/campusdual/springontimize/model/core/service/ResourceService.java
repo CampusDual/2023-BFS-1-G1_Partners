@@ -31,7 +31,7 @@ public class ResourceService implements IResourceService {
 
 	@Override
 	public EntityResult resourceQuery(Map<String, Object> keyMap, List<String> attrList) {
-		return this.daoHelper.query(resourceDao, keyMap, attrList);
+		return this.daoHelper.query(resourceDao, keyMap, attrList,"documentfiles");
 	}
 
 	@Override
