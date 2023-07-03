@@ -1,12 +1,12 @@
 <o-form label-header="{{'DOCUMENTACION' | oTranslate }}" separator=" " mode="tab" 
 label-columns="name" (onMainTabSelected)="refreshTable($event)" 
-editable-detail="no" class="form-container">
+editable-detail="no" class="form-background">
  
     <o-list *ngIf="!isAdmin" #listDocuments columns="name"  service="personalDocuments"
-    entity="personalDocuments" keys="id" title="{{'DOCUMENTS' | oTranslate }}" detail-button-in-row="false"
+    entity="personalDocuments" keys="id" detail-button-in-row="false"
     detail-mode="none" delete-button="no" refresh-button="no" class="background">
    
-    <mat-card *ngFor="let row of listDocuments.dataArray" [o-list-item]="row" class="custom-card" (click)="onAction1(row.id)" class="showMore">
+    <mat-card *ngFor="let row of listDocuments.dataArray" [o-list-item]="row" (click)="onAction1(row.id)" class="showMore">
       <mat-card-header>
         <div mat-card-avatar>
           <img src="assets/images/documento.png" fxFill class="icon"/>
