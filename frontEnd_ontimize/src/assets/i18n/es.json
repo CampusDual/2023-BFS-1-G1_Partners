@@ -44,6 +44,7 @@
     "error_session_expired": "La sesión ha caducado",
     "error_user_pass_incorrect": "Usuario o contraseña incorrecta",
     "Escoja un rol": "Escoja un rol",
+    "ERROR_PASS":"La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo",
 
 
     "FIRSTLOGIN": "Primer inicio sesión",
