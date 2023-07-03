@@ -168,5 +168,24 @@
         </Query>
 
 
+
+
+
+
+
+        <Query id="userList">
+            <ValidColumns>
+                <Column>name</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT name
+                    FROM ${mainschema}.tuser
+                ]]>
+            </Sentence>
+        </Query>
+
+
+
     </Queries>
 </JdbcEntitySetup>
