@@ -15,7 +15,6 @@ export class PersonalAreaComponent implements OnInit {
 
   @ViewChild('table', {static: false }) public tableDocuments: OTableComponent;
 
-
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,

@@ -1,5 +1,27 @@
-.form-container{
+  .form-container{
+    background: white;
+    border-radius: 10px;
+  }
+
+  .titleText{
+    background: white;
+    color: #211915;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .background{
+  background: white;
+  border-radius: 10px;
+  }
+
+  .margin{
+    margin-right: 5px;
+  }
+
+  .form-background{
     background: #211915;
     border-radius: 10px;
     box-shadow: 5px 10px 8px #cccccc;
+    text-align: center;
   }

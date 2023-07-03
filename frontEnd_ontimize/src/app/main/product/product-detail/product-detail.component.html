@@ -1,4 +1,4 @@
-<o-form #formproducts service="products" entity="product" keys="id" header-actions="" show-header-navigation="no" keys-sql-types="INTEGER" class="form-container">
+<o-form #formproducts service="products" entity="product" keys="id" header-actions="" show-header-navigation="no" keys-sql-types="INTEGER" class="form-background">
   <div class="titleDiv"><h1 class="titleText">{{'EDITAR' | oTranslate }}</h1></div>
   <div>
   <div class="center">
@@ -16,6 +16,7 @@
       <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
     </o-table-column>
     </o-table>
+    
 <!-- 
    <o-integer-input oHidden attr="id" class="form-field"></o-integer-input>
   <div class="tabla-container">

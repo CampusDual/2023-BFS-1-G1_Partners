@@ -12,5 +12,47 @@
         <Column>id</Column>
     </UpdateKeys>
     <GeneratedKey>id</GeneratedKey>
+    <Queries>
+        <Query id="default">
+            <ValidColumns>
+                <Column>id</Column>
+                <Column>name</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        id,name
+                    FROM
+                        ${mainschema}.personal_documents
+                    #WHERE#
+
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="documentfiles">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="name" prefix="df" />
+                <AmbiguousColumn name="name" prefix="pd" />
+            </AmbiguousColumns>
+            <ValidColumns>
+                <Column>id</Column>
+                <Column>name</Column>
+                <Column>document_type</Column>
+                <Column>user_id</Column>
+                <Column>personal_document_id</Column>
+                <Column>type_name</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                    df.id, df.name, df.document_type, df.user_id, df.personal_document_id, pd.name type_name
+                    FROM
+                        ${mainschema}.document_files df
+                        JOIN ${mainschema}.personal_documents pd ON df.personal_document_id = pd.id
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+    </Queries>
 
 </JdbcEntitySetup>
