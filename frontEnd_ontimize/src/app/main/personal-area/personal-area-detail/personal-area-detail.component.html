@@ -1,5 +1,7 @@
-<o-form #form service="personalDocuments" entity="personalDocuments" keys="id" header-actions="" show-header="no"
-  class="form-container" keys-sql-types="INTEGER" header-mode="none" editable-detail="no">
+<o-form #form service="personalDocuments" entity="personalDocuments" keys="id" 
+header-actions="" show-header="no"
+  class="form-container" header-mode="none" 
+  editable-detail="no">
   <div class="titleDiv"><h1 class="titleText">{{ form.getFieldValue('name') }}</h1></div>
 
   <div class="center">
@@ -8,9 +10,9 @@
 
   <o-integer-input oHidden attr="id" class="form-field"></o-integer-input>
 
-  <o-table #table service="personalDocuments" entity="personalFiles" keys="id"
+  <o-table #table parent-keys="personal_document_id:id" service="personalDocuments" entity="myPersonalFiles" keys="id"
   header-actions="R;I;U;D" show-buttons-text="false" show-header-navigation="no" keys-sql-types="INTEGER"
-  columns="id;name;document_type;user_id;personal_document_id" visible-columns="name;document_type" query-on-init="true" quick-filter="true"
+  columns="id;name;document_type;user_id;personal_document_id;type_name" visible-columns="name;document_type" query-on-init="true" quick-filter="true"
   filter-case-sensitive="false" insert-button="true" export-button="true"
   columns-visibility-button="true" delete-button="true" refresh-button="true"
   select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
@@ -22,4 +24,5 @@
 
   
   </o-table>
+
 </o-form>

@@ -8,6 +8,8 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,12 +27,27 @@ public class PersonalDocumentService implements IPersonalDocumentService {
 
     @Override
     public EntityResult personalDocumentsQuery(Map<String, Object> keyMap, List<String> attrList) {
-        return daoHelper.query(personalDocumentDao,keyMap,attrList);
+        EntityResult result = daoHelper.query(personalDocumentDao,keyMap,attrList);
+
+        return result;
     }
 
     @Override
     public EntityResult personalFilesQuery(Map<String, Object> keyMap, List<String> attrList) {
         return daoHelper.query(personalDocumentDao,keyMap,attrList,"documentfiles");
+    }
+
+    @Override
+
+    public EntityResult myPersonalFilesQuery(Map<String, Object> keyMap, List<String> attrList) {
+    keyMap.put("user_id",getUser());
+    return daoHelper.query(personalDocumentDao,keyMap,attrList,"documentfiles");
+    }
+
+
+    private String getUser(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
     }
 
     @Override

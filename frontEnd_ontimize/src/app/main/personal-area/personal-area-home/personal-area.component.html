@@ -1,4 +1,6 @@
-<o-form label-header="{{'DOCUMENTACION' | oTranslate }}" separator=" " mode="tab" label-columns="name" class="form-container" (onMainTabSelected)="refreshTable($event)" editable-detail="no" class="form-container">
+<o-form label-header="{{'DOCUMENTACION' | oTranslate }}" separator=" " mode="tab" 
+label-columns="name" (onMainTabSelected)="refreshTable($event)" 
+editable-detail="no" class="form-container">
  
     <o-list *ngIf="!isAdmin" #listDocuments columns="name"  service="personalDocuments"
     entity="personalDocuments" keys="id" title="{{'DOCUMENTS' | oTranslate }}" detail-button-in-row="false"
