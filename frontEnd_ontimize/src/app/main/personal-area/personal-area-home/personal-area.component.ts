@@ -9,7 +9,6 @@ import { OntimizeService, OTableComponent } from 'ontimize-web-ngx';
 })
 export class PersonalAreaComponent implements OnInit {
 
-
   public isAdmin: boolean;
   private myRoleService: OntimizeService;
   public selectedDocument: any;
@@ -17,7 +16,6 @@ export class PersonalAreaComponent implements OnInit {
   @ViewChild('table', {static: false }) public tableDocuments: OTableComponent;
 
   constructor(
-
     private router: Router,
     private actRoute: ActivatedRoute,
     public injector: Injector
@@ -63,6 +61,5 @@ export class PersonalAreaComponent implements OnInit {
 
 
   }
-
 
 }
