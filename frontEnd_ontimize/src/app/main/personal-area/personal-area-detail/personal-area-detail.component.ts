@@ -16,12 +16,12 @@ export class PersonalAreaDetailComponent implements OnInit {
    }
 
   ngOnInit() {
-    const conf = this.personalDocumentService.getDefaultServiceConfiguration('products');
+    const conf = this.personalDocumentService.getDefaultServiceConfiguration('personalDocuments');
     this.personalDocumentService.configureService(conf);
   }
 
   actionClick(event){
-    this.personalDocumentService.query({id:event.id}, ['name','base64'], 'fileContent').subscribe(res => {
+    this.personalDocumentService.query({id:event.id}, ['name','base64'], 'myPersonalFilesContent').subscribe(res => {
       if (res.data && res.data.length) {
         let filename = res.data[0].name;
         let base64 = res.data[0].base64;
