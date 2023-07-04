@@ -12,7 +12,7 @@ export class MainComponent  {
 
 
   navigateToProfile() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['main/profile/detail']);
   }
  
 }
