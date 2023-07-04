@@ -30,6 +30,7 @@
 
 
   "EDITAR":"Edit",
+  "EDITAR_PERFIL":"Edit profile",
   "Editar":"Edit",
   "EMAIL": "Email",
   "email":"Email",
@@ -42,6 +43,8 @@
   "Escoja un rol": "Select a rol",
   "Escoge partners":"Choose partners",
   "EXAMPLE_LOGIN_INFO": "Use this user and password for login",
+  "ERROR_PASS":"The password must have at least 6 digits, 1 number and a symbol",
+
 
 
   "FIRSTLOGIN": "First login",
@@ -91,6 +94,7 @@
   "Productos":"Products",
   "PRODUCT_DETAIL":"PRODUCT_DETAIL",
   "productName":"Product list",
+  "PROFILE":"Profile",
 
 
 

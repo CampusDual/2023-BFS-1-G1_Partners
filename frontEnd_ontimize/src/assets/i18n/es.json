@@ -27,6 +27,8 @@
 
 
     "EDITAR": "Editar",
+    "EDITAR_PERFIL":"Editar perfil",
+
     "Email": "Correo",
     "email": "Correo electrónico",
     "ERROR_MIN_LENGTH_REQUIRED": "El valor introducido tiene que tener una longitud mínima de 8 caracteres",
@@ -42,6 +44,7 @@
     "error_session_expired": "La sesión ha caducado",
     "error_user_pass_incorrect": "Usuario o contraseña incorrecta",
     "Escoja un rol": "Escoja un rol",
+    "ERROR_PASS":"La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo",
 
 
     "FIRSTLOGIN": "Primer inicio sesión",
@@ -102,6 +105,8 @@
     "productos": "Productos",
     "PRODUCT_DETAIL": "Detalle de producto",
     "product_detail": "Detalle de producto",
+    "PROFILE":"Perfil",
+
 
 
     "REMEMBER_ME": "Recuérdame",

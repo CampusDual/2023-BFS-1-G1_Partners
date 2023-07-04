@@ -1,0 +1,35 @@
+
+  <h1 class="titleText2">{{'EDITAR_PERFIL' | oTranslate }}</h1>
+  <o-form #formUser entity="myUser" service="users" keys="user_" header-actions="U" show-header-navigation="no"
+  keys-sql-types="STRING" class="form-background" (onUpdate)="onSave($event)">
+
+
+    <div class="center">
+
+        <!-- <o-image src="./assets/images/user_profile.png"></o-image> -->
+
+        <o-row class="form-row">
+          <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes"></o-text-input>
+        </o-row>
+
+        <o-row class="form-row">
+          <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes"></o-text-input>
+        </o-row>
+
+
+        <o-row class="form-row">
+          <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña" show-password-button="yes" [validators]="validatorsArray">
+          <o-validator [error-name]="'passwordNotSize'" [error-text]="'ERROR_PASS'"></o-validator>
+        </o-password-input>
+        </o-row>
+        
+        <o-row class="form-row">
+          <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" label="Confirmar contraseña" show-password-button="yes" [validators]="validatorsArray">
+            <o-validator [error-name]="'passwordNotMatched'" [error-text]="'Las contraseñas no coinciden'"></o-validator>
+          </o-password-input>
+        </o-row>
+    
+    </div>
+</o-form>
+
+
