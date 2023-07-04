@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       if(role_id == 0){
         this.router.navigate(['../'], { relativeTo: this.actRoute });
       }else{
-        this.router.navigate(['/main/home-partner']);
+        this.router.navigate(['/main/product-home']);
       }
     } else {
       this.authService.clearSessionData();
@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
         //     err=>console.log(err)
         //   );
 
-          self.router.navigate(['../'], { relativeTo: this.actRoute });
+          self.router.navigate(['/main/product-home'], { relativeTo: this.actRoute });
 
         }, this.handleError);
     }
