@@ -12,22 +12,18 @@ editable-detail="no">
   <o-integer-input oHidden attr="id" class="form-field"></o-integer-input>
 
   <o-table #table parent-keys="personal_document_id:id" service="personalDocuments" entity="myPersonalFiles" keys="id"
-  header-actions="R;I;U;D" show-buttons-text="false" show-header-navigation="no" keys-sql-types="INTEGER"
+  show-buttons-text="false" show-header-navigation="no" keys-sql-types="INTEGER"
   columns="id;name;document_type;user_id;personal_document_id;type_name" visible-columns="name;action" query-on-init="true" quick-filter="true"
-  filter-case-sensitive="false" insert-button="true" export-button="true"
-  columns-visibility-button="true" delete-button="true" refresh-button="true"
+  filter-case-sensitive="false" insert-button="false" export-button="true"
+  columns-visibility-button="true" delete-button="false" refresh-button="false"
   select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
   pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" auto-adjust="true" virtual-scroll="no" editable-detail="true" class="background">
   
   <o-table-column attr="name" title="{{'Nombre' | oTranslate }}" width="100px"></o-table-column>
 
-
   <o-table-column attr="action" width="10px">
     <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
   </o-table-column>
-
-
-
   
   </o-table>
 
