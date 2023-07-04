@@ -1,11 +1,9 @@
 
+  <h1 class="titleText2">{{'EDITAR_PERFIL' | oTranslate }}</h1>
   <o-form #formUser entity="myUser" service="users" keys="user_" header-actions="U" show-header-navigation="no"
-  keys-sql-types="STRING" class="form-container" (onUpdate)="onSave($event)">
-  <div class="titleDiv">
-    <h1 class="titleText">{{'EDITAR_PERFIL' | oTranslate }}</h1>
-  </div>
+  keys-sql-types="STRING" class="form-background" (onUpdate)="onSave($event)">
 
-  <div>
+
     <div class="center">
 
         <!-- <o-image src="./assets/images/user_profile.png"></o-image> -->
@@ -32,7 +30,6 @@
         </o-row>
     
     </div>
-  </div>
 </o-form>
 
 

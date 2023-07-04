@@ -1,3 +1,4 @@
+
 <o-form #form service="personalDocuments" entity="personalDocuments" keys="id" 
 header-actions="" show-header="no" class="form-background" header-mode="none" 
 editable-detail="no">
@@ -12,7 +13,7 @@ editable-detail="no">
 
   <o-table #table parent-keys="personal_document_id:id" service="personalDocuments" entity="myPersonalFiles" keys="id"
   header-actions="R;I;U;D" show-buttons-text="false" show-header-navigation="no" keys-sql-types="INTEGER"
-  columns="id;name;document_type;user_id;personal_document_id;type_name" visible-columns="name" query-on-init="true" quick-filter="true"
+  columns="id;name;document_type;user_id;personal_document_id;type_name" visible-columns="name;action" query-on-init="true" quick-filter="true"
   filter-case-sensitive="false" insert-button="true" export-button="true"
   columns-visibility-button="true" delete-button="true" refresh-button="true"
   select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
