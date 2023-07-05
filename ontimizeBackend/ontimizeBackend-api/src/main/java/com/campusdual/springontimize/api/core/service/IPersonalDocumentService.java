@@ -20,7 +20,7 @@ public interface IPersonalDocumentService {
 
     //public EntityResult fileQuery(Map<String, Object> keyMap, List<String> attrList);
 
-    //public EntityResult fileInsert(Map<String, Object> attrMap);
+    public EntityResult personalFileInsert(Map<String, Object> attrMap);
 
     //public EntityResult fileContentQuery(Map<String, Object> keyMap, List<String> attrList);
 

@@ -97,4 +97,9 @@ public class PersonalDocumentService implements IPersonalDocumentService {
         return fileResult;
     }
 
+    @Override
+    public EntityResult personalFileInsert(Map<String, Object> attrMap) {
+        return daoHelper.insert(personalDocumentFileDao,attrMap);
+    }
+
 }

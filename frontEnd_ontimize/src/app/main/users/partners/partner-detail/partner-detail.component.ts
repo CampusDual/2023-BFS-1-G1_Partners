@@ -30,6 +30,11 @@ export class PartnerDetailComponent implements OnInit {
     this.dialog.open(AddProductRelationComponent,{data:{user_id:user_id, tableProducts:this.tableProducts},disableClose:false});
   }
 
+  addDocuments(){
+    let user_id = this.formUser.getDataValue("user_");
+    this.dialog.open(AddProductRelationComponent,{data:{user_id:user_id, tableProducts:this.tableProducts},disableClose:false});
+  }
+
 
 }
 
