@@ -38,7 +38,7 @@
                     #WHERE#
                 ]]>
             </Sentence>
-        </Query>    
+        </Query>
         <Query id="login">
             <ValidColumns>
 
@@ -147,21 +147,35 @@
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
+                <Column>id_country</Column>
+                <Column>id_language</Column>
+
 
 
             </ValidColumns>
             <Sentence>
                 <![CDATA[
                     SELECT
-                        u.user_,u.name,u.surname,u.email, STRING_AGG(p.name::text, ', ') AS productName
+                        u.user_,
+                        u.name,
+                        u.surname,
+                        u.email,
+                        u.id_country,
+                        u.id_language,
+                        c.country AS country,
+                        l.language AS language,
+                        STRING_AGG(p.name::text, ', ') AS productName
                     FROM
                         ${mainschema}.tuser u
                         JOIN ${mainschema}.tuser_role ur ON u.user_ = ur.user_
                         JOIN ${mainschema}.trole r ON ur.id_rolename = r.id_rolename AND r.rolename = 'partner'
                         LEFT JOIN product_user pu ON pu.user_id = u.user_
                         LEFT JOIN products p ON pu.product_id = p.id
+
+                        LEFT JOIN ${mainschema}.countries c ON u.id_country = c.id_country
+                        LEFT JOIN ${mainschema}.languages l ON u.id_language = l.id_language
                     #WHERE#
-                    GROUP BY u.user_,u.name,u.surname,u.email
+                    GROUP BY u.user_,u.name,u.surname,u.email,c.country,l.language
 
                 ]]>
             </Sentence>
