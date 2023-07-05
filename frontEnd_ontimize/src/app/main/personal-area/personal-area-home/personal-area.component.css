@@ -6,7 +6,6 @@
   .showMore{
     border: 1px solid #211915;
     color: #211915;
-    border: 1px solid #211915;
     background: white;
     cursor: pointer;
   }
@@ -17,12 +16,7 @@
     border: 1px solid #211915;
     transition: 0.5s;
   }
-  
-  .showMore:hover .icon{
-    background: whitesmoke;
-    border-radius: 5px;
-  }
-  
+
   .background{
   background: whitesmoke;
   border-radius: 10px;

@@ -7,7 +7,7 @@
   <mat-card *ngFor="let row of listPartner.dataArray" [o-list-item]="row" class="custom-card" (click)="onAction1(row.product_id)" class="showMore">
     <mat-card-header>
       <div mat-card-avatar>
-        <img src="assets/images/archive.png" fxFill class="icon"/>
+        <mat-icon class="icon">card_travel</mat-icon>
       </div>
       <mat-card-title>{{ row.name }}</mat-card-title>
     </mat-card-header>
@@ -24,7 +24,7 @@
       select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
       pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
 
-      <o-table-column attr="name" title="Productos"></o-table-column>
+      <o-table-column attr="name" title="PRODUCTOS"></o-table-column>
       <o-table-column attr="user_ids" title="Partners"></o-table-column>
    
     </o-table>

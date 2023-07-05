@@ -9,7 +9,7 @@ editable-detail="no" class="form-background">
     <mat-card *ngFor="let row of listDocuments.dataArray" [o-list-item]="row" (click)="onAction1(row.id)" class="showMore">
       <mat-card-header>
         <div mat-card-avatar>
-          <img src="assets/images/documento.png" fxFill class="icon"/>
+          <mat-icon class="icon">description</mat-icon>
         </div>
         <mat-card-title>{{ row.name| oTranslate }}</mat-card-title>
       </mat-card-header>

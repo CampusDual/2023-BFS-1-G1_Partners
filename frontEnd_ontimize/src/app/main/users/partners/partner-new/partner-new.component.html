@@ -1,12 +1,12 @@
-<h1 class="titleText2">{{'Alta Partner' | oTranslate }}</h1>
-<o-form #form service="users" entity="newPartner" keys="user_" header-actions="I" include-breadcrumb="yes" show-header-actions-text="no" show-header-navigation="no" class="form-background">
+<h1 class="titleText2">{{'ALTA_PARTER' | oTranslate }}</h1>
+<o-form #formPartner service="users" entity="newPartner" keys="user_" header-actions="I" include-breadcrumb="yes" show-header-actions-text="no" show-header-navigation="no" class="form-background">
 
     <div>
     <div class="center">
   
     <o-row class="form-row">
       <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes" label="Nombre" class="margin"></o-text-input> 
-      <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes" label="Apellido"></o-text-input>
+      <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes"></o-text-input>
     </o-row>
   
     <o-row class="form-row">
@@ -14,7 +14,7 @@
     </o-row>
   
     <o-row class="form-row">
-      <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña" show-password-button="yes" [validators]="validatorsArray" class="margin">
+      <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" show-password-button="yes" [validators]="validatorsArray" class="margin">
       <o-validator [error-name]="'passwordNotSize'" [error-text]="'La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo'"></o-validator>
     </o-password-input>
     <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" label="Confirmar contraseña" show-password-button="yes" [validators]="validatorsArray">
@@ -31,10 +31,6 @@
           <o-slide-toggle attr="{{row.id}}" (onValueChange)="loadProducts($event)" label="{{row.name}}" [data]="false" read-only="no"></o-slide-toggle> 
         </mat-card>    
       </o-list>
-  
-     
-
-
       
   </div>
   </div>
