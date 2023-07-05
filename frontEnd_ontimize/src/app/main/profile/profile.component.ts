@@ -12,7 +12,7 @@ import { OntimizeService, OFormComponent, DialogService } from 'ontimize-web-ngx
 export class ProfileComponent implements OnInit {
 
   validatorsArray: ValidatorFn[] = [];
-
+  isPasswordModified: boolean = false;
   
   @ViewChild('formUser', { static: false }) formUser: OFormComponent;
 
@@ -21,12 +21,12 @@ export class ProfileComponent implements OnInit {
     
   }
 
-
-
   ngOnInit() {
   }
 
-
+  onPasswordInput() {
+    this.isPasswordModified = true;
+  }
 
   passwordValidator(control: any): any {
     try {
@@ -59,9 +59,9 @@ export class ProfileComponent implements OnInit {
     }
 
   }
+
   onSave(event) {
     this.router.navigate(['/main/product-home/']);
   }
-
 
 }
