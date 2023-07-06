@@ -1,8 +1,8 @@
 <o-form label-header="{{'PARTNERS' | oTranslate }}" separator=" " mode="tab" label-columns="name;surname" attr="tabla_partners" class="form-background" editable-detail="no">
     <div class="center">
   
-    <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="partner" service="users" keys="user_" columns="user_;name;surname;email;productName"
-    visible-columns="user_;name;surname;productName" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
+    <o-table #table fxFlex resizable="yes" attr="tableUsers" entity="partner" service="users" keys="user_" columns="user_;name;surname;email;productName;country;language;company"
+    visible-columns="user_;name;surname;productName;country;language;company" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
     filter-case-sensitive="false" insert-button="true" export-button="true"
     columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
     select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
@@ -11,6 +11,13 @@
     <o-table-column attr="user_" ></o-table-column>
     <o-table-column attr="name"></o-table-column>
     <o-table-column attr="surname"></o-table-column>
+    <o-table-column attr="country"></o-table-column>
+    <o-table-column attr="language"></o-table-column>
+    <o-table-column attr="company"></o-table-column>
+
+    
+
+
   
     <o-table-column attr="productName"></o-table-column>
     <o-table-paginator page-size-options="10;15"></o-table-paginator>

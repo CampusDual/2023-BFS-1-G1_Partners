@@ -11,6 +11,7 @@ export class PartnerNewComponent implements OnInit {
 
   validatorsArray: ValidatorFn[] = [];
 
+  @ViewChild('form', { static: false }) form: OFormComponent;
   @ViewChild('productList', { static: false }) productList: OTextInputComponent;
 
   private productSended: string [] = [];
@@ -82,6 +83,11 @@ export class PartnerNewComponent implements OnInit {
     }
 
   }
+
+  public reviewMatches (event: Event){
+    this.form.formGroup.controls['passwordConfirm'].updateValueAndValidity();
+    this.form.formGroup.get['passwordConfirm'].markAsTouched();
+ }
 
 
 }

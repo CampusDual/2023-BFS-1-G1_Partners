@@ -82,4 +82,11 @@ export class AdminNewComponent implements OnInit {
     this.rolAdmin.setValue(1);
   }
 
+
+
+  public reviewMatches (event: Event){
+    this.form.formGroup.controls['passwordConfirm'].updateValueAndValidity();
+    this.form.formGroup.get['passwordConfirm'].markAsTouched();
+ }
+
 }
