@@ -40,15 +40,14 @@
                 <Column>document_type</Column>
                 <Column>user_id</Column>
                 <Column>personal_document_id</Column>
-                <Column>type_name</Column>
+                <Column>file_path</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
                     SELECT
-                    df.id, df.name, df.document_type, df.user_id, df.personal_document_id, pd.name type_name
+                    *
                     FROM
                         ${mainschema}.document_files df
-                        JOIN ${mainschema}.personal_documents pd ON df.personal_document_id = pd.id
                     #WHERE#
                 ]]>
             </Sentence>

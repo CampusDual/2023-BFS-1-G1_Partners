@@ -16,11 +16,13 @@ public interface IPersonalDocumentService {
     public EntityResult personalDocumentUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
     public EntityResult personalDocumentDelete(Map<String, Object> keyMap);
 
+    EntityResult personalFilesDelete(Map<String, Object> keyMap);
+
     EntityResult myPersonalFilesContentQuery(Map<String, Object> keyMap, List<String> attrList);
 
     //public EntityResult fileQuery(Map<String, Object> keyMap, List<String> attrList);
 
-    //public EntityResult fileInsert(Map<String, Object> attrMap);
+    public EntityResult personalFileInsert(Map<String, Object> attrMap);
 
     //public EntityResult fileContentQuery(Map<String, Object> keyMap, List<String> attrList);
 
