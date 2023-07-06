@@ -1,5 +1,6 @@
 <h1 class="titleText2">{{'Alta Partner' | oTranslate }}</h1>
-<o-form #form service="users" entity="newPartner" keys="user_" header-actions="I" include-breadcrumb="yes" show-header-actions-text="no" show-header-navigation="no" class="form-background">
+<o-form #form service="users" entity="newPartner" keys="user_" header-actions="I" include-breadcrumb="yes" show-header-actions-text="no" 
+confirm-exit="no" show-header-navigation="no" class="form-background">
 
     <div>
     <div class="center">
@@ -14,14 +15,31 @@
     </o-row>
   
     <o-row class="form-row">
-      <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña" show-password-button="yes" [validators]="validatorsArray" class="margin">
+      <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" (onChange) = "reviewMatches($event)" label="Contraseña" show-password-button="yes" [validators]="validatorsArray" class="margin">
       <o-validator [error-name]="'passwordNotSize'" [error-text]="'La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo'"></o-validator>
     </o-password-input>
-    <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" label="Confirmar contraseña" show-password-button="yes" [validators]="validatorsArray">
+    <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" (onChange) = "reviewMatches($event)" label="Confirmar contraseña" show-password-button="yes" [validators]="validatorsArray">
       <o-validator [error-name]="'passwordNotMatched'" [error-text]="'Las contraseñas no coinciden'"></o-validator>
     </o-password-input>
     </o-row>
     
+
+
+
+    <o-row class="form-row">
+          <o-combo attr="id_country" label="Escoge país" service="countries" entity="countries" keys="id"
+            value-column="id" columns="id;country" 
+            visible-columns="country" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
+         </o-combo>
+    </o-row>
+
+
+    
+
+
+    
+
+
     <o-text-input attr="productList" oHidden #productList ></o-text-input> 
 
      <o-list #listProducts columns="name" attr="tableProducts" service="products"

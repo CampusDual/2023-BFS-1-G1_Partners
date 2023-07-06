@@ -172,7 +172,7 @@
                         LEFT JOIN product_user pu ON pu.user_id = u.user_
                         LEFT JOIN products p ON pu.product_id = p.id
 
-                        LEFT JOIN ${mainschema}.countries c ON u.id_country = c.id_country
+                        LEFT JOIN ${mainschema}.countries c ON u.id_country = c.id
                         LEFT JOIN ${mainschema}.languages l ON u.id_language = l.id_language
                     #WHERE#
                     GROUP BY u.user_,u.name,u.surname,u.email,c.country,l.language

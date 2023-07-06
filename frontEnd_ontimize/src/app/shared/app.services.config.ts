@@ -29,5 +29,8 @@ export const SERVICE_CONFIG: Object = {
   'personalDocuments': {
     'path': '/personal_documents'
   },
+  'countries': {
+    'path': '/countries'
+  },
 
 };
