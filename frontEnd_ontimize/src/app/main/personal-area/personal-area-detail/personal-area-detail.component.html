@@ -1,9 +1,9 @@
 
+<h1 class="titleText2">{{ form.getFieldValue('name') | oTranslate }}</h1>
+
 <o-form #form service="personalDocuments" entity="personalDocuments" keys="id" 
 header-actions="" show-header="no" class="form-background" header-mode="none" 
 editable-detail="no">
-
-  <div class="titleDiv"><h1 class="titleText">{{ form.getFieldValue('name') | oTranslate }}</h1></div>
 
   <div class="center">
       <o-text-input oHidden class="input-padding" attr="name" fxFlex="100"></o-text-input>
@@ -24,7 +24,15 @@ editable-detail="no">
   <o-table-column attr="action" width="10px">
     <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
   </o-table-column>
-  
+
+  <o-table-context-menu [context-menu]="contextMenu" insert="no" edit="no" view-detail="no"></o-table-context-menu>
+
+
+<!-- Context menu definition -->
+<o-context-menu #contextMenu>
+  <o-context-menu-item icon="download" label="Descargar" (execute)="onExecute($event)"></o-context-menu-item>
+</o-context-menu>
+
   </o-table>
 
 </o-form>

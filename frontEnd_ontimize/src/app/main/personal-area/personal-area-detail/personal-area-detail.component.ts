@@ -36,5 +36,20 @@ export class PersonalAreaDetailComponent implements OnInit {
     
   }
 
+  onExecute(event: any){
+    this.personalDocumentService.query({id:event.id}, ['name','base64'], 'myPersonalFilesContent').subscribe(res => {
+      if (res.data && res.data.length) {
+        let filename = res.data[0].name;
+        let base64 = res.data[0].base64;
+        const src = `data:text/csv;base64,${base64}`;
+        const link = document.createElement("a");
+        link.href = src;
+        link.download = filename;
+        link.click();
+        link.remove();
+      }
+    });
+  }
+
 
 }

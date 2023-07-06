@@ -1,6 +1,7 @@
+<h1 class="titleText2">{{ form.getFieldValue('name') }}</h1>
+
 <o-form #form service="products" entity="product" keys="id" header-actions="" show-header="no"
   class="form-background" keys-sql-types="INTEGER" header-mode="none" editable-detail="no">
-  <div class="titleDiv"><h1 class="titleText">{{ form.getFieldValue('name') }}</h1></div>
 
   <div class="center">
       <o-text-input oHidden class="input-padding" attr="name" fxFlex="100"></o-text-input>

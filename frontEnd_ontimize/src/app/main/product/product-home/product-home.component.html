@@ -7,7 +7,7 @@
   <mat-card *ngFor="let row of listPartner.dataArray" [o-list-item]="row" class="custom-card" (click)="onAction1(row.product_id)" class="showMore">
     <mat-card-header>
       <div mat-card-avatar>
-        <img src="assets/images/archive.png" fxFill class="icon"/>
+        <mat-icon class="icon">card_travel</mat-icon>
       </div>
       <mat-card-title>{{ row.name }}</mat-card-title>
     </mat-card-header>
@@ -20,11 +20,11 @@
     <o-table *ngIf="isAdmin" #table fxFlex resizable="yes" columns="name;user_ids" attr="tableProducts" service="products"
       entity="product" keys="id" query-on-init="true" quick-filter="true"
       filter-case-sensitive="false" insert-button="true" export-button="true"
-      columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
+      columns-visibility-button="true" delete-button="true" refresh-button="true" class="userTable"
       select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
-      pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
+      pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true" auto-align-titles="yes">
 
-      <o-table-column attr="name" title="Productos"></o-table-column>
+      <o-table-column attr="name" title="PRODUCTOS"></o-table-column>
       <o-table-column attr="user_ids" title="Partners"></o-table-column>
    
     </o-table>
