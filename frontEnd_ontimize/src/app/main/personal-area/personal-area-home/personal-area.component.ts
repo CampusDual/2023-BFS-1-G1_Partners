@@ -11,6 +11,7 @@ export class PersonalAreaComponent implements OnInit {
 
   public isAdmin: boolean;
   private myRoleService: OntimizeService;
+  private personalDocuments: OntimizeService;
   public selectedDocument: any;
 
   @ViewChild('table', {static: false }) public tableDocuments: OTableComponent;
@@ -21,6 +22,7 @@ export class PersonalAreaComponent implements OnInit {
     public injector: Injector
   ) {
     this.myRoleService = this.injector.get(OntimizeService);
+    this.personalDocuments = this.injector.get(OntimizeService);
   }
 
   ngOnInit() {
@@ -42,7 +44,6 @@ export class PersonalAreaComponent implements OnInit {
     );
   }
 
-
   refreshTable(event){
     this.tableDocuments.refresh();
   }
@@ -60,6 +61,23 @@ export class PersonalAreaComponent implements OnInit {
     this.router.navigate(['/main/personal-area/personal-area-detail/'+id]);
 
 
+  }
+  actionClick(event){
+    const confDocuments = this.personalDocuments.getDefaultServiceConfiguration('personalDocuments');
+    this.personalDocuments.configureService(confDocuments);
+    this.personalDocuments.query({id:event.id}, ['name','base64'], 'myPersonalFilesContent').subscribe(res => {
+      if (res.data && res.data.length) {
+        let filename = res.data[0].name;
+        let base64 = res.data[0].base64;
+        const src = `data:text/csv;base64,${base64}`;
+        const link = document.createElement("a");
+        link.href = src;
+        link.download = filename;
+        link.click();
+        link.remove();
+      }
+    });
+    
   }
 
 }
