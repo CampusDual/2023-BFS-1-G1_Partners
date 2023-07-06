@@ -75,6 +75,11 @@ public class PersonalDocumentService implements IPersonalDocumentService {
     }
 
     @Override
+    public EntityResult personalFilesDelete(Map<String, Object> keyMap) {
+        return daoHelper.delete(personalDocumentDao,keyMap);
+    }
+
+    @Override
     public EntityResult myPersonalFilesContentQuery(Map<String, Object> keyMap, List<String> attrList) {
         attrList.add(PersonalDocumentFileDao.ATTR_PATH);
         attrList.remove(PersonalDocumentFileDao.ATTR_BASE64);

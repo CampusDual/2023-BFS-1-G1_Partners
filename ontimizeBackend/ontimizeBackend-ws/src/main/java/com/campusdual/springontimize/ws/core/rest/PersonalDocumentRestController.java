@@ -60,19 +60,16 @@ public class PersonalDocumentRestController extends ORestController<IPersonalDoc
 				throw new RuntimeException(e);
 			}
 		}
-		Integer personal_document_id = null;
 		String user_id = null;
 		EntityResult result = new EntityResultMapImpl();
 		if(extraData.get(PersonalDocumentFileDao.ATTR_USER_ID) instanceof Map){
 			//get the user associated
-			Map mPersonalDocumentId = (Map) extraData.get(PersonalDocumentFileDao.ATTR_PERSONAL_DOCUMENT_ID);
-			personal_document_id = (Integer) mPersonalDocumentId.get("value");
 			//get the type associated
 			Map mUserId = (Map) extraData.get(PersonalDocumentFileDao.ATTR_USER_ID);
-			user_id = (String) mPersonalDocumentId.get("value");
+			user_id = (String) mUserId.get("value");
 
 			//the directory is related to the product
-			String directory = path+user_id+personal_document_id;
+			String directory = path+user_id;
 			try {
 				//create the directory if not exists
 				Files.createDirectories(Paths.get(directory));
@@ -93,7 +90,6 @@ public class PersonalDocumentRestController extends ORestController<IPersonalDoc
 						//write the file in the disk
 						file.transferTo(newFile);
 						Map<String,Object> attrMap = new HashMap();
-						attrMap.put(PersonalDocumentFileDao.ATTR_PERSONAL_DOCUMENT_ID,personal_document_id);
 						attrMap.put(PersonalDocumentFileDao.ATTR_USER_ID,user_id);
 						attrMap.put(PersonalDocumentFileDao.ATTR_NAME,file.getOriginalFilename());
 						attrMap.put(PersonalDocumentFileDao.ATTR_PATH,filePath);

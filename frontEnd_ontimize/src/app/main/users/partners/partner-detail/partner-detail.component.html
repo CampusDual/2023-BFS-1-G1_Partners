@@ -15,13 +15,14 @@
       </o-table>
       
       
-      <button class="newProduct" attr="alert"  label="Añadir Documentos" (click)="addDocuments()">{{'Añadir Documentos' | oTranslate }}</button>
+      <o-file-input #fileinput attr="file" fxFlex="50" label="{{'SUBIR_DOCUMENTOS' | oTranslate }}" service="personalDocuments" entity="upload" max-file-size="100000"
+      multiple="yes" max-num-files="5" split-upload="false" key="user_"
+      [additional-data]="getFileData()" (onUpload)="onUploadFiles($event)" (onError)="onError($event)"></o-file-input>
 
-      <o-table #tableDocuments class="documentsTable" parent-keys="user_id:user_"columns="id;name;document_type;user_id;personal_document_id;type_name" visible-columns="name;personal_document_id" 
+      <o-table #tableDocuments class="documentsTable" parent-keys="user_id:user_" columns="id;name;document_type;user_id;personal_document_id;type_name" visible-columns="name"
       attr="tableDocuments" service="personalDocuments" sort-columns="personal_document_id"
       entity="personalFiles" keys="id" title="{{'DOCUMENTOS' | oTranslate }}" detail-button-in-row="false" sort
       detail-mode="none" delete-button="yes" refresh-button="no" insert-button="no" show-buttons-text="false" select-all-checkbox="true" delete-button="no">
-      <o-table-column attr="product_id" width="100px" title="ID"></o-table-column>
       </o-table>
 
     </div>
