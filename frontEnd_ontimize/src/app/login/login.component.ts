@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
     if (this.authService.isLoggedIn()) {
       let role_id = this.localStorage.getItem("id_rolename");
       if(role_id == 0){
-        this.router.navigate(['../'], { relativeTo: this.actRoute });
+        this.router.navigate(['/main/product-home'], { relativeTo: this.actRoute });
       }else{
         this.router.navigate(['/main/product-home']);
       }
