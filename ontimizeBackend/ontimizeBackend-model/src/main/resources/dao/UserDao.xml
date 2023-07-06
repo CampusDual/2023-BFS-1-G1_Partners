@@ -12,6 +12,7 @@
         <Column>user_</Column>
     </UpdateKeys>
     <Queries>
+
         <Query id="default">
 
             <AmbiguousColumns>
@@ -40,6 +41,7 @@
             </Sentence>
         </Query>
         <Query id="login">
+
             <ValidColumns>
 
                 <Column>user_</Column>
@@ -149,6 +151,9 @@
                 <Column>firstlogin</Column>
                 <Column>id_country</Column>
                 <Column>id_language</Column>
+                <Column>company</Column>
+
+
 
 
 
@@ -162,6 +167,7 @@
                         u.email,
                         u.id_country,
                         u.id_language,
+                        u.company,
                         c.country AS country,
                         l.language AS language,
                         STRING_AGG(p.name::text, ', ') AS productName
@@ -173,9 +179,9 @@
                         LEFT JOIN products p ON pu.product_id = p.id
 
                         LEFT JOIN ${mainschema}.countries c ON u.id_country = c.id
-                        LEFT JOIN ${mainschema}.languages l ON u.id_language = l.id_language
+                        LEFT JOIN ${mainschema}.languages l ON u.id_language = l.id
                     #WHERE#
-                    GROUP BY u.user_,u.name,u.surname,u.email,c.country,l.language
+                    GROUP BY u.user_,u.name,u.surname,u.email,u.company,c.country,l.language
 
                 ]]>
             </Sentence>

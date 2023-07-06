@@ -20,6 +20,8 @@
     "CUSTOMER_PERSONAL_INFORMATION": "Información personal",
     "CUSTOMERS": "Clientes",
     "CUSTOMERTYPEID": "Tipo cliente",
+    "company":"Empresa",
+
 
 
     "DOCUMENTS": "Documentos",
@@ -28,7 +30,7 @@
 
 
     "EDITAR": "Editar",
-    "EDITAR_PERFIL":"Editar perfil",
+    "EDITAR_CONTRASEÑA":"Editar contraseña",
 
     "Email": "Correo",
     "email": "Correo electrónico",
@@ -96,7 +98,7 @@
     "Password": "Contraseña",
 
     "password": "Contraseña",
-    "PERSONAL AREA":"Area personal",
+    "PRIVATE AREA":"Area privada",
     "PHOTO": "Fotografía",
     "photo": "Fotografía",
     "productName":"Lista de productos",

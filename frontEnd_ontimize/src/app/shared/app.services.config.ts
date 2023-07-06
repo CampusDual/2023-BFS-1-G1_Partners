@@ -32,5 +32,9 @@ export const SERVICE_CONFIG: Object = {
   'countries': {
     'path': '/countries'
   },
-
+  'languages': {
+    'path': '/languages'
+  },
 };
+
+
