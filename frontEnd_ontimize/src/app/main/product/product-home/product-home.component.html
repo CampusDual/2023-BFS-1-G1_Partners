@@ -20,9 +20,9 @@
     <o-table *ngIf="isAdmin" #table fxFlex resizable="yes" columns="name;user_ids" attr="tableProducts" service="products"
       entity="product" keys="id" query-on-init="true" quick-filter="true"
       filter-case-sensitive="false" insert-button="true" export-button="true"
-      columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
+      columns-visibility-button="true" delete-button="true" refresh-button="true" class="userTable"
       select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
-      pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true">
+      pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true" auto-align-titles="yes">
 
       <o-table-column attr="name" title="PRODUCTOS"></o-table-column>
       <o-table-column attr="user_ids" title="Partners"></o-table-column>

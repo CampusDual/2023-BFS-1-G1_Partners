@@ -1,19 +1,22 @@
-<o-form label-header="{{'DOCUMENTACION' | oTranslate }}" separator=" " mode="tab" 
-label-columns="name" (onMainTabSelected)="refreshTable($event)" 
-editable-detail="no" class="form-background">
- 
-    <o-list *ngIf="!isAdmin" #listDocuments columns="name"  service="personalDocuments"
-    entity="personalDocuments" keys="id" detail-button-in-row="false"
-    detail-mode="none" delete-button="no" refresh-button="no" class="background">
-   
-    <mat-card *ngFor="let row of listDocuments.dataArray" [o-list-item]="row" (click)="onAction1(row.id)" class="showMore">
+<o-form label-header="{{'DOCUMENTACION' | oTranslate }}" separator=" " mode="tab" label-columns="name"
+  (onMainTabSelected)="refreshTable($event)" editable-detail="no" class="form-background">
+
+  <o-list *ngIf="!isAdmin" #listDocuments columns="name" service="personalDocuments" entity="personalDocuments"
+    keys="id" detail-button-in-row="false" detail-mode="none" delete-button="no" refresh-button="no"
+    class="background" fxLayout="row wrap" fxLayoutGap="16px">
+
+    <mat-card *ngFor="let row of listDocuments.dataArray" [o-list-item]="row" (click)="onAction1(row.id)"
+      class="showMore" fxFlex="0 1 33%">
+
       <mat-card-header>
         <div mat-card-avatar>
           <mat-icon class="icon">description</mat-icon>
         </div>
-        <mat-card-title>{{ row.name| oTranslate }}</mat-card-title>
+        <mat-card-title>{{ row.name | oTranslate }}</mat-card-title>
       </mat-card-header>
-   
+
     </mat-card>
-   
+
   </o-list>
+
+</o-form>

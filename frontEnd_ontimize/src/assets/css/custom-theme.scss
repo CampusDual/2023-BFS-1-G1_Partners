@@ -9,10 +9,10 @@ $mat-custom-primary: (
   200: #ff9fa4,
   300: #ff7278,
   400: #ff4e56,
-  500: #211915, //fondo del menú
+  500: #e4333c, //fondo del menú
   600: #ff222c,
   700: #ff1a24,
-  800: #211915, //fondo menú desplegable
+  800: #e4333c, //fondo menú desplegable
   900: #ff0008,
   A100: #ffffff,
   A200: #ffd9db,
@@ -45,7 +45,7 @@ $mat-custom-accent: (
   600: #ffffff,
   700: #000000,
   800: #000000,
-  900: #211915, //color links menú
+  900: #e4333c, //color links menú
   A100: #ffffff,
   A200: #ffffff,
   A400: #000000,
@@ -72,7 +72,7 @@ $mat-custom-accent: (
 // Define a theme.
 $primary: mat-palette($mat-custom-primary);
 $accent: mat-palette($mat-custom-accent);
-$background-color: whitesmoke;
+$background-color: white;
 
 /* Light theme */
 $theme: mat-light-theme($primary, $accent);
