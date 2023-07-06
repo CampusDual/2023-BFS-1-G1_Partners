@@ -9,8 +9,6 @@ import { OFormComponent, OListComponent, OTextInputComponent } from 'ontimize-we
 })
 export class PartnerNewComponent implements OnInit {
 
-  
-
   validatorsArray: ValidatorFn[] = [];
 
   @ViewChild('productList', { static: false }) productList: OTextInputComponent;
@@ -80,7 +78,6 @@ export class PartnerNewComponent implements OnInit {
 
          }
      }
-
 
     }
 
