@@ -1,11 +1,11 @@
-<h1 class="titleText2">{{'Alta Administrador' | oTranslate }}</h1>
-<o-form #form service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-actions-text="no" show-header-navigation="no" (onDataLoaded)="loadRol($event)" class="form-background">
+<h1 class="titleText2">{{'ALTA_ADMIN' | oTranslate }}</h1>
+<o-form #formAdmin service="users" entity="user" keys="user_" header-actions="R;I;U;D" show-header-actions-text="no" show-header-navigation="no" (onDataLoaded)="loadRol($event)" class="form-background">
     <div>
     <div class="center">
   
     <o-row class="form-row">
       <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes" label="Nombre" class="margin"></o-text-input> 
-      <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes" label="Apellido"></o-text-input>
+      <o-text-input class="input-padding" attr="surname" fxFlex="100" required="yes"></o-text-input>
     </o-row>
   
     <o-row class="form-row">
@@ -13,10 +13,14 @@
     </o-row>
     
     <o-row class="form-row">
-      <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña" show-password-button="yes" [validators]="validatorsArray">
+
+      <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" 
+      (onChange) = "reviewMatches($event)" label="Contraseña" show-password-button="yes" [validators]="validatorsArray">
         <o-validator [error-name]="'passwordNotSize'" [error-text]="'La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo'"></o-validator>
       </o-password-input>
-      <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" label="Confirmar contraseña" show-password-button="yes" [validators]="validatorsArray" class="margin">
+
+      <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" required="yes" 
+      (onChange) = "reviewMatches($event)" label="Confirmar contraseña" show-password-button="yes" [validators]="validatorsArray" class="margin">
         <o-validator [error-name]="'passwordNotMatched'" [error-text]="'Las contraseñas no coinciden'"></o-validator>
       </o-password-input>
   

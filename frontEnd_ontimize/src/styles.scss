@@ -5,14 +5,13 @@
 
   .titleText{
     background: white;
-    color: #211915;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
   }
 
   .titleText2{
-    background: #211915;
+    background: #e4333c;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -29,8 +28,19 @@
   }
 
   .form-background{
-    background: #211915;
+    background: whitesmoke;
+    border: 1px solid #d3d3d3;
     border-radius: 10px;
-    box-shadow: 5px 10px 8px #cccccc;
+    box-shadow: 5px 10px 8px #e2e2e2;
     text-align: center;
+  }
+
+  .userTable{
+    text-align: left;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: auto;
   }

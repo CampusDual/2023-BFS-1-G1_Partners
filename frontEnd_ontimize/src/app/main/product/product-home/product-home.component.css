@@ -1,38 +1,26 @@
-.showMore-container {
-  margin-left: auto;
-  margin-top: auto;
-}
-
 .showMore{
-  border: 1px solid #211915;
-  color: #211915;
-  border: 1px solid #211915;
+  border: 1px solid #d3d3d3;
   background: white;
   cursor: pointer;
 }
 
 .showMore:hover{
   color: whitesmoke;
-  background-color: #211915;
-  border: 1px solid #211915;
+  background-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
   transition: 0.5s;
 }
 
 .userTable{
-  border: 1px solid #211915;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   background: white;
   padding: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .icon{
   padding: 5px;
-}
-
-.showMore:hover .icon{
-  background: whitesmoke;
-  border-radius: 5px;
 }
 
 .background{

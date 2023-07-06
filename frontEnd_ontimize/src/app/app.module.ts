@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { CONFIG } from './app.config';
 import { ProfileComponent } from './main/profile/profile.component';
 
-
 // Standard providers...
 // Defining custom providers (if needed)...
 export const customProviders: any = [
