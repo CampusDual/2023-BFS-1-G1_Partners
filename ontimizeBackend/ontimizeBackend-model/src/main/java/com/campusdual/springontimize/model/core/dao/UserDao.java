@@ -23,5 +23,9 @@ public class UserDao extends OntimizeJdbcDaoSupport {
     public static final String userblocked = "userblocked";
     public static final String lastpasswordupdate = "lastpasswordupdate";
     public static final String firstlogin = "firstlogin";
+    public static final String id_country = "id_country";
+    public static final String id_language = "id_language";
+    public static final String company = "company";
+
 
 }

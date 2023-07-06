@@ -5,8 +5,26 @@
     <div class="center">
       <o-row class="form-row">
         <o-text-input class="input-padding" attr="name" fxFlex="50" required="yes" class="margin"></o-text-input>
-        <o-text-input class="input-padding" attr="surname" fxFlex="50" required="yes"></o-text-input>
+        <o-text-input class="input-padding" class="margin" attr="surname" fxFlex="50" required="yes"></o-text-input>
+        <o-text-input class="input-padding" attr="company" fxFlex="50" required="yes"></o-text-input>
+
       </o-row>
+
+      
+    <o-row class="form-row">
+
+      <o-combo  class="margin" attr="id_country" label="Escoge país" service="countries" entity="countries" keys="id"
+        value-column="id" columns="id;country" 
+        visible-columns="country" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
+     </o-combo>
+
+     <o-combo attr="id_language" label="Escoge idioma" service="languages" entity="languages" keys="id"
+     value-column="id" columns="id;language" 
+     visible-columns="language" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
+  </o-combo>
+
+</o-row>
+
       <button class="newProduct" attr="alert"  label="Añadir Productos" (click)="addProducts()">{{'Añadir Productos' | oTranslate }}</button>
       <o-table #tableProducts class="userTable" parent-keys="user_id:user_" columns="product_id;user_id;name" attr="tableProducts" service="userProduct"
       entity="productsUser" keys="product_id;user_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
