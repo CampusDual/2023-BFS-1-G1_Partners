@@ -28,6 +28,11 @@
                 <Column>userblocked</Column>
                 <Column>lastpasswordupdate</Column>
                 <Column>firstlogin</Column>
+                <Column>id_country</Column>
+                <Column>id_language</Column>
+                <Column>company</Column>
+
+
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -36,10 +41,14 @@
                     FROM
                         ${mainschema}.tuser u
                         JOIN ${mainschema}.tuser_role ur ON u.user_ = ur.user_
+                         LEFT JOIN ${mainschema}.countries c ON u.id_country = c.id
+                        LEFT JOIN ${mainschema}.languages l ON u.id_language = l.id
                     #WHERE#
                 ]]>
             </Sentence>
         </Query>
+
+
         <Query id="login">
 
             <ValidColumns>
