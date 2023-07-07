@@ -93,7 +93,6 @@ public class PersonalDocumentRestController extends ORestController<IPersonalDoc
 						attrMap.put(PersonalDocumentFileDao.ATTR_USER_ID,user_id);
 						attrMap.put(PersonalDocumentFileDao.ATTR_NAME,file.getOriginalFilename());
 						attrMap.put(PersonalDocumentFileDao.ATTR_PATH,filePath);
-						attrMap.put(PersonalDocumentFileDao.ATTR_DESCRIPTION,user_id);
 
 						EntityResult fileInsert = personalDocumentsrv.personalFileInsert(attrMap);
 						if(fileInsert.isWrong()){

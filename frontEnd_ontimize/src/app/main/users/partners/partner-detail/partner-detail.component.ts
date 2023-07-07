@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { DialogService, OFileInputComponent, OFormComponent, OTableComponent, OntimizeService } from 'ontimize-web-ngx';
+import { DialogService, OFileInputComponent, OFormComponent, OTableComponent, OTextareaInputComponent, OntimizeService } from 'ontimize-web-ngx';
 import { AddProductRelationComponent } from './add-product-relation/add-product-relation.component';
 
 @Component({
@@ -18,6 +18,10 @@ export class PartnerDetailComponent implements OnInit {
    @ViewChild('tableProducts', {static: false }) public tableProducts: OTableComponent;
    @ViewChild('tableDocuments', {static: false }) public tableDocuments: OTableComponent;
    @ViewChild('fileinput',{static:true}) fileInput:OFileInputComponent;
+   @ViewChild('textareaInput', { static: false })
+   textareaInput: OTextareaInputComponent;
+
+   descriptionValue: string = '';
 
    constructor(private formBuilder: FormBuilder, protected dialog: MatDialog,protected dialogService: DialogService,public injector: Injector) {
     this.productService = this.injector.get(OntimizeService);
@@ -65,11 +69,14 @@ export class PartnerDetailComponent implements OnInit {
         
       }
     }
+
+    const description = this.descriptionValue;
+    const files = event.files;
+
+    this.textareaInput.clearValue();
     this.fileInput.clearValue();
     this.tableDocuments.refresh();
   }
-
-
 
 }
 
