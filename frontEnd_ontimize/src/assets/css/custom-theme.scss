@@ -5,14 +5,14 @@
 /* Color definitions */
 $mat-custom-primary: (
   50: white,
-  100: white, //fondo del link active
+  100: whitesmoke, //fondo del link active
   200: #ff9fa4,
   300: #ff7278,
   400: #ff4e56,
-  500: #e4333c, //fondo del menú
+  500: white, //fondo del menú
   600: #ff222c,
   700: #ff1a24,
-  800: #e4333c, //fondo menú desplegable
+  800: whitesmoke, //fondo menú desplegable
   900: #ff0008,
   A100: #ffffff,
   A200: #ffd9db,
@@ -24,7 +24,7 @@ $mat-custom-primary: (
     200: #000000,
     300: #000000,
     400: #ffffff,
-    500: #ffffff,
+    500: black,
     600: #ffffff,
     700: #ffffff,
     800: #ffffff,
@@ -40,12 +40,12 @@ $mat-custom-accent: (
   100: #ffffff,
   200: #ffffff,
   300: #ffffff,
-  400: #ffffff,
-  500: #e4333c, //color letras botones
+  400: RED,
+  500: rgb(118, 118, 216), //color letras botones
   600: #ffffff,
   700: #000000,
   800: #000000,
-  900: #e4333c, //color links menú
+  900: black, //color links menú
   A100: #ffffff,
   A200: #ffffff,
   A400: #000000,
@@ -56,7 +56,7 @@ $mat-custom-accent: (
     200: #000000,
     300: #000000,
     400: #000000,
-    500: whitesmoke, //flecha del botón
+    500: black, //flecha del botón
     600: #000000,
     700: #ffffff,
     800: #ffffff,
