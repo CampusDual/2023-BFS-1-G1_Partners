@@ -36,6 +36,12 @@ export class FormProductDetailComponent implements OnInit {
     }
     }
   
+    downloadZip(){
+      let files = this.fileTable.getSelectedItems();
+      console.log(files.toString());
+     
+      
+    }
     
   
     actionClick(event){

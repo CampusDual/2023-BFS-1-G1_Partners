@@ -62,22 +62,33 @@ export class PersonalAreaComponent implements OnInit {
 
   }
   
-  actionClick(event){
+  actionClick(event) {
     const confDocuments = this.personalDocuments.getDefaultServiceConfiguration('personalDocuments');
     this.personalDocuments.configureService(confDocuments);
-    this.personalDocuments.query({id:event.id}, ['name','base64'], 'myPersonalFilesContent').subscribe(res => {
+    
+    const fileIds = [this.tableDocuments.getSelectedItems()]; // Reemplaza con los IDs de los archivos que deseas descargar
+    
+    this.personalDocuments.query({ id: fileIds }, ['name', 'base64'], 'myPersonalFilesContent').subscribe(res => {
       if (res.data && res.data.length) {
-        let filename = res.data[0].name;
-        let base64 = res.data[0].base64;
-        const src = `data:text/csv;base64,${base64}`;
-        const link = document.createElement("a");
-        link.href = src;
-        link.download = filename;
-        link.click();
-        link.remove();
+        res.data.forEach(file => {
+          let filename = file.name;
+          let base64 = file.base64;
+          const src = `data:text/csv;base64,${base64}`;
+          const link = document.createElement("a");
+          link.href = src;
+          link.download = filename;
+          link.click();
+          link.remove();
+        });
       }
     });
+  }
+  
     
+  
+
+  downloadZip(event){
+    this.tableDocuments.getSelectedItems();
   }
 
 }
