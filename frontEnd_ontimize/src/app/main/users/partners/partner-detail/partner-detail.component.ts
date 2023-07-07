@@ -18,8 +18,7 @@ export class PartnerDetailComponent implements OnInit {
    @ViewChild('tableProducts', {static: false }) public tableProducts: OTableComponent;
    @ViewChild('tableDocuments', {static: false }) public tableDocuments: OTableComponent;
    @ViewChild('fileinput',{static:true}) fileInput:OFileInputComponent;
-   @ViewChild('textareaInput', { static: false })
-   textareaInput: OTextareaInputComponent;
+   @ViewChild('description', { static: false }) description: OTextareaInputComponent;
 
    descriptionValue: string = '';
 
@@ -38,7 +37,7 @@ export class PartnerDetailComponent implements OnInit {
 
   getFileData(){
     if(this.formUser){
-    return {user_id:this.formUser.getDataValue('user_')};
+    return {user_id:this.formUser.getDataValue('user_'), description: this.description.getValue()};
   }else{
     return {};
   }
@@ -73,7 +72,7 @@ export class PartnerDetailComponent implements OnInit {
     const description = this.descriptionValue;
     const files = event.files;
 
-    this.textareaInput.clearValue();
+    this.description.clearValue();
     this.fileInput.clearValue();
     this.tableDocuments.refresh();
   }

@@ -61,12 +61,14 @@ public class PersonalDocumentRestController extends ORestController<IPersonalDoc
 			}
 		}
 		String user_id = null;
+		String description = null;
 		EntityResult result = new EntityResultMapImpl();
 		if(extraData.get(PersonalDocumentFileDao.ATTR_USER_ID) instanceof Map){
 			//get the user associated
-			//get the type associated
+			//get the description associated
 			Map mUserId = (Map) extraData.get(PersonalDocumentFileDao.ATTR_USER_ID);
 			user_id = (String) mUserId.get("value");
+			description = (String) extraData.get("description");
 
 			//the directory is related to the product
 			String directory = path+user_id;
@@ -93,7 +95,7 @@ public class PersonalDocumentRestController extends ORestController<IPersonalDoc
 						attrMap.put(PersonalDocumentFileDao.ATTR_USER_ID,user_id);
 						attrMap.put(PersonalDocumentFileDao.ATTR_NAME,file.getOriginalFilename());
 						attrMap.put(PersonalDocumentFileDao.ATTR_PATH,filePath);
-
+						attrMap.put(PersonalDocumentFileDao.ATTR_DESCRIPTION,description);
 						EntityResult fileInsert = personalDocumentsrv.personalFileInsert(attrMap);
 						if(fileInsert.isWrong()){
 							fileResult.put(NAME,file.getOriginalFilename());

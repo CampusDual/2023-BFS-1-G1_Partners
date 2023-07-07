@@ -35,7 +35,7 @@
       multiple="yes" max-num-files="5" split-upload="false" key="user_"
       [additional-data]="getFileData()" (onUpload)="onUploadFiles($event)" (onError)="onError($event)"></o-file-input>
 
-      <o-textarea-input attr="description" required="yes" [(ngModel)]="descriptionValue"></o-textarea-input>
+      <o-textarea-input #description attr="description" required="yes" [(ngModel)]="descriptionValue"></o-textarea-input>
 
       <o-table #tableDocuments class="documentsTable" parent-keys="user_id:user_" columns="id;name;document_type;user_id;personal_document_id;type_name;description" 
       visible-columns="name;description"
