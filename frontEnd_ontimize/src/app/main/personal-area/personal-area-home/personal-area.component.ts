@@ -60,8 +60,8 @@ export class PersonalAreaComponent implements OnInit {
   onAction1(id: number) {
     this.router.navigate(['/main/personal-area/personal-area-detail/'+id]);
 
-
   }
+  
   actionClick(event){
     const confDocuments = this.personalDocuments.getDefaultServiceConfiguration('personalDocuments');
     this.personalDocuments.configureService(confDocuments);

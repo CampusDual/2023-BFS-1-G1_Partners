@@ -1,8 +1,8 @@
+<h1 class="titleText2">{{ 'PRIVATE AREA' | oTranslate }}</h1>
+
 <o-form #form service="personalDocuments" entity="myPersonalFiles" keys="id" 
 header-actions="" show-header="no" class="form-background" header-mode="none" 
 editable-detail="no">
-
-  <div class="titleDiv"><h1 class="titleText">{{ form.getFieldValue('name') | oTranslate }}</h1></div>
 
   <div class="center">
       <o-text-input oHidden class="input-padding" attr="name" fxFlex="100"></o-text-input>
@@ -19,14 +19,23 @@ editable-detail="no">
   select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
   pagination-controls="no" edition-mode="none" 
   detail-mode="click" horizontal-scroll="false"
-   auto-adjust="true" virtual-scroll="no" editable-detail="true" class="background">
+ auto-adjust="true" virtual-scroll="no" editable-detail="true" class="background" [show-expandable-icon-function]="hasChilds">
   
   <o-table-column attr="name" title="{{'Nombre' | oTranslate }}" width="100px"></o-table-column>
 
   <o-table-column attr="action" width="10px">
     <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
   </o-table-column>
-  
+
+  <o-table-row-expandable>
+    <ng-template let-row>
+      <o-column title="description" icon="info" class="vertical-margin-10" layout-gap="12px">
+        <div fxLayout="row wrap">
+          <span attr="description" class="description"><strong>{{ row.description }}</strong></span>
+        </div>
+      </o-column>
+    </ng-template>
+  </o-table-row-expandable>
   </o-table>
 
 
