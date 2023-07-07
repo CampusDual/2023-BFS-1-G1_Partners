@@ -80,4 +80,8 @@ export class PersonalAreaComponent implements OnInit {
     
   }
 
+  downloadZip(event){
+    this.tableDocuments.getSelectedItems();
+  }
+
 }
