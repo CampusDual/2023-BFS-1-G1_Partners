@@ -1,11 +1,9 @@
 package com.campusdual.springontimize.model.core.service;
 
 import com.campusdual.springontimize.api.core.service.IProductService;
-import com.campusdual.springontimize.model.core.dao.ProductDao;
-import com.campusdual.springontimize.model.core.dao.ProductFileDao;
-import com.campusdual.springontimize.model.core.dao.UserDao;
-import com.campusdual.springontimize.model.core.dao.UserProductDao;
+import com.campusdual.springontimize.model.core.dao.*;
 import com.ontimize.jee.common.dto.EntityResult;
+import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.common.gui.SearchValue;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.apache.commons.codec.binary.Base64;
@@ -92,9 +90,26 @@ public class ProductService implements IProductService {
 
     @Override
     public EntityResult fileDelete(Map<String, Object> keyMap) {
+        List<String> attrList = new ArrayList<>();
+        attrList.add(PersonalDocumentFileDao.ATTR_PATH);
+        EntityResult fileResult = daoHelper.query(productFileDao,keyMap,attrList);
+
+        if(fileResult.isWrong()){
+            return fileResult;
+        }
+        String filePath = (String) fileResult.getRecordValues(0).get(PersonalDocumentFileDao.ATTR_PATH);
+        if(filePath!=null && !filePath.isEmpty()) {
+            File fichero = new File(filePath);
+            if (fichero.delete()) {
+            } else {
+                EntityResult errorResult = new EntityResultMapImpl();
+                errorResult.setCode(EntityResult.OPERATION_WRONG);
+                errorResult.setMessage("FILE ERROR ON DELETE ");
+                return errorResult;
+            }
+        }
         return daoHelper.delete(productFileDao,keyMap);
     }
-
 
     @Override
     public EntityResult productsAvailableQuery(Map<String, Object> keyMap, List<String> attrList) {

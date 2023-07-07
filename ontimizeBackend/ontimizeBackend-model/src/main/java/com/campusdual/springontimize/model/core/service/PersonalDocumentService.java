@@ -5,6 +5,7 @@ import com.campusdual.springontimize.model.core.dao.PersonalDocumentDao;
 
 import com.campusdual.springontimize.model.core.dao.PersonalDocumentFileDao;
 import com.ontimize.jee.common.dto.EntityResult;
+import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
 import org.apache.commons.codec.binary.Base64;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -76,7 +78,27 @@ public class PersonalDocumentService implements IPersonalDocumentService {
 
     @Override
     public EntityResult personalFilesDelete(Map<String, Object> keyMap) {
-        return daoHelper.delete(personalDocumentDao,keyMap);
+        //pasar id y preguntar x path y borrar desde java
+        List<String> attrList = new ArrayList<>();
+        attrList.add(PersonalDocumentFileDao.ATTR_PATH);
+        EntityResult fileResult = daoHelper.query(personalDocumentFileDao,keyMap,attrList);
+
+        if(fileResult.isWrong()){
+            return fileResult;
+        }
+        String filePath = (String) fileResult.getRecordValues(0).get(PersonalDocumentFileDao.ATTR_PATH);
+        if(filePath!=null && !filePath.isEmpty()) {
+            File fichero = new File(filePath);
+            if (fichero.delete()) {
+
+            } else {
+                EntityResult errorResult = new EntityResultMapImpl();
+                errorResult.setCode(EntityResult.OPERATION_WRONG);
+                errorResult.setMessage("FILE ERROR ON DELETE ");
+                return errorResult;
+            }
+        }
+        return daoHelper.delete(personalDocumentFileDao,keyMap);
     }
 
     @Override
