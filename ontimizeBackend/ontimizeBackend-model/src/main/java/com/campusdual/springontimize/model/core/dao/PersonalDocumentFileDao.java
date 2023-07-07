@@ -17,4 +17,6 @@ public class PersonalDocumentFileDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_NAME = "name";
     public static final String ATTR_PATH = "file_path";
     public static final String ATTR_BASE64 = "base64";
+    public static final String ATTR_DESCRIPTION = "description";
+
 }

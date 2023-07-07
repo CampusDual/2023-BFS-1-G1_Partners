@@ -41,6 +41,8 @@
                 <Column>user_id</Column>
                 <Column>personal_document_id</Column>
                 <Column>file_path</Column>
+                <Column>description</Column>
+
             </ValidColumns>
             <Sentence>
                 <![CDATA[
