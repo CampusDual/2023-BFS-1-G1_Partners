@@ -20,7 +20,8 @@ export class PartnerDetailComponent implements OnInit {
    @ViewChild('fileinput',{static:true}) fileInput:OFileInputComponent;
    @ViewChild('description', { static: false }) description: OTextareaInputComponent;
 
-   descriptionValue: string = '';
+   fileExists: boolean = false;
+
 
    constructor(private formBuilder: FormBuilder, protected dialog: MatDialog,protected dialogService: DialogService,public injector: Injector) {
     this.productService = this.injector.get(OntimizeService);
@@ -29,6 +30,9 @@ export class PartnerDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+   onFileUpload() {
+    this.fileExists = true;
+  }
 
   addProducts(){
     let user_id = this.formUser.getDataValue("user_");
@@ -37,7 +41,7 @@ export class PartnerDetailComponent implements OnInit {
 
   getFileData(){
     if(this.formUser){
-    return {user_id:this.formUser.getDataValue('user_'), description: this.description.getValue()};
+    return {user_id:this.formUser.getDataValue('user_')};
   }else{
     return {};
   }
@@ -69,10 +73,8 @@ export class PartnerDetailComponent implements OnInit {
       }
     }
 
-    const description = this.descriptionValue;
     const files = event.files;
 
-    this.description.clearValue();
     this.fileInput.clearValue();
     this.tableDocuments.refresh();
   }
