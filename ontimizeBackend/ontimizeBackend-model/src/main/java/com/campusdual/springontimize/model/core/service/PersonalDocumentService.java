@@ -129,4 +129,16 @@ public class PersonalDocumentService implements IPersonalDocumentService {
         return daoHelper.insert(personalDocumentFileDao,attrMap);
     }
 
+    public EntityResult filesZipQuery(Map<String, Object> keyMap, List<String> attrList){
+        /*
+        - KeyMap tiene un atributo que se va a llamar ids y este va a tener una lista de ids
+        - attrList va a tener dos elementos, uno es el name y otro es el base64 (todo esto desde front)
+        - el return nos va a tener que devolver un elemento que sea un HasTable con esos dos atributos
+        - Hacer un for para recuperar cada uno de esos paths, pasarselos al Zip.
+        - Cuanto esté todo creado pasarselo al base64
+
+                       */
+        return null;
+    }
+
 }

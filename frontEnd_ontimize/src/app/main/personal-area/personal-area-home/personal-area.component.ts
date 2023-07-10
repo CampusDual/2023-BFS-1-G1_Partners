@@ -27,6 +27,7 @@ export class PersonalAreaComponent implements OnInit {
 
   ngOnInit() {
     this.configureUserRoleService();
+    this.configurePersonalFilesService();
     this.myRoleService.query({}, ["rolename"], "myRole").subscribe(
       response => {
         if (response.data && response.data.length) {
@@ -55,40 +56,52 @@ export class PersonalAreaComponent implements OnInit {
   configureUserRoleService() {
     const conf = this.myRoleService.getDefaultServiceConfiguration("userrole");
     this.myRoleService.configureService(conf);
-  } 
+  }
+  
+  configurePersonalFilesService() {
+    const confDocuments = this.personalDocuments.getDefaultServiceConfiguration('personalDocuments');
+    this.personalDocuments.configureService(confDocuments);
+  }
     
   onAction1(id: number) {
     this.router.navigate(['/main/personal-area/personal-area-detail/'+id]);
 
   }
   
-  actionClick(event) {
-    const confDocuments = this.personalDocuments.getDefaultServiceConfiguration('personalDocuments');
-    this.personalDocuments.configureService(confDocuments);
-    
-    const fileIds = [this.tableDocuments.getSelectedItems()]; // Reemplaza con los IDs de los archivos que deseas descargar
-    
-    this.personalDocuments.query({ id: fileIds }, ['name', 'base64'], 'myPersonalFilesContent').subscribe(res => {
+  actionClick(event){
+    this.personalDocuments.query({id:event.id}, ['name','base64'], 'myPersonalFilesContent').subscribe(res => {
       if (res.data && res.data.length) {
-        res.data.forEach(file => {
-          let filename = file.name;
-          let base64 = file.base64;
-          const src = `data:text/csv;base64,${base64}`;
-          const link = document.createElement("a");
-          link.href = src;
-          link.download = filename;
-          link.click();
-          link.remove();
-        });
+        let filename = res.data[0].name;
+        let base64 = res.data[0].base64;
+        const src = `data:text/csv;base64,${base64}`;
+        const link = document.createElement("a");
+        link.href = src;
+        link.download = filename;
+        link.click();
+        link.remove();
       }
     });
-  }
-  
     
-  
+  }
 
   downloadZip(event){
-    this.tableDocuments.getSelectedItems();
+    let files =this.tableDocuments.getSelectedItems();
+    let documentsId = [];
+    files.forEach(elemento=>{
+      documentsId.push(elemento);
+    });
+    this.personalDocuments.query({ids:documentsId}, ['name','base64'], 'filesZip').subscribe(res => {
+      if (res.data && res.data.length) {
+        let filename = res.data[0].name;
+        let base64 = res.data[0].base64;
+        const src = `data:text/csv;base64,${base64}`;
+        const link = document.createElement("a");
+        link.href = src;
+        link.download = filename;
+        link.click();
+        link.remove();
+      }
+    });
   }
 
 }
