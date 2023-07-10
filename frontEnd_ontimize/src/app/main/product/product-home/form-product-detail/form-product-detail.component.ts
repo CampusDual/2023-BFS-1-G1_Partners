@@ -26,6 +26,7 @@ export class FormProductDetailComponent implements OnInit {
   ngOnInit() {
     const conf = this.productService.getDefaultServiceConfiguration('products');
     this.productService.configureService(conf);
+    this.configureProductService();
   }
 
     getFileData(){
@@ -38,11 +39,29 @@ export class FormProductDetailComponent implements OnInit {
   
     downloadZip(){
       let files = this.fileTable.getSelectedItems();
-      console.log(files.toString());
-     
-      
+      let documentsId = [];
+      files.forEach(elemento=>{
+        documentsId.push(elemento)
+        //console.log(elemento);
+      })
+      this.productService.query({ids:documentsId}, ['name','base64'],'filesZip').subscribe(res =>{
+        if (res.data && res.data.length) {
+          let filename = res.data[0].name;
+          let base64 = res.data[0].base64;
+          const src = `data:text/csv;base64,${base64}`;
+          const link = document.createElement("a");
+          link.href = src;
+          link.download = filename;
+          link.click();
+          link.remove();
+        }
+      });
     }
     
+    configureProductService(){
+      const confDocuments = this.productService.getDefaultServiceConfiguration('products');
+      this.productService.configureService(confDocuments);
+    }
   
     actionClick(event){
       this.productService.query({id:event.id}, ['name','base64'], 'fileContent').subscribe(res => {

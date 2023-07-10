@@ -7,10 +7,11 @@
       <o-text-input oHidden class="input-padding" attr="name" fxFlex="100"></o-text-input>
   </div>
 
- <o-button (onClick)="downloadZip(event)" title="download">DowloadZip</o-button>
+  
 
      <o-table #filetable attr="productsFilesTable" class="background" service="products" entity="file" keys="id" parent-keys="product_id:id"
     columns="id;name" visible-columns="name;action" controls="true" delete-button="false" insert-button="false" refresh-button="false" show-buttons-text="false" select-all-checkbox="true">
+    <o-table-button attr="download" title="Descargar seleccionados" (onClick)="downloadZip($event)" icon="compress" tooltip="Descargar seleccionados"></o-table-button>
     <o-table-column attr="action" width="64px">
       <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
     </o-table-column>
