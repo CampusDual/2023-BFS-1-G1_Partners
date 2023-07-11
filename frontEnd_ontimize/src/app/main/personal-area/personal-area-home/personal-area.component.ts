@@ -88,12 +88,12 @@ export class PersonalAreaComponent implements OnInit {
     let files =this.tableDocuments.getSelectedItems();
     let documentsId = [];
     files.forEach(elemento=>{
-      documentsId.push(elemento);
+      documentsId.push(elemento.id);
     });
     this.personalDocuments.query({ids:documentsId}, ['name','base64'], 'filesZip').subscribe(res => {
-      if (res.data && res.data.length) {
-        let filename = res.data[0].name;
-        let base64 = res.data[0].base64;
+      if (res.data) {
+        let filename = res.data.name;
+        let base64 = res.data.base64;
         const src = `data:text/csv;base64,${base64}`;
         const link = document.createElement("a");
         link.href = src;
