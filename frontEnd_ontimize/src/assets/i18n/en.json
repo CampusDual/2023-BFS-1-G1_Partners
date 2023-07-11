@@ -4,12 +4,15 @@
   "ALL PRODUCTS":"ALL PRODUCTS",
   "ALTA PRODUCTO":"Register product",
   "ALTA_USUARIO":"Register user",
-  "ALTA_PARTER":"New Partner",
+  "ALTA_PARTNER":"New Partner",
+  "Alta Partner":"New Partner",
+
   "ALTA_ADMIN":"New Admin",
   "Añadir_Partners":"Add partners",
   "Añadir_Documentos": "Add documents",
   "Añadir Productos": "Add products",
   "Apellido": "Surname",
+
   "APP_TITLE": "Quickstart",
   "Acuerdo de confidencialidad (NDA)":"Non-Disclosure Agreement (NDA)",
   "Acuerdo de marketing y promoción":"Marketing and Promotion Agreement",
@@ -50,6 +53,8 @@
   "Escoge partners":"Choose partners",
   "EXAMPLE_LOGIN_INFO": "Use this user and password for login",
   "ERROR_PASS":"The password must have at least 6 digits, 1 number and a symbol",
+  "Escoge país": "Choose country",
+  "Escoge idioma": "Choose language",
 
 
 
@@ -106,6 +111,7 @@
 
   "STARTDATE": "Start date",
   "surname":"Surname",
+  "SURNAME": "Surname",
   "SUBIR_DOCUMENTOS": "Upload files",
 
 
