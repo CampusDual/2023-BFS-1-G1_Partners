@@ -4,12 +4,14 @@
     "Administradores":"Administradores",
     "ALTA PRODUCTO": "Alta producto",
     "ALTA_USUARIO":"Alta usuario",
-    "ALTA_PARTER":"Alta Partner",
+    "ALTA_PARTNER":"Alta Partner",
+    "Alta Partner":"Alta Partner",
     "ALTA_ADMIN":"Alta Administrador",
     "Añadir_Partners": "Añadir partners",
     "Añadir_Documentos": "Añadir documentos",
     "Añadir Productos": "Añadir productos",
     "APP_TITLE": "JEE seed",
+    "Apellido": "Apellido",
     "Acuerdo de confidencialidad (NDA)":"Acuerdo de confidencialidad (NDA)",
     "Acuerdo de marketing y promoción":"Acuerdo de marketing y promoción",
     "Acuerdo de suministro":"Acuerdo de suministro",
@@ -24,6 +26,8 @@
     "CUSTOMERS": "Clientes",
     "CUSTOMERTYPEID": "Tipo cliente",
     "company":"Empresa",
+    "Contraseña":"Contraseña",
+
 
 
 
@@ -51,6 +55,10 @@
     "error_session_expired": "La sesión ha caducado",
     "error_user_pass_incorrect": "Usuario o contraseña incorrecta",
     "Escoja un rol": "Escoja un rol",
+    "Escoge país": "Escoge país",
+    "Escoge idioma": "Escoge idioma",
+
+
     "ERROR_PASS":"La contraseña debe tener al menos 6 dígitos, 1 número y un símbolo",
 
 
