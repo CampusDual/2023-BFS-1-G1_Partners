@@ -41,13 +41,13 @@ export class FormProductDetailComponent implements OnInit {
       let files = this.fileTable.getSelectedItems();
       let documentsId = [];
       files.forEach(elemento=>{
-        documentsId.push(elemento)
-        //console.log(elemento);
+        documentsId.push(elemento.id);
+        
       })
       this.productService.query({ids:documentsId}, ['name','base64'],'filesZip').subscribe(res =>{
-        if (res.data && res.data.length) {
-          let filename = res.data[0].name;
-          let base64 = res.data[0].base64;
+        if (res.data) {
+          let filename = res.data.name;
+          let base64 = res.data.base64;
           const src = `data:text/csv;base64,${base64}`;
           const link = document.createElement("a");
           link.href = src;

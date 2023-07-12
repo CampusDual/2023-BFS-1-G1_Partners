@@ -2,6 +2,7 @@ package com.campusdual.springontimize.api.core.service;
 
 import com.ontimize.jee.common.dto.EntityResult;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,7 @@ public interface IPersonalDocumentService {
     //public EntityResult fileQuery(Map<String, Object> keyMap, List<String> attrList);
 
     public EntityResult personalFileInsert(Map<String, Object> attrMap);
+    EntityResult filesZipQuery(Map<String, Object> keyMap, List<String> attrList) throws IOException;
 
     //public EntityResult fileContentQuery(Map<String, Object> keyMap, List<String> attrList);
 
