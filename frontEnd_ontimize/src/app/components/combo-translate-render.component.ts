@@ -14,19 +14,12 @@ export class ComboTranslateRenderComponent extends OComboCustomRenderer {
     super(injector);
   }
 
- getComboData(value: any) {
-    
+  // Método para obtener los datos del combo
+  getComboData(value: any) {
+    // Obtiene la traducción del valor seleccionado en el combo basado en el servicio de traducción
     let languageCombo = this.translateService.get(value.country);
     value.country = languageCombo;
 
     return languageCombo;
   }
-
-
-
-
-
-
-
-
 }
