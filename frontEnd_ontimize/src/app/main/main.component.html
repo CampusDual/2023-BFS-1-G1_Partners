@@ -1,19 +1,26 @@
-<o-app-layout >
+<o-app-layout>
+  <!-- Layout de la aplicación -->
 
   <o-app-layout-header class="header-container">
+    <!-- Encabezado del layout -->
 
     <div class="logo-title-container">
+      <!-- Contenedor del logo y el título -->
       <img src="assets/images/logo_simbolo.png" id="logoSimbolo">
+      <!-- Imagen del logo -->
       <h3 class="title">Portal de Partners</h3>
+      <!-- Título del portal -->
     </div>
 
     <o-user-info-configuration show-profile="no" show-settings="no">
-      <o-user-info-configuration-item name="PROFILE" icon="person" [action]="navigateToProfile" confirm="no"></o-user-info-configuration-item>
-
+      <!-- Configuración de la información del usuario -->
+      <o-user-info-configuration-item name="PROFILE" icon="person" [action]="navigateToProfile"
+        confirm="no"></o-user-info-configuration-item>
+      <!-- Elemento de configuración para el perfil del usuario -->
     </o-user-info-configuration>
 
   </o-app-layout-header>
+
   <router-outlet></router-outlet>
+  <!-- Enrutamiento de la aplicación -->
 </o-app-layout>
-
-

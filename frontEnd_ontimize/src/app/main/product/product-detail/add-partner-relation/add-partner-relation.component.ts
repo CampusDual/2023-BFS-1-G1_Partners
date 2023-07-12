@@ -12,7 +12,6 @@ export class AddPartnerRelationComponent implements OnInit {
   @ViewChild('form', { static: false }) form: OFormComponent;
   @Output() dialogClosed: EventEmitter<void> = new EventEmitter<void>();
 
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<AddPartnerRelationComponent>
@@ -21,6 +20,7 @@ export class AddPartnerRelationComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Método para forzar el modo de inserción en el formulario
   public forceInsertMode(event: any) {
     if (event != OFormComponent.Mode().INSERT) {
       this.form.setInsertMode();
@@ -28,6 +28,7 @@ export class AddPartnerRelationComponent implements OnInit {
     }
   }
 
+  // Método para cerrar el diálogo y emitir el evento de diálogo cerrado
   public closeDialog(event: any) {
     let table: OTableComponent = this.data.partnersTable;
     table.refresh();

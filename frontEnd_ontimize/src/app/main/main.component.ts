@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent  {
+export class MainComponent {
 
   constructor(private router: Router) { }
 
@@ -14,5 +14,5 @@ export class MainComponent  {
   navigateToProfile() {
     this.router.navigate(['main/profile/detail']);
   }
- 
+
 }

@@ -1,14 +1,16 @@
+<o-form #form service="userProduct" entity="userProduct" keys="user_id;product_id" header-actions=""
+    show-header-navigation="no" class="form-container" keys-sql-types="VARCHAR;INTEGER"
+    (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" (onCancel)="closeDialog($event)"
+    ignore-default-navigation="true" undo-button="false">
 
+    <!-- Campo de entrada oculto para el atributo "user_id" -->
+    <o-text-input oHidden #user_id_field attr="user_id" width="160px" class="form-field"></o-text-input>
 
-
-<o-form #form service="userProduct" entity="userProduct" keys="user_id;product_id" header-actions="" show-header-navigation="no"
-class="form-container" keys-sql-types="VARCHAR;INTEGER" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" (onCancel)="closeDialog($event)"
-ignore-default-navigation="true" undo-button="false">
-
-<o-text-input oHidden #user_id_field attr="user_id" width="160px" class="form-field"></o-text-input>
-
-    <o-combo attr="product_id" label="Escoge productos" service="products" [query-on-event]="user_id_field.onValueChange"
-            entity="productsAvailable" keys="id" value-column="id" columns="name;id" parent-keys="user_id"
-            visible-columns="name" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
+    <!-- Combo para seleccionar productos -->
+    <o-combo attr="product_id" label="Escoge productos" service="products"
+        [query-on-event]="user_id_field.onValueChange" entity="productsAvailable" keys="id" value-column="id"
+        columns="name;id" parent-keys="user_id" visible-columns="name" required="yes" multiple="no" fxFlex sort="ASC"
+        searchable="yes">
     </o-combo>
+
 </o-form>

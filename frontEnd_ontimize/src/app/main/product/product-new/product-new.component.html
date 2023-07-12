@@ -1,19 +1,17 @@
 <h1 class="titleText2">{{'ALTA PRODUCTO' | oTranslate }}</h1>
+<!-- Título de la página con el texto 'ALTA PRODUCTO' -->
+
 <o-form #form service="products" entity="product" keys="id" show-header-actions-text="no" header-actions="R;I;U;D"
- show-header-navigation="no" keys-sql-types="INTEGER"  class="form-background" after-insert-mode="detail" >
+  show-header-navigation="no" keys-sql-types="INTEGER" class="form-background" after-insert-mode="detail">
 
   <div>
-  <div class="center">
-
-  <o-row class="form-row">
-    <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes" label="Nombre"></o-text-input>
-  </o-row>
-  
-  </div>
+    <div class="center">
+      <!-- Contenedor centralizado -->
+      <o-row class="form-row">
+        <!-- Fila del formulario -->
+        <o-text-input class="input-padding" attr="name" fxFlex="100" required="yes" label="Nombre"></o-text-input>
+        <!-- Campo de entrada de texto con la etiqueta 'Nombre' -->
+      </o-row>
+    </div>
   </div>
 </o-form>
-
-
-
-
-

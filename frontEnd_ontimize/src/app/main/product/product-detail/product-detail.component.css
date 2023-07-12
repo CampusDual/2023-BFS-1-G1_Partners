@@ -1,17 +1,19 @@
-button{
+/* Estilos para los botones */
+button {
   border: 1px solid #d3d3d3;
   background: white;
   padding: 10px;
   float: left;
 }
 
-button:hover{
+button:hover {
   color: whitesmoke;
   background-color: #d3d3d3;
   border: 1px solid #d3d3d3;
   transition: 0.5s;
 }
 
+/* Estilos para el contenedor central */
 .center {
   display: flex;
   flex-direction: column;
@@ -25,18 +27,22 @@ button:hover{
   margin-top: 10px;
 }
 
+/* Estilos para las filas del formulario */
 .form-row {
-    width: 90%;
+  width: 90%;
 }
 
-.titleDiv{
+/* Estilos para el div del título */
+.titleDiv {
   text-align: center;
 }
 
-.space{
+/* Estilos para el espacio entre elementos */
+.space {
   margin-right: 10px;
 }
 
-.fileTable{
+/* Estilos para la tabla de archivos */
+.fileTable {
   width: 91.3%;
 }

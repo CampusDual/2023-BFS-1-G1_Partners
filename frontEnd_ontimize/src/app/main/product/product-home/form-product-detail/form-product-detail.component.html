@@ -1,21 +1,29 @@
+<!-- Encabezado con el valor del campo 'name' del formulario -->
 <h1 class="titleText2">{{ form.getFieldValue('name') }}</h1>
 
-<o-form #form service="products" entity="product" keys="id" header-actions="" show-header="no"
-  class="form-background" keys-sql-types="INTEGER" header-mode="none" editable-detail="no">
+<!-- Formulario -->
+<o-form #form service="products" entity="product" keys="id" header-actions="" show-header="no" class="form-background"
+  keys-sql-types="INTEGER" header-mode="none" editable-detail="no">
 
+  <!-- Contenedor centrado -->
   <div class="center">
-      <o-text-input oHidden class="input-padding" attr="name" fxFlex="100"></o-text-input>
+    <!-- Campo de entrada de texto oculto -->
+    <o-text-input oHidden class="input-padding" attr="name" fxFlex="100"></o-text-input>
   </div>
 
-  
+  <!-- Tabla -->
+  <o-table #filetable attr="productsFilesTable" class="background" service="products" entity="file" keys="id"
+    parent-keys="product_id:id" columns="id;name" visible-columns="name;action" controls="true" delete-button="false"
+    insert-button="false" refresh-button="false" show-buttons-text="false" select-all-checkbox="true">
 
-     <o-table #filetable attr="productsFilesTable" class="background" service="products" entity="file" keys="id" parent-keys="product_id:id"
-    columns="id;name" visible-columns="name;action" controls="true" delete-button="false" insert-button="false" refresh-button="false" show-buttons-text="false" select-all-checkbox="true">
-    <o-table-button attr="download" title="Descargar seleccionados" (onClick)="downloadZip($event)" icon="compress" tooltip="Descargar seleccionados"></o-table-button>
+    <!-- Botón de descarga -->
+    <o-table-button attr="download" title="Descargar seleccionados" (onClick)="downloadZip($event)" icon="compress"
+      tooltip="Descargar seleccionados"></o-table-button>
+
+    <!-- Columna de acción -->
     <o-table-column attr="action" width="64px">
       <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
     </o-table-column>
-    </o-table>
 
-
+  </o-table>
 </o-form>

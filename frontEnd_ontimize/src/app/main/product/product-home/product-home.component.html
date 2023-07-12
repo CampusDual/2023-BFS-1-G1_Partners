@@ -1,37 +1,41 @@
+<h1 class="titleText2">{{'PRODUCTOS' | oTranslate }}</h1> <!-- Título de la página con el texto 'PRODUCTOS' -->
 
+<o-form mode="tab" label-columns="name" (onMainTabSelected)="refreshTable($event)" editable-detail="no"
+  class="form-background">
+  <!-- Formulario principal -->
 
-<h1  class="titleText2">{{'PRODUCTOS' | oTranslate }}</h1>
-
-<o-form mode="tab" label-columns="name" (onMainTabSelected)="refreshTable($event)" editable-detail="no" class="form-background">
- 
   <o-list *ngIf="!isAdmin" #listPartner columns="name" attr="tableProducts" service="userProduct"
-  entity="productsByUser" keys="product_id" detail-button-in-row="false"
-  detail-mode="none" delete-button="no" refresh-button="no" class="background">
- 
-  <mat-card *ngFor="let row of listPartner.dataArray" [o-list-item]="row" class="custom-card" (click)="onAction1(row.product_id)" class="showMore">
-    <mat-card-header>
-      <div mat-card-avatar>
-        <mat-icon class="icon">card_travel</mat-icon>
-      </div>
-      <mat-card-title>{{ row.name }}</mat-card-title>
-    </mat-card-header>
-  </mat-card>
- 
-</o-list>
+    entity="productsByUser" keys="product_id" detail-button-in-row="false" detail-mode="none" delete-button="no"
+    refresh-button="no" class="background">
+    <!-- Lista de productos para los usuarios que no son administradores -->
+
+    <mat-card *ngFor="let row of listPartner.dataArray" [o-list-item]="row" class="custom-card"
+      (click)="onAction1(row.product_id)" class="showMore">
+      <!-- Tarjeta que muestra información de cada producto -->
+      <mat-card-header>
+        <div mat-card-avatar>
+          <mat-icon class="icon">card_travel</mat-icon> <!-- Icono de viaje -->
+        </div>
+        <mat-card-title>{{ row.name }}</mat-card-title> <!-- Nombre del producto -->
+      </mat-card-header>
+    </mat-card>
+  </o-list>
 
   <div class="center" *ngIf="isAdmin">
+    <!-- Contenedor para los usuarios administradores -->
 
-    <o-table *ngIf="isAdmin" #table fxFlex resizable="yes" columns="name;user_ids" attr="tableProducts" service="products"
-      entity="product" keys="id" query-on-init="true" quick-filter="true"
-      filter-case-sensitive="false" insert-button="true" export-button="true"
-      columns-visibility-button="true" delete-button="true" refresh-button="true" class="userTable"
-      select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
-      pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true" auto-align-titles="yes">
+    <o-table *ngIf="isAdmin" #table fxFlex resizable="yes" columns="name;user_ids" attr="tableProducts"
+      service="products" entity="product" keys="id" query-on-init="true" quick-filter="true"
+      filter-case-sensitive="false" insert-button="true" export-button="true" columns-visibility-button="true"
+      delete-button="true" refresh-button="true" class="userTable" select-all-checkbox="true" show-buttons-text="false"
+      controls="true" show-title="true" pagination-controls="no" edition-mode="none" detail-mode="click"
+      horizontal-scroll="false" virtual-scroll="no" editable-detail="true" auto-align-titles="yes">
+      <!-- Tabla de productos para los usuarios administradores -->
 
-      <o-table-column attr="name" title="PRODUCTOS"></o-table-column>
-      <o-table-column attr="user_ids" title="Partners"></o-table-column>
-   
+      <o-table-column attr="name" title="PRODUCTOS"></o-table-column> <!-- Columna con el título 'PRODUCTOS' -->
+      <o-table-column attr="user_ids" title="Partners"></o-table-column> <!-- Columna con el título 'Partners' -->
+
     </o-table>
-    
+
   </div>
 </o-form>

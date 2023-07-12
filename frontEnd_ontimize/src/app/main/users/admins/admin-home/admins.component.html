@@ -1,22 +1,27 @@
+<h3 class="titleText2">{{'Administradores' | oTranslate }}</h3>
 
-<h3  class="titleText2">{{'Administradores' | oTranslate }}</h3>
+<!-- Inicio del formulario -->
+<o-form separator=" " mode="tab" label-columns="name;surname" attr="tabla_admins" class="form-background"
+    editable-detail="no">
+    <div class="center">
 
+        <!-- Tabla de datos -->
+        <o-table #table fxFlex resizable="yes" attr="tableAdmin" entity="admin" service="users" keys="user_"
+            columns="user_;name;surname" visible-columns="user_;name;surname" sort-columns="SURNAME"
+            query-on-init="true" quick-filter="true" filter-case-sensitive="false" insert-button="true"
+            export-button="true" columns-visibility-button="true" delete-button="true" refresh-button="true"
+            auto-adjust="false" class="userTable" select-all-checkbox="true" show-buttons-text="false" controls="true"
+            show-title="true" pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false"
+            virtual-scroll="no" editable-detail="true" auto-align-titles="yes">
 
-<o-form  separator=" " mode="tab" label-columns="name;surname" attr="tabla_admins" class="form-background" editable-detail="no">
-<div class="center">
-  
-<o-table #table fxFlex resizable="yes" attr="tableAdmin" entity="admin" service="users" keys="user_" columns="user_;name;surname"
-visible-columns="user_;name;surname" sort-columns="SURNAME" query-on-init="true" quick-filter="true"
-filter-case-sensitive="false" insert-button="true" export-button="true"
-columns-visibility-button="true" delete-button="true" refresh-button="true" auto-adjust="false" class="userTable"
-select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
-pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" virtual-scroll="no" editable-detail="true" auto-align-titles="yes">
+            <!-- Columnas de la tabla -->
+            <o-table-column attr="user_"></o-table-column>
+            <o-table-column attr="name"></o-table-column>
+            <o-table-column attr="surname"></o-table-column>
 
-<o-table-column attr="user_" ></o-table-column>
-<o-table-column attr="name"></o-table-column>
-<o-table-column attr="surname"></o-table-column>
-<o-table-paginator page-size-options="10;15"></o-table-paginator>
-</o-table>
+            <!-- Paginador de la tabla -->
+            <o-table-paginator page-size-options="10;15"></o-table-paginator>
+        </o-table>
 
-</div>
+    </div>
 </o-form>

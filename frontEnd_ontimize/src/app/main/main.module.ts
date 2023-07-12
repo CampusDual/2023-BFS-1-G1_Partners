@@ -7,12 +7,12 @@ import { MainComponent } from './main.component';
 
 @NgModule({
   imports: [
-    SharedModule,
-    OntimizeWebModule,
-    MainRoutingModule
+    SharedModule, // Módulo compartido (SharedModule)
+    OntimizeWebModule, // Módulo de Ontimize Web
+    MainRoutingModule // Módulo de enrutamiento principal (MainRoutingModule)
   ],
   declarations: [
-    MainComponent,
+    MainComponent, // Componente principal (MainComponent)
   ]
 })
 export class MainModule { }

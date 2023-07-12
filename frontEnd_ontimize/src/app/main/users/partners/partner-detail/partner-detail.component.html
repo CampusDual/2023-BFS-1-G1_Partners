@@ -1,59 +1,67 @@
 <h1 class="titleText2">{{'EDITAR' | oTranslate }}</h1>
+
 <o-form #formUser entity="user" service="users" keys="user_" header-actions="U" show-header-navigation="no"
   keys-sql-types="STRING" class="form-background">
+
   <div>
     <div class="center">
+      <!-- Fila del formulario -->
       <o-row class="form-row">
         <o-text-input class="input-padding" attr="name" fxFlex="50" required="yes" class="margin"></o-text-input>
         <o-text-input class="input-padding" class="margin" attr="surname" fxFlex="50" required="yes"></o-text-input>
         <o-text-input class="input-padding" attr="company" fxFlex="50" required="yes"></o-text-input>
-
       </o-row>
 
-    <o-row class="form-row">
-
-      <o-combo class="margin" attr="id_country" label="Escoge país" service="countries" entity="countries" keys="id"
-        value-column="id" columns="id;country" 
-        visible-columns="country" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
-
-        <combo-translate-render></combo-translate-render>
-
-     </o-combo>
-
-     <o-combo attr="id_language" label="Escoge idioma" service="languages" entity="languages" keys="id"
-       value-column="id" columns="id;language" 
-       visible-columns="language" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
-       <combo2-translate-render></combo2-translate-render>
-
-     </o-combo>
-
-</o-row>
-
-      <button class="newProduct" attr="alert"  label="Añadir Productos" (click)="addProducts()">{{'Añadir Productos' | oTranslate }}</button>
-      <o-table #tableProducts class="userTable" parent-keys="user_id:user_" columns="product_id;user_id;name" attr="tableProducts" service="userProduct"
-      entity="productsUser" keys="product_id;user_id" title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false"
-      detail-mode="none" delete-button="yes" refresh-button="no" insert-button="no" visible-columns="name" show-buttons-text="false" select-all-checkbox="true">
-      <o-table-column attr="product_id" width="100px" title="ID"></o-table-column>
-      </o-table>
-      
       <o-row class="form-row">
-      <o-file-input #fileinput attr="file" fxFlex="50" label="{{'SUBIR_DOCUMENTOS' | oTranslate }}" service="personalDocuments" entity="upload" max-file-size="100000"
-      multiple="yes" max-num-files="5" split-upload="false" key="user_"
-      [additional-data]="getFileData()" (input)="onFileUpload()" (onUpload)="onUploadFiles($event)" (onError)="onError($event)" fxFlex="100"></o-file-input>
+        <!-- Combo para seleccionar el país -->
+        <o-combo class="margin" attr="id_country" label="Escoge país" service="countries" entity="countries" keys="id"
+          value-column="id" columns="id;country" visible-columns="country" required="yes" multiple="no" fxFlex
+          sort="ASC" searchable="yes">
+          <combo-translate-render></combo-translate-render>
+        </o-combo>
+
+        <!-- Combo para seleccionar el idioma -->
+        <o-combo attr="id_language" label="Escoge idioma" service="languages" entity="languages" keys="id"
+          value-column="id" columns="id;language" visible-columns="language" required="yes" multiple="no" fxFlex
+          sort="ASC" searchable="yes">
+          <combo2-translate-render></combo2-translate-render>
+        </o-combo>
       </o-row>
 
-      <o-row class="form-row" *ngIf="fileExists">
-      <o-textarea-input #description attr="description" fxFlex="100"></o-textarea-input>
-      </o-row>
+      <!-- Botón "Añadir Productos" -->
+      <button class="newProduct" attr="alert" label="Añadir Productos" (click)="addProducts()">{{'Añadir Productos' |
+        oTranslate }}</button>
 
-      <o-table #tableDocuments class="userTable" parent-keys="user_id:user_" columns="id;name;document_type;user_id;personal_document_id;type_name;description" 
-      visible-columns="name;description"
-      attr="tableDocuments" service="personalDocuments" sort-columns="personal_document_id"
-      entity="personalFiles" keys="id" title="{{'DOCUMENTOS' | oTranslate }}" detail-button-in-row="false" sort
-      detail-mode="none" delete-button="yes" refresh-button="no" insert-button="no" show-buttons-text="false" select-all-checkbox="true">
+      <!-- Tabla de productos -->
+      <o-table #tableProducts class="userTable" parent-keys="user_id:user_" columns="product_id;user_id;name"
+        attr="tableProducts" service="userProduct" entity="productsUser" keys="product_id;user_id"
+        title="{{'PRODUCTOS' | oTranslate }}" detail-button-in-row="false" detail-mode="none" delete-button="yes"
+        refresh-button="no" insert-button="no" visible-columns="name" show-buttons-text="false"
+        select-all-checkbox="true">
+        <o-table-column attr="product_id" width="100px" title="ID"></o-table-column>
       </o-table>
 
+      <!-- Fila del formulario para subir documentos -->
+      <o-row class="form-row">
+        <o-file-input #fileinput attr="file" fxFlex="50" label="{{'SUBIR_DOCUMENTOS' | oTranslate }}"
+          service="personalDocuments" entity="upload" max-file-size="100000" multiple="yes" max-num-files="5"
+          split-upload="false" key="user_" [additional-data]="getFileData()" (input)="onFileUpload()"
+          (onUpload)="onUploadFiles($event)" (onError)="onError($event)" fxFlex="100"></o-file-input>
+      </o-row>
+
+      <!-- Fila del formulario para la descripción del archivo -->
+      <o-row class="form-row" *ngIf="fileExists">
+        <o-textarea-input #description attr="description" fxFlex="100"></o-textarea-input>
+      </o-row>
+
+      <!-- Tabla de documentos -->
+      <o-table #tableDocuments class="userTable" parent-keys="user_id:user_"
+        columns="id;name;document_type;user_id;personal_document_id;type_name;description"
+        visible-columns="name;description" attr="tableDocuments" service="personalDocuments"
+        sort-columns="personal_document_id" entity="personalFiles" keys="id" title="{{'DOCUMENTOS' | oTranslate }}"
+        detail-button-in-row="false" sort detail-mode="none" delete-button="yes" refresh-button="no" insert-button="no"
+        show-buttons-text="false" select-all-checkbox="true"></o-table>
     </div>
   </div>
-  
+
 </o-form>

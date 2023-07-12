@@ -4,15 +4,14 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 
-
 @NgModule({
   declarations: [
-    ProfileComponent,
+    ProfileComponent, // Componente de perfil
   ],
   imports: [
     CommonModule,
-    ProfileRoutingModule,
-    OntimizeWebModule,
+    ProfileRoutingModule, // Módulo de enrutamiento de perfil
+    OntimizeWebModule, // Módulo de Ontimize Web
   ]
 })
 export class ProfileModule { }

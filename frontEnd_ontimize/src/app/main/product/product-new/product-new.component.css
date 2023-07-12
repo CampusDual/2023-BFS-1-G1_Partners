@@ -1,22 +1,32 @@
 .center {
   display: flex;
+  /* Muestra los elementos como una fila flex */
   flex-direction: column;
+  /* Establece la dirección de los elementos en columna */
   justify-content: center;
+  /* Centra verticalmente los elementos */
   align-items: center;
+  /* Centra horizontalmente los elementos */
   border: 1px solid #d3d3d3;
+  /* Borde de 1 píxel sólido con color #d3d3d3 */
   border-radius: 10px;
+  /* Borde redondeado con un radio de 10 píxeles */
   background: white;
+  /* Fondo blanco */
   padding: 20px;
+  /* Espacio interno de 20 píxeles */
   text-align: center;
+  /* Alineación del texto al centro */
   margin-top: 10px;
+  /* Margen superior de 10 píxeles */
 }
 
 .form-row {
-    width: 90%;
+  width: 90%;
+  /* Anchura del 90% */
 }
 
-.titleDiv{
+.titleDiv {
   text-align: center;
+  /* Alineación del texto al centro */
 }
-
-

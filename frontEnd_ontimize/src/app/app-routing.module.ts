@@ -4,12 +4,14 @@ import { FormProductDetailComponent } from './main/product/product-home/form-pro
 import { ProfileComponent } from './main/profile/profile.component';
 
 export const routes: Routes = [
+  // Rutas definidas para la aplicación
 
   { path: 'main', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },
+  // Ruta para cargar el módulo principal (MainModule)
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
-  //{ path: 'form-product-detail', component: FormProductDetailComponent },
+  // Ruta para cargar el módulo de inicio de sesión (LoginModule)
   { path: '', redirectTo: 'main', pathMatch: 'full' },
-
+  // Redirección a la ruta 'main' como ruta principal
 ];
 
 const opt = {

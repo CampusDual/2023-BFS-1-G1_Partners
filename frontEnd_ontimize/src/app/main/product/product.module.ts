@@ -8,25 +8,22 @@ import { ProductHomeComponent } from './product-home/product-home.component';
 import { AddPartnerRelationComponent } from './product-detail/add-partner-relation/add-partner-relation.component';
 import { FormProductDetailComponent } from './product-home/form-product-detail/form-product-detail.component';
 
-
 @NgModule({
   declarations: [
-    ProductHomeComponent, 
-    ProductNewComponent,
-    ProductDetailComponent,
-    AddPartnerRelationComponent,
-    FormProductDetailComponent,
-    FormProductDetailComponent
-    
+    ProductHomeComponent, // Componente de la página principal de productos
+    ProductNewComponent, // Componente de creación de nuevos productos
+    ProductDetailComponent, // Componente de detalle de productos
+    AddPartnerRelationComponent, // Componente para añadir relación de partners
+    FormProductDetailComponent, // Componente de detalle de productos en un formulario
+    FormProductDetailComponent // Componente de detalle de productos en un formulario (duplicado)
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule,
-    OntimizeWebModule,
-    
+    ProductRoutingModule, // Módulo de enrutamiento de productos
+    OntimizeWebModule // Módulo de Ontimize Web
   ],
-  entryComponents:[
-    AddPartnerRelationComponent
+  entryComponents: [
+    AddPartnerRelationComponent // Componentes que se cargarán de forma dinámica
   ]
 })
 export class ProductModule { }

@@ -6,17 +6,16 @@ import { AdminNewComponent } from './admin-new/admin-new.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminDetailComponent } from './admin-detail/admin-detail.component';
 
-
 @NgModule({
   declarations: [
-    AdminsComponent,
-    AdminNewComponent,
-    AdminDetailComponent
+    AdminsComponent, // Componente de la página de administradores
+    AdminNewComponent, // Componente de la página de creación de nuevo administrador
+    AdminDetailComponent // Componente de la página de detalle de administrador
   ],
   imports: [
-    CommonModule,
-    AdminRoutingModule,
-    OntimizeWebModule,
+    CommonModule, // Módulo común de Angular
+    AdminRoutingModule, // Módulo de enrutamiento para administradores
+    OntimizeWebModule, // Módulo de Ontimize Web
   ]
 })
 export class AdminModule { }

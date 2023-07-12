@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
         }
       }
     });
-
   }
 
   ngOnInit(): any {
@@ -52,9 +51,9 @@ export class LoginComponent implements OnInit {
 
     if (this.authService.isLoggedIn()) {
       let role_id = this.localStorage.getItem("id_rolename");
-      if(role_id == 0){
+      if (role_id == 0) {
         this.router.navigate(['/main/product-home'], { relativeTo: this.actRoute });
-      }else{
+      } else {
         this.router.navigate(['/main/product-home']);
       }
     } else {
@@ -62,13 +61,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  protected configureUserRoleService(){
+  protected configureUserRoleService() {
     const conf = this.userRoleService.getDefaultServiceConfiguration('userrole');
     this.userRoleService.configureService(conf);
   }
-
-
-
 
   login() {
     const userName = this.loginForm.value.username;
@@ -78,38 +74,10 @@ export class LoginComponent implements OnInit {
       this.authService.login(userName, password)
         .subscribe(() => {
           self.sessionExpired = false;
-        //   const filter = {
-        //     'user_': userName
-        //   };
-        //   this.userRoleService.query(filter,['id_rolename'], 'userrole').subscribe(
-        //     res=>{
-
-        //       if(res.data && res.data.length){
-        //         let rol = res.data[0].id_rolename;
-        //         localStorage.setItem('id_rolename', rol);    
-
-        //         if(rol == 1){
-        //           self.router.navigate(['../'], { relativeTo: this.actRoute });
-        //         }else{
-        //           self.router.navigate(['/main/home-partner']);
-        //         }
-
-        //       }else{
-        //         self.router.navigate(['../'], { relativeTo: this.actRoute });
-
-        //       }
-        //     },
-        //     err=>console.log(err)
-        //   );
-
           self.router.navigate(['/main/product-home'], { relativeTo: this.actRoute });
-
         }, this.handleError);
     }
   }
-
-
-
 
   handleError(error) {
     switch (error.status) {
@@ -119,5 +87,4 @@ export class LoginComponent implements OnInit {
       default: break;
     }
   }
-
 }

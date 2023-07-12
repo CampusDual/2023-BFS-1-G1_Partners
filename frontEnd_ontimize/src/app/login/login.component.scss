@@ -1,3 +1,4 @@
+/* Estilos para el contenedor principal */
 .full {
   background-color: white;
   height: 100%;
@@ -15,10 +16,12 @@
   align-items: center;
 }
 
-.imgLogin{
+/* Estilos para el logo de inicio de sesión */
+.imgLogin {
   width: 70%;
 }
 
+/* Estilos para el contenedor principal del formulario de inicio de sesión */
 .wrapp-login {
   border: 1px solid #211915;
   border-radius: 10px;
@@ -26,19 +29,22 @@
   width: 90%;
 }
 
-.login-inner-container form.login{
+.login-inner-container form.login {
   width: 70%;
 }
 
+/* Estilos para mensajes de sesión expirada */
 .session-expired {
   text-align: center;
 }
 
+/* Estilos para textos oscuros */
 .dark_text {
   color: #c5c5c5;
   font-size: 9pt;
 }
 
+/* Estilos para información de inicio de sesión */
 .login_info,
 .title_text {
   font-size: 14px;
@@ -48,11 +54,13 @@
   font-weight: 600;
 }
 
+/* Estilos para textos normales */
 .text {
   font-size: 12px;
   font-weight: normal;
 }
 
+/* Estilos para el pie de página */
 .footer-container {
   position: absolute;
   left: 0;
@@ -72,6 +80,7 @@
   font-size: 11px;
 }
 
+/* Estilos para pantallas pequeñas */
 @media(max-width: 576px) {
   .full-page .login-outer-container .wrapp-login {
     width: 100%;
@@ -92,14 +101,15 @@
   }
 }
 
+/* Estilos para el botón de inicio de sesión */
 button.m-top-24 {
-    margin-top: 24px;
-    margin-bottom: 24px;
-    border: 1px solid #e4333c;
-    width: 100%;
-    height: 42px;
-    font-size: 16px;
-    color: white;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #e4333c;
+  width: 100%;
+  height: 42px;
+  font-size: 16px;
+  color: white;
 }
 
 button.m-top-24:hover {
@@ -108,8 +118,8 @@ button.m-top-24:hover {
   color: white;
 }
 
-.titleLogin{
+/* Estilos para el título de inicio de sesión */
+.titleLogin {
   margin-top: -40px;
   color: #211915;
 }
-
