@@ -23,13 +23,14 @@ public class LanguagesService implements ILanguagesService {
 	private DefaultOntimizeDaoHelper daoHelper;
 
 
-
+	//Consulta lenguajes
 	@Override
 	public EntityResult languagesQuery(Map<String, Object> keyMap, List<String> attrList) {
 		return daoHelper.query(languagesDao,keyMap,attrList);
 
 	}
 
+	//Inserta lenguajes
 	@Override
 	public EntityResult languagesInsert(Map<String, Object> attrMap) {
 		return this.daoHelper.insert(languagesDao, attrMap);

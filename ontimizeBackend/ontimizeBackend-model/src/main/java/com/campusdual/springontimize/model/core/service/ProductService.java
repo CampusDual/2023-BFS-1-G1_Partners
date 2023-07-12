@@ -40,67 +40,67 @@ public class ProductService implements IProductService {
     @Value("${aap.files.path}")
     private String path;
 
-    //CONSULTA EL PRODUCTO SELECCIONADO
+    //Consulta el producto seleccionado
     @Override
     public EntityResult productQuery(Map<String, Object> keyMap, List<String> attrList) {
         return daoHelper.query(productDao,keyMap,attrList);
     }
 
-    //INSERTA EL PRODUCTO SELECCIONADO EN LA BBDD
+    //Inserta el producto seleccionado en la bbdd
     @Override
     public EntityResult productInsert(Map<String, Object> attrMap) {
         return daoHelper.insert(productDao,attrMap);
     }
 
-    //ACTUALIZA EL PRODUCTO SELECCIONADO
+    //Actualiza el producto seleccionado
     @Override
     public EntityResult productUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
         return daoHelper.update(productDao,attrMap,keyMap);
     }
 
-    //BORRA EL PRODUCTO SELECCIONADO
+    //Borra el producto seleccionado
     @Override
     public EntityResult productDelete(Map<String, Object> keyMap) {
         return daoHelper.delete(productDao,keyMap);
     }
 
-    //CONSULTA EL DOCUMENTO SELECCIONADO
+    //Consulta el documento seleccionado
     public EntityResult fileQuery(Map<String, Object> keyMap, List<String> attrList) {
         return daoHelper.query(productFileDao,keyMap,attrList);
     }
 
-    //RECOGE EL DOCUMENTO SELECCIONADO
+    //Recoge el documento seleccionado
     @Override
     public EntityResult fileContentQuery(Map<String, Object> keyMap, List<String> attrList) {
         attrList.add(ProductFileDao.ATTR_PATH);
         attrList.remove(ProductFileDao.ATTR_BASE64);
         EntityResult fileResult = daoHelper.query(productFileDao,keyMap,attrList);
         List<String> base64Files = new ArrayList<>();
-        //for each file calculate the Base64 value of the local file
+        //por cada archivo calcula el valor del Base64
         for(int i=0;i<fileResult.calculateRecordNumber();i++){
             String filePath = (String) fileResult.getRecordValues(i).get(ProductFileDao.ATTR_PATH);
             File file = new File(filePath);
             try {
-                //calculate the Base64
+                //calcula el Base64
                 byte[] encoded = Base64.encodeBase64(FileUtils.readFileToByteArray(file));
                 base64Files.add(new String(encoded));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-        //add all the Base64 values for each file
+        //añade los valores Base64 por cada archivo
         fileResult.put(ProductFileDao.ATTR_BASE64,base64Files);
         return fileResult;
     }
 
-    //INSERTA EN LA BBDD EL DOCUMENTO SELECCIONADO
+    //Inserta en la bbdd el documento seleccionado
     @Override
     public EntityResult fileInsert(Map<String, Object> attrMap) {
         return daoHelper.insert(productFileDao,attrMap);
     }
 
 
-    //BORRA EL DOCUMENTO SLECCIONADO FISICO Y DE LA BBDD
+    //Borra el documento seleccionado fisico y de la bbdd
     @Override
     public EntityResult fileDelete(Map<String, Object> keyMap) {
         List<String> attrList = new ArrayList<>();
@@ -124,7 +124,7 @@ public class ProductService implements IProductService {
         return daoHelper.delete(productFileDao,keyMap);
     }
 
-    //RECOGE LOS PRODUCTOS QUE NO ESTEN ASIGNADOS A UN USUARIO
+    //Recoge los productos que no esten asignados a un usuario
     @Override
     public EntityResult productsAvailableQuery(Map<String, Object> keyMap, List<String> attrList) {
         List<Integer> products = null;
@@ -151,7 +151,7 @@ public class ProductService implements IProductService {
     }
 
 
-    //RECOGE LOS DOCUMENTOS, GENERA UN ZIP Y LOS INSERTA EN ESTE
+    //Recoge los documentos, genera un zip y los inserta en este
     public EntityResult filesZipQuery(Map<String, Object> keyMap, List<String> attrList) throws IOException {
         ArrayList<Integer> documents_ids = (ArrayList<Integer>) keyMap.get("ids");
 
