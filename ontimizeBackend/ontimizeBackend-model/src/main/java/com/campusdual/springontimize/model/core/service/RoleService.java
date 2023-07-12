@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+
 @Lazy
 @Service("RoleService")
 public class RoleService implements IRoleService {
@@ -20,6 +21,7 @@ public class RoleService implements IRoleService {
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
 
+    //Consulta el rol
     @Override
     public EntityResult roleQuery(Map<String, Object> keyMap, List<String> attrList) {
         return this.daoHelper.query(roleDao, keyMap, attrList);

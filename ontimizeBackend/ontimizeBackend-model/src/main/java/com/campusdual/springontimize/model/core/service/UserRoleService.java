@@ -20,34 +20,41 @@ import java.util.Map;
 @Service("UserRoleService")
 public class UserRoleService implements IUserRoleService {
 
-	@Autowired
-	private UserRoleDao userRoleDao;
-	@Autowired
-	private DefaultOntimizeDaoHelper daoHelper;
-	@Override
-	public EntityResult userroleQuery(Map<String, Object> keyMap, List<String> attrList) {
-		return this.daoHelper.query(userRoleDao, keyMap, attrList);
-	}
-	@Override
-	public EntityResult myRoleQuery(Map<String , Object> keyMap, List<String> attrList) {
-		attrList.add(UserRoleDao.ROLENAME);
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		keyMap.put(UserRoleDao.user_,auth.getName());
-		return this.daoHelper.query(userRoleDao, keyMap, attrList, "userRole");
-	}
+    @Autowired
+    private UserRoleDao userRoleDao;
+    @Autowired
+    private DefaultOntimizeDaoHelper daoHelper;
 
-	@Override
-	public EntityResult userroleInsert(Map<String, Object> attrMap) {
-		return this.daoHelper.insert(userRoleDao, attrMap);
-	}
+    //Consulta el rol de un usuario
+    @Override
+    public EntityResult userroleQuery(Map<String, Object> keyMap, List<String> attrList) {
+        return this.daoHelper.query(userRoleDao, keyMap, attrList);
+    }
 
-	@Override
-	public EntityResult userroleUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
-		return this.daoHelper.update(userRoleDao, attrMap, keyMap);
-	}
+    // Consulta mi rol
+    @Override
+    public EntityResult myRoleQuery(Map<String, Object> keyMap, List<String> attrList) {
+        attrList.add(UserRoleDao.ROLENAME);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        keyMap.put(UserRoleDao.user_, auth.getName());
+        return this.daoHelper.query(userRoleDao, keyMap, attrList, "userRole");
+    }
 
-	@Override
-	public EntityResult userroleDelete(Map<String, Object>keyMap) {
-		return this.daoHelper.delete(this.userRoleDao, keyMap);
-	}
+    //Inserta un rol a un usuario
+    @Override
+    public EntityResult userroleInsert(Map<String, Object> attrMap) {
+        return this.daoHelper.insert(userRoleDao, attrMap);
+    }
+
+    //Actualiza un rol a un usuario
+    @Override
+    public EntityResult userroleUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+        return this.daoHelper.update(userRoleDao, attrMap, keyMap);
+    }
+
+    //Elimina un rol de un usuario
+    @Override
+    public EntityResult userroleDelete(Map<String, Object> keyMap) {
+        return this.daoHelper.delete(this.userRoleDao, keyMap);
+    }
 }
