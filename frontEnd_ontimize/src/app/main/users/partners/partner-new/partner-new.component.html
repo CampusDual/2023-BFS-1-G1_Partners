@@ -35,11 +35,13 @@
           <o-combo  class="margin" attr="id_country" label="Escoge país" service="countries" entity="countries" keys="id"
             value-column="id" columns="id;country" 
             visible-columns="country" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
+            <combo-translate-render></combo-translate-render>
          </o-combo>
 
          <o-combo attr="id_language" label="Escoge idioma" service="languages" entity="languages" keys="id"
          value-column="id" columns="id;language" 
          visible-columns="language" required="yes" multiple="no" fxFlex sort="ASC" searchable="yes">
+         <combo2-translate-render></combo2-translate-render>
       </o-combo>
 
     </o-row>

@@ -6,6 +6,8 @@ import { PartnerNewComponent } from './partner-new/partner-new.component';
 import { PartnerDetailComponent } from './partner-detail/partner-detail.component';
 import { PartnerRoutingModule } from './partner-routing.module';
 import { AddProductRelationComponent } from './partner-detail/add-product-relation/add-product-relation.component';
+import { ComboTranslateRenderComponent } from 'src/app/components/combo-translate-render.component';
+import { Combo2TranslateRenderComponent } from 'src/app/components/combo2-translate-render.component';
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import { AddProductRelationComponent } from './partner-detail/add-product-relati
     PartnersComponent,
     PartnerNewComponent,
     PartnerDetailComponent,
-    AddProductRelationComponent
+    AddProductRelationComponent,
+    ComboTranslateRenderComponent,
+    Combo2TranslateRenderComponent
+    
   ],
   imports: [
     CommonModule,
