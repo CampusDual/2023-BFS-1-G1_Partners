@@ -26,23 +26,7 @@ export class PersonalAreaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.configureUserRoleService();
     this.configurePersonalFilesService();
-    this.myRoleService.query({}, ["rolename"], "myRole").subscribe(
-      response => {
-        if (response.data && response.data.length) {
-          let rol = response.data[0].rolename;
-          if (rol == "admin") {
-            this.isAdmin = true;
-          } else {
-            this.isAdmin = false;
-          }
-        }else{
-          this.isAdmin = false;
-        }
-      },
-      error => console.error(error)
-    );
   }
 
   refreshTable(event){
