@@ -9,21 +9,17 @@ import java.util.Map;
 
 public interface IResourceService {
 
-	//Consulta recursos
-	public EntityResult resourceQuery(Map<String, Object> keyMap, List<String> attrList);
+    //Consulta recursos
+    public EntityResult resourceQuery(Map<String, Object> keyMap, List<String> attrList);
 
-	//Inserta recursos
-	public EntityResult resourceInsert(Map<String, Object>attrMap);
+    //Inserta recursos
+    public EntityResult resourceInsert(Map<String, Object> attrMap);
 
-	//Actualiza recursos
-	public EntityResult resourceUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
+    //Actualiza recursos
+    public EntityResult resourceUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap);
 
-	//Elimina recursos
-	public EntityResult resourceDelete(Map<String, Object> keyMap);
-
-
-
-
+    //Elimina recursos
+    public EntityResult resourceDelete(Map<String, Object> keyMap);
 
 
 }

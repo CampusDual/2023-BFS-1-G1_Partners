@@ -2,9 +2,7 @@ package com.campusdual.springontimize.ws.core.rest;
 
 
 import com.campusdual.springontimize.api.core.service.IPersonalDocumentService;
-import com.campusdual.springontimize.api.core.service.IUserService;
 import com.campusdual.springontimize.model.core.dao.PersonalDocumentFileDao;
-import com.campusdual.springontimize.model.core.dao.ProductFileDao;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ontimize.jee.common.dto.EntityResult;
@@ -13,7 +11,6 @@ import com.ontimize.jee.server.rest.ORestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

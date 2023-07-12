@@ -1,4 +1,5 @@
 package com.campusdual.springontimize.model.core.service;
+
 import com.campusdual.springontimize.api.core.service.ILanguagesService;
 import com.campusdual.springontimize.model.core.dao.LanguagesDao;
 import com.ontimize.jee.common.dto.EntityResult;
@@ -16,25 +17,24 @@ import java.util.Map;
 public class LanguagesService implements ILanguagesService {
 
 
+    @Autowired
+    private LanguagesDao languagesDao;
+    @Autowired
+    private DefaultOntimizeDaoHelper daoHelper;
 
-	@Autowired
-	private LanguagesDao languagesDao;
-	@Autowired
-	private DefaultOntimizeDaoHelper daoHelper;
 
+    //Consulta lenguajes
+    @Override
+    public EntityResult languagesQuery(Map<String, Object> keyMap, List<String> attrList) {
+        return daoHelper.query(languagesDao, keyMap, attrList);
 
-	//Consulta lenguajes
-	@Override
-	public EntityResult languagesQuery(Map<String, Object> keyMap, List<String> attrList) {
-		return daoHelper.query(languagesDao,keyMap,attrList);
+    }
 
-	}
-
-	//Inserta lenguajes
-	@Override
-	public EntityResult languagesInsert(Map<String, Object> attrMap) {
-		return this.daoHelper.insert(languagesDao, attrMap);
-	}
+    //Inserta lenguajes
+    @Override
+    public EntityResult languagesInsert(Map<String, Object> attrMap) {
+        return this.daoHelper.insert(languagesDao, attrMap);
+    }
 
 
 }

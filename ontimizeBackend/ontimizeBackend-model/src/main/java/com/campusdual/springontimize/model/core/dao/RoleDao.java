@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
         configurationFilePlaceholder = "dao/placeholders.properties")
 public class RoleDao extends OntimizeJdbcDaoSupport {
 
-    public static final String id_rolename ="id_rolename";
-    public static final String rolename ="rolename";
+    public static final String id_rolename = "id_rolename";
+    public static final String rolename = "rolename";
     public static final String xmlclientpermission = "xmlclientpermission";
 
 

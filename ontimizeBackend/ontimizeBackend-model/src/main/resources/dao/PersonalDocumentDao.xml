@@ -31,8 +31,8 @@
         </Query>
         <Query id="documentfiles">
             <AmbiguousColumns>
-                <AmbiguousColumn name="name" prefix="df" />
-                <AmbiguousColumn name="name" prefix="pd" />
+                <AmbiguousColumn name="name" prefix="df"/>
+                <AmbiguousColumn name="name" prefix="pd"/>
             </AmbiguousColumns>
             <ValidColumns>
                 <Column>id</Column>

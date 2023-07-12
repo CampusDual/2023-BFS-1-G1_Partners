@@ -31,7 +31,7 @@ public interface IPersonalDocumentService {
     EntityResult myPersonalFilesQuery(Map<String, Object> keyMap, List<String> attrList);
 
     //Elimina archivos personales
-    EntityResult personalFilesDelete(Map<String, Object> keyMap) ;
+    EntityResult personalFilesDelete(Map<String, Object> keyMap);
 
     //Consulta el contenido de los archivos personales de ese usuario
     EntityResult myPersonalFilesContentQuery(Map<String, Object> keyMap, List<String> attrList);

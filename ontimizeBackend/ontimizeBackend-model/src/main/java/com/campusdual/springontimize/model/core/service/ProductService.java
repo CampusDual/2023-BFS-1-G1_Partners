@@ -43,30 +43,30 @@ public class ProductService implements IProductService {
     //Consulta el producto seleccionado
     @Override
     public EntityResult productQuery(Map<String, Object> keyMap, List<String> attrList) {
-        return daoHelper.query(productDao,keyMap,attrList);
+        return daoHelper.query(productDao, keyMap, attrList);
     }
 
     //Inserta el producto seleccionado en la bbdd
     @Override
     public EntityResult productInsert(Map<String, Object> attrMap) {
-        return daoHelper.insert(productDao,attrMap);
+        return daoHelper.insert(productDao, attrMap);
     }
 
     //Actualiza el producto seleccionado
     @Override
     public EntityResult productUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
-        return daoHelper.update(productDao,attrMap,keyMap);
+        return daoHelper.update(productDao, attrMap, keyMap);
     }
 
     //Borra el producto seleccionado
     @Override
     public EntityResult productDelete(Map<String, Object> keyMap) {
-        return daoHelper.delete(productDao,keyMap);
+        return daoHelper.delete(productDao, keyMap);
     }
 
     //Consulta el documento seleccionado
     public EntityResult fileQuery(Map<String, Object> keyMap, List<String> attrList) {
-        return daoHelper.query(productFileDao,keyMap,attrList);
+        return daoHelper.query(productFileDao, keyMap, attrList);
     }
 
     //Recoge el documento seleccionado
@@ -74,10 +74,10 @@ public class ProductService implements IProductService {
     public EntityResult fileContentQuery(Map<String, Object> keyMap, List<String> attrList) {
         attrList.add(ProductFileDao.ATTR_PATH);
         attrList.remove(ProductFileDao.ATTR_BASE64);
-        EntityResult fileResult = daoHelper.query(productFileDao,keyMap,attrList);
+        EntityResult fileResult = daoHelper.query(productFileDao, keyMap, attrList);
         List<String> base64Files = new ArrayList<>();
         //por cada archivo calcula el valor del Base64
-        for(int i=0;i<fileResult.calculateRecordNumber();i++){
+        for (int i = 0; i < fileResult.calculateRecordNumber(); i++) {
             String filePath = (String) fileResult.getRecordValues(i).get(ProductFileDao.ATTR_PATH);
             File file = new File(filePath);
             try {
@@ -89,14 +89,14 @@ public class ProductService implements IProductService {
             }
         }
         //añade los valores Base64 por cada archivo
-        fileResult.put(ProductFileDao.ATTR_BASE64,base64Files);
+        fileResult.put(ProductFileDao.ATTR_BASE64, base64Files);
         return fileResult;
     }
 
     //Inserta en la bbdd el documento seleccionado
     @Override
     public EntityResult fileInsert(Map<String, Object> attrMap) {
-        return daoHelper.insert(productFileDao,attrMap);
+        return daoHelper.insert(productFileDao, attrMap);
     }
 
 
@@ -105,13 +105,13 @@ public class ProductService implements IProductService {
     public EntityResult fileDelete(Map<String, Object> keyMap) {
         List<String> attrList = new ArrayList<>();
         attrList.add(PersonalDocumentFileDao.ATTR_PATH);
-        EntityResult fileResult = daoHelper.query(productFileDao,keyMap,attrList);
+        EntityResult fileResult = daoHelper.query(productFileDao, keyMap, attrList);
 
-        if(fileResult.isWrong()){
+        if (fileResult.isWrong()) {
             return fileResult;
         }
         String filePath = (String) fileResult.getRecordValues(0).get(PersonalDocumentFileDao.ATTR_PATH);
-        if(filePath!=null && !filePath.isEmpty()) {
+        if (filePath != null && !filePath.isEmpty()) {
             File fichero = new File(filePath);
             if (fichero.delete()) {
             } else {
@@ -121,31 +121,31 @@ public class ProductService implements IProductService {
                 return errorResult;
             }
         }
-        return daoHelper.delete(productFileDao,keyMap);
+        return daoHelper.delete(productFileDao, keyMap);
     }
 
     //Recoge los productos que no esten asignados a un usuario
     @Override
     public EntityResult productsAvailableQuery(Map<String, Object> keyMap, List<String> attrList) {
         List<Integer> products = null;
-        if(keyMap.get(UserProductDao.ATTR_USER_ID)!=null){
-            Map <String, Object> keys = new HashMap<>();
+        if (keyMap.get(UserProductDao.ATTR_USER_ID) != null) {
+            Map<String, Object> keys = new HashMap<>();
             List<String> attr = new ArrayList<>();
             attr.add(UserProductDao.ATTR_PRODUCT_ID);
-            keys.put(UserProductDao.ATTR_USER_ID,keyMap.get(UserProductDao.ATTR_USER_ID));
-            EntityResult productsRelations = this.daoHelper.query(userProductDao,keys,attr);
-            if(productsRelations.isWrong()){
+            keys.put(UserProductDao.ATTR_USER_ID, keyMap.get(UserProductDao.ATTR_USER_ID));
+            EntityResult productsRelations = this.daoHelper.query(userProductDao, keys, attr);
+            if (productsRelations.isWrong()) {
                 return productsRelations;
             }
-            if(!productsRelations.isEmpty()){
+            if (!productsRelations.isEmpty()) {
                 products = new ArrayList<>();
-                for(int i =0; i<productsRelations.calculateRecordNumber();i++){
+                for (int i = 0; i < productsRelations.calculateRecordNumber(); i++) {
                     products.add((Integer) productsRelations.getRecordValues(i).get(UserProductDao.ATTR_PRODUCT_ID));
                 }
             }
         }
-        if(products!=null){
-            keyMap.put(ProductDao.ATTR_ID,new SearchValue(SearchValue.NOT_IN,products));
+        if (products != null) {
+            keyMap.put(ProductDao.ATTR_ID, new SearchValue(SearchValue.NOT_IN, products));
         }
         return this.daoHelper.query(productDao, keyMap, attrList);
     }
@@ -193,7 +193,7 @@ public class ProductService implements IProductService {
         try {
             //calculate the Base64
             byte[] encoded = Base64.encodeBase64(FileUtils.readFileToByteArray(file));
-            zipResult.put(PersonalDocumentFileDao.ATTR_BASE64,new String(encoded));
+            zipResult.put(PersonalDocumentFileDao.ATTR_BASE64, new String(encoded));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

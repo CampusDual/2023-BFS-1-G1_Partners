@@ -4,7 +4,6 @@ import com.campusdual.springontimize.api.core.service.IPersonalDocumentService;
 import com.campusdual.springontimize.model.core.dao.PersonalDocumentDao;
 
 import com.campusdual.springontimize.model.core.dao.PersonalDocumentFileDao;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
@@ -186,7 +185,7 @@ public class PersonalDocumentService implements IPersonalDocumentService {
         try {
             //calculate the Base64
             byte[] encoded = Base64.encodeBase64(FileUtils.readFileToByteArray(file));
-            zipResult.put(PersonalDocumentFileDao.ATTR_BASE64,new String(encoded));
+            zipResult.put(PersonalDocumentFileDao.ATTR_BASE64, new String(encoded));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
