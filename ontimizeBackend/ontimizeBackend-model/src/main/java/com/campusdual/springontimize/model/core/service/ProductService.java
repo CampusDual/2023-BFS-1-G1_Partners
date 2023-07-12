@@ -40,33 +40,36 @@ public class ProductService implements IProductService {
     @Value("${aap.files.path}")
     private String path;
 
-
+    //CONSULTA EL PRODUCTO SELECCIONADO
     @Override
     public EntityResult productQuery(Map<String, Object> keyMap, List<String> attrList) {
         return daoHelper.query(productDao,keyMap,attrList);
     }
 
-
+    //INSERTA EL PRODUCTO SELECCIONADO EN LA BBDD
     @Override
     public EntityResult productInsert(Map<String, Object> attrMap) {
         return daoHelper.insert(productDao,attrMap);
     }
 
+    //ACTUALIZA EL PRODUCTO SELECCIONADO
     @Override
     public EntityResult productUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
         return daoHelper.update(productDao,attrMap,keyMap);
     }
 
+    //BORRA EL PRODUCTO SELECCIONADO
     @Override
     public EntityResult productDelete(Map<String, Object> keyMap) {
         return daoHelper.delete(productDao,keyMap);
     }
 
-
+    //CONSULTA EL DOCUMENTO SELECCIONADO
     public EntityResult fileQuery(Map<String, Object> keyMap, List<String> attrList) {
         return daoHelper.query(productFileDao,keyMap,attrList);
     }
 
+    //RECOGE EL DOCUMENTO SELECCIONADO
     @Override
     public EntityResult fileContentQuery(Map<String, Object> keyMap, List<String> attrList) {
         attrList.add(ProductFileDao.ATTR_PATH);
@@ -90,11 +93,14 @@ public class ProductService implements IProductService {
         return fileResult;
     }
 
+    //INSERTA EN LA BBDD EL DOCUMENTO SELECCIONADO
     @Override
     public EntityResult fileInsert(Map<String, Object> attrMap) {
         return daoHelper.insert(productFileDao,attrMap);
     }
 
+
+    //BORRA EL DOCUMENTO SLECCIONADO FISICO Y DE LA BBDD
     @Override
     public EntityResult fileDelete(Map<String, Object> keyMap) {
         List<String> attrList = new ArrayList<>();
@@ -118,6 +124,7 @@ public class ProductService implements IProductService {
         return daoHelper.delete(productFileDao,keyMap);
     }
 
+    //RECOGE LOS PRODUCTOS QUE NO ESTEN ASIGNADOS A UN USUARIO
     @Override
     public EntityResult productsAvailableQuery(Map<String, Object> keyMap, List<String> attrList) {
         List<Integer> products = null;
@@ -144,6 +151,7 @@ public class ProductService implements IProductService {
     }
 
 
+    //RECOGE LOS DOCUMENTOS, GENERA UN ZIP Y LOS INSERTA EN ESTE
     public EntityResult filesZipQuery(Map<String, Object> keyMap, List<String> attrList) throws IOException {
         ArrayList<Integer> documents_ids = (ArrayList<Integer>) keyMap.get("ids");
 
