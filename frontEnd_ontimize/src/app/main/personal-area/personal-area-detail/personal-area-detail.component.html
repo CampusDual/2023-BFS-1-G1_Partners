@@ -1,38 +1,44 @@
-
+<!-- Encabezado del formulario -->
 <h1 class="titleText2">{{ form.getFieldValue('name') | oTranslate }}</h1>
 
-<o-form #form service="personalDocuments" entity="personalDocuments" keys="id" 
-header-actions="" show-header="no" class="form-background" header-mode="none" 
-editable-detail="no">
+<!-- Inicio del formulario -->
+<o-form #form service="personalDocuments" entity="personalDocuments" keys="id" header-actions="" show-header="no"
+  class="form-background" header-mode="none" editable-detail="no">
 
+  <!-- Contenedor del campo de entrada de texto -->
   <div class="center">
-      <o-text-input oHidden class="input-padding" attr="name" fxFlex="100"></o-text-input>
+    <o-text-input oHidden class="input-padding" attr="name" fxFlex="100"></o-text-input>
   </div>
 
+  <!-- Campo de entrada numérica oculto -->
   <o-integer-input oHidden attr="id" class="form-field"></o-integer-input>
 
+  <!-- La tabla muestra datos de la entidad "myPersonalFiles" y utiliza el servicio "personalDocuments".-->
   <o-table #table parent-keys="personal_document_id:id" service="personalDocuments" entity="myPersonalFiles" keys="id"
-  show-buttons-text="false" show-header-navigation="no" keys-sql-types="INTEGER"
-  columns="id;name;document_type;user_id;personal_document_id;type_name" visible-columns="name;action" query-on-init="true" quick-filter="true"
-  filter-case-sensitive="false" insert-button="false" export-button="true"
-  columns-visibility-button="true" delete-button="false" refresh-button="false"
-  select-all-checkbox="true" show-buttons-text="false" controls="true" show-title="true"
-  pagination-controls="no" edition-mode="none" detail-mode="click" horizontal-scroll="false" auto-adjust="true" virtual-scroll="no" editable-detail="true"
-  context-menu-target="table" class="background">
-  
-  <o-table-column attr="name" title="{{'Nombre' | oTranslate }}" width="100px"></o-table-column>
+    show-buttons-text="false" show-header-navigation="no" keys-sql-types="INTEGER"
+    columns="id;name;document_type;user_id;personal_document_id;type_name" visible-columns="name;action"
+    query-on-init="true" quick-filter="true" filter-case-sensitive="false" insert-button="false" export-button="true"
+    columns-visibility-button="true" delete-button="false" refresh-button="false" select-all-checkbox="true"
+    show-buttons-text="false" controls="true" show-title="true" pagination-controls="no" edition-mode="none"
+    detail-mode="click" horizontal-scroll="false" auto-adjust="true" virtual-scroll="no" editable-detail="true"
+    context-menu-target="table" class="background">
 
-  <o-table-column attr="action" width="10px">
-    <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
-  </o-table-column>
+    <!-- Columna de la tabla para el campo "name" -->
+    <o-table-column attr="name" title="{{'Nombre' | oTranslate }}" width="100px"></o-table-column>
 
-  <o-table-context-menu [context-menu]="contextMenu" insert="no" edit="no" view-detail="no"></o-table-context-menu>
+    <!-- Columna de la tabla para la acción de descarga -->
+    <o-table-column attr="action" width="10px">
+      <o-table-cell-renderer-action (onClick)="actionClick($event)" icon="download"></o-table-cell-renderer-action>
+    </o-table-column>
+
+    <!-- Menú contextual de la tabla -->
+    <o-table-context-menu [context-menu]="contextMenu" insert="no" edit="no" view-detail="no"></o-table-context-menu>
 
 
-<!-- Context menu definition -->
-<o-context-menu #contextMenu>
-  <o-context-menu-item icon="download" label="Descargar" (execute)="onExecute($event)"></o-context-menu-item>
-</o-context-menu>
+    <!-- Definición del menú contextual -->
+    <o-context-menu #contextMenu>
+      <o-context-menu-item icon="download" label="Descargar" (execute)="onExecute($event)"></o-context-menu-item>
+    </o-context-menu>
 
   </o-table>
 

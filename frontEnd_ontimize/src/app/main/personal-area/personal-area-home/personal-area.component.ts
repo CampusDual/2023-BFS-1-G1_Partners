@@ -14,7 +14,7 @@ export class PersonalAreaComponent implements OnInit {
   private personalDocuments: OntimizeService;
   public selectedDocument: any;
 
-  @ViewChild('table', {static: false }) public tableDocuments: OTableComponent;
+  @ViewChild('table', { static: false }) public tableDocuments: OTableComponent;
 
   constructor(
     private router: Router,
@@ -26,34 +26,37 @@ export class PersonalAreaComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Configuración inicial del servicio de documentos personales
     this.configurePersonalFilesService();
   }
 
-  refreshTable(event){
+  // Método para actualizar la tabla de documentos
+  refreshTable(event) {
     this.tableDocuments.refresh();
   }
-
+  // Navegar a la página de inicio de sesión
   navigate() {
     this.router.navigate(['../', 'login'], { relativeTo: this.actRoute });
   }
-
+  // Configuración del servicio de roles de usuario
   configureUserRoleService() {
     const conf = this.myRoleService.getDefaultServiceConfiguration("userrole");
     this.myRoleService.configureService(conf);
   }
-  
+  // Configuración del servicio de documentos personales
   configurePersonalFilesService() {
     const confDocuments = this.personalDocuments.getDefaultServiceConfiguration('personalDocuments');
     this.personalDocuments.configureService(confDocuments);
   }
-    
+  // Acción 1: Navegar a la vista de detalle de un documento
   onAction1(id: number) {
-    this.router.navigate(['/main/personal-area/personal-area-detail/'+id]);
+    this.router.navigate(['/main/personal-area/personal-area-detail/' + id]);
 
   }
-  
-  actionClick(event){
-    this.personalDocuments.query({id:event.id}, ['name','base64'], 'myPersonalFilesContent').subscribe(res => {
+  // Método para manejar el evento de clic en la acción
+  actionClick(event) {
+    // Se realiza una consulta al servicio personalDocuments para obtener los datos del archivo correspondiente al evento de clic.
+    this.personalDocuments.query({ id: event.id }, ['name', 'base64'], 'myPersonalFilesContent').subscribe(res => {
       if (res.data && res.data.length) {
         let filename = res.data[0].name;
         let base64 = res.data[0].base64;
@@ -65,16 +68,18 @@ export class PersonalAreaComponent implements OnInit {
         link.remove();
       }
     });
-    
+
   }
 
-  downloadZip(event){
-    let files =this.tableDocuments.getSelectedItems();
+  // Método para descargar un archivo ZIP con los documentos seleccionados
+  downloadZip(event) {
+    let files = this.tableDocuments.getSelectedItems();
     let documentsId = [];
-    files.forEach(elemento=>{
+    files.forEach(elemento => {
       documentsId.push(elemento.id);
     });
-    this.personalDocuments.query({ids:documentsId}, ['name','base64'], 'filesZip').subscribe(res => {
+    // Se realiza una consulta al servicio personalDocuments para obtener los datos del archivo ZIP con los documentos seleccionados.
+    this.personalDocuments.query({ ids: documentsId }, ['name', 'base64'], 'filesZip').subscribe(res => {
       if (res.data) {
         let filename = res.data.name;
         let base64 = res.data.base64;
