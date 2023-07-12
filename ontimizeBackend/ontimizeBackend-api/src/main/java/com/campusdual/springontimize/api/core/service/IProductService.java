@@ -2,6 +2,7 @@ package com.campusdual.springontimize.api.core.service;
 
 import com.ontimize.jee.common.dto.EntityResult;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -20,4 +21,5 @@ public interface IProductService {
     EntityResult fileDelete(Map<String, Object> keyMap);
 
     EntityResult productsAvailableQuery(Map<String, Object> keyMap, List<String> attrList);
+    EntityResult filesZipQuery(Map<String, Object> keyMap, List<String> attrList) throws IOException;
 }

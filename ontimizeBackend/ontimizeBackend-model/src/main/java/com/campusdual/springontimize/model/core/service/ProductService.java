@@ -143,6 +143,7 @@ public class ProductService implements IProductService {
         return this.daoHelper.query(productDao, keyMap, attrList);
     }
 
+
     public EntityResult filesZipQuery(Map<String, Object> keyMap, List<String> attrList) throws IOException {
         ArrayList<Integer> documents_ids = (ArrayList<Integer>) keyMap.get("ids");
 
@@ -150,10 +151,10 @@ public class ProductService implements IProductService {
 
         EntityResult fileResult = null;
 
-        String user = getUser();
-        String directory = path + user;
+
+        String directory = path;
         Timestamp timestamp = Timestamp.from(Instant.now());
-        String zipName = user + timestamp.getTime() + ".zip";
+        String zipName = timestamp.getTime() + ".zip";
         final FileOutputStream fos = new FileOutputStream(directory + "\\" + zipName);
         ZipOutputStream zipOut = new ZipOutputStream(fos);
 
@@ -174,7 +175,6 @@ public class ProductService implements IProductService {
             }
             fis.close();
         }
-
         zipOut.close();
         fos.close();
         EntityResult zipResult = new EntityResultMapImpl();
@@ -192,14 +192,6 @@ public class ProductService implements IProductService {
 
         return zipResult;
 
-        /*
-        - KeyMap tiene un atributo que se va a llamar ids y este va a tener una lista de ids
-        - attrList va a tener dos elementos, uno es el name y otro es el base64 (todo esto desde front)
-        - el return nos va a tener que devolver un elemento que sea un HasTable con esos dos atributos
-        - Hacer un for para recuperar cada uno de esos paths, pasarselos al Zip.
-        - Cuanto esté todo creado pasarselo al base64
-
-                       */
 
     }
 }
