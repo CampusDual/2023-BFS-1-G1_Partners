@@ -22,43 +22,47 @@ import java.util.Map;
 public class ResourceService implements IResourceService {
 
 
-	@Autowired
-	private ResourceDao resourceDao;
+    @Autowired
+    private ResourceDao resourceDao;
 
 
-	@Autowired
-	private DefaultOntimizeDaoHelper daoHelper;
+    @Autowired
+    private DefaultOntimizeDaoHelper daoHelper;
 
-	@Override
-	public EntityResult resourceQuery(Map<String, Object> keyMap, List<String> attrList) {
-		return this.daoHelper.query(resourceDao, keyMap, attrList,"documentfiles");
-	}
+    //Consulta el documento seleccionado
+    @Override
+    public EntityResult resourceQuery(Map<String, Object> keyMap, List<String> attrList) {
+        return this.daoHelper.query(resourceDao, keyMap, attrList, "documentfiles");
+    }
 
-	@Override
-	public EntityResult resourceInsert(Map<String, Object> attrMap) {
+    //Inserta un documento
+    @Override
+    public EntityResult resourceInsert(Map<String, Object> attrMap) {
 
-		EntityResult insertResourceResult = this.daoHelper.insert(resourceDao, attrMap);
+        EntityResult insertResourceResult = this.daoHelper.insert(resourceDao, attrMap);
 
-		if(!insertResourceResult.isWrong()){
+        if (!insertResourceResult.isWrong()) {
 
-			Map<String, Object> attrToInsert = new HashMap<>();
+            Map<String, Object> attrToInsert = new HashMap<>();
 
-			attrToInsert.put(ResourceDao.id,attrMap.get("id"));
+            attrToInsert.put(ResourceDao.id, attrMap.get("id"));
 
-			return this.daoHelper.insert(resourceDao,attrToInsert);
+            return this.daoHelper.insert(resourceDao, attrToInsert);
 
-		}else{
-			return insertResourceResult;
-		}
-	}
+        } else {
+            return insertResourceResult;
+        }
+    }
 
+    //Actualiza un documento seleccionado
+    @Override
+    public EntityResult resourceUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
+        return this.daoHelper.update(resourceDao, attrMap, keyMap);
+    }
 
-	@Override
-	public EntityResult resourceUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
-		return this.daoHelper.update(resourceDao, attrMap, keyMap);	}
-
-	@Override
-	public EntityResult resourceDelete(Map<String, Object> keyMap) {
-		return this.daoHelper.delete(this.resourceDao, keyMap);
-	}
+    //Elimina el documento seleccionado
+    @Override
+    public EntityResult resourceDelete(Map<String, Object> keyMap) {
+        return this.daoHelper.delete(this.resourceDao, keyMap);
+    }
 }
