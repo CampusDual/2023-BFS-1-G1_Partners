@@ -24,7 +24,7 @@ $mat-custom-primary: (
     200: #000000,
     300: #000000,
     400: black,
-    500: #e4333c,
+    500: black,
     600: black,
     700: black,
     800: black,
@@ -101,4 +101,28 @@ $theme: map_merge(
 
 *:hover{
   transition: 0.5s;
+}
+
+button.o-form-toolbar-button-insert{
+  background: white !important;
+  color: rgb(85, 149, 233) !important;
+  border: 1px solid #d3d3d3 !important;
+}
+
+button.o-form-toolbar-button-insert:hover{
+  background: rgb(85, 149, 233) !important;
+  color: black !important;
+  border: 1px solid rgb(85, 149, 233) !important;
+}
+
+button.mat-stroked-button{
+  background: white !important;
+  color: rgb(85, 149, 233) !important;
+  border: 1px solid #d3d3d3 !important;
+}
+
+button.mat-stroked-button:hover{
+  background: rgb(85, 149, 233) !important;
+  color: black !important;
+  border: 1px solid rgb(85, 149, 233) !important;
 }

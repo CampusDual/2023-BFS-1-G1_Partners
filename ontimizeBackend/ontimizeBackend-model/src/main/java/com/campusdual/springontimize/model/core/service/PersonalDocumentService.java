@@ -43,7 +43,7 @@ public class PersonalDocumentService implements IPersonalDocumentService {
     @Value("${aap.files.path}")
     private String path;
 
-    //CONSULTA DE LOS DOCUMENTOS
+    //Consulta los documentos
     @Override
     public EntityResult personalDocumentsQuery(Map<String, Object> keyMap, List<String> attrList) {
         EntityResult result = daoHelper.query(personalDocumentDao, keyMap, attrList);
@@ -51,44 +51,44 @@ public class PersonalDocumentService implements IPersonalDocumentService {
         return result;
     }
 
-    //CONSULTA DE LOS ARCHIVOS
+    //Consulta los archivos
     @Override
     public EntityResult personalFilesQuery(Map<String, Object> keyMap, List<String> attrList) {
         return daoHelper.query(personalDocumentDao, keyMap, attrList, "documentfiles");
     }
 
-    //CONSULTA LOS ARCHIVOS QUE ESTEN ASOCIADOS A MI USUARIO
+    //Consulta los archivos que esten asociados a mi usuario
     @Override
     public EntityResult myPersonalFilesQuery(Map<String, Object> keyMap, List<String> attrList) {
         keyMap.put("user_id", getUser());
         return daoHelper.query(personalDocumentDao, keyMap, attrList, "documentfiles");
     }
 
-    //RECOGE MI NOMBRE DE USUARIO
+    //Recoge mi nombre de usuario
     private String getUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return auth.getName();
     }
 
-    //INSERTA EL DOCUMENTO SELECCIONADO
+    //Inserta el documento seleccionado
     @Override
     public EntityResult personalDocumentInsert(Map<String, Object> attrMap) {
         return daoHelper.insert(personalDocumentDao, attrMap);
     }
 
-    //ACTUALIZA EL DOCUMENTO SELECCIONADO
+    //Actualiza el documento seleccionado
     @Override
     public EntityResult personalDocumentUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) {
         return daoHelper.update(personalDocumentDao, attrMap, keyMap);
     }
 
-    //BORRA EL DOCUMENTO SELECCIONADO
+    //Borra el documento seleccionado
     @Override
     public EntityResult personalDocumentDelete(Map<String, Object> keyMap) {
         return daoHelper.delete(personalDocumentDao, keyMap);
     }
 
-    //BORRA EL ARCHIVO SELECCIONADO FISICO Y EN LA BBDD
+    //Borra el archivo seleccionado fisico y en la bbdd
     @Override
     public EntityResult personalFilesDelete(Map<String, Object> keyMap) {
         List<String> attrList = new ArrayList<>();
@@ -113,7 +113,7 @@ public class PersonalDocumentService implements IPersonalDocumentService {
         return daoHelper.delete(personalDocumentFileDao, keyMap);
     }
 
-    //RECOGE LOS DOCUMENTOS SELECCIONADO
+    //Recoge los documentos seleccionados
     @Override
     public EntityResult myPersonalFilesContentQuery(Map<String, Object> keyMap, List<String> attrList) {
         attrList.add(PersonalDocumentFileDao.ATTR_PATH);
@@ -137,13 +137,13 @@ public class PersonalDocumentService implements IPersonalDocumentService {
         return fileResult;
     }
 
-    //INSERTA EL ARCHIVO EN LA BBDD
+    //Inserta el archivo en la bbdd
     @Override
     public EntityResult personalFileInsert(Map<String, Object> attrMap) {
         return daoHelper.insert(personalDocumentFileDao, attrMap);
     }
 
-    //RECOGE LOS DOCUMENTOS, GENERA UN ZIP Y LOS INSERTA EN ESTE
+    //Recoge los documentos, genera un zip y los inserta en este
     public EntityResult filesZipQuery(Map<String, Object> keyMap, List<String> attrList) throws IOException {
         ArrayList<Integer> documents_ids = (ArrayList<Integer>) keyMap.get("ids");
 

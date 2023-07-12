@@ -24,13 +24,14 @@ public class CountriesService implements ICountriesService {
 	private DefaultOntimizeDaoHelper daoHelper;
 
 
-
+	//Consulta paises
 	@Override
 	public EntityResult countriesQuery(Map<String, Object> keyMap, List<String> attrList) {
 		return daoHelper.query(countriesDao,keyMap,attrList);
 
 	}
 
+	//Inserta paises
 	@Override
 	public EntityResult countriesInsert(Map<String, Object> attrMap) {
 		return this.daoHelper.insert(countriesDao, attrMap);

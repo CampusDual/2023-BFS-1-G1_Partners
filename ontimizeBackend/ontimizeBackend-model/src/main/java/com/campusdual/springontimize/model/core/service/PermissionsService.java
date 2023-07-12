@@ -20,7 +20,7 @@ import java.util.Map;
 @Lazy
 public class PermissionsService implements IPermissionsService {
 
-
+    //Consulta los permisos del usuario
     @Override
     public EntityResult permissionQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
@@ -39,6 +39,8 @@ public class PermissionsService implements IPermissionsService {
         return(result);
     }
 
+
+    //Obtiene los permisos
     private Map<String, Object> getPermissions() {
         HashMap<String,Object> result = new HashMap<>();
         addMenuForRole(result);
@@ -46,12 +48,14 @@ public class PermissionsService implements IPermissionsService {
         return result;
     }
 
+    //Añade las rutas a un HashMap
     private void addRoutesForRole(HashMap<String, Object> result) {
         List<HashMap<String,Object>> routeItems = new ArrayList<>();
         routeItems.add(generateRouteItem("home",isAdmin()));
         result.put("routes",routeItems);
     }
 
+    //Añade las rutas del menu a un HashMap
     private void addMenuForRole(HashMap<String, Object> result) {
         List<HashMap<String,Object>> menuItems = new ArrayList<>();
         menuItems.add(generateMenuItem("users",isAdmin(),isAdmin()));
@@ -62,6 +66,8 @@ public class PermissionsService implements IPermissionsService {
         result.put("menu",menuItems);
     }
 
+
+    //Genera cada item del menu
     private HashMap<String, Object> generateMenuItem(String attr, boolean visible, boolean enabled) {
         HashMap<String, Object> result = new HashMap<>();
         result.put("attr",attr);
@@ -70,6 +76,7 @@ public class PermissionsService implements IPermissionsService {
         return result;
     }
 
+    //Genera la ruta de cada item
     private HashMap<String, Object> generateRouteItem(String permissionId, boolean enabled) {
         HashMap<String, Object> result = new HashMap<>();
         result.put("permissionId",permissionId);
@@ -77,6 +84,8 @@ public class PermissionsService implements IPermissionsService {
         return result;
     }
 
+
+    //Devuelve true si es admin
     private boolean isAdmin(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String role = auth.getAuthorities().toArray()[0].toString();
