@@ -1,18 +1,25 @@
-img#logoSimbolo{
+img#logoSimbolo {
     width: 8%;
+    /* Ancho del 8% del contenedor padre */
     margin-left: 20px;
+    /* Margen izquierdo de 20px */
 }
 
 .header-container {
     display: flex;
+    /* Muestra los elementos como una fila flex */
     align-items: center;
-}
-  
-.logo-title-container {
-    display: flex;
-    align-items: center;
+    /* Centra verticalmente los elementos */
 }
 
-.title{
+.logo-title-container {
+    display: flex;
+    /* Muestra los elementos como una fila flex */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+}
+
+.title {
     margin-left: 5px;
+    /* Margen izquierdo de 5px */
 }

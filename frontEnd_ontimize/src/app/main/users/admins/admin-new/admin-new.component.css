@@ -1,31 +1,43 @@
+/* Estilos para un contenedor centrado */
 .center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-    background: white;
-    padding: 20px;
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .form-row {
-      width: 90%;
-  }
-  
-  .titleDiv{
-    text-align: center;
-  }
-  
-  o-list{
-    width: 90%;
-  }
-  
-  .space{
-    margin-right: 20px;
-  }
-  
-  
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #d3d3d3;
+  /* Borde de 1px sólido con un color gris claro */
+  border-radius: 10px;
+  /* Bordes redondeados con un radio de 10px */
+  background: white;
+  /* Fondo blanco */
+  padding: 20px;
+  /* Espacio interno de relleno de 20px */
+  text-align: center;
+  /* Alineación del texto al centro */
+  margin-top: 10px;
+  /* Margen superior de 10px */
+}
+
+/* Estilos para una fila de formulario */
+.form-row {
+  width: 90%;
+  /* Ancho del 90% del contenedor padre */
+}
+
+/* Estilos para un contenedor de título centrado */
+.titleDiv {
+  text-align: center;
+  /* Alineación del texto al centro */
+}
+
+/* Estilos para una lista ordenada */
+o-list {
+  width: 90%;
+  /* Ancho del 90% del contenedor padre */
+}
+
+/* Estilos para crear espacio entre elementos adyacentes */
+.space {
+  margin-right: 20px;
+  /* Margen derecho de 20px */
+}

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <JdbcEntitySetup
-	xmlns="http://www.ontimize.com/schema/jdbc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-	catalog="" schema="${mainschema}" table="tuser_role"
-	datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
-	<DeleteKeys>
-		<Column>id_user_role</Column>
-	</DeleteKeys>
-	<UpdateKeys>
-		<Column>id_user_role</Column>
-	</UpdateKeys>
-	<Queries>
-		<Query id="login">
-			<Sentence>
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="tuser_role"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+    <DeleteKeys>
+        <Column>id_user_role</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>id_user_role</Column>
+    </UpdateKeys>
+    <Queries>
+        <Query id="login">
+            <Sentence>
                 <![CDATA[
                     SELECT
                         #COLUMNS#
@@ -22,14 +22,14 @@
                     #ORDER#
                 ]]>
             </Sentence>
-		</Query>
-		<Query id="userRole">
-			<AmbiguousColumns>
-				<AmbiguousColumn name="user_" prefix="tu" />
-				<AmbiguousColumn name="id_rolename" prefix="tr" />
-			</AmbiguousColumns>
-			<Sentence>
-					<![CDATA[
+        </Query>
+        <Query id="userRole">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="user_" prefix="tu"/>
+                <AmbiguousColumn name="id_rolename" prefix="tr"/>
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
 					select
 						#COLUMNS#
 					from
@@ -39,15 +39,15 @@
 					#WHERE#
 					#ORDER#
 					]]>
-			</Sentence>
-		</Query>
-		<Query id="serverPermissions">
-			<AmbiguousColumns>
-				<AmbiguousColumn name="id_rolename" prefix="tr" />
-				<AmbiguousColumn name="id_server_permission" prefix="tsp" />
-			</AmbiguousColumns>
-			<Sentence>
-					<![CDATA[
+            </Sentence>
+        </Query>
+        <Query id="serverPermissions">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="id_rolename" prefix="tr"/>
+                <AmbiguousColumn name="id_server_permission" prefix="tsp"/>
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
 					select
 						#COLUMNS#
 					from
@@ -57,11 +57,11 @@
 					#WHERE#
 					#ORDER#
 					]]>
-		</Sentence>
-		</Query>
-		<Query id="clientPermissions">
-			<Sentence>
-					<![CDATA[
+            </Sentence>
+        </Query>
+        <Query id="clientPermissions">
+            <Sentence>
+                <![CDATA[
 					select
 						#COLUMNS#
 					from
@@ -69,7 +69,7 @@
 					#WHERE#
 					#ORDER#
 					]]>
-		</Sentence>
-		</Query>
-	</Queries>
+            </Sentence>
+        </Query>
+    </Queries>
 </JdbcEntitySetup>

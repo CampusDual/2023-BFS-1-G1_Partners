@@ -1,59 +1,91 @@
+/* Estilos para un contenedor centrado */
 .center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid #d3d3d3;
+  /* Borde de 1px sólido con un color gris claro */
   border-radius: 10px;
+  /* Bordes redondeados con un radio de 10px */
   background: white;
+  /* Fondo blanco */
   padding: 20px;
+  /* Espacio interno de relleno de 20px */
   text-align: center;
+  /* Alineación del texto al centro */
   margin-top: 10px;
+  /* Margen superior de 10px */
 }
 
+/* Estilos para una fila de formulario */
 .form-row {
-    width: 90%;
-}
-
-.titleDiv{
-  text-align: center;
-}
-
-o-list{
   width: 90%;
+  /* Ancho del 90% del contenedor padre */
 }
 
-.space{
+/* Estilos para un contenedor de título centrado */
+.titleDiv {
+  text-align: center;
+  /* Alineación del texto al centro */
+}
+
+/* Estilos para una lista */
+o-list {
+  width: 90%;
+  /* Ancho del 90% del contenedor padre */
+}
+
+/* Estilos para crear espacio entre elementos adyacentes */
+.space {
   margin-right: 20px;
+  /* Margen derecho de 20px */
 }
 
-.o-table{
+/* Estilos para la tabla */
+.o-table {
   text-align: center;
+  /* Alineación del texto al centro */
 }
 
-.userTable{
+/* Estilos para la tabla de usuarios */
+.userTable {
   text-align: center;
+  /* Alineación del texto al centro */
   background: white;
+  /* Fondo blanco */
   padding: 20px;
-  text-align: center;
+  /* Espacio interno de relleno de 20px */
   margin-bottom: 20px;
+  /* Margen inferior de 20px */
   height: auto;
+  /* Altura automática */
   margin-top: 20px;
+  /* Margen superior de 20px */
   width: 91.3%;
+  /* Ancho del 91.3% */
 }
 
-.newProduct{
+/* Estilos para el botón "Nuevo producto" */
+.newProduct {
   background: white;
+  /* Fondo blanco */
   border: 1px solid #e4333c;
+  /* Borde de 1px sólido con un color rojo */
   padding: 10px;
+  /* Espacio interno de relleno de 10px */
   color: #e4333c;
+  /* Color del texto rojo */
   margin-top: 30px;
-
+  /* Margen superior de 30px */
 }
 
-.newProduct:hover{
+/* Estilos para el botón "Nuevo producto" al pasar el cursor sobre él */
+.newProduct:hover {
   background: #e4333c;
+  /* Fondo rojo */
   color: whitesmoke;
+  /* Color del texto blanco ahumado */
   transition: 0.5s;
+  /* Transición de 0.5 segundos */
 }
-

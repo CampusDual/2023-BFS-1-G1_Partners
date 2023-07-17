@@ -8,24 +8,30 @@
       <div fxFill fxLayout="column" fxLayoutAlign="center center" class="login-inner-container">
         <form class="login" [formGroup]="loginForm" (ngSubmit)="login()">
 
+          <!-- Campo de entrada para el nombre de usuario -->
           <div fxLayout="column" fxLayoutGap="10px">
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #user placeholder="{{ 'USERNAME' | oTranslate }}" id="username" [formControl]="userCtrl">
+              <input matInput class="mat-input" #user placeholder="{{ 'USERNAME' | oTranslate }}" id="username"
+                [formControl]="userCtrl">
               <mat-error *ngIf="userCtrl.hasError('required')">
                 {{ 'ERROR_USER_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
+
+            <!-- Campo de entrada para la contraseña -->
             <mat-form-field fxFill class="m-top-24">
-              <input matInput class="mat-input" #password placeholder="{{ 'PASSWORD' | oTranslate }}" id="password" type="password"
-                [formControl]="pwdCtrl">
+              <input matInput class="mat-input" #password placeholder="{{ 'PASSWORD' | oTranslate }}" id="password"
+                type="password" [formControl]="pwdCtrl">
               <mat-error *ngIf="pwdCtrl.hasError('required')">
                 {{ 'ERROR_PASS_REQUIRED' | oTranslate }}
               </mat-error>
             </mat-form-field>
           </div>
 
+          <!-- Opciones adicionales -->
           <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="m-top-24">
-            <mat-checkbox class="text">{{ 'REMEMBER_ME' | oTranslate }}</mat-checkbox>  <button mat-raised-button color="primary" type="submit" class="m-top-24">{{ 'LOGIN' | oTranslate }}</button>
+            <mat-checkbox class="text">{{ 'REMEMBER_ME' | oTranslate }}</mat-checkbox>
+            <button mat-raised-button color="primary" type="submit" class="m-top-24">{{ 'LOGIN' | oTranslate }}</button>
           </div>
 
         </form>
@@ -33,11 +39,11 @@
     </div>
   </div>
 
+  <!-- Pie de página -->
   <div id="footer" class="footer-container">
     <div fxLayout="row" fxLayoutAlign="center center">
       <span>{{ 'FOOTER_CREATED_BY' | oTranslate }}</span>
-      <span style="margin-right: 5px;"> &copy; 2023  </span>
-      
+      <span style="margin-right: 5px;"> &copy; 2023 </span>
       <span>{{ 'FOOTER_RIGHTS' | oTranslate }}</span>
     </div>
   </div>

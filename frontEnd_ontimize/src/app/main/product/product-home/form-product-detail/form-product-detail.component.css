@@ -1,19 +1,33 @@
-.form-container{
+.form-container {
+    /* Estilos del contenedor de formulario */
     border: 1px solid #211915;
+    /* Borde sólido de color #211915 */
     border-radius: 10px;
+    /* Radio de borde de 10px para esquinas redondeadas */
     background: #211915;
+    /* Fondo de color #211915 */
     padding: 10px;
+    /* Relleno de 10px */
     box-shadow: 5px 10px 8px #cccccc;
+    /* Sombra de caja con valores de sombra específicos */
     text-align: center;
+    /* Alineamiento de texto al centro */
 }
 
-.breadcrumbs{
+.breadcrumbs {
+    /* Estilos de la sección de migas de pan (breadcrumbs) */
     width: 100%;
+    /* Ancho del 100% */
     text-align: left;
+    /* Alineamiento de texto a la izquierda */
     color: whitesmoke;
+    /* Color de texto whitesmoke */
     background: #211915;
+    /* Fondo de color #211915 */
 }
 
-.breadcrumb{
+.breadcrumb {
+    /* Estilos de una miga de pan individual */
     padding: 5px;
+    /* Relleno de 5px */
 }

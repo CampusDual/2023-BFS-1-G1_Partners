@@ -4,17 +4,17 @@
 
 /* Color definitions */
 $mat-custom-primary: (
-  50: white,
-  100: white, //fondo del link active
+  50: whitesmoke,
+  100: whitesmoke, //fondo del link active
   200: #ff9fa4,
   300: #ff7278,
   400: #ff4e56,
-  500: #e4333c, //fondo del menú
+  500: white, //fondo del menú
   600: #ff222c,
   700: #ff1a24,
-  800: #e4333c, //fondo menú desplegable
+  800: whitesmoke, //fondo menú desplegable
   900: #ff0008,
-  A100: #ffffff,
+  A100: black,
   A200: #ffd9db,
   A400: #ff7278,
   A700: #ff5b60,
@@ -23,12 +23,12 @@ $mat-custom-primary: (
     100: #000000,
     200: #000000,
     300: #000000,
-    400: #ffffff,
-    500: #ffffff,
-    600: #ffffff,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
+    400: black,
+    500: black,
+    600: black,
+    700: black,
+    800: black,
+    900: black,
     A100: #000000,
     A200: #000000,
     A400: #000000,
@@ -36,18 +36,18 @@ $mat-custom-primary: (
   ),
 );
 $mat-custom-accent: (
-  50: #ffffff,
-  100: #ffffff,
-  200: #ffffff,
-  300: #ffffff,
-  400: #ffffff,
-  500: #e4333c, //color letras botones
-  600: #ffffff,
+  50: black,
+  100: rgb(85, 149, 233),
+  200: black,
+  300: black,
+  400: black,
+  500: rgb(85, 149, 233), //color letras botones
+  600: black,
   700: #000000,
   800: #000000,
-  900: #e4333c, //color links menú
-  A100: #ffffff,
-  A200: #ffffff,
+  900: black, //color links menú
+  A100: black,
+  A200: black,
   A400: #000000,
   A700: #000000,
   contrast: (
@@ -56,15 +56,15 @@ $mat-custom-accent: (
     200: #000000,
     300: #000000,
     400: #000000,
-    500: whitesmoke, //flecha del botón
+    500: black, //flecha del botón
     600: #000000,
-    700: #ffffff,
-    800: #ffffff,
-    900: #ffffff,
+    700: black,
+    800: black,
+    900: black,
     A100: #000000,
     A200: #000000,
-    A400: #ffffff,
-    A700: #ffffff,
+    A400: black,
+    A700: black,
   ),
 );
 
@@ -99,19 +99,30 @@ $theme: map_merge(
   )
 );
 
-.titleDiv{
-  color: white;
-  background: #211915;
+*:hover{
+  transition: 0.5s;
 }
 
-.titleText{
-  padding: 5px;
+button.o-form-toolbar-button-insert{
+  background: white !important;
+  color: rgb(85, 149, 233) !important;
+  border: 1px solid #d3d3d3 !important;
 }
 
-.highlight{
-  color: #e4333c;
+button.o-form-toolbar-button-insert:hover{
+  background: rgb(85, 149, 233) !important;
+  color: black !important;
+  border: 1px solid rgb(85, 149, 233) !important;
 }
 
-.title{
-  color: #211915;
+button.mat-stroked-button{
+  background: white !important;
+  color: rgb(85, 149, 233) !important;
+  border: 1px solid #d3d3d3 !important;
+}
+
+button.mat-stroked-button:hover{
+  background: rgb(85, 149, 233) !important;
+  color: black !important;
+  border: 1px solid rgb(85, 149, 233) !important;
 }

@@ -1,4 +1,5 @@
 package com.campusdual.springontimize.model.core.service;
+
 import com.campusdual.springontimize.api.core.service.ICountriesService;
 import com.campusdual.springontimize.model.core.dao.CountriesDao;
 import com.ontimize.jee.common.dto.EntityResult;
@@ -11,30 +12,29 @@ import java.util.List;
 import java.util.Map;
 
 
-
 @Lazy
 @Service("CountriesService")
 public class CountriesService implements ICountriesService {
 
 
-
-	@Autowired
-	private CountriesDao countriesDao;
-	@Autowired
-	private DefaultOntimizeDaoHelper daoHelper;
-
+    @Autowired
+    private CountriesDao countriesDao;
+    @Autowired
+    private DefaultOntimizeDaoHelper daoHelper;
 
 
-	@Override
-	public EntityResult countriesQuery(Map<String, Object> keyMap, List<String> attrList) {
-		return daoHelper.query(countriesDao,keyMap,attrList);
+    //Consulta paises
+    @Override
+    public EntityResult countriesQuery(Map<String, Object> keyMap, List<String> attrList) {
+        return daoHelper.query(countriesDao, keyMap, attrList);
 
-	}
+    }
 
-	@Override
-	public EntityResult countriesInsert(Map<String, Object> attrMap) {
-		return this.daoHelper.insert(countriesDao, attrMap);
-	}
+    //Inserta paises
+    @Override
+    public EntityResult countriesInsert(Map<String, Object> attrMap) {
+        return this.daoHelper.insert(countriesDao, attrMap);
+    }
 
 
 }

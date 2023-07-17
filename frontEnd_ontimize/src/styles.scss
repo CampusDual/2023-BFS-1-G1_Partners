@@ -21,6 +21,7 @@
   .background{
   background: white;
   border-radius: 10px;
+  border: 1px solid #d3d3d3;
   }
 
   .margin{
@@ -44,3 +45,26 @@
     margin-bottom: 20px;
     height: auto;
   }
+
+  .titleDiv{
+    color: white;
+    background: #211915;
+  }
+  
+  .titleText{
+    padding: 5px;
+  }
+  
+  .highlight{
+    color: #e4333c;
+  }
+  
+  .title{
+    color: #211915;
+    font-weight: 300;
+  }
+
+  label{
+      color: black !important;
+  }
+

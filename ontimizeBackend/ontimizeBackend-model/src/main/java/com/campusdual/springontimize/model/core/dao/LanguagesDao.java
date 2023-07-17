@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 @Lazy
 @Repository(value = "LanguagesDao")
 @ConfigurationFile(
-	configurationFile = "dao/LanguagesDao.xml",
-	configurationFilePlaceholder = "dao/placeholders.properties")
+        configurationFile = "dao/LanguagesDao.xml",
+        configurationFilePlaceholder = "dao/placeholders.properties")
 public class LanguagesDao extends OntimizeJdbcDaoSupport {
 
 

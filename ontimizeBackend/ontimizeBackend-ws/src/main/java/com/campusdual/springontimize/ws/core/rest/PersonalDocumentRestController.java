@@ -2,9 +2,7 @@ package com.campusdual.springontimize.ws.core.rest;
 
 
 import com.campusdual.springontimize.api.core.service.IPersonalDocumentService;
-import com.campusdual.springontimize.api.core.service.IUserService;
 import com.campusdual.springontimize.model.core.dao.PersonalDocumentFileDao;
-import com.campusdual.springontimize.model.core.dao.ProductFileDao;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ontimize.jee.common.dto.EntityResult;
@@ -13,7 +11,6 @@ import com.ontimize.jee.server.rest.ORestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,12 +58,14 @@ public class PersonalDocumentRestController extends ORestController<IPersonalDoc
 			}
 		}
 		String user_id = null;
+		String description = null;
 		EntityResult result = new EntityResultMapImpl();
 		if(extraData.get(PersonalDocumentFileDao.ATTR_USER_ID) instanceof Map){
 			//get the user associated
-			//get the type associated
+			//get the description associated
 			Map mUserId = (Map) extraData.get(PersonalDocumentFileDao.ATTR_USER_ID);
 			user_id = (String) mUserId.get("value");
+			description = (String) extraData.get("description");
 
 			//the directory is related to the product
 			String directory = path+user_id;
@@ -93,6 +92,7 @@ public class PersonalDocumentRestController extends ORestController<IPersonalDoc
 						attrMap.put(PersonalDocumentFileDao.ATTR_USER_ID,user_id);
 						attrMap.put(PersonalDocumentFileDao.ATTR_NAME,file.getOriginalFilename());
 						attrMap.put(PersonalDocumentFileDao.ATTR_PATH,filePath);
+						attrMap.put(PersonalDocumentFileDao.ATTR_DESCRIPTION,description);
 						EntityResult fileInsert = personalDocumentsrv.personalFileInsert(attrMap);
 						if(fileInsert.isWrong()){
 							fileResult.put(NAME,file.getOriginalFilename());
@@ -112,6 +112,8 @@ public class PersonalDocumentRestController extends ORestController<IPersonalDoc
 
 		return new ResponseEntity<EntityResult>(result,HttpStatus.OK);
 	}
+
+
 
 
 

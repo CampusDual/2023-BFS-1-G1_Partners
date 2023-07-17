@@ -1,26 +1,37 @@
 .center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-    background: white;
-    padding: 20px;
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .form-row {
-      width: 90%;
-  }
-  
-  .titleDiv{
-    text-align: center;
-  }
-  
-  o-list{
-    width: 90%;
-  }
-  
-  
+  display: flex;
+  /* Utiliza el modelo de caja flexible */
+  flex-direction: column;
+  /* Alinea los elementos en una columna vertical */
+  justify-content: center;
+  /* Centra verticalmente los elementos */
+  align-items: center;
+  /* Centra horizontalmente los elementos */
+  border: 1px solid #d3d3d3;
+  /* Establece un borde de 1 píxel con color #d3d3d3 */
+  border-radius: 10px;
+  /* Establece un radio de borde de 10 píxeles */
+  background: white;
+  /* Establece un fondo blanco */
+  padding: 20px;
+  /* Añade un espacio interno de 20 píxeles alrededor del contenido */
+  text-align: center;
+  /* Alinea el texto al centro */
+  margin-top: 10px;
+  /* Establece un margen superior de 10 píxeles */
+}
+
+.form-row {
+  width: 90%;
+  /* Establece el ancho del 90% del contenedor padre */
+}
+
+.titleDiv {
+  text-align: center;
+  /* Alinea el texto al centro dentro del contenedor */
+}
+
+o-list {
+  width: 90%;
+  /* Establece el ancho del 90% del contenedor padre */
+}

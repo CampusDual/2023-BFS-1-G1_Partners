@@ -7,12 +7,12 @@ import { LoginComponent } from './login.component';
 
 @NgModule({
   imports: [
-    SharedModule,
-    OntimizeWebModule,
-    LoginRoutingModule
+    SharedModule, // Módulo compartido que contiene componentes, directivas y pipes reutilizables
+    OntimizeWebModule, // Módulo de Ontimize Web que proporciona funcionalidades adicionales
+    LoginRoutingModule // Módulo de enrutamiento para las rutas del componente de inicio de sesión
   ],
   declarations: [
-    LoginComponent
+    LoginComponent // Componente de inicio de sesión
   ]
 })
 export class LoginModule { }

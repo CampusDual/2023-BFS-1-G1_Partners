@@ -17,9 +17,7 @@
     transition: 0.5s;
   }
 
-  .background{
-  background: whitesmoke;
-  border-radius: 10px;
-  padding: 10px;
+  .description{
+    margin-top: -20px;
   }
   

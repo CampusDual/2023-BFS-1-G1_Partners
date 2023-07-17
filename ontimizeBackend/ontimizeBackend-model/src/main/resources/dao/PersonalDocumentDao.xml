@@ -3,7 +3,7 @@
         xmlns="http://www.ontimize.com/schema/jdbc"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-        catalog="" schema="${mainschema}" table="personal_documents"
+        catalog="" schema="${mainschema}" table="document_files"
         datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
         <Column>id</Column>
@@ -31,8 +31,8 @@
         </Query>
         <Query id="documentfiles">
             <AmbiguousColumns>
-                <AmbiguousColumn name="name" prefix="df" />
-                <AmbiguousColumn name="name" prefix="pd" />
+                <AmbiguousColumn name="name" prefix="df"/>
+                <AmbiguousColumn name="name" prefix="pd"/>
             </AmbiguousColumns>
             <ValidColumns>
                 <Column>id</Column>
@@ -41,6 +41,8 @@
                 <Column>user_id</Column>
                 <Column>personal_document_id</Column>
                 <Column>file_path</Column>
+                <Column>description</Column>
+
             </ValidColumns>
             <Sentence>
                 <![CDATA[

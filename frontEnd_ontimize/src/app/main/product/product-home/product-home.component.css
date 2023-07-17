@@ -1,30 +1,46 @@
-.showMore{
+.showMore {
   border: 1px solid #d3d3d3;
+  /* Borde de 1 píxel sólido con color #d3d3d3 */
   background: white;
+  /* Fondo blanco */
   cursor: pointer;
+  /* Cambia el cursor al pasar por encima */
 }
 
-.showMore:hover{
+.showMore:hover {
   color: whitesmoke;
+  /* Color del texto en hover */
   background-color: #d3d3d3;
+  /* Fondo gris claro en hover */
   border: 1px solid #d3d3d3;
+  /* Borde de 1 píxel sólido con color #d3d3d3 en hover */
   transition: 0.5s;
+  /* Transición suave de 0.5 segundos */
 }
 
-.userTable{
+.userTable {
   border: 1px solid #d3d3d3;
+  /* Borde de 1 píxel sólido con color #d3d3d3 */
   border-radius: 10px;
+  /* Borde redondeado con radio de 10 píxeles */
   background: white;
+  /* Fondo blanco */
   padding: 20px;
+  /* Espaciado interno de 20 píxeles */
   text-align: left;
+  /* Alineación del texto a la izquierda */
 }
 
-.icon{
+.icon {
   padding: 5px;
+  /* Espaciado interno de 5 píxeles */
 }
 
-.background{
+.background {
   background: whitesmoke;
+  /* Fondo de color gris claro */
   border-radius: 10px;
+  /* Borde redondeado con radio de 10 píxeles */
   padding: 10px;
+  /* Espaciado interno de 10 píxeles */
 }

@@ -13,18 +13,23 @@ export class PersonalAreaDetailComponent implements OnInit {
   constructor(public injector: Injector) {
     this.personalDocumentService = this.injector.get(OntimizeService);
 
-   }
+  }
 
   ngOnInit() {
+    // Se obtiene la configuración predeterminada del servicio personalDocuments y se configura el servicio personalDocumentService con esta configuración.
     const conf = this.personalDocumentService.getDefaultServiceConfiguration('personalDocuments');
     this.personalDocumentService.configureService(conf);
   }
 
-  actionClick(event){
-    this.personalDocumentService.query({id:event.id}, ['name','base64'], 'myPersonalFilesContent').subscribe(res => {
+  // Método para manejar el evento de clic en la acción
+  actionClick(event) {
+    // Se realiza una consulta al servicio personalDocumentService para obtener los datos del archivo correspondiente al evento de clic.
+    this.personalDocumentService.query({ id: event.id }, ['name', 'base64'], 'myPersonalFilesContent').subscribe(res => {
       if (res.data && res.data.length) {
+        // Si se encuentran datos, se extrae el nombre del archivo y el contenido en base64.
         let filename = res.data[0].name;
         let base64 = res.data[0].base64;
+        // Se crea un enlace temporal para descargar el archivo.
         const src = `data:text/csv;base64,${base64}`;
         const link = document.createElement("a");
         link.href = src;
@@ -33,14 +38,18 @@ export class PersonalAreaDetailComponent implements OnInit {
         link.remove();
       }
     });
-    
+
   }
 
-  onExecute(event: any){
-    this.personalDocumentService.query({id:event.id}, ['name','base64'], 'myPersonalFilesContent').subscribe(res => {
+  // Método para manejar la ejecución de la acción desde el menú contextual
+  onExecute(event: any) {
+    // Se realiza una consulta al servicio personalDocumentService para obtener los datos del archivo correspondiente a la acción ejecutada.
+    this.personalDocumentService.query({ id: event.id }, ['name', 'base64'], 'myPersonalFilesContent').subscribe(res => {
       if (res.data && res.data.length) {
+        // Si se encuentran datos, se extrae el nombre del archivo y el contenido en base64.
         let filename = res.data[0].name;
         let base64 = res.data[0].base64;
+        // Se crea un enlace temporal para descargar el archivo.
         const src = `data:text/csv;base64,${base64}`;
         const link = document.createElement("a");
         link.href = src;

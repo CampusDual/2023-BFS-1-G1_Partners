@@ -1,35 +1,40 @@
+<h1 class="titleText2">{{'EDITAR_CONTRASEÑA' | oTranslate }}</h1>
+<!-- Título de la página con el texto 'EDITAR_CONTRASEÑA' -->
 
-  <h1 class="titleText2">{{'EDITAR_CONTRASEÑA' | oTranslate }}</h1>
-  <o-form #formUser entity="myUser" service="users" keys="user_" header-actions="U" show-header-navigation="no"
+<o-form #formUser entity="myUser" service="users" keys="user_" header-actions="U" show-header-navigation="no"
   keys-sql-types="STRING" class="form-background" (onUpdate)="onSave($event)">
+  <!-- Formulario de edición de contraseña -->
 
-    <div class="center">
+  <div class="center">
+    <!-- Contenedor centralizado -->
 
-  
+    <o-row class="form-row">
+      <!-- Fila del formulario -->
+      <o-text-input class="input-padding" attr="name" fxFlex="100" enabled="no" class="margin"></o-text-input>
+      <!-- Campo de entrada de texto para el nombre -->
+      <o-text-input class="input-padding" attr="surname" fxFlex="100" enabled="no"></o-text-input>
+      <!-- Campo de entrada de texto para el apellido -->
+    </o-row>
 
-        <o-row class="form-row">
-          <o-text-input class="input-padding" attr="name" fxFlex="100" enabled="no" class="margin"></o-text-input>
-          <o-text-input class="input-padding" attr="surname" fxFlex="100" enabled="no"></o-text-input>
+    <o-row class="form-row">
+      <!-- Fila del formulario -->
+      <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña"
+        show-password-button="yes" [validators]="validatorsArray" (input)="onPasswordInput()">
+        <!-- Campo de entrada de contraseña -->
+        <o-validator [error-name]="'passwordNotSize'" [error-text]="'ERROR_PASS'"></o-validator>
+        <!-- Validador para el tamaño de la contraseña -->
+      </o-password-input>
+    </o-row>
 
-        </o-row>
+    <o-row class="form-row" *ngIf="isPasswordModified">
+      <!-- Fila del formulario (solo se muestra si la contraseña ha sido modificada) -->
+      <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100"
+        label="{{ 'Confirmar contraseña' | oTranslate }}" show-password-button="yes" [validators]="validatorsArray">
+        <!-- Campo de entrada de confirmación de contraseña -->
+        <o-validator [error-name]="'passwordNotMatched'" [error-text]="'Las contraseñas no coinciden'"></o-validator>
+        <!-- Validador para comprobar que las contraseñas coinciden -->
+      </o-password-input>
+    </o-row>
 
-        <o-row class="form-row">
-          <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="{{ 'Contraseña' | oTranslate }}"
-           show-password-button="yes" [validators]="validatorsArray" class="margin"></o-password-input>
-
-          <o-password-input class="input-padding" attr="password" fxFlex="100" required="yes" label="Contraseña" show-password-button="yes" 
-          [validators]="validatorsArray" (input)="onPasswordInput()">
-            <o-validator [error-name]="'passwordNotSize'" [error-text]="'ERROR_PASS'"></o-validator>
-          </o-password-input>
-        </o-row>
-        
-        <o-row class="form-row" *ngIf="isPasswordModified">
-          <o-password-input class="input-padding" attr="passwordConfirm" fxFlex="100" label="{{ 'Confirmar contraseña' | oTranslate }}" show-password-button="yes" [validators]="validatorsArray">
-            <o-validator [error-name]="'passwordNotMatched'" [error-text]="'Las contraseñas no coinciden'"></o-validator>
-          </o-password-input>
-        </o-row>
-        
-    </div>
+  </div>
 </o-form>
-
-

@@ -6,5 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface IRoleService {
+
+    //Consulta el rol del usuario
     public EntityResult roleQuery(Map<String, Object> keyMap, List<String> attrList);
 }
